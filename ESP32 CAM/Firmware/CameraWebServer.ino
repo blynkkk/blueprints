@@ -11,9 +11,9 @@
 
 #include "camera_pins.h"
 
-const char* ssid = "TP-LINK_C7D8";
-const char* password = "72308547";
-char auth[] = "v_so3_gBsapNQxFdO3iWmw5b9AHZWzZA";
+const char* ssid = "**********";
+const char* password = "*********";
+char auth[] = "*************";
 
 String local_IP;
 
