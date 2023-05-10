@@ -75,7 +75,7 @@ Follow the next schematic diagram (5V connection recommendation):
 
 ![wifi](https://github.com/blynkkk/blueprints/assets/110888025/c0841b1d-d8f8-4d82-be5b-3a36b963f92a)
 
-4. Set your WiFi credentials in code:
+4. Set your Authtoken in code:
 First copy your Authtoken from New Device Activation tab:
 
 ![Auth](https://github.com/blynkkk/blueprints/assets/110888025/550e7f54-e17d-4c77-9711-c4ceea1830ec)
@@ -84,5 +84,15 @@ Paste Authtoken to code:
 
 ![token](https://github.com/blynkkk/blueprints/assets/110888025/e667374c-868f-412b-94f9-2f2a69951533)
 
+5. Upload sketch.
+6. Open serial monitor in Arduino IDE
+7. Set 115200 baud in serial monitor
+
+![baud](https://github.com/blynkkk/blueprints/assets/110888025/89955289-93cd-45eb-b0d2-a7963b7b3940)
+
+8. Disconnect wires (GND and O01 pins)
+
+
+![pins](https://github.com/blynkkk/blueprints/assets/110888025/be4c3f25-6267-4164-b1af-bedab847e1cb)
 
 
