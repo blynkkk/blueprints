@@ -16,4 +16,8 @@ USB COM UART TTL CH340G
 
 ![USB COM UART TTL CH340G](https://github.com/blynkkk/blueprints/assets/110888025/44b0ac48-6e11-4ef4-820b-c447a90a32e9)
 
+**Recommendation to use ESP32-CAM-MB**
+
+![ESP-32-CAM MB](https://github.com/blynkkk/blueprints/assets/110888025/e162d8b7-b61b-45d5-91e3-196e9bfbcdae)
+
 
