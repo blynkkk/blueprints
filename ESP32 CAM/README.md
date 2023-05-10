@@ -80,5 +80,9 @@ First copy your Authtoken from New Device Activation tab:
 
 ![Auth](https://github.com/blynkkk/blueprints/assets/110888025/550e7f54-e17d-4c77-9711-c4ceea1830ec)
 
+Paste Authtoken to code:
+
+![token](https://github.com/blynkkk/blueprints/assets/110888025/e667374c-868f-412b-94f9-2f2a69951533)
+
 
 
