@@ -43,8 +43,9 @@ Tools->Board->esp32->AI Thinker ESP32-CAM
 
 ![boardesp32CAM](https://github.com/blynkkk/blueprints/assets/110888025/1e7ecb64-ec6a-4e8a-8838-04d39addcac0)
 
-8. Install the ESP32 board support if you are using Arduino IDE.
-9. Create a new sketch.
+7. Select port for Board (after connection device)
+Tools->Port->chose port
+8. Create a new sketch.
 
 
 
