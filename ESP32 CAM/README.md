@@ -67,5 +67,11 @@ Follow the next schematic diagram (5V connection recommendation):
 
 ![activate device](https://github.com/blynkkk/blueprints/assets/110888025/a4f8dbbc-bb70-4104-9586-c6f55f2a5f9a)
 
+## 5. Firmware preparation
+
+1. Please download [Firmware acrhive](https://github.com/blynkkk/blueprints/raw/main/ESP32%20CAM/Firmware/CameraWebServer.zip)
+2. Unzip the archive and open `CameraWebServer.ino` in Arduino IDE
+
+
 
 
