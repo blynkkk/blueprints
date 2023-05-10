@@ -97,7 +97,9 @@ Paste Authtoken to code:
 9. Click reset button in ESP32 CAM or dicconnect and connect USB cable
 10. In the serial monitor you will see a successful connection to Blynk and starting Camera webserver and local url on which the webserver.
 
-![iplocal](https://github.com/blynkkk/blueprints/assets/110888025/7ed4c690-496c-49cf-9f18-5da7f6b93fa4)
+![iplocal](https://github.com/blynkkk/blueprints/assets/110888025/06060748-2e17-42ac-a011-51ccf8939822)
+
+
 
 
 
