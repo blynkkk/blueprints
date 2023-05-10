@@ -23,6 +23,12 @@ USB COM UART TTL CH340G
 
 ## 2.Software preparation
 
+1. Install [Arduino IDE](https://docs.arduino.cc/software/ide-v1/tutorials/Windows) (This project uses this program) or PlatformIO.
+2. Install last Blynk library for your IDE.
+3. Select the correct board and port in your IDE settings.
+4. Install the ESP32 board support if you are using Arduino IDE.
+5. Create a new sketch.
+
 
 
 
