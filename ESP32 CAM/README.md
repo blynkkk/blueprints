@@ -90,9 +90,15 @@ Paste Authtoken to code:
 
 ![baud](https://github.com/blynkkk/blueprints/assets/110888025/89955289-93cd-45eb-b0d2-a7963b7b3940)
 
-8. Disconnect wires (GND and O01 pins)
-
+8. Disconnect wires (GND and IO1 pins)
 
 ![pins](https://github.com/blynkkk/blueprints/assets/110888025/be4c3f25-6267-4164-b1af-bedab847e1cb)
+
+9. Click reset button in ESP32 CAM or dicconnect and connect USB cable
+10. In the serial monitor you will see a successful connection to Blynk and starting Camera webserver and local url on which the webserver.
+
+![iplocal](https://github.com/blynkkk/blueprints/assets/110888025/7ed4c690-496c-49cf-9f18-5da7f6b93fa4)
+
+
 
 
