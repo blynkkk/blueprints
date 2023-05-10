@@ -61,12 +61,11 @@ Follow the next schematic diagram (5V connection recommendation):
 
 1. Click use blueprint button
 
-
 ![use blueprint button](https://github.com/blynkkk/blueprints/assets/110888025/265f99c9-12d5-48f2-a6d4-f9526eddabe2)
 
+2. Hover to Activate device section and click
 
-
-
+![activate device](https://github.com/blynkkk/blueprints/assets/110888025/a4f8dbbc-bb70-4104-9586-c6f55f2a5f9a)
 
 
 
