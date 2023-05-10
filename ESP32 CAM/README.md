@@ -101,6 +101,13 @@ Paste Authtoken to code:
 
 11. The device will be automatically created in Blynk console and device dashboard will be opened
 
+## 6. Watching a video stream
+1. Open Blynk IoT app
+2. Open created from blueprint device
+3. Your can watch your video stream in Video Streaming wirget
+
+![video](https://github.com/blynkkk/blueprints/assets/110888025/1ad47296-6118-4048-a32d-7000936885d3)
+
 
 
 
