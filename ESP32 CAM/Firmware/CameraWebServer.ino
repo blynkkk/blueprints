@@ -11,9 +11,15 @@
 
 #include "camera_pins.h"
 
-const char* ssid = "**********";
-const char* password = "*********";
-char auth[] = "*************";
+// Your WiFi credentials.
+// Set ssid and password to "" for open networks.
+const char* ssid = "YourNetworkName";
+const char* password = "YourPassword";
+
+
+// Your Authtoken credentials.
+// Set Authtoken from Activate device tab to "" for connectin to Blynk.
+char auth[] = "YourAuthtoken";
 
 String local_IP;
 
@@ -100,12 +106,12 @@ void setup() {
   Serial.print(WiFi.localIP());
   local_IP = WiFi.localIP().toString();
   Serial.println("' to connect");
-  Blynk.begin(auth, ssid, password, "fra.blynk-qa.com");
+  Blynk.begin(auth, ssid, password, "blynk.cloud");
 }
 
 BLYNK_CONNECTED()
 {
-  // Change Web Link Button message to "Congratulations!"
+  //Url with video streaming will set to V2 pin
   Blynk.setProperty(V2, "url", "http://"+local_IP+":81/stream");
 }
 
