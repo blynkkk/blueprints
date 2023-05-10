@@ -67,7 +67,7 @@ Follow the next schematic diagram (5V connection recommendation):
 
 ![activate device](https://github.com/blynkkk/blueprints/assets/110888025/a4f8dbbc-bb70-4104-9586-c6f55f2a5f9a)
 
-## 5. Firmware preparation
+## 5. Firmware preparation and device connection
 
 1. Please download [Firmware acrhive](https://github.com/blynkkk/blueprints/raw/main/ESP32%20CAM/Firmware/CameraWebServer.zip)
 2. Unzip the archive and open `CameraWebServer.ino` in Arduino IDE
@@ -98,6 +98,12 @@ Paste Authtoken to code:
 10. In the serial monitor you will see a successful connection to Blynk and starting Camera webserver and local url on which the webserver.
 
 ![iplocal](https://github.com/blynkkk/blueprints/assets/110888025/06060748-2e17-42ac-a011-51ccf8939822)
+
+11. The device will be automatically created in Blynk console and device dashboard will be opened
+
+
+
+
 
 
 
