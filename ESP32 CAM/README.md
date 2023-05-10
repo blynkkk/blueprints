@@ -44,8 +44,8 @@ Tools->Board->esp32->AI Thinker ESP32-CAM
 ![boardesp32CAM](https://github.com/blynkkk/blueprints/assets/110888025/1e7ecb64-ec6a-4e8a-8838-04d39addcac0)
 
 7. Select port for Board (after connection device)
-Tools->Port->chose port
-8. Create a new sketch.
+Tools->Port->choose port
+8. Create new sketch.
 
 
 
