@@ -104,9 +104,28 @@ Paste Authtoken to code:
 ## 6. Watching a video stream
 1. Open Blynk IoT app
 2. Open created from blueprint device
-3. Your can watch your video stream in Video Streaming wirget
+3. Your can watch your video stream in Video Streaming widget
 
 ![video](https://github.com/blynkkk/blueprints/assets/110888025/1ad47296-6118-4048-a32d-7000936885d3)
+
+## 7. Additional video quality settings
+1. You can set additional video settings in your local Camera web server.
+2. Open browser.
+3. Enter your local ip from serial monitor to URL browser field and press enter 
+4. You will see your local Camera web server and you can set some settings
+
+![settings](https://github.com/blynkkk/blueprints/assets/110888025/b0ebcb87-e76d-45a9-b7af-8d2fd48f87a2)
+
+5. Then click Start Stream button. And you will see on the web page what the quality of the video stream will look like.
+6. Then close web page with local Camera web server.
+7. Return to device in app.
+8. Also your URL adress with video stream `http://you ip from serial monitor:81/stream`. You can use this URL in browser
+
+## 8. Additional information
+1. Internet speed quality should be fast.
+2. ESP32 should be in the field of your wifi router.
+3. This is a sample code, you can add additional functions to your code
+
 
 
 
