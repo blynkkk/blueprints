@@ -25,10 +25,26 @@ USB COM UART TTL CH340G
 
 1. If you need a USB driver for your ESP32 CAM, please install the [USB DRIVER](https://docs.espressif.com/projects/esp-idf/en/latest/esp32/get-started/establish-serial-connection.html#connect-esp32-to-pc)
 1. Install [Arduino IDE](https://docs.arduino.cc/software/ide-v1/tutorials/Windows) (This project uses this program) or [PlatformIO](https://platformio.org/install).
-2. Install last [Blynk library](https://docs.blynk.io/en/blynk-library-firmware-api/installation) for your IDE.
-3. Select the correct board and port in your IDE settings.
-4. Install the ESP32 board support if you are using Arduino IDE.
-5. Create a new sketch.
+2. Add Additional Boards Manager URLs for ESP32
+File->Preferences
+Add this link `https://dl.espressif.com/dl/package_esp32_index.json` to Additional Boards Manager URLs section and click ok button.
+
+![additional](https://github.com/blynkkk/blueprints/assets/110888025/4c0a7df8-cb36-4a9a-8310-6e592ee83e31)
+
+3. Add Library for ESP32 CAM
+Tools->Board->Board Manager
+Enter ESP32 to search field and choose ESP32 by Espressif Systems and click install button
+
+![manager](https://github.com/blynkkk/blueprints/assets/110888025/66bc3e27-2feb-4b43-97a8-524f4c6c5ec9)
+
+5. Install last [Blynk library](https://docs.blynk.io/en/blynk-library-firmware-api/installation) for your IDE.
+6. Select the board for ESP32 CAM
+Tools->Board->esp32->AI Thinker ESP32-CAM
+
+![boardesp32CAM](https://github.com/blynkkk/blueprints/assets/110888025/1e7ecb64-ec6a-4e8a-8838-04d39addcac0)
+
+8. Install the ESP32 board support if you are using Arduino IDE.
+9. Create a new sketch.
 
 
 
