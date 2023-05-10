@@ -47,13 +47,26 @@ Tools->Board->esp32->AI Thinker ESP32-CAM
 Tools->Port->choose port
 8. Create new sketch.
 
-## Preparation ESP32 CAM
+## 3. Preparation ESP32 CAM
 
 Connect via USB cable ESP32 CAM with PC (If you use ESP32-CAM-MB).
 If you use another programmer, please follow follow the instructions.
-Follow the next schematic diagram:
+Follow the next schematic diagram (5V connection recommendation):
 
 ![ESP32-CAM-FTDI-programmer-5V-supply](https://github.com/blynkkk/blueprints/assets/110888025/69ffb999-a86f-4a07-aa38-57d00cf5bed9)
+
+**The board is ready for upload sketch**
+
+## 4. Preparation blueprint
+
+1. Click use blueprint button
+
+
+![use blueprint button](https://github.com/blynkkk/blueprints/assets/110888025/265f99c9-12d5-48f2-a6d4-f9526eddabe2)
+
+
+
+
 
 
 
