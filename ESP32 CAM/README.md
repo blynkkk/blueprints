@@ -2,11 +2,12 @@
 
 This bluepint is used to show the video stream in the Video Streaming Widget in the mobile Blynk IoT app.
 
-## Components
+## 1.Components
 
-1. ESP32 CAM
-2. USB cable (USB->micro USB)
-3. Programmer hardware (USB COM UART TTL CH340G, USB–UART FT232RL or other)
+1. ESP32 CAM.
+2. USB cable (USB->micro USB).
+3. Programmer hardware (USB COM UART TTL CH340G, USB–UART FT232RL or other).
+4. Cables for connecting ESP32CAM with programmer (If you do not use ESP32-CAM-MB).
 
 USB–UART FT232RL 
 
@@ -19,5 +20,9 @@ USB COM UART TTL CH340G
 **Recommendation to use ESP32-CAM-MB**
 
 ![ESP-32-CAM MB](https://github.com/blynkkk/blueprints/assets/110888025/e162d8b7-b61b-45d5-91e3-196e9bfbcdae)
+
+## 2.Software preparation
+
+
 
 
