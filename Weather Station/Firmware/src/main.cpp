@@ -1,20 +1,5 @@
 #include <Arduino.h>
 
-// BME
-// 1 VCC -> 3.3V
-// 2 GND -> GND
-// 3 SCL -> 18
-// 4 SDA -> 23
-// 5 CSB -> 5
-// 6 SDO -> 19
-
-
-// DHT
-// RED    -> 3.3V
-// BLACK  -> GND
-// YELLOW -> 25
-
-
 #include <Wire.h>
 #include <SPI.h>
 #include <Adafruit_Sensor.h>
@@ -25,7 +10,7 @@
 
 
 
-//COMPONENTS SETUP:fr
+//COMPONENTS SETUP
 
 // BLYNK
 #define BLYNK_PRINT Serial
@@ -34,7 +19,7 @@
 #define BLYNK_TEMPLATE_NAME "Weather Station TMPL8DsBjxP2"
 #define BLYNK_AUTH_TOKEN "91Ct3DnfdmmtLLkDvCXxyi9Kc505Hq9V"
 
-#define BLYNK_DOMAIN "fra.blynk-qa.com"
+#define BLYNK_DOMAIN "..."
 #define BLYNK_PORT 80 //443
 
 // BlynkTimer timer;
@@ -58,26 +43,12 @@ float DHT_HUMIDITY_IGNORED_DELTA = 0.0001;
 float DHT_TEMPERATURE;
 float DHT_TEMPERATURE_IGNORED_DELTA = 0.0001;
 
-
-// // BME280
-// #define BMP_SCK  (21)
-// #define BMP_MISO (12)
-// #define BMP_MOSI (22)
-// #define BMP_CS   (10)
-
-#define BMP_SCK  (18)
-#define BMP_MISO (19)
-#define BMP_MOSI (23)
-#define BMP_CS   (5)
-
-
 #define ALTITUDE_0 (1013.25)
 
 #define BMP_BLYNK_VPIN_PRESSURE V4
 #define BMP_BLYNK_VPIN_ALTITUDE V3
 
 Adafruit_BMP280 bmp;
-//Adafruit_BMP280 bmp(BMP_CS, BMP_MOSI, BMP_MISO,  BMP_SCK);
 
 int BMP_ENABLED = 0;
 float BMP_ALTITUDE;
@@ -86,15 +57,6 @@ float BMP_PRESSURE_IGNORED_DELTA = 0.01;
 float BMP_ALTITUDE_IGNORED_DELTA = 0.01;
 
 int RUN = 0;
-
-// void myTimer()
-// {
-//   sendDhtData();
-//   sendJoystickData();
-//   sendServoData();
-// }
-
-
 
 // SETUP BLOCK
 
@@ -178,13 +140,11 @@ void setup() {
 
   Blynk.begin(BLYNK_AUTH_TOKEN, WIFI_SSID, WIFI_PASS, BLYNK_DOMAIN, BLYNK_PORT);
   Serial.println("Setup is finished");
-  // timer.setInterval(10000L, myTimer);
 }
 
 void loop() {
   Blynk.run();  
   readAndSendDhtData();
   readBMPData();
-   // timer.run();
   delay(50);
 }
