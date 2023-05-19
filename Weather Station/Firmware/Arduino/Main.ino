@@ -27,15 +27,19 @@
 // BLYNK
 #define BLYNK_PRINT Serial
 
-#define BLYNK_TEMPLATE_ID "*******"
-#define BLYNK_TEMPLATE_NAME "********"
-#define BLYNK_AUTH_TOKEN "*********"
+// Your WiFi credentials.
+// Set ssid and password to "" for open networks.
+const char* ssid = "YourNetworkName";
+const char* password = "YourPassword";
+
+
+// Your Authtoken credentials.
+// Set Authtoken from Activate device tab to "" for connectin to Blynk.
+char auth[] = "YourAuthtoken";
 
 #define BLYNK_DOMAIN "blynk.cloud"
 #define BLYNK_PORT 80 //443
 
-#define WIFI_SSID "****"
-#define WIFI_PASS "****"
 
 // DHT
 #define DHTPIN 25
