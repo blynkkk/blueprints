@@ -29,13 +29,13 @@
 
 // Your WiFi credentials.
 // Set ssid and password to "" for open networks.
-const char* ssid = "YourNetworkName";
-const char* password = "YourPassword";
+#define WIFI_SSID = "YourNetworkName";
+#define WIFI_PASS "YourPassword";
 
 
 // Your Authtoken credentials.
 // Set Authtoken from Activate device tab to "" for connectin to Blynk.
-char auth[] = "YourAuthtoken";
+#define BLYNK_AUTH_TOKEN "YourAuthtoken";
 
 #define BLYNK_DOMAIN "blynk.cloud"
 #define BLYNK_PORT 80 //443
