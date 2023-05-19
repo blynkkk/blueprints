@@ -34,6 +34,8 @@
 #define BLYNK_DOMAIN "blynk.cloud"
 #define BLYNK_PORT 80 //443
 
+#define WIFI_SSID "****"
+#define WIFI_PASS "****"
 
 // DHT
 #define DHTPIN 25
