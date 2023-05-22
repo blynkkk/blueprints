@@ -1,6 +1,8 @@
 # Introduction
 
-This project will help to make your own weather station at home. With one ESP32 board and 2 sensors, we will create a full-fledged weather station with 4 parameters: temperature, humidity, pressure and altitude. There will also be automation here, which will send a notification in the application when the temperature drops below or rises above the comfort level for the home, as well as about too high or too low humidity, which will help to make the microclimate at home comfortable.
+This blueprint will help you create a weather station for your home in no time! Using a single ESP32 board and two sensors, we will create a full-fledged weather station that monitors four key parameters: temperature, humidity, pressure, and altitude. 
+
+Additionally, we will implement automations to send notifications to your Blynk app when the temperature falls below or exceeds the comfortable range for your home. You will also get notified about excessively high or low humidity levels. This will help you maintain a comfortable microclimate within your home. Sounds great? Let’s get started!
 
 # Components Used in This Project
 * Blynk web dashboard and Blynk App for mobile dashboard
@@ -8,45 +10,58 @@ This project will help to make your own weather station at home. With one ESP32 
 * DHT21/AM2301A humidity and temperature sensor
 * Barometer BMP280 3.3V
 
+3. Don’t forget to connect ESP32 to your computer with a USB cable.
+
 # Prepare your Hardware 
 
-For this tutorial, we need the ESP32 Dev Module board, two sensors: DHT21/AM2301A humidity and temperature sensor and
-Barometer BMP280 3.3V (atmospheric pressure sensor) and USB cable to connect board to computer.
-How to connect ESP32 to DHT21/AM2301A humidity and temperature sensor
+We need to connect both sensors to ESP32 Dev Module and then connect the board to the computer with a USB cable to upload the firmware. 
+
+1. Connect DHT21/AM2301A sensor to ESP32:
+
+* 5V to 5V on the ESP32
+* GND to GND on the ESP32
+* Data to IO25 on the ESP32
+
 ![Connecting DHT21](https://raw.githubusercontent.com/YuliiaRudevych/blueprints/main/Weather%20Station/Images/Screenshot%20at%20May%2018%2017-57-29-2.webp)
 
-You have to connect:
-1. 5V to 5V in the ESP32
-2. GND to GND in the ESP32
-3. Data to IO25 in the ESP32
+2. Connect Barometer BMP280 3.3V to ESP32:
+* VCC to 3Y3 on the ESP32
+* GND to GND on the ESP32
+* SDA to D21 on the ESP32
+* SCL to D22 on the ESP32
 
-How to connect ESP32 to Barometer BMP280 3.3V (atmospheric pressure sensor)
 ![Connecting BME](https://raw.githubusercontent.com/YuliiaRudevych/blueprints/main/Weather%20Station/Images/interfacing-bmp280-and-esp32-circuit-diagram.webp)
 #  Prepare required software
 
-* Install PlatformIO
-* Install Blynk library for PlatformIO and create new sketch:
-  1. Open PlatformIO Home > “+ New Project”
-  2. Add name, select hardware (I have Esp32 Dev Module), select Arduino framework, click "Finish"
-  3. Open "Plathormio.ini" file and paste there this code:
-  lib_deps = 
-	adafruit/Adafruit BMP280 Library@^2.6.6
-	adafruit/DHT sensor library@^1.4.4
-	blynkkk/Blynk@^1.2.0
+We need to install PlatformIO and libraries for Blynk and both sensors. 
+1. Install PlatformIO (https://platformio.org/platformio-ide)
+2. Install Blynk library for PlatformIO, libraries for sensors and create a new sketch
+* Open PlatformIO Home > “+ New Project”
+* Add name, select hardware (I have Esp32 Dev Module), select Arduino framework, click "Finish"
+* Open "Platformio.ini" file and add the following code: lib_deps = adafruit/Adafruit BMP280 Library@^2.6.6 adafruit/DHT sensor library@^1.4.4 blynkkk/Blynk@^1.2.0
+
 
 # Prepare the Firmware and upload it to your device
 
-Now you need to include TemplateID, AuthToken (unique identifier of your device) and WiFi credentials to the sketch. Follow next steps to do it.
+We need to include TemplateID, AuthToken (unique identifier of your device), and WiFi credentials in the sketch. Follow the steps below.
 
-* Click on the Activate device action in Template Home tab (this tab should open automatically once you've pressed the Use Blueprint button)
-* Enter the Wi-Fi credentials your device will use
-* Copy the sketch and paste it to the IDE
-* Flash your device :
-1. Open the "src" folder and open the "Main.cpp" file
-2. Insert the code
-3. Press "PlatformIO: Upload"
-* The device should open automatically
+1. Click on the Activate device action in the Template Home tab (this tab should open automatically once you've pressed the Use Blueprint button)
+2. Enter the Wi-Fi credentials your device will use
+3. Copy the sketch and paste it into the IDE
+4. Flash your device
+* Open the "src" folder and open the "Main.cpp" file
+* Insert the code
+* Press "PlatformIO: Upload"
+5. The device should open automatically - you are connected now!
 
+# Set up Notifications
+Let's configure notifications to keep you informed when the temperature or humidity falls outside the comfortable range. This way, you can take action to restore optimal levels as soon as possible.
+1. Go to  "Automations" tab 
+2. Click "+ Create automations" and choose "Device state"
+3. Add a name and choose when you want to receive a notification 
+For example, if the temperature is above 28 degrees or below 18, and the humidity is above 60% or below 30%. 
+4. In the block "When" choose your device and choose the parameter, that you want to track. You may set "The less than" and "The greater than" and indicate your desired temperature and humidity. 
+5. Select if you want to be notified via email or to receive an in-app message on your Blynk app and click "Save"
 
 # Next steps after the device is activated
 
@@ -54,13 +69,6 @@ Now you need to include TemplateID, AuthToken (unique identifier of your device)
 * Explore Blynk Documentation and learn how to work with Virtual Pins
 * Improve the code for your needs
 * Add more devices
-
-
-# Also you can create automations :
-
-To do this, you need to open the "automation" tab. Click "+ Create automations" and choose "Device state".
-Add name and choose when you want to receive a notification (for example, if the temperature is above 28 degrees or below 18, as well as the humidity is above 60% or below 30%). For this, in the block "When" choose your device and choose parametr, that you want to track. You may set "The less then" and "The greater then" and indicate your desired temperature and humidity. Next step is to choose what to do. You can receve information on the email or in the in-app notification. Choose what wil be comfortable for you and click "Save". This will help you to know when the indicators are too low or too high and correct it.
-
 
 
 # Troubleshooting
