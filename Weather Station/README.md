@@ -10,7 +10,6 @@ Additionally, we will implement automations to send notifications to your Blynk 
 * DHT21/AM2301A humidity and temperature sensor
 * Barometer BMP280 3.3V
 
-3. Don’t forget to connect ESP32 to your computer with a USB cable.
 
 # Prepare your Hardware 
 
@@ -31,6 +30,9 @@ We need to connect both sensors to ESP32 Dev Module and then connect the board t
 * SCL to D22 on the ESP32
 
 ![Connecting BME](https://raw.githubusercontent.com/YuliiaRudevych/blueprints/main/Weather%20Station/Images/interfacing-bmp280-and-esp32-circuit-diagram.webp)
+
+3. Don’t forget to connect ESP32 to your computer with a USB cable.
+
 #  Prepare required software
 
 We need to install PlatformIO and libraries for Blynk and both sensors. 
