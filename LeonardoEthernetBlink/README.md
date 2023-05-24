@@ -21,11 +21,11 @@ It will look something like this :
 
 # 3. Prepare required software
 
-Install Arduino IDE or PlatformIO
-Install Blynk library for your IDE
-Instull Ethernet Library for your IDE
-Select the correct board and port in your IDE settings
-Create a new sketch (Arduino IDE) or new project (PlatformIO)
+* Install Arduino IDE or PlatformIO
+* Install Blynk library for your IDE
+* Instull Ethernet Library for your IDE
+* Select the correct board and port in your IDE settings
+* Create a new sketch (Arduino IDE) or new project (PlatformIO)
 
 
 # Prepare the Firmware and upload it to your device
