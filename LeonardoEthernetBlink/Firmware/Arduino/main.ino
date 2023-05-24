@@ -5,9 +5,9 @@
 #include <Ethernet.h> //You need to add it by searching "Ethernet" in libraries and inslall it
 #include <BlynkSimpleEthernet.h> //You need to add it by searching "Blynk" in libraries and inslall it
 
-#define BLYNK_TEMPLATE_ID "TMPL8VzQtD47K"
-#define BLYNK_TEMPLATE_NAME "Blinking build in LED using Arduino UNO board"
-#define BLYNK_AUTH_TOKEN "90R6egsWBn4yBOIEycCO6vCtquutfH_3"
+//#define BLYNK_TEMPLATE_ID           "TMPxxxxxx"
+//#define BLYNK_TEMPLATE_NAME         "Device"
+//#define BLYNK_AUTH_TOKEN            "YourAuthToken"
 
 
 #define LED_PIN 13
