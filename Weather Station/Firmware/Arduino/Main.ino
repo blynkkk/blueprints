@@ -18,19 +18,19 @@
 //Adding the required libraries
 #include <Wire.h>
 #include <SPI.h>
-#include <Adafruit_Sensor.h> //You need to add it by searching "Adafruit_Sensor" in libraris and inslall it
-#include <Adafruit_BMP280.h> //You need to add it by searching "Adafruit_BMP280" in libraris and inslall it
+#include <Adafruit_Sensor.h> 
+#include <Adafruit_BMP280.h> //You need to add it by searching "Adafruit BMP280" in libraries and inslall it
 
 #include <BlynkSimpleEsp32.h> //You need to add it by searching "Blynk" in libraris and inslall it
-#include <DHT.h>
+#include <DHT.h> //You need to add it by searching "DHT sensor library" in libraries and inslall it
 
 // BLYNK
 #define BLYNK_PRINT Serial
 
 // Your WiFi credentials.
 // Set ssid and password to "" for open networks.
-#define WIFI_SSID = "YourNetworkName";
-#define WIFI_PASS "YourPassword";
+char ssid[] = "YourNetworkName";
+char pass[] = "YourPassword";
 
 
 // Your Authtoken credentials.
@@ -157,7 +157,7 @@ void setup() {
   setupDht();
   setupBMP();
   Serial.println("Blynk setup start");
-  Blynk.begin(BLYNK_AUTH_TOKEN, WIFI_SSID, WIFI_PASS, BLYNK_DOMAIN, BLYNK_PORT);
+  Blynk.begin(BLYNK_AUTH_TOKEN, ssid, pass, BLYNK_DOMAIN, BLYNK_PORT);
   Serial.println("Setup is finished");
 }
 //Loop block
