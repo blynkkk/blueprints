@@ -5,9 +5,9 @@
 #include <Ethernet.h> //You need to add it by searching "Ethernet" in libraries and inslall it
 #include <BlynkSimpleEthernet.h> //You need to add it by searching "Blynk" in libraries and inslall it
 
-//#define BLYNK_TEMPLATE_ID           "TMPxxxxxx"
-//#define BLYNK_TEMPLATE_NAME         "Device"
-//#define BLYNK_AUTH_TOKEN            "YourAuthToken"
+#define BLYNK_TEMPLATE_ID           "TMPxxxxxx"
+#define BLYNK_TEMPLATE_NAME         "Device"
+#define BLYNK_AUTH_TOKEN            "YourAuthToken"
 
 
 #define LED_PIN 13
