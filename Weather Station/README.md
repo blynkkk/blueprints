@@ -35,12 +35,11 @@ We need to connect both sensors to ESP32 Dev Module and then connect the board t
 
 #  Prepare required software
 
-We need to install PlatformIO and libraries for Blynk and both sensors. 
-1. Install PlatformIO (https://platformio.org/platformio-ide)
-2. Install Blynk library for PlatformIO, libraries for sensors and create a new sketch
-* Open PlatformIO Home > “+ New Project”
-* Add name, select hardware (I have Esp32 Dev Module), select Arduino framework, click "Finish"
-* Open "Platformio.ini" file and add the following code: lib_deps = adafruit/Adafruit BMP280 Library@^2.6.6 adafruit/DHT sensor library@^1.4.4 blynkkk/Blynk@^1.2.0
+* Install Arduino IDE or PlatformIO
+* Install Blynk library for your IDE
+* Instull Ethernet Library for your IDE
+* Select the correct board and port in your IDE settings
+* Create a new sketch (Arduino IDE) or new project (PlatformIO)
 
 
 # Prepare the Firmware and upload it to your device
@@ -50,10 +49,15 @@ We need to include TemplateID, AuthToken (unique identifier of your device), and
 1. Click on the Activate device action in the Template Home tab (this tab should open automatically once you've pressed the Use Blueprint button)
 2. Enter the Wi-Fi credentials your device will use
 3. Copy the sketch and paste it into the IDE
-4. Flash your device
-* Open the "src" folder and open the "Main.cpp" file
-* Insert the code
-* Press "PlatformIO: Upload"
+3. Flash your device
+* For Arduino IDE:
+ *Insert code into your file*->
+ *Choose Port and Board*->
+ *Press "Upload" button*
+* For PlatformIO:
+*Open the "src" folder and open the "Main.cpp" file*->
+*Insert the code*->
+*Press "PlatformIO: Upload"*
 5. The device should open automatically - you are connected now!
 
 # Set up Notifications
