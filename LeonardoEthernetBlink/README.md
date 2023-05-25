@@ -21,14 +21,14 @@ It will look something like this :
 
 # 3. Prepare required software
 
-Install Arduino IDE or PlatformIO
+Install [Arduino IDE](https://www.arduino.cc/en/software) or [PlatformIO](https://platformio.org/install)
 Install Blynk library for your IDE
 Instull Ethernet Library for your IDE
 Select the correct board and port in your IDE settings
 Create a new sketch (Arduino IDE) or new project (PlatformIO)
 
 
-# Prepare the Firmware and upload it to your device
+# 4. Prepare the Firmware and upload it to your device
 
 We need to include TemplateID, AuthToken (unique identifier of your device) in the sketch. Follow the steps below.
 
