@@ -47,8 +47,8 @@ We need to include TemplateID, AuthToken (unique identifier of your device) in t
 
 # Next steps after the device is activated
 
-* Explore the Blynk Web Console and Blynk IoT app, try controlling your device from both
-* Explore Blynk Documentation and learn how to work with Virtual Pins
+* Explore the Blynk [Web Console](blynk.cloud) and [Blynk IoT app](https://docs.blynk.io/en/downloads/blynk-apps-for-ios-and-android), try controlling your device from both
+* Explore [Blynk Documentation](https://docs.blynk.io/en/getting-started/using-virtual-pins-to-control-physical-devices) and learn how to work with Virtual Pins
 * Improve the code for your needs
 * Add more devices
 
