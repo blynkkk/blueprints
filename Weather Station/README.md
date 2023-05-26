@@ -11,7 +11,7 @@ Additionally, we will implement automations to send notifications to your Blynk 
 * Barometer BMP280 3.3V
 
 
-# Prepare your Hardware 
+# 1. Prepare your Hardware 
 
 We need to connect both sensors to ESP32 Dev Module and then connect the board to the computer with a USB cable to upload the firmware. 
 
@@ -33,28 +33,21 @@ We need to connect both sensors to ESP32 Dev Module and then connect the board t
 
 3. Don’t forget to connect ESP32 to your computer with a USB cable.
 
-#  Prepare required software
+# 2. Prepare required software
 
-We need to install PlatformIO and libraries for Blynk and both sensors. 
-1. Install PlatformIO (https://platformio.org/platformio-ide)
-2. Install Blynk library for PlatformIO, libraries for sensors and create a new sketch
-* Open PlatformIO Home > “+ New Project”
-* Add name, select hardware (I have Esp32 Dev Module), select Arduino framework, click "Finish"
-* Open "Platformio.ini" file and add the following code: lib_deps = adafruit/Adafruit BMP280 Library@^2.6.6 adafruit/DHT sensor library@^1.4.4 blynkkk/Blynk@^1.2.0
+1. Install [Arduino IDE](https://www.arduino.cc/en/software) or [PlatformIO](https://platformio.org/install)
+2. Install [Blynk library](https://docs.blynk.io/en/blynk-library-firmware-api/installation/install-blynk-library-in-arduino-ide) for your IDE
+3. Select the correct board and port in your IDE settings
+4. Create a new sketch if you are using Arduino IDE
 
 
-# Prepare the Firmware and upload it to your device
-
-We need to include TemplateID, AuthToken (unique identifier of your device), and WiFi credentials in the sketch. Follow the steps below.
+# 3. Prepare the Firmware and upload it to your device
+We need to include TemplateID, AuthToken (unique identifier of your device), and WiFi credentials in the sketch.
 
 1. Click on the Activate device action in the Template Home tab (this tab should open automatically once you've pressed the Use Blueprint button)
-2. Enter the Wi-Fi credentials your device will use
-3. Copy the sketch and paste it into the IDE
-4. Flash your device
-* Open the "src" folder and open the "Main.cpp" file
-* Insert the code
-* Press "PlatformIO: Upload"
-5. The device should open automatically - you are connected now!
+2. Follow the proposed steps to prepare and upload the code
+3. Once the code is successfully uploaded the device dashboard will open automatically
+4. Check the Troubleshooting section at the end of this tutorial if you have issues uploading the firmware
 
 # Set up Notifications
 Let's configure notifications to keep you informed when the temperature or humidity falls outside the comfortable range. This way, you can take action to restore optimal levels as soon as possible.
@@ -67,8 +60,9 @@ For example, if the temperature is above 28 degrees or below 18, and the humidit
 
 # Next steps after the device is activated
 
-* Explore the Blynk Web Console and Blynk IoT app, try controlling your device from both
-* Explore Blynk Documentation and learn how to work with Virtual Pins
+* Explore the Blynk [Web Console](blynk.cloud) and [Blynk IoT app](https://docs.blynk.io/en/downloads/blynk-apps-for-ios-and-android), try controlling your device from both
+* Explore [Blynk Documentation](https://docs.blynk.io/en/getting-started/using-virtual-pins-to-control-physical-devices) and learn how to work with Virtual Pins
+* Learn how to [share device](https://docs.blynk.io/en/concepts/users) with other users
 * Improve the code for your needs
 * Add more devices
 
@@ -81,12 +75,3 @@ For example, if the temperature is above 28 degrees or below 18, and the humidit
 * Check your board and port selections
 * Check your connections. Your board needs to be connected with a data USB cable (charge-only cables will not work). Make sure the cable is fully inserted in the port on each end. Try a different USB cable, and avoid hubs and other adapters if possible. Remove connections to the board pins, especially the 0 (RX) and 1 (TX) digital pins.
 * Check that your boards and libraries are up to date
-
-
-
-
-
-
-
-
-
