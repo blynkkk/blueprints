@@ -31,12 +31,12 @@ We need to connect both sensors to ESP32 Dev Module and then connect the board t
 
 ![Connecting BME](https://raw.githubusercontent.com/YuliiaRudevych/blueprints/main/Weather%20Station/Images/interfacing-bmp280-and-esp32-circuit-diagram.webp)
 
-3. Don’t forget to connect ESP32 to your computer with a USB cable.
+3. Don’t forget to connect ESP32 to your computer with a USB cable
 
 # 2. Prepare required software
 
 1. Install [Arduino IDE](https://www.arduino.cc/en/software) or [PlatformIO](https://platformio.org/install)
-2. Install [Blynk library](https://docs.blynk.io/en/blynk-library-firmware-api/installation/install-blynk-library-in-arduino-ide) for your IDE
+2. Install [Blynk library](https://docs.blynk.io/en/blynk-library-firmware-api/installation) for your IDE
 3. Select the correct board and port in your IDE settings
 4. Create a new sketch if you are using Arduino IDE
 
@@ -49,7 +49,7 @@ We need to include TemplateID, AuthToken (unique identifier of your device), and
 3. Once the code is successfully uploaded the device dashboard will open automatically
 4. Check the Troubleshooting section at the end of this tutorial if you have issues uploading the firmware
 
-# Set up Notifications
+# 4. Set up Notifications
 Let's configure notifications to keep you informed when the temperature or humidity falls outside the comfortable range. This way, you can take action to restore optimal levels as soon as possible.
 1. Go to  "Automations" tab 
 2. Click "+ Create automations" and choose "Device state"
@@ -60,16 +60,17 @@ For example, if the temperature is above 28 degrees or below 18, and the humidit
 
 # Next steps after the device is activated
 
-* Explore the Blynk [Web Console](blynk.cloud) and [Blynk IoT app](https://docs.blynk.io/en/downloads/blynk-apps-for-ios-and-android), try controlling your device from both
-* Explore [Blynk Documentation](https://docs.blynk.io/en/getting-started/using-virtual-pins-to-control-physical-devices) and learn how to work with Virtual Pins
+* Explore the Blynk Web Console and [Blynk IoT app](https://docs.blynk.io/en/downloads/blynk-apps-for-ios-and-android), try controlling your device from both
+* Explore [Blynk Documentation](https://docs.blynk.io/en/) and learn how to work with [Virtual Pins](https://docs.blynk.io/en/getting-started/using-virtual-pins-to-control-physical-devices)
+* Learn more about [automations](https://docs.blynk.io/en/concepts/automations)
 * Learn how to [share device](https://docs.blynk.io/en/concepts/users) with other users
-* Improve the code for your needs
+* Modify the code for your needs
 * Add more devices
 
 
 # Troubleshooting
 
-* Make sure you have the latest Blynk Library installed
+* Make sure you have the latest [Blynk Library](https://docs.blynk.io/en/blynk-library-firmware-api/installation) installed
 * Check that all the dependencies and configurations are correct
 * Check your sketch for errors. Click the Verify button to compile your sketch without uploading it
 * Check your board and port selections
