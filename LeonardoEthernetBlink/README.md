@@ -21,7 +21,7 @@ It should look like this:
 
 1. Install [Arduino IDE](https://www.arduino.cc/en/software) or [PlatformIO](https://platformio.org/install)
 2. Install Blynk library for your IDE
-3. Instull Ethernet Library for your IDE
+3. Install Ethernet Library for your IDE
 4. Select the correct board and port in your IDE settings
 5. Create a new sketch (Arduino IDE) or new project (PlatformIO)
 
