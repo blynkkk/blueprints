@@ -15,7 +15,7 @@ We will be using a Particle Boron with attached GPS FeatherWing, that reads the 
 
 ## 1. Prepare required Software 
 1. Install [Arduino IDE](https://www.arduino.cc/en/software) or [Workbench](https://www.particle.io/workbench/)
-2. Install [Particle Console](https://docs.particle.io/getting-started/console/console/)
+2. Create account on [Particle Console](https://docs.particle.io/getting-started/console/console/)
 
 ## 2. Prepare your Hardware
 The Boron is physically stacked on top of the GPS FeatherWing, completing the electrical connection between them. The Boron and the GPS FeatherWing communicate over the Boron UART pins.
