@@ -91,7 +91,7 @@ Let's create an [automation](https://docs.blynk.io/en/concepts/automations) to n
 7. Under the When section, choose the device ‘boronb’, the datastream ‘position_cnahged’ (V5), and assign the type of datastream value change of ‘Has changed’
 8. Under the Do this section, choose the Send E-Mail option and enter which message you want to receive, once the position of your asset has changed
 
-Optional steps:
+Try to:
 <ul>
   <li> Set up automation to update the value to 0 using the same method</li>
   <li> Find this automation from your Blynk App in the Automations section and try to enable / disable the automation, or edit the automation options</li>
