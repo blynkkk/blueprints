@@ -20,7 +20,7 @@ It should look like this:
 # 3. Prepare required software
 
 1. Install [Arduino IDE](https://www.arduino.cc/en/software) or [PlatformIO](https://platformio.org/install)
-2. Install Blynk library for your IDE
+2. Install [Blynk library](https://docs.blynk.io/en/blynk-library-firmware-api/installation/install-blynk-library-in-arduino-ide) for your IDE
 3. Install Ethernet Library for your IDE
 4. Select the correct board and port in your IDE settings
 5. Create a new sketch (Arduino IDE) or new project (PlatformIO)
@@ -55,7 +55,7 @@ We need to include TemplateID, AuthToken (unique identifier of your device) in t
 
 # Troubleshooting
 
-* Make sure you have the latest Blynk Library installed
+* Make sure you have the latest [Blynk Library](https://docs.blynk.io/en/blynk-library-firmware-api/installation) installed
 * Check that all the dependencies and configurations are correct
 * Check your sketch for errors. Click the Verify button to compile your sketch without uploading it
 * Check your board and port selections
