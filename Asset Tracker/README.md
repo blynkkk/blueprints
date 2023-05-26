@@ -76,7 +76,7 @@ The speed may also be added to a web dashboard map widget as an [overlay]()(add 
 The LED widget is used to indicate the position change event. You can also us Switch or value Value Display widget.</br>
 
 V5 will be updated to a value of 1 by the hardware when it has changed by more than 122 m / 400 ft since it was powered on, or since the last time data was published. Position Delta is 122 m / 400 ft can be adjusted in the hardware, but not to smaller number.
-Hardware determines the change in position from the last published GPS coordinates. The datastream value is not updated to a value of 0 by the hardware, so this should be done with an [automation](https://docs.blynk.io/en/concepts/automations) if the feature is to be used</br>
+Hardware determines the change in position from the last published GPS coordinates. The datastream value is not updated to a value of 0 by the hardware, so this should be done with an [automation](https://docs.blynk.io/en/concepts/automations) if the feature is to be used.</br>
 
 **Last Published Position Date and Time** - Datastream V6</br>
 Label Display is widget used to display when the position was published last time.
