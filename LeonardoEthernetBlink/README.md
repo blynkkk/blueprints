@@ -20,7 +20,7 @@ It should look like this:
 # 3. Prepare required software
 
 1. Install [Arduino IDE](https://www.arduino.cc/en/software) or [PlatformIO](https://platformio.org/install)
-2. Install [Blynk library](https://docs.blynk.io/en/blynk-library-firmware-api/installation/install-blynk-library-in-arduino-ide) for your IDE
+2. Install [Blynk library](https://docs.blynk.io/en/blynk-library-firmware-api/installation) for your IDE
 3. Install Ethernet Library for your IDE
 4. Select the correct board and port in your IDE settings
 5. Create a new sketch if you are using Arduino IDE
