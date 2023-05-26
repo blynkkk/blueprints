@@ -1,7 +1,7 @@
 ## Introduction
-This blueprint is a base for any asset tracking solution - you will be able to see your moving device on the map from the web and mobile dashboards and monitor it's speed. Use it as it is or build more functionality on top, if you want to receive different data from your moving asset. 
+This blueprint is a basic asset tracking solution. You will be able to see your moving device on the map from the web and mobile dashboards and monitor it's speed. Use it as it is or build more functionality on top, if you want to receive different data from your moving asset. 
 
-The web and mobile dashboard and datastreams are pre-configured and you will be creating an integration with Particle Cloud using detailed step-by-step guide.
+The dashboard and datastreams are pre-configured. You will be creating an integration with an external resource using detailed step-by-step guide.
 
 ## How It Works
 We will be using a Particle Boron with attached GPS FeatherWing, that reads the device location. The location data is pushed from the Particle cellular device to Particle Cloud and from there to the Blynk IoT platform via a Particle Webhook and Blynk HTTPs API. The data is then visualized on both a Blynk web dashboard and mobile app. 
@@ -13,14 +13,14 @@ We will be using a Particle Boron with attached GPS FeatherWing, that reads the 
 - [External active 28 dB GPS antenna](https://www.adafruit.com/product/960) (optional, recommended for the best GPS performance)</br>
 - [a SMA to uFL/u.FL/IPX/IPEX RF adapter cable](https://www.adafruit.com/product/851) (optional, recommended for the best GPS performance) 
 
-## Prepare Required Software 
+## 1. Prepare required Software 
 1. Install [Arduino IDE](https://www.arduino.cc/en/software) or [Workbench](https://www.particle.io/workbench/)
 2. Install [Particle Console](https://docs.particle.io/getting-started/console/console/)
 
-## Prepare Hardware
+## 2. Prepare your Hardware
 The Boron is physically stacked on top of the GPS FeatherWing, completing the electrical connection between them. The Boron and the GPS FeatherWing communicate over the Boron UART pins. (add picture)
 
-## Creating a Webhook on Particle Cloud
+## 3. Create a Webhook on Particle Cloud
 Create a Particle Webhook to transfer the data from the Particle Cloud to Blynk.
 1. Log in into the [Particle Console](https://console.particle.io/)
 2. Go to Products > New Product to create a new Product, and then add your device
@@ -39,14 +39,14 @@ Update "ny3.blynk.cloud" with your server shown in the Blynk.Console lower right
 
 Note: the keys on the left (token, V3... V6) refer to Blynk datastreams, and the values on the right reference variables from the firmware that will be passed from the Particle.publish() function. The value ‘PARTICLE_PUBLISHED_AT’ for virtual pin V6 is a Particle pre-defined variable that provides a timestamp for when the webhook is executed.
 
-![alt text](https://raw.githubusercontent.com/markwkiehl/blynk_blueprint_asset_tracking/f0f8adea0b3feb23fde7f69a0fcef34bb894930d/blynk_blueprint_asset_tracking_particle_webhook(1).png "Particle Webhook")
+<img src="https://github.com/blynkkk/blueprints/blob/main/Asset%20Tracker/integration-info.png" width=75% height=75%>
 
-## Blueprint
+## 4. Activate the Blueprint
 1. Copy this Blueprints to your Templates by pressing the Use Blueprint button
 2. Choose the Activate First Device option - this will generate and show an AuthToken
 4. Copy the AuthToken and keep it in a safe place - we will use it in the next section to update "BLYNK_AUTH_TOKEN" within the sketch [blynk_blueprint_asset_tracking.ino](https://raw.githubusercontent.com/markwkiehl/blynk_blueprint_asset_tracking/38192cabe4122f59c3fe6956038b1a33c015e4b6/blynk_blueprint_asset_tracking.ino).
 
-## Firmware
+## 5. Prepare the Firmware and upload it to your device
 Cellular communication between the hardware and Blynk will utilize the [Blynk HTTPs API](https://docs.blynk.io/en/blynk.cloud/https-api-overview) to minimize cellular data usage. The Particle Boron cellular IoT device will publish a JSON string to the Particle Cloud, referencing a Particle webhook. The webhook reformats the data, and then sends it to the Blynk Cloud via an HTTP GET, updating the Blynk datastreams.  
 
 1. Open the sketch [blynk_blueprint_asset_tracking.ino](https://raw.githubusercontent.com/markwkiehl/blynk_blueprint_asset_tracking/38192cabe4122f59c3fe6956038b1a33c015e4b6/blynk_blueprint_asset_tracking.ino) in [Workbench](https://www.particle.io/workbench/) or other IDE.
@@ -68,7 +68,7 @@ Label Display widget is used to show actual longitude and lattitude</br>
 **Device Speed (mph)** - Datastream V4</br>
 The Label Display widget is used to display this value.</br> 
 You also can use any of the following widgets to make it more visual: Value Display / Labeled Value / Gauge / Chart</br>
-The speed may also be added to a web dashboard map widget as an [overlay](). See [example]()</br>
+The speed may also be added to a web dashboard map widget as an [overlay](). See [example]().</br>
 
 **Position Change Indicator** - Datastream V5</br>
 The LED widget is used to indicate the position change event. You can also us Switch or value Value Display widget.</br>
@@ -76,10 +76,10 @@ The LED widget is used to indicate the position change event. You can also us Sw
 V5 will be updated to a value of 1 by the hardware when it has changed by more than 122 m / 400 ft since it was powered on, or since the last time data was published. Position Delta is 122 m / 400 ft can be adjusted in the hardware, but not to smaller number.
 Hardware determines the change in position from the last published GPS coordinates. The datastream value is not updated to a value of 0 by the hardware, so this should be done with an [automation](https://docs.blynk.io/en/concepts/automations) if the feature is to be used</br>
 
-**Last Published Date / Time of the Position** - Datastream V6</br>
+**Last Published Position Date and Time** - Datastream V6</br>
 Label Display widget used to display when the position was published last time.
 
-## Set up Automations
+## 6. Set up Automations
 Let's create an [automation](https://docs.blynk.io/en/concepts/automations) to notify the user when the device position has changed more than 122 m / 400 ft since it was powered on, or since the last time data was published (firmware variable TIMER_INTERVAL_MS). We will be configuring the automation from the Blynk Console.
 
 1. Go to Automations tab in the Blueprint
@@ -97,8 +97,10 @@ Optional steps:
   <li> Find this automation from your Blynk App in the Automations section and try to enable / disable the automation, or edit the automation options</li>
 </ul>
 
+## Next steps
+
+## Troubleshooting
 
 ## Related Links
 [How to connect a Particle device to Blynk](https://docs.blynk.io/en/hardware-guides/particle)<br/>
 [How to control a Particle device with Blynk](https://docs.blynk.io/en/hardware-guides/particle-part-ii)<br/>
-[github.com/blynkkk/blueprints](https://github.com/blynkkk/blueprints)<br/>
