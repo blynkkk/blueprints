@@ -28,9 +28,8 @@ It should look like this:
 
 # 4. Prepare the Firmware and upload it to your device
 
-We need to include TemplateID, AuthToken (unique identifier of your device) in the sketch. Follow the steps below.
+We need to include TemplateID, AuthToken (unique identifier of your device), and WiFi credentials in the sketch.
 
-We need to include TemplateID, AuthToken (unique identifier of your device), and WiFi credentials in the sketch. 
 1. Click on the Activate device action in the Template Home tab (this tab should open automatically once you've pressed the Use Blueprint button)
 2. Follow the proposed steps to prepare and upload the code
 3. Once the code is successfully uploaded the device dashboard will open automatically
