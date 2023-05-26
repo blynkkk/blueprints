@@ -30,19 +30,11 @@ It should look like this:
 
 We need to include TemplateID, AuthToken (unique identifier of your device) in the sketch. Follow the steps below.
 
+We need to include TemplateID, AuthToken (unique identifier of your device), and WiFi credentials in the sketch. 
 1. Click on the Activate device action in the Template Home tab (this tab should open automatically once you've pressed the Use Blueprint button)
-2. Copy the sketch and paste it into the IDE
-3. Flash your device
-* For Arduino IDE:
- *Insert code into your file*->
- *Choose Port and Board*->
- *Press "Upload" button*
-* For PlatformIO:
-*Open the "src" folder and open the "Main.cpp" file*->
-*Insert the code*->
-*Press "PlatformIO: Upload"*
-
-4. The device should open automatically - you are connected now!
+2. Follow the proposed steps to prepare and upload the code
+3. Once the code is successfully uploaded the device dashboard will open automatically
+4. Check the Troubleshooting section at the end of this tutorial if you have issues uploading the firmware
 
 
 # Next steps after the device is activated
