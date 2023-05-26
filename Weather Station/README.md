@@ -62,8 +62,8 @@ For example, if the temperature is above 28 degrees or below 18, and the humidit
 
 * Explore the Blynk Web Console and [Blynk IoT app](https://docs.blynk.io/en/downloads/blynk-apps-for-ios-and-android), try controlling your device from both
 * Explore [Blynk Documentation](https://docs.blynk.io/en/) and learn how to work with [Virtual Pins](https://docs.blynk.io/en/getting-started/using-virtual-pins-to-control-physical-devices)
-* Learn more about [automations](https://docs.blynk.io/en/concepts/automations)
-* Learn how to [share device](https://docs.blynk.io/en/concepts/users) with other users
+* Learn more about [Automations](https://docs.blynk.io/en/concepts/automations)
+* Learn how to [Share Device](https://docs.blynk.io/en/concepts/users) with other users
 * Modify the code for your needs
 * Add more devices
 
