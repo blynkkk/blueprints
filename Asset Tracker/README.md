@@ -3,7 +3,7 @@ This blueprint is a basic asset tracking solution. You will be able to see your 
 
 The web and mobile dashboard and datastreams are pre-configured. You will be creating an integration with an Particle Cloud using detailed step-by-step guide.
 
-## How It Works
+## How it works
 We will be using a Particle Boron with attached GPS FeatherWing, that reads the device location. The location data is pushed from the Particle cellular device to Particle Cloud and from there to the Blynk IoT platform via a Particle Webhook and Blynk HTTPs API. The data is then visualized on both a Blynk web dashboard and mobile app. 
 
 ## Hardware
@@ -18,15 +18,17 @@ We will be using a Particle Boron with attached GPS FeatherWing, that reads the 
 2. Install [Particle Console](https://docs.particle.io/getting-started/console/console/)
 
 ## 2. Prepare your Hardware
-The Boron is physically stacked on top of the GPS FeatherWing, completing the electrical connection between them. The Boron and the GPS FeatherWing communicate over the Boron UART pins. (add picture)
+The Boron is physically stacked on top of the GPS FeatherWing, completing the electrical connection between them. The Boron and the GPS FeatherWing communicate over the Boron UART pins.
+
+<img src="https://github.com/blynkkk/blueprints/blob/main/Asset%20Tracker/connect-boron-featherwing.png" width=50% height=50%>
 
 ## 3. Create a Webhook on Particle Cloud
 Create a Particle Webhook to transfer the data from the Particle Cloud to Blynk.
 1. Log in into the [Particle Console](https://console.particle.io/)
 2. Go to Products > New Product to create a new Product, and then add your device
 3. Click on the Integrations > New Integration and select the Webhook option
-4. Fill as follows: </br>Webhook event name:  blynk_https_get</br> Full URL:  https://ny3.blynk.cloud/external/api/batch/update</br>
-Update "ny3.blynk.cloud" with your server shown in the Blynk.Console lower right. Find the list of valid server addresses [here](https://docs.blynk.io/en/blynk.cloud/troubleshooting) </br>
+4. Fill as follows: </br>Webhook event name:  <i>blynk_https_get</i></br> Full URL:  <i>https://ny3.blynk.cloud/external/api/batch/update</i></br>
+Update "ny3.blynk.cloud" with your server shown in the Blynk.Console lower right. Find the list of valid server addresses [here](https://docs.blynk.io/en/blynk.cloud/troubleshooting) </br>Request type: <i>GET</i></br>
 5. Open Advanced Settings and switch to Custom Query Parameters</br>
 6. Create the following Query Parameters</br>
 <ul>
@@ -77,7 +79,7 @@ V5 will be updated to a value of 1 by the hardware when it has changed by more t
 Hardware determines the change in position from the last published GPS coordinates. The datastream value is not updated to a value of 0 by the hardware, so this should be done with an [automation](https://docs.blynk.io/en/concepts/automations) if the feature is to be used</br>
 
 **Last Published Position Date and Time** - Datastream V6</br>
-Label Display widget used to display when the position was published last time.
+Label Display is widget used to display when the position was published last time.
 
 ## 6. Set up Automations
 Let's create an [automation](https://docs.blynk.io/en/concepts/automations) to notify the user when the device position has changed more than 122 m / 400 ft since it was powered on, or since the last time data was published (firmware variable TIMER_INTERVAL_MS). We will be configuring the automation from the Blynk Console.
@@ -87,8 +89,8 @@ Let's create an [automation](https://docs.blynk.io/en/concepts/automations) to n
 3. Enable both the Condition and Action switches for the V5 datastream and click Save and Apply
 4. On the Automations page Click Create Automation at the top right of the page
 5. In the Choose Condition dialogue choose the Device State option because we want to trigger the automation based on a change in the state of V5
-6. Name the automation ‘position_changed’ by editing the field at the top of the page labeled ‘New Automation’ 
-7. Under the When section, choose the device ‘boronb’, the datastream ‘position_cnahged’ (V5), and assign the type of datastream value change of ‘Has changed’
+6. Name the automation "position_changed" by editing the field at the top of the page labeled "New Automation" 
+7. Under the When section, choose the device "boronb", the datastream "position_cnahged" (V5), and assign the type of datastream value change of "Has changed"
 8. Under the Do this section, choose the Send E-Mail option and enter which message you want to receive, once the position of your asset has changed
 
 Try to:
@@ -98,6 +100,10 @@ Try to:
 </ul>
 
 ## Next steps
+* Explore the Blynk [Web Console](blynk.cloud) and [Blynk IoT app](https://docs.blynk.io/en/downloads/blynk-apps-for-ios-and-android), try controlling your device from both
+* Explore [Blynk Documentation](https://docs.blynk.io/en/) 
+* Learn how to work with [Virtual Pin Datastreams](https://docs.blynk.io/en/getting-started/using-virtual-pins-to-control-physical-devices) and [Automations](https://docs.blynk.io/en/concepts/automations)
+* Modify the code for your needs
 
 ## Troubleshooting
 
