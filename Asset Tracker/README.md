@@ -68,7 +68,7 @@ Label Display widget is used to show actual longitude and lattitude</br>
 **Device Speed (mph)** - Datastream V4</br>
 The Label Display widget is used to display this value.</br> 
 You also can use any of the following widgets to make it more visual: Value Display / Labeled Value / Gauge / Chart</br>
-The speed may also be added to a web dashboard map widget as an [overlay](). See [example]().</br>
+The speed may also be added to a web dashboard map widget as an [overlay]()(add link to pic). See [example]()(add link to pic).</br>
 
 **Position Change Indicator** - Datastream V5</br>
 The LED widget is used to indicate the position change event. You can also us Switch or value Value Display widget.</br>
