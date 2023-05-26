@@ -1,5 +1,5 @@
 ## Introduction
-This blueprint is a basic asset tracking solution. You will be able to see your moving device on the map from the web and mobile dashboards, monitor it's speed, and receive a notification once the position of your asset has changed. Use it as it is or build more functionality on top, if you want to receive different data from your moving asset. 
+This blueprint is a basic asset tracking solution. You will be able to see your moving device on the map from the web and mobile dashboards, monitor it's speed, and receive a notification once the position of your asset has changed. Use it as is or build more functionality on top if you want to receive different data from your moving asset. 
 
 The web and mobile dashboard and datastreams are pre-configured. You will be creating an integration with an Particle Cloud using detailed step-by-step guide.
 
