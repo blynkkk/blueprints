@@ -57,5 +57,6 @@ _Check the Troubleshooting section at the end of this tutorial if you have issue
 * Check that your boards and libraries are up to date
 
 # Help
-[Blynk Troubleshooting guide](https://docs.blynk.io/en/troubleshooting/general-issues) </br>
+[Blynk Troubleshooting guide](https://docs.blynk.io/en/troubleshooting/general-issues)
+
 [Documentation](https://docs.blynk.io/en/)
