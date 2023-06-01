@@ -3,8 +3,6 @@ This project is a quick start tutorial on connecting the ESP32 board to the Blyn
 
 The ESP32 is a powerful microcontroller that supports Wi-Fi and Bluetooth connectivity. With the ESP32 and Blynk, you can build a wide range of IoT projects, from home automation to remote monitoring and control of devices.
 
-You will learn how to upload a code to the ESP32 board using the Arduino IDE and connect it to the Blynk IoT. The code will initiate a blinking of an LED connected to a GPIO pin on the ESP32 board, and you will be able to controll the LED by pressing a button.
-
 ## 1. Components
 In this project we used:
 1. ESP32 DEVKIT board
