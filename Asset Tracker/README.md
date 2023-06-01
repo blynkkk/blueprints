@@ -46,12 +46,12 @@ Note: the keys on the left (token, V3... V6) refer to Blynk datastreams, and the
 ## 4. Activate the Blueprint
 1. Copy this Blueprints to your Templates by pressing the Use Blueprint button
 2. Choose the Activate First Device option - this will generate and show an AuthToken
-4. Copy the AuthToken and keep it in a safe place - we will use it in the next section to update "BLYNK_AUTH_TOKEN" within the sketch [blynk_blueprint_asset_tracking.ino](https://raw.githubusercontent.com/markwkiehl/blynk_blueprint_asset_tracking/38192cabe4122f59c3fe6956038b1a33c015e4b6/blynk_blueprint_asset_tracking.ino).
+4. Copy the AuthToken and keep it in a safe place - we will use it in the next section to update "BLYNK_AUTH_TOKEN" within the sketch [blynk_blueprint_asset_tracking.ino](https://github.com/blynkkk/blueprints/blob/main/Asset%20Tracker/Firmware/blynk_blueprint_asset_tracking.ino).
 
 ## 5. Prepare the Firmware and upload it to your device
 Cellular communication between the hardware and Blynk will utilize the [Blynk HTTPs API](https://docs.blynk.io/en/blynk.cloud/https-api-overview) to minimize cellular data usage. The Particle Boron cellular IoT device will publish a JSON string to the Particle Cloud, referencing a Particle webhook. The webhook reformats the data, and then sends it to the Blynk Cloud via an HTTP GET, updating the Blynk datastreams.  
 
-1. Open the sketch [blynk_blueprint_asset_tracking.ino](https://raw.githubusercontent.com/markwkiehl/blynk_blueprint_asset_tracking/38192cabe4122f59c3fe6956038b1a33c015e4b6/blynk_blueprint_asset_tracking.ino) in [Workbench](https://www.particle.io/workbench/) or other IDE.
+1. Open the sketch [blynk_blueprint_asset_tracking.ino](https://github.com/blynkkk/blueprints/blob/main/Asset%20Tracker/Firmware/blynk_blueprint_asset_tracking.ino) in [Workbench](https://www.particle.io/workbench/) or other IDE.
 2. Install the library "Adafruit_GPS"  
 3. In the sketch, find #define BLYNK_AUTH_TOKEN "your_32_char_token" and replace the value in quotes with your AuthToken, obtained in the Activate First Device section of the Blueprint 
 4. Save the modified sketch and then upload it to your Particle Boron
