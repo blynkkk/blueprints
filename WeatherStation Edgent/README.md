@@ -54,7 +54,7 @@ We need to include TemplateID, AuthToken (unique identifier of your device), and
 *Open project*->
 *Press "PlatformIO: Upload"*
 5. Open Blynk app
-6. Click "+ New device" and choose "Find devices nearby
+6. Click "+ New device" and choose "Find devices nearby"
 7. Click "Start"
 8. Connect to "Blynk ... " network
 9. Choose network your device will use and click "Continue"
