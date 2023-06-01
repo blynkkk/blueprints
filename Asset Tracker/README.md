@@ -40,7 +40,7 @@ Update "ny3.blynk.cloud" with your server shown in the Blynk.Console lower right
 </ul>
 
 _The keys on the left (token, V3... V6) refer to Blynk datastreams, and the values on the right reference variables from the firmware that will be passed from the Particle.publish() function. The value ‘PARTICLE_PUBLISHED_AT’ for virtual pin V6 is a Particle pre-defined variable that provides a timestamp for when the webhook is executed._
-![alt text](Asset Tracker/Images/integration-info.png)
+![alt text](https://github.com/blynkkk/blueprints/blob/0cc36e45a13f865ef768735d6e2e6b03abddcfb1/Asset%20Tracker/Images/integration-info.png)
 
 ## 4. Prepare required software
 1. Install [Arduino IDE](https://www.arduino.cc/en/software)
