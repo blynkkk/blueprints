@@ -1,43 +1,28 @@
 #include <Arduino.h>
 
-//Connecting sensors
-// BME
-// 1 VCC -> 3.3V
-// 2 GND -> GND
-// 3 SCL -> 18
-// 4 SDA -> 23
-// 5 CSB -> 5
-// 6 SDO -> 19
-
-
-// DHT
-// RED    -> 3.3V
-// BLACK  -> GND
-// YELLOW -> 25
-
 //Adding the required libraries
 #include <Wire.h>
 #include <SPI.h>
-#include <Adafruit_Sensor.h> //You need to add it by searching "Adafruit_Sensor" in libraris and inslall it
-#include <Adafruit_BMP280.h> //You need to add it by searching "Adafruit_BMP280" in libraris and inslall it
-
-#include <BlynkSimpleEsp32.h> //You need to add it by searching "Blynk" in libraris and inslall it
-#include <DHT.h>
+#include <Adafruit_Sensor.h> //You need to add it by searching "Adafruit unified sensor" in libraries and inslall it
+#include <Adafruit_BMP280.h> //You need to add it by searching "Adafruit BMP280" in libraries and inslall it
+#include <BlynkSimpleEsp32.h> //You need to add it by searching "Blynk" in libraries and inslall it
+#include <DHT.h> //You need to add it by searching "DHT sensor library" in libraries and inslall it
 
 // BLYNK
 #define BLYNK_PRINT Serial
 
 // Your WiFi credentials.
 // Set ssid and password to "" for open networks.
-#define WIFI_SSID = "YourNetworkName";
-#define WIFI_PASS "YourPassword";
+char ssid[] = "YourNetworkName";
+char pass[] = "YourPassword";
 
 
 // Your Authtoken credentials.
-// Set Authtoken from Activate device tab to "" for connectin to Blynk.
-#define BLYNK_AUTH_TOKEN "YourAuthtoken";
+#define BLYNK_TEMPLATE_ID "TMPLxxxxxx"
+#define BLYNK_TEMPLATE_NAME "Device"
+#define BLYNK_AUTH_TOKEN "YourAuthToken"
 
-#define BLYNK_DOMAIN "blynk.cloud"
+#define BLYNK_DOMAIN "fra.blynk-qa.com"
 #define BLYNK_PORT 80 //443
 
 
@@ -157,7 +142,7 @@ void setup() {
   setupDht();
   setupBMP();
   Serial.println("Blynk setup start");
-  Blynk.begin(BLYNK_AUTH_TOKEN, WIFI_SSID, WIFI_PASS, BLYNK_DOMAIN, BLYNK_PORT);
+  Blynk.begin(BLYNK_AUTH_TOKEN, ssid, pass, BLYNK_DOMAIN, BLYNK_PORT);
   Serial.println("Setup is finished");
 }
 //Loop block
