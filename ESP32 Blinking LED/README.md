@@ -53,4 +53,4 @@ Developer contact: vitaliy@blynk.cc
 [Blueprint repository](https://github.com/vveretko/Blynk-ESP32-System-LED)
 
 ## Congratulations!
-Congratulations! You have successfully connected ESP32 to Blynk and now can control the built-in LED. By following this tutorial, you have gained experience working with the ESP32, Blynk Console and Blynk App. You can now expand on this project to incorporate real sensors or controllers.
+Congratulations! You have successfully connected ESP32 to Blynk and now can control the built-in LED. By following this tutorial, you have gained experience working with the ESP32, Arduino IDE, Blynk Console and Blynk App. You can now expand on this project to incorporate real sensors or controllers.
