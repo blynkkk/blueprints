@@ -55,7 +55,6 @@ We need to include TemplateID, AuthToken (unique identifier of your device), and
  *Press "Upload" button*
 * For PlatformIO:
 *Open project*->
-*Insert the code*->
 *Press "PlatformIO: Upload"*
 5. Open Blynk app
 6. Click "+ New device" and choose "Find devices nearby
