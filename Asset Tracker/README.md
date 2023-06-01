@@ -13,18 +13,15 @@ We will be using a Particle Boron with attached GPS FeatherWing, that reads the 
 - [External active 28 dB GPS antenna](https://www.adafruit.com/product/960) (optional, recommended for the best GPS performance)  
 - [a SMA to uFL/u.FL/IPX/IPEX RF adapter cable](https://www.adafruit.com/product/851) (optional, recommended for the best GPS performance) 
 
-## 1. Prepare required Software 
-1. Install [Arduino IDE](https://www.arduino.cc/en/software) or [Workbench](https://www.particle.io/workbench/)
-2. Create account on [Particle Console](https://docs.particle.io/getting-started/console/console/)
 
-## 2. Prepare your Hardware
+## 1. Prepare your Hardware
 The Boron is physically stacked on top of the GPS FeatherWing, completing the electrical connection between them. The Boron and the GPS FeatherWing communicate over the Boron UART pins.
 ![connect-boron-featherwing](https://github.com/blynkkk/blueprints/blob/main/Asset%20Tracker/Images/connect-boron-featherwing.png?raw=true)
 
 
-## 3. Create a Webhook on Particle Cloud
+## 2. Create a Webhook on Particle Cloud
 Create a Particle Webhook to transfer the data from the Particle Cloud to Blynk.
-1. Log in into the [Particle Console](https://console.particle.io/)
+1. Create account and log in into the [Particle Console](https://console.particle.io/)
 2. Go to Products > New Product to create a new Product, and then add your device
 3. Click on the Integrations > New Integration and select the Webhook option
 4. Fill as follows:  
@@ -45,13 +42,13 @@ _The keys on the left (token, V3... V6) refer to Blynk datastreams, and the valu
 
 ![particle webhook](https://raw.githubusercontent.com/blynkkk/blueprints/main/Asset%20Tracker/Images/integration-info.png)
 
-## 4. Prepare required software
+## 3. Prepare required software
 1. Install [Arduino IDE](https://www.arduino.cc/en/software)
 2. Install the library "Adafruit_GPS"  
 3. Select the correct board and port in your IDE settings
 4. Create a new sketch
 
-## 5. Prepare the Firmware and upload it to your device
+## 4. Prepare the Firmware and upload it to your device
 Cellular communication between the hardware and Blynk will utilize the [Blynk HTTPs API](https://docs.blynk.io/en/blynk.cloud/https-api-overview) to minimize cellular data usage. The Particle Boron cellular IoT device will publish a JSON string to the Particle Cloud, referencing a Particle webhook. The webhook reformats the data, and then sends it to the Blynk Cloud via an HTTP GET, updating the Blynk datastreams.  
 
 We need to include TemplateID, AuthToken (unique identifier of your device) in the sketch.
@@ -87,7 +84,7 @@ Hardware determines the change in position from the last published GPS coordinat
 **4. Last Published Position Date and Time** - Datastream V6  
 Label Display is widget used to display when the position was published last time.
 
-## 6. Set up Automations  
+## 5. Set up Automations  
 Let's create an [automation](https://docs.blynk.io/en/concepts/automations) to notify the user when the device position has changed more than 122 m / 400 ft since it was powered on, or since the last time data was published (firmware variable TIMER_INTERVAL_MS). We will be configuring the automation from the Blynk Console.
 
 1. Go to Automations tab in the Blueprint
