@@ -51,7 +51,7 @@ _The keys on the left (token, V3... V6) refer to Blynk datastreams, and the valu
 ## 5. Prepare the Firmware and upload it to your device
 Cellular communication between the hardware and Blynk will utilize the [Blynk HTTPs API](https://docs.blynk.io/en/blynk.cloud/https-api-overview) to minimize cellular data usage. The Particle Boron cellular IoT device will publish a JSON string to the Particle Cloud, referencing a Particle webhook. The webhook reformats the data, and then sends it to the Blynk Cloud via an HTTP GET, updating the Blynk datastreams.  
 
-We need to include TemplateID, AuthToken (unique identifier of your device), and WiFi credentials in the sketch.
+We need to include TemplateID, AuthToken (unique identifier of your device) in the sketch.
 
 1. Click on the Activate device action in the Template Home tab (this tab should open automatically once you've pressed the Use Blueprint button)
 2. Follow the proposed steps to prepare and upload the code
