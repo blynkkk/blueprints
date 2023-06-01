@@ -32,11 +32,11 @@ Update "ny3.blynk.cloud" with your server shown in the Blynk.Console lower right
 5. Open Advanced Settings and switch to Custom Query Parameters</br>
 6. Create the following Query Parameters</br>
 <ul>
-"token": "{{t}}", </br>
-"V3": "{{lon}},{{lat}}",</br>
-"V4": "{{spd}}",</br>
-"V5": "{{moved}}",</br>
-"V6": "{{PARTICLE_PUBLISHED_AT}}"</br>
+"token": "{{t}}", <br>
+"V3": "{{lon}},{{lat}}",<br>
+"V4": "{{spd}}",<br>
+"V5": "{{moved}}",<br>
+"V6": "{{PARTICLE_PUBLISHED_AT}}"<br>
 </ul>
 
 _The keys on the left (token, V3... V6) refer to Blynk datastreams, and the values on the right reference variables from the firmware that will be passed from the Particle.publish() function. The value ‘PARTICLE_PUBLISHED_AT’ for virtual pin V6 is a Particle pre-defined variable that provides a timestamp for when the webhook is executed._
