@@ -13,10 +13,10 @@ Connect your device to computers` USB port
 
 _Your board needs to be connected with a data USB cable (charge-only cables will not work). Make sure the cable is fully inserted in the port on each end_
 ## 3. Prepare required software
-1. Install [Arduino IDE](https://www.arduino.cc/en/software) or [PlatformIO](https://platformio.org/install)
+1. Install [Arduino IDE](https://www.arduino.cc/en/software)
 2. Install [Blynk library](https://docs.blynk.io/en/blynk-library-firmware-api/installation) for your IDE
 3. Select the correct board and port in your IDE settings
-4. Install the [ESP32 board support](https://randomnerdtutorials.com/installing-the-esp32-board-in-arduino-ide-windows-instructions/) if you are using Arduino IDE
+4. Install the [ESP32 board support](https://randomnerdtutorials.com/installing-the-esp32-board-in-arduino-ide-windows-instructions/)
 5. Create a new sketch
 ## 4. Prepare the Firmware and upload it to your device
 Now you need to include TemplateID, AuthToken (unique identifier of your device) and WiFi credentials to the sketch.
@@ -53,4 +53,4 @@ Developer contact: vitaliy@blynk.cc
 [Blueprint repository](https://github.com/vveretko/Blynk-ESP32-System-LED)
 
 ## Congratulations!
-Congratulations! You have successfully connected ESP32 to Blynk and now can control the built-in LED. By following this tutorial, you have gained experience working with the ESP32, Arduino IDE, Blynk Console and Blynk App. You can now expand on this project to incorporate real sensors or controllers.
+You have successfully connected ESP32 to Blynk and now can control a built-in LED. By following this tutorial, you have gained experience working with the ESP32, Arduino IDE, Blynk Console and Blynk App. You can now expand on this project to incorporate sensors or controllers.
