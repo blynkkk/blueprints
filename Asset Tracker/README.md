@@ -17,7 +17,7 @@ We will be using a Particle Boron with attached GPS FeatherWing, that reads the 
 ## 1. Prepare your Hardware
 The Boron is physically stacked on top of the GPS FeatherWing, completing the electrical connection between them. The Boron and the GPS FeatherWing communicate over the Boron UART pins.
 
-<img src="https://github.com/blynkkk/blueprints/blob/main/Asset%20Tracker/Images/connect-boron-featherwing.png?raw=true" width=50% height=50%>
+![connect-boron-featherwing](https://github.com/blynkkk/blueprints/blob/main/Asset%20Tracker/Images/connect-boron-featherwing.png?raw=true)
 
 ## 2. Create a Webhook on Particle Cloud
 Create a Particle Webhook to transfer the data from the Particle Cloud to Blynk.
@@ -96,7 +96,7 @@ Let's create an [automation](https://docs.blynk.io/en/concepts/automations) to n
 7. Under the When section, choose the device "boronb", the datastream "position_cnahged" (V5), and assign the type of datastream value change of "Has changed"
 8. Under the Do this section, choose the Send E-Mail option and enter which message you want to receive, once the position of your asset has changed
 
-Try to:
+Try also to:
 * Set up automation to update the value to 0 using the same method</li>
 * Find this automation from your Blynk App in the Automations section and try to enable / disable the automation, or edit the automation options
 
