@@ -27,10 +27,14 @@ Create a Particle Webhook to transfer the data from the Particle Cloud to Blynk.
 1. Log in into the [Particle Console](https://console.particle.io/)
 2. Go to Products > New Product to create a new Product, and then add your device
 3. Click on the Integrations > New Integration and select the Webhook option
-4. Fill as follows: </br>Webhook event name:  <i>blynk_https_get</i></br> Full URL:  <i>https://ny3.blynk.cloud/external/api/batch/update</i></br>
-Update "ny3.blynk.cloud" with your server shown in the Blynk.Console lower right. Find the list of valid server addresses [here](https://docs.blynk.io/en/blynk.cloud/troubleshooting) </br>Request type: <i>GET</i></br>
-5. Open Advanced Settings and switch to Custom Query Parameters</br>
-6. Create the following Query Parameters</br>
+4. Fill as follows:  
+Webhook event name:  <i>blynk_https_get</i>  
+Full URL:  <i>https://ny3.blynk.cloud/external/api/batch/update</i>  
+_Update "ny3.blynk.cloud" with your server shown in the Blynk.Console lower right. Find the list of valid server addresses [here](https://docs.blynk.io/en/blynk.cloud/troubleshooting)_  
+Request type: <i>GET</i>  
+5. Open Advanced Settings and switch to Custom Query Parameters  
+6. Create the following Query Parameters  
+
 <ul>
 "token": "{{t}}", <br />
 "V3": "{{lon}},{{lat}}",<br />
