@@ -11,7 +11,7 @@ Additionally, we will implement automations to send notifications to your Blynk 
 * Barometer BMP280 3.3V
 
 
-# Prepare your Hardware 
+# 1. Prepare your Hardware 
 
 We need to connect both sensors to ESP32 Dev Module and then connect the board to the computer with a USB cable to upload the firmware. 
 
@@ -31,20 +31,18 @@ We need to connect both sensors to ESP32 Dev Module and then connect the board t
 
 ![Connecting BME](https://raw.githubusercontent.com/YuliiaRudevych/blueprints/main/Weather%20Station/Images/interfacing-bmp280-and-esp32-circuit-diagram.webp)
 
-3. Don’t forget to connect ESP32 to your computer with a USB cable.
+3. Don’t forget to connect ESP32 to your computer with a USB cable
 
-#  Prepare required software
+# 2. Prepare required software
 
-* Install Arduino IDE or PlatformIO
-* Install Blynk library for your IDE
-* Instull Ethernet Library for your IDE
-* Select the correct board and port in your IDE settings
-* Create a new sketch (Arduino IDE) or new project (PlatformIO)
+1. Install [Arduino IDE](https://www.arduino.cc/en/software) or [PlatformIO](https://platformio.org/install)
+2. Install [Blynk library](https://docs.blynk.io/en/blynk-library-firmware-api/installation) for your IDE
+3. Select the correct board and port in your IDE settings
+4. Create a new sketch if you are using Arduino IDE
 
 
-# Prepare the Firmware and upload it to your device
-
-We need to include TemplateID, AuthToken (unique identifier of your device), and WiFi credentials in the sketch. Follow the steps below.
+# 3. Prepare the Firmware and upload it to your device
+We need to include TemplateID, AuthToken (unique identifier of your device), and WiFi credentials in the sketch.
 
 1. Click on the Activate device action in the Template Home tab (this tab should open automatically once you've pressed the Use Blueprint button)
 2. Enter the Wi-Fi credentials your device will use
@@ -61,6 +59,12 @@ We need to include TemplateID, AuthToken (unique identifier of your device), and
 5. The device should open automatically - you are connected now!
 
 # Set up Notifications
+=======
+2. Follow the proposed steps to prepare and upload the code
+3. Once the code is successfully uploaded the device dashboard will open automatically
+4. Check the Troubleshooting section at the end of this tutorial if you have issues uploading the firmware
+
+# 4. Set up Notifications
 Let's configure notifications to keep you informed when the temperature or humidity falls outside the comfortable range. This way, you can take action to restore optimal levels as soon as possible.
 1. Go to  "Automations" tab 
 2. Click "+ Create automations" and choose "Device state"
@@ -71,26 +75,19 @@ For example, if the temperature is above 28 degrees or below 18, and the humidit
 
 # Next steps after the device is activated
 
-* Explore the Blynk Web Console and Blynk IoT app, try controlling your device from both
-* Explore Blynk Documentation and learn how to work with Virtual Pins
-* Improve the code for your needs
+* Explore the Blynk Web Console and [Blynk IoT app](https://docs.blynk.io/en/downloads/blynk-apps-for-ios-and-android), try controlling your device from both
+* Explore [Blynk Documentation](https://docs.blynk.io/en/) and learn how to work with [Virtual Pins](https://docs.blynk.io/en/getting-started/using-virtual-pins-to-control-physical-devices)
+* Learn more about [Automations](https://docs.blynk.io/en/concepts/automations)
+* Learn how to [Share Device](https://docs.blynk.io/en/concepts/users) with other users
+* Modify the code for your needs
 * Add more devices
 
 
 # Troubleshooting
 
-* Make sure you have the latest Blynk Library installed
+* Make sure you have the latest [Blynk Library](https://docs.blynk.io/en/blynk-library-firmware-api/installation) installed
 * Check that all the dependencies and configurations are correct
 * Check your sketch for errors. Click the Verify button to compile your sketch without uploading it
 * Check your board and port selections
 * Check your connections. Your board needs to be connected with a data USB cable (charge-only cables will not work). Make sure the cable is fully inserted in the port on each end. Try a different USB cable, and avoid hubs and other adapters if possible. Remove connections to the board pins, especially the 0 (RX) and 1 (TX) digital pins.
 * Check that your boards and libraries are up to date
-
-
-
-
-
-
-
-
-
