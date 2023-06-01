@@ -10,7 +10,7 @@ We will be using a Particle Boron with attached GPS FeatherWing, that reads the 
 - [Particle Boron](https://docs.particle.io/boron/)
 - [GPS FeatherWing](https://www.adafruit.com/product/3133)
 - USB cable
-- [External active 28 dB GPS antenna](https://www.adafruit.com/product/960) (optional, recommended for the best GPS performance)</br>
+- [External active 28 dB GPS antenna](https://www.adafruit.com/product/960) (optional, recommended for the best GPS performance)  
 - [a SMA to uFL/u.FL/IPX/IPEX RF adapter cable](https://www.adafruit.com/product/851) (optional, recommended for the best GPS performance) 
 
 ## 1. Prepare required Software 
@@ -28,20 +28,18 @@ Create a Particle Webhook to transfer the data from the Particle Cloud to Blynk.
 2. Go to Products > New Product to create a new Product, and then add your device
 3. Click on the Integrations > New Integration and select the Webhook option
 4. Fill as follows:  
-Webhook event name:  <i>blynk_https_get</i>  
-Full URL:  <i>https://ny3.blynk.cloud/external/api/batch/update</i>  
+   - Webhook event name:  _blynk_https_get_  
+   - Full URL:  _https://ny3.blynk.cloud/external/api/batch/update_  
 _Update "ny3.blynk.cloud" with your server shown in the Blynk.Console lower right. Find the list of valid server addresses [here](https://docs.blynk.io/en/blynk.cloud/troubleshooting)_  
-Request type: <i>GET</i>  
+   - Request type:  _GET_  
 5. Open Advanced Settings and switch to Custom Query Parameters  
-6. Create the following Query Parameters  
+6. Create the following Query Parameters:  
 
-<ul>
-"token": "{{t}}", <br />
-"V3": "{{lon}},{{lat}}",<br />
-"V4": "{{spd}}",<br />
-"V5": "{{moved}}",<br>
-"V6": "{{PARTICLE_PUBLISHED_AT}}"<br>
-</ul>
+   - "token": "{{t}}",  
+   - "V3": "{{lon}},{{lat}}",  
+   - "V4": "{{spd}}",  
+   - "V5": "{{moved}}",  
+   - "V6": "{{PARTICLE_PUBLISHED_AT}}"  
 
 _The keys on the left (token, V3... V6) refer to Blynk datastreams, and the values on the right reference variables from the firmware that will be passed from the Particle.publish() function. The value ‘PARTICLE_PUBLISHED_AT’ for virtual pin V6 is a Particle pre-defined variable that provides a timestamp for when the webhook is executed._
 ![alt text](https://github.com/blynkkk/blueprints/blob/0cc36e45a13f865ef768735d6e2e6b03abddcfb1/Asset%20Tracker/Images/integration-info.png)
@@ -68,27 +66,27 @@ _Recommendation: to minimize cellular data usage, the minimum publishing interva
 
 
 ## Blynk Web Dashboard Breakdown
-Widgets are used to display data from your device on the web and mobile dashboard. To define the data that will be displayed with every widget, a specific Datastream value should be assigned to the widget. </br>
+Widgets are used to display data from your device on the web and mobile dashboard. To define the data that will be displayed with every widget, a specific Datastream value should be assigned to the widget.  
 
-**GPS Position Coordinates** - Datastream V3</br>
-Map widget is used to display your asset on the map
-Label Display widget is used to show actual longitude and lattitude</br>
+**1. GPS Position Coordinates** - Datastream V3  
+Map widget is used to display your asset on the map  
+Label Display widget is used to show actual longitude and lattitude  
 
-**Device Speed (mph)** - Datastream V4</br>
-The Label Display widget is used to display this value.</br> 
-You also can use any of the following widgets to make it more visual: Value Display / Labeled Value / Gauge / Chart</br>
-The speed may also be added to a web dashboard map widget as an [overlay]()(add link to pic). See [example]()(add link to pic).</br>
+**2. Device Speed (mph)** - Datastream V4  
+The Label Display widget is used to display this value.  
+You also can use any of the following widgets to make it more visual: Value Display / Labeled Value / Gauge / Chart.  
+The speed may also be added to a web dashboard map widget as an [overlay]()(add link to pic). See [example]()(add link to pic).  
 
-**Position Change Indicator** - Datastream V5</br>
-The LED widget is used to indicate the position change event. You can also us Switch or value Value Display widget.</br>
+**3. Position Change Indicator** - Datastream V5  
+The LED widget is used to indicate the position change event. You can also us Switch or value Value Display widget.  
 
 V5 will be updated to a value of 1 by the hardware when it has changed by more than 122 m / 400 ft since it was powered on, or since the last time data was published. Position Delta is 122 m / 400 ft can be adjusted in the hardware, but not to smaller number.
-Hardware determines the change in position from the last published GPS coordinates. The datastream value is not updated to a value of 0 by the hardware, so this should be done with an [automation](https://docs.blynk.io/en/concepts/automations) if the feature is to be used.</br>
+Hardware determines the change in position from the last published GPS coordinates. The datastream value is not updated to a value of 0 by the hardware, so this should be done with an [automation](https://docs.blynk.io/en/concepts/automations) if the feature is to be used.  
 
-**Last Published Position Date and Time** - Datastream V6</br>
+**4. Last Published Position Date and Time** - Datastream V6  
 Label Display is widget used to display when the position was published last time.
 
-## 6. Set up Automations
+## 6. Set up Automations  
 Let's create an [automation](https://docs.blynk.io/en/concepts/automations) to notify the user when the device position has changed more than 122 m / 400 ft since it was powered on, or since the last time data was published (firmware variable TIMER_INTERVAL_MS). We will be configuring the automation from the Blynk Console.
 
 1. Go to Automations tab in the Blueprint
@@ -101,18 +99,23 @@ Let's create an [automation](https://docs.blynk.io/en/concepts/automations) to n
 8. Under the Do this section, choose the Send E-Mail option and enter which message you want to receive, once the position of your asset has changed
 
 Try to:
-<ul>
-  <li> Set up automation to update the value to 0 using the same method</li>
-  <li> Find this automation from your Blynk App in the Automations section and try to enable / disable the automation, or edit the automation options</li>
-</ul>
+* Set up automation to update the value to 0 using the same method</li>
+* Find this automation from your Blynk App in the Automations section and try to enable / disable the automation, or edit the automation options
+
 
 ## Next steps
-* Explore the Blynk [Web Console](blynk.cloud) and [Blynk IoT app](https://docs.blynk.io/en/downloads/blynk-apps-for-ios-and-android), try controlling your device from both
+* Explore the Blynk Web Console and [Blynk IoT app](https://docs.blynk.io/en/downloads/blynk-apps-for-ios-and-android), try controlling your device from both
 * Explore [Blynk Documentation](https://docs.blynk.io/en/) 
 * Learn how to work with [Virtual Pin Datastreams](https://docs.blynk.io/en/getting-started/using-virtual-pins-to-control-physical-devices) and [Automations](https://docs.blynk.io/en/concepts/automations)
 * Modify the code for your needs
 
 ## Troubleshooting
+* Check that all the dependencies and configurations are correct
+* Check your sketch for errors. Click the Verify button to compile your sketch without uploading it
+* Check your board and port selections
+* Check your connections. Your board needs to be connected with a data USB cable (charge-only cables will not work). Make sure the cable is fully inserted in the port on each end. Try a different USB cable, and avoid hubs and other adapters if possible
+* Check if you connected the hardware correctly
+* Check that your boards and libraries are up to date
 
 ## Related Links
 [How to connect a Particle device to Blynk](https://docs.blynk.io/en/hardware-guides/particle)<br/>
