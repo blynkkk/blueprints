@@ -19,8 +19,9 @@ We will be using a Particle Boron with attached GPS FeatherWing, that reads the 
 
 ## 2. Prepare your Hardware
 The Boron is physically stacked on top of the GPS FeatherWing, completing the electrical connection between them. The Boron and the GPS FeatherWing communicate over the Boron UART pins.
+![alt text](https://github.com/blynkkk/blueprints/blob/main/Asset%20Tracker/Images/connect-boron-featherwing.png)
 
-<img src="https://github.com/blynkkk/blueprints/blob/main/Asset%20Tracker/Images/connect-boron-featherwing.png" width=50% height=50%>
+
 
 ## 3. Create a Webhook on Particle Cloud
 Create a Particle Webhook to transfer the data from the Particle Cloud to Blynk.
