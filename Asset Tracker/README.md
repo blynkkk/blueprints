@@ -19,7 +19,7 @@ We will be using a Particle Boron with attached GPS FeatherWing, that reads the 
 
 ## 2. Prepare your Hardware
 The Boron is physically stacked on top of the GPS FeatherWing, completing the electrical connection between them. The Boron and the GPS FeatherWing communicate over the Boron UART pins.
-![connect-boron-featherwing](https://github.com/blynkkk/blueprints/assets/120122081/05b0c09d-d0e9-41af-afae-d8ebe13ebc61)
+![connect-boron-featherwing](https://github.com/blynkkk/blueprints/blob/main/Asset%20Tracker/Images/connect-boron-featherwing.png?raw=true)
 
 
 ## 3. Create a Webhook on Particle Cloud
@@ -42,6 +42,7 @@ Update "ny3.blynk.cloud" with your server shown in the Blynk.Console lower right
    - "V6": "{{PARTICLE_PUBLISHED_AT}}"  
 
 _The keys on the left (token, V3... V6) refer to Blynk datastreams, and the values on the right reference variables from the firmware that will be passed from the Particle.publish() function. The value ‘PARTICLE_PUBLISHED_AT’ for virtual pin V6 is a Particle pre-defined variable that provides a timestamp for when the webhook is executed._
+
 ![particle webhook](https://raw.githubusercontent.com/blynkkk/blueprints/main/Asset%20Tracker/Images/integration-info.png)
 
 ## 4. Prepare required software
