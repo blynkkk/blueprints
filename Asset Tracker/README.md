@@ -42,7 +42,7 @@ Update "ny3.blynk.cloud" with your server shown in the Blynk.Console lower right
    - "V6": "{{PARTICLE_PUBLISHED_AT}}"  
 
 _The keys on the left (token, V3... V6) refer to Blynk datastreams, and the values on the right reference variables from the firmware that will be passed from the Particle.publish() function. The value ‘PARTICLE_PUBLISHED_AT’ for virtual pin V6 is a Particle pre-defined variable that provides a timestamp for when the webhook is executed._
-![alt text](https://github.com/blynkkk/blueprints/blob/0cc36e45a13f865ef768735d6e2e6b03abddcfb1/Asset%20Tracker/Images/integration-info.png)
+![particle webhook](https://raw.githubusercontent.com/blynkkk/blueprints/main/Asset%20Tracker/Images/integration-info.png)
 
 ## 4. Prepare required software
 1. Install [Arduino IDE](https://www.arduino.cc/en/software)
@@ -108,13 +108,14 @@ Try to:
 * Explore [Blynk Documentation](https://docs.blynk.io/en/) 
 * Learn how to work with [Virtual Pin Datastreams](https://docs.blynk.io/en/getting-started/using-virtual-pins-to-control-physical-devices) and [Automations](https://docs.blynk.io/en/concepts/automations)
 * Modify the code for your needs
+* Configure Blynk to change the state of a digital output on a Particle device built-in LED using this [tutorial](https://docs.blynk.io/en/hardware-guides/particle-part-ii).
 
 ## Troubleshooting
 * Check that all the dependencies and configurations are correct
 * Check your sketch for errors. Click the Verify button to compile your sketch without uploading it
 * Check your board and port selections
 * Check your connections. Your board needs to be connected with a data USB cable (charge-only cables will not work). Make sure the cable is fully inserted in the port on each end. Try a different USB cable, and avoid hubs and other adapters if possible
-* Check if you connected the hardware correctly
+* Check if the boards connected correctly to each other
 * Check that your boards and libraries are up to date
 
 ## Related Links
