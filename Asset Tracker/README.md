@@ -39,25 +39,29 @@ Update "ny3.blynk.cloud" with your server shown in the Blynk.Console lower right
 "V6": "{{PARTICLE_PUBLISHED_AT}}"</br>
 </ul>
 
-Note: the keys on the left (token, V3... V6) refer to Blynk datastreams, and the values on the right reference variables from the firmware that will be passed from the Particle.publish() function. The value ‘PARTICLE_PUBLISHED_AT’ for virtual pin V6 is a Particle pre-defined variable that provides a timestamp for when the webhook is executed.
-<img width="861" alt="integration-info" src="https://github.com/blynkkk/blueprints/assets/120122081/23d7be7d-1fac-4eea-87b4-702328407852">
+_The keys on the left (token, V3... V6) refer to Blynk datastreams, and the values on the right reference variables from the firmware that will be passed from the Particle.publish() function. The value ‘PARTICLE_PUBLISHED_AT’ for virtual pin V6 is a Particle pre-defined variable that provides a timestamp for when the webhook is executed._
+<img width="861" alt="integration-info" src="https://github.com/blynkkk/blueprints/assets/120122081/c41185fa-8e85-40e4-91e9-50755998059a">
 
 
-## 4. Activate the Blueprint
-1. Copy this Blueprints to your Templates by pressing the Use Blueprint button
-2. Choose the Activate First Device option - this will generate and show an AuthToken
-4. Copy the AuthToken and keep it in a safe place - we will use it in the next section to update "BLYNK_AUTH_TOKEN" within the sketch [blynk_blueprint_asset_tracking.ino](https://github.com/blynkkk/blueprints/blob/main/Asset%20Tracker/Firmware/blynk_blueprint_asset_tracking.ino).
+## 4. Prepare required software
+1. Install [Arduino IDE](https://www.arduino.cc/en/software)
+2. Install the library "Adafruit_GPS"  
+3. Select the correct board and port in your IDE settings
+4. Create a new sketch
 
 ## 5. Prepare the Firmware and upload it to your device
 Cellular communication between the hardware and Blynk will utilize the [Blynk HTTPs API](https://docs.blynk.io/en/blynk.cloud/https-api-overview) to minimize cellular data usage. The Particle Boron cellular IoT device will publish a JSON string to the Particle Cloud, referencing a Particle webhook. The webhook reformats the data, and then sends it to the Blynk Cloud via an HTTP GET, updating the Blynk datastreams.  
 
-1. Open the sketch [blynk_blueprint_asset_tracking.ino](https://github.com/blynkkk/blueprints/blob/main/Asset%20Tracker/Firmware/blynk_blueprint_asset_tracking.ino) in [Workbench](https://www.particle.io/workbench/) or other IDE.
-2. Install the library "Adafruit_GPS"  
-3. In the sketch, find #define BLYNK_AUTH_TOKEN "your_32_char_token" and replace the value in quotes with your AuthToken, obtained in the Activate First Device section of the Blueprint 
-4. Save the modified sketch and then upload it to your Particle Boron
-5. Restart your Particle Boron and allow it to connect to the Particle Cloud
+We need to include TemplateID, AuthToken (unique identifier of your device), and WiFi credentials in the sketch.
 
-Recommendation: to minimize cellular data usage, the minimum publishing interval should be updated to a longer duration such as 300000 ms or 5 min instead of 60000 ms (in the sketch - const uint32_t TIMER_INTERVAL_MS = 60000). Do it after the sketch has been fully tested by changign the number. 
+1. Click on the Activate device action in the Template Home tab (this tab should open automatically once you've pressed the Use Blueprint button)
+2. Follow the proposed steps to prepare and upload the code
+3. Once the code is successfully uploaded the device dashboard will open automatically
+4. Restart your Particle Boron and allow it to connect to the Particle Cloud
+
+_Check the Troubleshooting section at the end of this tutorial if you have issues uploading the firmware_
+
+_Recommendation: to minimize cellular data usage, the minimum publishing interval should be updated to a longer duration such as 300000 ms or 5 min instead of 60000 ms (in the sketch - const uint32_t TIMER_INTERVAL_MS = 60000). Do it after the sketch has been fully tested by changign the number._ 
 
 
 ## Blynk Web Dashboard Breakdown
