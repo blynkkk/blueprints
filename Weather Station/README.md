@@ -36,10 +36,10 @@ We need to connect both sensors to ESP32 Dev Module and then connect the board t
 
 # 2. Prepare required software
 
-1. Install [Arduino IDE](https://www.arduino.cc/en/software) or [PlatformIO](https://platformio.org/install)
-2. Install [Blynk library](https://docs.blynk.io/en/blynk-library-firmware-api/installation) for your IDE
-3. Select the correct board and port in your IDE settings
-4. Create a new sketch if you are using Arduino IDE
+1. Create a new sketch if you are using Arduino IDE
+2. Install [Arduino IDE](https://www.arduino.cc/en/software) or [PlatformIO](https://platformio.org/install)
+3. Install [Blynk library](https://docs.blynk.io/en/blynk-library-firmware-api/installation) for your IDE
+4. Select the correct board and port in your IDE settings
 
 
 # 3. Prepare the Firmware and upload it to your device
