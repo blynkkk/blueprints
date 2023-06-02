@@ -1,10 +1,10 @@
-# Introduction
+## Introduction
 
 This blueprint will help you create a weather station for your home in no time! Using a single ESP32 board and two sensors, we will create a full-fledged weather station that monitors four key parameters: temperature, humidity, pressure, and altitude. 
 
 Additionally, we will implement automations to send notifications to your Blynk app when the temperature falls below or exceeds the comfortable range for your home. You will also get notified about excessively high or low humidity levels. This will help you maintain a comfortable microclimate within your home. Sounds great? Let’s get started!
 
-# Components Used in This Project
+## Components Used in This Project
 * Blynk web dashboard and [Blynk App](https://docs.blynk.io/en/downloads/blynk-apps-for-ios-and-android) for mobile dashboard
 * ESP32 Dev Module
 * DHT21/AM2301A humidity and temperature sensor
@@ -12,7 +12,7 @@ Additionally, we will implement automations to send notifications to your Blynk 
 * USB cable
 
 
-# 1. Prepare your Hardware 
+## 1. Prepare your Hardware 
 
 We need to connect both sensors to ESP32 Dev Module and then connect the board to the computer with a USB cable to upload the firmware. 
 
@@ -34,7 +34,7 @@ We need to connect both sensors to ESP32 Dev Module and then connect the board t
 
 3. Don’t forget to connect ESP32 to your computer with a USB cable
 
-# 2. Prepare required software
+## 2. Prepare required software
 
 1. Create a new sketch if you are using Arduino IDE
 2. Install [Arduino IDE](https://www.arduino.cc/en/software) or [PlatformIO](https://platformio.org/install)
@@ -42,7 +42,7 @@ We need to connect both sensors to ESP32 Dev Module and then connect the board t
 4. Select the correct board and port in your IDE settings
 
 
-# 3. Prepare the Firmware and upload it to your device
+## 3. Prepare the Firmware and upload it to your device
 We need to include TemplateID, AuthToken (unique identifier of your device), and WiFi credentials in the sketch.
 
 1. Click on the Activate device action in the Template Home tab (this tab should open automatically once you've pressed the Use Blueprint button)
@@ -59,13 +59,13 @@ We need to include TemplateID, AuthToken (unique identifier of your device), and
 *Press "PlatformIO: Upload"*
 5. The device should open automatically - you are connected now!
 
-# Set up Notifications
+## Set up Notifications
 =======
 2. Follow the proposed steps to prepare and upload the code
 3. Once the code is successfully uploaded the device dashboard will open automatically
 4. Check the Troubleshooting section at the end of this tutorial if you have issues uploading the firmware
 
-# 4. Set up Notifications
+## 4. Set up Notifications
 Let's configure notifications to keep you informed when the temperature or humidity falls outside the comfortable range. This way, you can take action to restore optimal levels as soon as possible.
 1. Go to  "Automations" tab 
 2. Click "+ Create automations" and choose "Device state"
@@ -74,7 +74,7 @@ For example, if the temperature is above 28 degrees or below 18, and the humidit
 4. In the block "When" choose your device and choose the parameter, that you want to track. You may set "The less than" and "The greater than" and indicate your desired temperature and humidity. 
 5. Select if you want to be notified via email or to receive an in-app message on your Blynk app and click "Save"
 
-# Next steps after the device is activated
+## Next steps after the device is activated
 
 * Explore the Blynk Web Console and [Blynk IoT app](https://docs.blynk.io/en/downloads/blynk-apps-for-ios-and-android), try controlling your device from both
 * Explore [Blynk Documentation](https://docs.blynk.io/en/) and learn how to work with [Virtual Pins](https://docs.blynk.io/en/getting-started/using-virtual-pins-to-control-physical-devices)
@@ -84,7 +84,7 @@ For example, if the temperature is above 28 degrees or below 18, and the humidit
 * Add more devices
 
 
-# Troubleshooting
+## Troubleshooting
 
 * Make sure you have the latest [Blynk Library](https://docs.blynk.io/en/blynk-library-firmware-api/installation) installed
 * Check that all the dependencies and configurations are correct
