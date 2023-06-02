@@ -6,7 +6,7 @@ The web and mobile dashboard and datastreams are pre-configured. You will be cre
 ## How it works
 We will be using a Particle Boron with attached GPS FeatherWing, that reads the device location. The location data is pushed from the Particle cellular device to Particle Cloud and from there to the Blynk IoT platform via a Particle Webhook and Blynk HTTPs API. The data is then visualized on both a Blynk web dashboard and mobile app. 
 
-# Components Used in This Project
+## Components Used in This Project
 - [Particle Console](https://console.particle.io/) to set up the Webhook and activate the Hardware
 - Blynk web dashboard and [Blynk App](https://docs.blynk.io/en/downloads/blynk-apps-for-ios-and-android) for mobile dashboard
 - [Particle Boron](https://docs.particle.io/boron/)
