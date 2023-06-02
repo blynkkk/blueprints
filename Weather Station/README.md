@@ -49,8 +49,9 @@ We need to include TemplateID, AuthToken (unique identifier of your device), and
 
 1. Click on the Activate device action in the Template Home tab (this tab should open automatically once you've pressed the Use Blueprint button)
 2. Follow the proposed steps to prepare and upload the code
-3. Once the code is successfully uploaded the device dashboard will open automatically
-4. Check the Troubleshooting section at the end of this tutorial if you have issues uploading the firmware
+3. Once the code is successfully uploaded the device dashboard will open automatically  
+
+_Check the Troubleshooting section at the end of this tutorial if you have issues uploading the firmware_
 
 
 ## 4. Set up Notifications
@@ -80,3 +81,6 @@ For example, if the temperature is above 28 degrees or below 18, and the humidit
 * Check your board and port selections
 * Check your connections. Your board needs to be connected with a data USB cable (charge-only cables will not work). Make sure the cable is fully inserted in the port on each end. Try a different USB cable, and avoid hubs and other adapters if possible. Remove connections to the board pins, especially the 0 (RX) and 1 (TX) digital pins.
 * Check that your boards and libraries are up to date
+
+## Conclusion
+Congratulations on creating your own weather station using ESP32 and Blynk! With just one ESP32 board and two sensors, you can now monitor temperature, humidity, pressure, and altitude. Plus, you'll receive notifications on your Blynk app for temperature and humidity thresholds. Enjoy your new weather station and its benefits for a comfortable home!
