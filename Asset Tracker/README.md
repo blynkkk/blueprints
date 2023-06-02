@@ -24,14 +24,14 @@ The Boron is physically stacked on top of the GPS FeatherWing, completing the el
 ## 2. Create a Webhook on Particle Cloud
 Create a Particle Webhook to transfer the data from the Particle Cloud to Blynk.
 1. Create account and log in into the [Particle Console](https://console.particle.io/)
-2. Go to Products > New Product to create a new Product, and then add your device
-3. Click on the Integrations > New Integration and select the Webhook option
+2. Go to **Products** > **New Product** to create a new Product, and then add your device
+3. After the device is added, click on the **Integrations** > **Add New Integration** and select the **Webhook** option
 4. Fill as follows:  
-   - **Webhook event name:**  blynk_https_get  
-   - **Full URL:**  https://ny3.blynk.cloud/external/api/batch/update  
+   - **Event name:**  blynk_https_get  
+   - **URL:**  https://ny3.blynk.cloud/external/api/batch/update  
 Update "ny3.blynk.cloud" with your server shown in the Blynk.Console lower right. Find the list of valid server addresses [here](https://docs.blynk.io/en/blynk.cloud/troubleshooting)  
    - **Request type:**  GET  
-5. Open Advanced Settings and switch to Custom Query Parameters
+5. Open **Advanced Settings** and switch to **Custom** Query Parameters
 6. Create the following Query Parameters:  
 
    - "token": "{{t}}",  
@@ -41,6 +41,7 @@ Update "ny3.blynk.cloud" with your server shown in the Blynk.Console lower right
    - "V6": "{{PARTICLE_PUBLISHED_AT}}"  
 
 _The keys on the left (token, V3... V6) refer to Blynk datastreams, and the values on the right reference variables from the firmware that will be passed from the Particle.publish() function. The value ‘PARTICLE_PUBLISHED_AT’ for virtual pin V6 is a Particle pre-defined variable that provides a timestamp for when the webhook is executed._
+7. 
 
 ![particle webhook](https://raw.githubusercontent.com/blynkkk/blueprints/main/Asset%20Tracker/Images/integration-info.png)
 
