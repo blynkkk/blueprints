@@ -22,8 +22,6 @@ char pass[] = "YourPassword";
 #define BLYNK_TEMPLATE_NAME "Device"
 #define BLYNK_AUTH_TOKEN "YourAuthToken"
 
-#define BLYNK_DOMAIN "fra.blynk-qa.com"
-#define BLYNK_PORT 80 //443
 
 
 // DHT
@@ -142,7 +140,7 @@ void setup() {
   setupDht();
   setupBMP();
   Serial.println("Blynk setup start");
-  Blynk.begin(BLYNK_AUTH_TOKEN, ssid, pass, BLYNK_DOMAIN, BLYNK_PORT);
+  Blynk.begin(BLYNK_AUTH_TOKEN, ssid, pass);
   Serial.println("Setup is finished");
 }
 //Loop block
