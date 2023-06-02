@@ -9,6 +9,7 @@ Additionally, we will implement automations to send notifications to your Blynk 
 * ESP32 Dev Module
 * DHT21/AM2301A humidity and temperature sensor
 * Barometer BMP280 3.3V
+* USB cable
 
 
 # 1. Prepare your Hardware 
