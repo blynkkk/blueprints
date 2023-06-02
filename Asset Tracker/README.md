@@ -23,7 +23,7 @@ The Boron is physically stacked on top of the GPS FeatherWing, completing the el
 
 ## 2. Create a Webhook on Particle Cloud
 Create a Particle Webhook to transfer the data from the Particle Cloud to Blynk.
-1. Create account and log in into the [Particle Console](https://console.particle.io/)
+1. Create account or log in into the [Particle Console](https://console.particle.io/)
 2. Go to **Products** > **New Product** to create a new Product, and then add your device
 3. After the device is added, click on the **Integrations** on the left > **Add New Integration** and select the **Webhook** option
 4. Switch to **Custom template** and fill it with the following lines:
@@ -54,7 +54,7 @@ _The keys on the left (token, V3... V6) refer to Blynk datastreams, and the valu
 6. Click on **Create Webhook**
 
 #### The Webhook should look like this:
-![particle webhook](https://raw.githubusercontent.com/blynkkk/blueprints/main/Asset%20Tracker/Images/integration-info.png)
+![particle webhook](https://raw.githubusercontent.com/blynkkk/blueprints/main/Asset%20Tracker/Images/integration-screenshot.png)
 
 ## 3. Prepare required software
 1. Install [Arduino IDE](https://www.arduino.cc/en/software)
