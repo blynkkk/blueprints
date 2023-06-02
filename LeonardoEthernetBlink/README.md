@@ -21,7 +21,7 @@ It should look like this:
 
 1. Install [Arduino IDE](https://www.arduino.cc/en/software) or [PlatformIO](https://platformio.org/install)
 2. Install [Blynk library](https://docs.blynk.io/en/blynk-library-firmware-api/installation) for your IDE
-3. Install Ethernet Library for your IDE
+3. Install **Ethernet library** for your IDE
 4. Select the correct board and port in your IDE settings
 5. Create a new sketch if you are using Arduino IDE
 
@@ -30,7 +30,7 @@ It should look like this:
 
 We need to include TemplateID, AuthToken (unique identifier of your device), and WiFi credentials in the sketch.
 
-1. Click on the Activate device action in the Template Home tab (this tab should open automatically once you've pressed the Use Blueprint button)
+1. Click on the **Activate device** action in the Template Home tab (this tab should open automatically once you've pressed the Use Blueprint button)
 2. Follow the proposed steps to prepare and upload the code
 3. Once the code is successfully uploaded the device dashboard will open automatically
 
