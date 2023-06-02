@@ -33,8 +33,6 @@ Now you need to include TemplateID, AuthToken (unique identifier of your device)
 
 _Check the **Troubleshooting** section at the end of this tutorial if you have issues uploading the firmware_
 
-## Congratulations!
-You have successfully connected ESP32 to Blynk and now can control a built-in LED. By following this tutorial, you have gained experience working with the ESP32, Arduino IDE, Blynk Console and Blynk App. You can now expand on this project to incorporate sensors or controllers.
 
 ## Next steps after the device is activated
 * Explore the Blynk Web Console and [Blynk IoT app](https://docs.blynk.io/en/downloads/blynk-apps-for-ios-and-android), try controlling your device from both
@@ -53,4 +51,6 @@ You have successfully connected ESP32 to Blynk and now can control a built-in LE
 * Check [Blynk Troubleshooting guide](https://docs.blynk.io/en/troubleshooting/general-issues) 
 
 
+## Conclusion
+Congratulations! You have successfully connected ESP32 to Blynk and now can control a built-in LED. By following this tutorial, you have gained experience working with the ESP32, Arduino IDE, Blynk Console and Blynk App. You can now expand on this project to incorporate sensors or controllers.
 
