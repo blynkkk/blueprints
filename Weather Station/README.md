@@ -5,7 +5,7 @@ This blueprint will help you create a weather station for your home in no time! 
 Additionally, we will implement automations to send notifications to your Blynk app when the temperature falls below or exceeds the comfortable range for your home. You will also get notified about excessively high or low humidity levels. This will help you maintain a comfortable microclimate within your home. Sounds great? Let’s get started!
 
 # Components Used in This Project
-* Blynk web dashboard and Blynk App for mobile dashboard
+* Blynk web dashboard and [Blynk App](https://docs.blynk.io/en/downloads/blynk-apps-for-ios-and-android) for mobile dashboard
 * ESP32 Dev Module
 * DHT21/AM2301A humidity and temperature sensor
 * Barometer BMP280 3.3V
