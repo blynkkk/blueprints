@@ -34,12 +34,13 @@ We need to connect both sensors to ESP32 Dev Module and then connect the board t
 
 3. Don’t forget to connect ESP32 to your computer with a USB cable
 
+
 ## 2. Prepare required software
 
-1. Create a new sketch if you are using Arduino IDE
-2. Install [Arduino IDE](https://www.arduino.cc/en/software) or [PlatformIO](https://platformio.org/install)
-3. Install [Blynk library](https://docs.blynk.io/en/blynk-library-firmware-api/installation) for your IDE
-4. Select the correct board and port in your IDE settings
+1. Install [Arduino IDE](https://www.arduino.cc/en/software) or [PlatformIO](https://platformio.org/install)
+2. Install [Blynk library](https://docs.blynk.io/en/blynk-library-firmware-api/installation) for your IDE
+3. Select the correct board and port in your IDE settings
+4. Create a new sketch if you are using Arduino IDE
 
 
 ## 3. Prepare the Firmware and upload it to your device
@@ -53,12 +54,12 @@ We need to include TemplateID, AuthToken (unique identifier of your device), and
 
 ## 4. Set up Notifications
 Let's configure notifications to keep you informed when the temperature or humidity falls outside the comfortable range. This way, you can take action to restore optimal levels as soon as possible.
-1. Go to  "Automations" tab 
-2. Click "+ Create automations" and choose "Device state"
+1. Go to the **Automations** tab 
+2. Click **+Create automation** and choose **Device state**
 3. Add a name and choose when you want to receive a notification 
 For example, if the temperature is above 28 degrees or below 18, and the humidity is above 60% or below 30%. 
-4. In the block "When" choose your device and choose the parameter, that you want to track. You may set "The less than" and "The greater than" and indicate your desired temperature and humidity. 
-5. Select if you want to be notified via email or to receive an in-app message on your Blynk app and click "Save"
+4. In the block **When** choose your device and choose the parameter, that you want to track. You may set "The less than" and "The greater than" and indicate your desired temperature and humidity. 
+5. Select if you want to be notified via email or to receive an in-app message on your Blynk app and click Save
 
 ## Next steps after the device is activated
 
