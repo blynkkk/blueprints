@@ -139,3 +139,8 @@ Try also to:
 ## Related Links
 [How to connect a Particle device to Blynk](https://docs.blynk.io/en/hardware-guides/particle)<br/>
 [How to control a Particle device with Blynk](https://docs.blynk.io/en/hardware-guides/particle-part-ii)<br/>
+
+## Conclusion
+Congratulations on completing the blueprint for a basic asset tracking solution! With this project, you have built a system that allows you to track the movement of your device on a map, both through web and mobile dashboards. You can now monitor its speed and receive notifications whenever the position of your asset changes.  
+
+Feel free to customize and expand upon this solution to suit your specific needs. You have the flexibility to receive different types of data from your moving asset, allowing you to adapt the system according to your requirements.
