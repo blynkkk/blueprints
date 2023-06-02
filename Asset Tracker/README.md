@@ -7,7 +7,7 @@ The web and mobile dashboard and datastreams are pre-configured. You will be cre
 We will be using a Particle Boron with attached GPS FeatherWing, that reads the device location. The location data is pushed from the Particle cellular device to Particle Cloud and from there to the Blynk IoT platform via a Particle Webhook and Blynk HTTPs API. The data is then visualized on both a Blynk web dashboard and mobile app. 
 
 # Components Used in This Project
-- [Particle Console](https://console.particle.io/) to set up the Webhook
+- [Particle Console](https://console.particle.io/) to set up the Webhook and activate the Hardware
 - Blynk web dashboard and [Blynk App](https://docs.blynk.io/en/downloads/blynk-apps-for-ios-and-android) for mobile dashboard
 - [Particle Boron](https://docs.particle.io/boron/)
 - [GPS FeatherWing](https://www.adafruit.com/product/3133)
@@ -48,7 +48,7 @@ Create a Particle Webhook to transfer the data from the Particle Cloud to Blynk.
 
 _The keys on the left (token, V3... V6) refer to Blynk datastreams, and the values on the right reference variables from the firmware that will be passed from the Particle.publish() function. The value ‘PARTICLE_PUBLISHED_AT’ for virtual pin V6 is a Particle pre-defined variable that provides a timestamp for when the webhook is executed._
 
-5. Update "ny3.blynk.cloud" with your server shown in the Blynk.Console lower right. Find the list of valid server addresses [here](https://docs.blynk.io/en/blynk.cloud/troubleshooting)
+5. Update **ny3.blynk.cloud** with your server shown in the Blynk.Console lower right. Find the list of valid server addresses [here](https://docs.blynk.io/en/blynk.cloud/troubleshooting)
 
 
 6. Click on **Create Webhook**
@@ -58,9 +58,10 @@ _The keys on the left (token, V3... V6) refer to Blynk datastreams, and the valu
 
 ## 3. Prepare required software
 1. Install [Arduino IDE](https://www.arduino.cc/en/software)
-2. Install the library "Adafruit_GPS"  
-3. Select the correct board and port in your IDE settings
-4. Create a new sketch
+2. Create a new sketch
+3. Install the latest [Blynk library](https://docs.blynk.io/en/blynk-library-firmware-api/installation/install-blynk-library-in-arduino-ide)
+4. Install the **Adafruit GPS** Library   
+5. Select the correct board and port in Tools menu
 
 ## 4. Prepare the Firmware and upload it to your device
 Cellular communication between the hardware and Blynk will utilize the [Blynk HTTPs API](https://docs.blynk.io/en/blynk.cloud/https-api-overview) to minimize cellular data usage. The Particle Boron cellular IoT device will publish a JSON string to the Particle Cloud, referencing a Particle webhook. The webhook reformats the data, and then sends it to the Blynk Cloud via an HTTP GET, updating the Blynk datastreams.  
@@ -69,8 +70,8 @@ We need to include TemplateID, AuthToken (unique identifier of your device) in t
 
 1. Click on the Activate device action in the Template Home tab (this tab should open automatically once you've pressed the Use Blueprint button)
 2. Follow the proposed steps to prepare and upload the code
-3. Once the code is successfully uploaded the device dashboard will open automatically
-4. Restart your Particle Boron and allow it to connect to the Particle Cloud
+3. Restart your Particle Boron and allow it to connect to the Particle Cloud
+4. Once the code is successfully uploaded the device dashboard will open automatically
 
 _Check the Troubleshooting section at the end of this tutorial if you have issues uploading the firmware_
 
