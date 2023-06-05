@@ -134,6 +134,7 @@ Try also to:
 * Check your connections. Your board needs to be connected with a data USB cable (charge-only cables will not work). Make sure the cable is fully inserted in the port on each end. Try a different USB cable, and avoid hubs and other adapters if possible
 * Check if the boards connected correctly to each other
 * Check that your boards and libraries are up to date
+* Go to [Particle Console](https://console.particle.io/) and check that device is **Online** and try to **Ping** it.
 
 ## Related Links
 [How to connect a Particle device to Blynk](https://docs.blynk.io/en/hardware-guides/particle)<br/>
