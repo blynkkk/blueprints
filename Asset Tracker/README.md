@@ -59,8 +59,7 @@ _The keys on the left (token, V3... V6) refer to Blynk datastreams, and the valu
 ## 3. Prepare required software
 1. Go to [Particle Web IDE](https://build.particle.io/) or install [Particle Workbench](https://www.particle.io/workbench/) or [Particle Comand Line](https://docs.particle.io/getting-started/developer-tools/cli/)
 2. Create a new sketch
-3. Install the latest [Blynk Library](https://github.com/vshymanskyy/blynk-library-particle)
-4. Install the **Adafruit_GPS** Library   
+3. Install the **Adafruit_GPS** Library   
 
 ## 4. Prepare the Firmware and upload it to your device
 Cellular communication between the hardware and Blynk will utilize the [Blynk HTTPs API](https://docs.blynk.io/en/blynk.cloud/https-api-overview) to minimize cellular data usage. The Particle Boron cellular IoT device will publish a JSON string to the Particle Cloud, referencing a Particle webhook. The webhook reformats the data, and then sends it to the Blynk Cloud via an HTTP GET, updating the Blynk datastreams.  
