@@ -18,7 +18,7 @@ Make sure the cable is fully inserted in the port on each end_
 ## 2. Prepare required software
 1. Install [Arduino IDE](https://www.arduino.cc/en/software)
 2. Install [Blynk library](https://docs.blynk.io/en/blynk-library-firmware-api/installation)
-3. Select the correct board and port in Tools menu
+3. Select the correct board and port in the **Tools** menu
 4. Install the [ESP32 board support](https://randomnerdtutorials.com/installing-the-esp32-board-in-arduino-ide-windows-instructions/)
 5. Create a new sketch  
 
