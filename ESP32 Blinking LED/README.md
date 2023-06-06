@@ -5,7 +5,8 @@ The ESP32 is a powerful microcontroller that supports Wi-Fi and Bluetooth connec
 
 ## Components Used in This Project
 In this project we used:
-* Blynk web dashboard and [Blynk App](https://docs.blynk.io/en/downloads/blynk-apps-for-ios-and-android) for mobile dashboard
+* Blynk Console and [Blynk App](https://docs.blynk.io/en/downloads/blynk-apps-for-ios-and-android) for web and mobile dashboards
+* Arduino IDE
 * ESP32 DEVKIT board
 * USB cable
 
