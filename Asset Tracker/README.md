@@ -36,7 +36,8 @@ Create a Particle Webhook to transfer the data from the Particle Cloud to Blynk.
     "requestType": "GET",
     "noDefaults": true,
     "rejectUnauthorized": true,
-    "query": {
+    "query": 
+    {
         "token": "{{t}}",
         "V3": "{{lon}},{{lat}}",
         "V4": "{{spd}}",
