@@ -8,7 +8,7 @@ We will be using a Particle Boron with attached GPS FeatherWing, that reads the 
 
 ## Components Used in This Project
 - [Particle Console](https://console.particle.io/) to set up the Webhook and activate the Hardware
-- Blynk web dashboard and [Blynk App](https://docs.blynk.io/en/downloads/blynk-apps-for-ios-and-android) for mobile dashboard
+- Blynk Console and [Blynk App](https://docs.blynk.io/en/downloads/blynk-apps-for-ios-and-android) for web and mobile dashboards
 - [Particle Boron](https://docs.particle.io/boron/)
 - [GPS FeatherWing](https://www.adafruit.com/product/3133)
 - USB cable
