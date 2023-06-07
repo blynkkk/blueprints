@@ -81,27 +81,31 @@ _Recommendation: to minimize cellular data usage, the minimum publishing interva
 
 
 ## Blynk Web Dashboard Breakdown
-Widgets are used to display data from your device on the web and mobile dashboard. To define the data that will be displayed with every widget, a specific Datastream should be assigned to the widget.  
+Widgets are used to display data from your device on the web and mobile dashboard. To define the data that will be displayed with every widget, a specific Datastream should be assigned to the widget. Below you can find datastreams used in this project and the list of widgets that are suitable for each datastream.  
 
-**1. GPS Position Coordinates** - Datastream V3  
-Map widget is used to display your asset on the map  
-Label Display widget is used to show actual longitude and lattitude  
+**1. Datastream V3 - GPS Position Coordinates**    
+Datastream name: position  
+Web widgets: Map (visualise position), Label Display (coordinates)  
+Mobile widgets: Map (visualize position), Label Display (coordinates)
 
-**2. Device Speed (mph)** - Datastream V4  
-The Gauge widget is used to display this value.  
-You also can use any of the following widgets to make it more visual: Value Display / Labeled Value / Gauge / Chart.  
-The speed is also added to a web dashboard map widget as an overlay.
+**2. Datastream V4 - Device Speed (mph)**   
+Datastream name: speed   
+Web widgets: Value Display / Labeled Value / Gauge / Chart  
+Mobile widgets: Value Display / Labeled Value / Gauge / Chart  
+Note: the speed is also added to a web dashboard map widget as an overlay.
 
-**3. Position Change Indicator** - Datastream V5  
-The LED widget is used to indicate the position change event.
-
-V5 will be updated to a value of 1 by the hardware when it has changed by more than 122 m / 400 ft since it was powered on, or since the last time data was published. Position Delta is 122 m / 400 ft can be adjusted in the hardware, but not to smaller number.
-Hardware determines the change in position from the last published GPS coordinates. The datastream value is not updated to a value of 0 by the hardware, so this should be done with an [automation](https://docs.blynk.io/en/concepts/automations) if the feature is to be used.  
+**3. Datastream V5 - Position Change Indicator**    
+Datastream name: position_changed  
+Web widgets: LED / Switch / Value Display  
+Mobile widgets: LED / Switch / Value Display  
+Note: V5 will be updated to a value of 1 by the hardware when it has changed by more than 122 m / 400 ft since it was powered on, or since the last time data was published. Position Delta is 122 m / 400 ft can be adjusted in the hardware, but not to smaller number.
+Hardware determines the change in position from the last published GPS coordinates. The datastream value is not updated to a value of 0 by the hardware, so this should be done with an [automation](https://docs.blynk.io/en/concepts/automations) if the feature is to be used. 
 
 **4. Last Published Position Date and Time** - Datastream V6  
 Label Display is widget used to display when the position was published last time.
 
-**5. Battery Charge** - Datastream V10 named 'batt_charge'  
+**5. Battery Charge** - Datastream V10  
+Name: 'batt_charge'  
 It is "no battery" when no battery is connected, otherwise 0.0 to 100.0 where a larger value is better.
 
 **6. Cell Connection Strenght** - Datastream V11 named 'cell_strength'  
