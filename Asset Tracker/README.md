@@ -43,11 +43,14 @@ Create a Particle Webhook to transfer the data from the Particle Cloud to Blynk.
         "V4": "{{spd}}",
         "V5": "{{moved}}",
         "V6": "{{PARTICLE_PUBLISHED_AT}}"
+        "V10": "{{v10}}", 
+        "V11": "{{v11}}", 
+        "V12": "{{v12}}"
      }
 } 
 ```
 
-_The keys on the left (token, V3... V6) refer to Blynk datastreams, and the values on the right reference variables from the firmware that will be passed from the Particle.publish() function. The value ‘PARTICLE_PUBLISHED_AT’ for virtual pin V6 is a Particle pre-defined variable that provides a timestamp for when the webhook is executed._
+_The keys on the left (token, V3... V12) refer to Blynk datastreams, and the values on the right reference variables from the firmware that will be passed from the Particle.publish() function. The value ‘PARTICLE_PUBLISHED_AT’ for virtual pin V6 is a Particle pre-defined variable that provides a timestamp for when the webhook is executed._
 
 5. Update **ny3.blynk.cloud** with your server shown in the Blynk.Console lower right. Find the list of valid server addresses [here](https://docs.blynk.io/en/blynk.cloud/troubleshooting)
 
@@ -97,6 +100,15 @@ Hardware determines the change in position from the last published GPS coordinat
 
 **4. Last Published Position Date and Time** - Datastream V6  
 Label Display is widget used to display when the position was published last time.
+
+**5. Battery Charge** - Datastream V10 named 'batt_charge'  
+It is "no battery" when no battery is connected, otherwise 0.0 to 100.0 where a larger value is better.
+
+**6. Cell Connection Strenght** - Datastream V11 named 'cell_strength'  
+It is -1 when the value is unknown, otherwise it is 0.0 to 100.0 where a larger value is better.
+
+**7. Cellular Connection Quality** - Datastream V12 named 'cell_quality'  
+It is -1 when the value is unknown, otherwise 0.0 to 100.0 where a larger value is better.
 
 ## 5. Set up Automations  
 Let's create an [automation](https://docs.blynk.io/en/concepts/automations) to notify the user when the device position has changed more than 122 m / 400 ft since it was powered on, or since the last time data was published (firmware variable TIMER_INTERVAL_MS).
