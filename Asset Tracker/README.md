@@ -121,7 +121,7 @@ Note: It is -1 when the value is unknown, otherwise it is 0.0 to 100.0 where a l
 **7. Datastream V12 - Cellular Connection Quality**   
 Name: cell_quality  
 Web widgets: Label Display / Value Display  
-Mobile widgets: Label Display / Value Display
+Mobile widgets: Label Display / Value Display  
 Note: It is -1 when the value is unknown, otherwise 0.0 to 100.0 where a larger value is better.
 
 ## 5. Set up Automations  
