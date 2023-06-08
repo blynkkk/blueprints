@@ -77,7 +77,7 @@ For example, if the temperature is above 28 degrees or below 18, and the humidit
 ## 6. Dashboard Breakdown
 Widgets are used to display and visualize data, and interact with your device from the web dashboard and mobile app. In order to connect data to a widget, a specific [datastream](https://docs.blynk.io/en/getting-started/using-virtual-pins-to-control-physical-devices) should be assigned to a widget. You can create datastreams in the widget settings or in the Datastream tab of a Template. Below you can find datastreams and widgets used in this project. 
 
-**1. Datastream V0 - Temperature** 
+**1. Datastream V0 - Temperature**  
 Name: temperature   
 Web widgets: Gauge (current value), Chart (historical data) 
 Mobile widgets: Enhanced Gauge (current value), Chart (historical data)
