@@ -9,6 +9,7 @@ We will be using a Particle Boron with attached GPS FeatherWing, that reads the 
 ## Components Used in This Project
 - [Particle Console](https://console.particle.io/) to set up the Webhook and activate the Hardware
 - Blynk Console and [Blynk App](https://docs.blynk.io/en/downloads/blynk-apps-for-ios-and-android) for web and mobile dashboards
+- [Particle Web IDE](https://build.particle.io/) or [Particle Workbench](https://www.particle.io/workbench/) to upload firmware
 - [Particle Boron](https://docs.particle.io/boron/)
 - [GPS FeatherWing](https://www.adafruit.com/product/3133)
 - USB cable
@@ -84,9 +85,9 @@ _Recommendation: to minimize cellular data usage, the minimum publishing interva
 Widgets are used to display data from your device on the web and mobile dashboard. To define the data that will be displayed with every widget, a specific Datastream should be assigned to the widget. Below you can find datastreams used in this project and the list of widgets that are suitable for each datastream. 
 
 **1. Datastream V3 - GPS Position Coordinates**    
-**Name:** position  
-**Web widgets:** Map (visualise position), Label Display (coordinates)  
-**Mobile widgets:** Map (visualize position), Label Display (coordinates)
+Name: position  
+Web widgets: Map (visualise position), Label Display (coordinates)  
+Mobile widgets: Map (visualize position), Label Display (coordinates)
 
 **2. Datastream V4 - Device Speed (mph)**   
 **Name:** speed   
