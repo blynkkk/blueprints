@@ -43,7 +43,7 @@ Create a Particle Webhook to transfer the data from the Particle Cloud to Blynk.
         "V3": "{{lon}},{{lat}}",
         "V4": "{{spd}}",
         "V5": "{{moved}}",
-        "V6": "{{PARTICLE_PUBLISHED_AT}}"
+        "V6": "{{PARTICLE_PUBLISHED_AT}}",
         "V10": "{{v10}}", 
         "V11": "{{v11}}", 
         "V12": "{{v12}}"
@@ -90,16 +90,16 @@ Web widgets: Map (visualise position), Label Display (coordinates)
 Mobile widgets: Map (visualize position), Label Display (coordinates)
 
 **2. Datastream V4 - Device Speed (mph)**   
-**Name:** speed   
-**Web widgets:** Value Display / Labeled Value / Gauge / Chart  
-**Mobile widgets:** Value Display / Labeled Value / Gauge / Chart  
-**Note:** The speed is also added to a web dashboard map widget as an overlay.
+Name: speed   
+Web widgets: Value Display / Labeled Value / Gauge / Chart  
+Mobile widgets: Value Display / Labeled Value / Gauge / Chart  
+Note: The speed is also added to a web dashboard map widget as an overlay.
 
 **3. Datastream V5 - Position Change Indicator**    
-**Name:** position_changed  
-**Web widgets:** LED / Switch / Value Display  
-**Mobile widgets:** LED / Switch / Value Display  
-**Note:** V5 will be updated to a value of 1 by the hardware when it has changed by more than 122 m / 400 ft since it was powered on, or since the last time data was published. Position Delta is 122 m / 400 ft can be adjusted in the hardware, but not to smaller number.
+Name: position_changed  
+Web widgets: LED / Switch / Value Display  
+Mobile widgets: LED / Switch / Value Display  
+Note: V5 will be updated to a value of 1 by the hardware when it has changed by more than 122 m / 400 ft since it was powered on, or since the last time data was published. Position Delta is 122 m / 400 ft can be adjusted in the hardware, but not to smaller number.
 Hardware determines the change in position from the last published GPS coordinates. The datastream value is not updated to a value of 0 by the hardware, so this should be done with an [automation](https://docs.blynk.io/en/concepts/automations) if the feature is to be used. 
 
 **4. Datastream V6 - Last Published Position Date and Time**  
