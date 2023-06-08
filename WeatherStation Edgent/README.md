@@ -2,7 +2,7 @@
 
 This blueprint will help you create a weather station for your home in no time! Using a single ESP32 board and two sensors, we will create a full-fledged weather station that monitors four key parameters: temperature, humidity, pressure, and altitude.
 
-The blueprint includes Blynk.Edgent solution, which means you will be able to activate the device via your Blynk app just by entering your WiFi credentials (**WiFi provisioning in action**) and update firmware over-the-air after the device has been connected!
+The blueprint includes Blynk.Edgent solution, which means you will be able to activate the device via your Blynk app just by entering your WiFi credentials (**WiFi provisioning in action**) and perform OTA firmware updates once device has been connected!
 
 Additionally, we will implement automations to send notifications to your Blynk app when the temperature falls below or exceeds the comfortable range for your home. You will also get notified about excessively high or low humidity levels. This will help you maintain a comfortable microclimate within your home. Sounds great? Let’s get started!
 
