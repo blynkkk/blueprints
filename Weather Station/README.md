@@ -71,7 +71,7 @@ For example, if the temperature is above 28 degrees or below 18, and the humidit
 
 **If it doesn't work as described**
 1. Reboot the device and check if data appeared on the dashboard
-2. Check if both sensors connected to the board as it shown in the **Prepare Your Hardware** section
+2. Check if both sensors are connected to the board as shown in the **Prepare Your Hardware** section
 3. Delete your device and try connecting it again considering the recommendations from the **Troubleshooting** section at the end of this tutorial 
 
 ## 6. Dashboard Breakdown
