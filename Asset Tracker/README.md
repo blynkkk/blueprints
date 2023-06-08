@@ -3,7 +3,7 @@ This blueprint is a basic asset tracking solution. You will be able to see your 
 
 The web and mobile dashboard and datastreams are pre-configured. You will be creating an integration with a Particle Cloud using detailed step-by-step guide.
 
-## How it works
+## How it Works
 We will be using a Particle Boron with attached GPS FeatherWing, that reads the device location. The location data is pushed from the Particle cellular device to Particle Cloud and from there to the Blynk IoT platform via a Particle Webhook and Blynk HTTPs API. The data is then visualized on both a Blynk web dashboard and mobile app. 
 
 ## Components Used in This Project
@@ -61,7 +61,7 @@ _The keys on the left (token, V3... V12) refer to Blynk datastreams, and the val
 #### The Webhook should look like this:
 ![particle webhook](https://raw.githubusercontent.com/blynkkk/blueprints/main/Asset%20Tracker/Images/integration-screenshot.png)
 
-## 3. Prepare required software
+## 3. Prepare Required Software
 1. Go to [Particle Web IDE](https://build.particle.io/) or install [Particle Workbench](https://www.particle.io/workbench/) or [Particle Comand Line](https://docs.particle.io/getting-started/developer-tools/cli/)
 2. Create a new sketch
 3. Install the **Adafruit_GPS** Library   
@@ -82,7 +82,7 @@ _Recommendation: to minimize cellular data usage, the minimum publishing interva
 
 
 ## Blynk Template Breakdown
-Widgets are used to display data from your device on the web and mobile dashboard. To define the data that will be displayed with every widget, a specific [datastream](https://docs.blynk.io/en/getting-started/using-virtual-pins-to-control-physical-devices) should be assigned to the widget. You can create datastreams in the widget settings or in the Datastream tab of a Template. Below you can find datastreams used in this project and the list of widgets that are suitable for each datastream. 
+Widgets are used to display and visualize data, and interact with your device from the web and mobile dashboard. To define the data that will be displayed with every widget, a specific [datastream](https://docs.blynk.io/en/getting-started/using-virtual-pins-to-control-physical-devices) should be assigned to the widget. You can create datastreams in the widget settings or in the Datastream tab of a Template. Below you can find datastreams used in this project and the list of widgets that are suitable for each datastream. 
 
 **1. Datastream V3 - GPS Position Coordinates**    
 Name: position  
