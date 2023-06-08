@@ -28,9 +28,65 @@ const char* firmware_version = "0.0.0";
 boolean just_started = true;
 
 /////////////////////////////////////////////////////////////////////////
+
+uint8_t just_booted = 1;
+
+const uint16_t TIMER_INTERVAL_CELL_BAT_MS = 10000;
+uint32_t timer_last_cell_batt_check_ms = 0;
+
+const uint16_t PARTICLE_CONNECTED_WAIT = 10000;
+uint32_t particle_connected_wait_ms = 0;
+
+float cell_sig_strength = -1.0; // -1 if unknown; 0.0 to 100.0 (larger = better)
+float cell_sig_quality = -1.0; // -1 if unknown; 0.0 to 100.0 (larger = better)
+float batt_charge = -1.0; // -1 if unknown; 0.0 to 100.0 (larger = better)
+
+void CellBattUpdate() {
+  // Wait until 10 seconds after Particle.connected() to get the cellular connection statistics
+  // Thereafter, only update the cellular connection & battery charge global variables every
+  // PARTICLE_CONNECTED_WAIT ms. 
+
+  if (timer_last_cell_batt_check_ms > millis())  timer_last_cell_batt_check_ms = millis();
+  if ((millis() - timer_last_cell_batt_check_ms) > TIMER_INTERVAL_CELL_BAT_MS) {
+  
+    if (Particle.connected()) {
+      // Connected to the Particle cloud; typically 10001 ms
+      // Below executes only once.
+      if (just_booted == 1) {
+        particle_connected_wait_ms = millis();
+        just_booted = 0;
+      }
+    }
+
+    if (particle_connected_wait_ms > millis())  particle_connected_wait_ms = millis();
+    if (Particle.connected() && (millis() - particle_connected_wait_ms > PARTICLE_CONNECTED_WAIT)) {
+      // 10 seconds have elapsed since Particle.connected()
+      // Get the cellular connection status
+      cell_sig_strength = Cellular.RSSI().getStrength();
+      cell_sig_quality = Cellular.RSSI().getQuality();
+      Serial.printlnf("\nCellular signal strength: %.02f%%", cell_sig_strength);
+      Serial.printlnf("Cellular signal quality: %.02f%%", cell_sig_quality);
+      particle_connected_wait_ms = millis();
+    } // particle_connected_wait_ms
+
+    //fuel.getSoC() reports 0% with no battery connected
+    // System.batteryCharge(); is preferred over .getSoc() because .getSoc() uses the
+    // value in device diagnostics, normalizing the value.
+    // System.batteryCharge() reports -1.00% when no battery is connected.
+    batt_charge = System.batteryCharge();
+    Serial.printlnf("System.batteryCharge(): %.02f%%\n", batt_charge);
+
+    timer_last_cell_batt_check_ms = millis();
+  } // timer_last_cell_batt_check_ms
+
+
+} // CellBattUpdate()
+
+
+/////////////////////////////////////////////////////////////////////////
 // Blynk
 
-#define BLYNK_AUTH_TOKEN "your_32_char_token"
+#define BLYNK_AUTH_TOKEN "1eA_c-M3KDeJOq9sVusy-HQlnKFjEmGt"
 
 ////////////////////////////////////////////////////////////////
 // Adafruit GPS FeatherWing
@@ -49,7 +105,7 @@ Adafruit_GPS GPS(&GPSSerial);
 /////////////////////////////////////////////////////////////////////////
 // Particle publish to webhook / Blynk only when something happens.
 
-const uint32_t TIMER_INTERVAL_MS = 60000;   // Used to limit the frequency of publishing.  Use 5 min or 300000 ms
+const uint32_t TIMER_INTERVAL_MS = 300000;   // Used to limit the frequency of publishing.  Use 5 min or 300000 ms
 uint32_t last_publish_ms = 0;
 float lat = 0.0;
 float lon = 0.0;
@@ -107,9 +163,21 @@ void publishTimer() {
     } // GPS.Fix
 
     if (publish_to_blynk == true) {
-      char data[120]; // See serial output for the actual size in bytes and adjust accordingly.
+      String batt_chg = "no battery";
+      if (batt_charge >= 0.0) {
+         batt_chg = String(batt_charge,1);
+      }
+      String cell_str = "N/A";
+      if (cell_sig_strength >= 0.0) {
+         cell_str = String(cell_sig_strength,1);
+      }
+      String cell_qual = "N/A";
+      if (cell_sig_quality >= 0.0) {
+         cell_qual = String(cell_sig_quality,1);
+      }
+      char data[130]; // See serial output for the actual size in bytes and adjust accordingly.
       // Note the escaped double quotes around the value for BLYNK_AUTH_TOKEN.  
-      snprintf(data, sizeof(data), "{\"t\":\"%s\",\"lat\":%f,\"lon\":%f,\"spd\":%f,\"moved\":%u}", BLYNK_AUTH_TOKEN, lat, lon, mph, loc);
+      snprintf(data, sizeof(data), "{\"t\":\"%s\",\"lat\":%f,\"lon\":%f,\"spd\":%f,\"moved\":%u,\"v10\":%s,\"v11\":%s,\"v12\":%s}", BLYNK_AUTH_TOKEN, lat, lon, mph, loc, batt_chg, cell_str, cell_qual);
       Serial.printlnf("Sending to Blynk: '%s' with size of %u bytes", data, strlen(data));
       bool pub_result = Particle.publish("blynk_https_get", data, PRIVATE);
       if (pub_result) {
@@ -160,6 +228,10 @@ void setup() {
 
 
 void loop() {
+
+  if (PLATFORM_ID == PLATFORM_BORON) {
+    CellBattUpdate();
+  }
 
   // Below absolutely required here.
   if (GPSSerial.available()) {
