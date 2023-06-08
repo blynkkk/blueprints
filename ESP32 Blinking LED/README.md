@@ -39,7 +39,7 @@ _Check the **Troubleshooting** section at the end of this tutorial if you have i
 3. The LED on a dashboard should indicate the state of the LED on your device
 4. If it doesn't work as described, try rebooting the device 
 
-_If you still have issues, try connecting the device again following tips from the **Troubleshooting** section at the end of this tutorial_ 
+_If you still have issues, try connecting the device again following recommendations from the **Troubleshooting** section at the end of this tutorial_ 
 
 ## 5. Dashboard Breakdown 
 Widgets are used to display and visualize data, and interact with your device from the web dashboard and mobile app. In order to connect data to a widget, a specific [datastream](https://docs.blynk.io/en/getting-started/using-virtual-pins-to-control-physical-devices) should be assigned to a widget. You can create datastreams in the widget settings or in the Datastream tab of a Template. Below you can find datastream and widgets used in this project. 
