@@ -39,7 +39,7 @@ _Check the **Troubleshooting** section at the end of this tutorial if you have i
 3. The LED on a dashboard should indicate the state of the LED on your device  
 
 **If it doesn't work as described**
-1. Reboot the device and check if data appeared on the dashboard
+1. Reboot the device and see if it helps
 2. Delete your device and try connecting it again considering the recommendations from the **Troubleshooting** section at the end of this tutorial 
 
 ## 5. Dashboard Breakdown 
