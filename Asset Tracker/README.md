@@ -86,12 +86,12 @@ Widgets are used to display data from your device on the web and mobile dashboar
 
 **1. Datastream V3 - GPS Position Coordinates**    
 Name: position  
-Web widgets: Map (visualise position), Label Display (coordinates)  
-Mobile widgets: Map (visualize position), Label Display (coordinates)
+Web widgets: Map (visualise position), Label (coordinates)  
+Mobile widgets: Map (visualize position), Labeled Value (coordinates)
 
 **2. Datastream V4 - Device Speed (mph)**   
 Name: speed   
-Web widgets: Value Display / Labeled Value / Gauge / Chart  
+Web widgets: Label / Gauge / Chart  
 Mobile widgets: Value Display / Labeled Value / Gauge / Chart  
 Note: The speed is also added to a web dashboard map widget as an overlay.
 
@@ -104,24 +104,24 @@ Hardware determines the change in position from the last published GPS coordinat
 
 **4. Datastream V6 - Last Published Position Date and Time**  
 Name: last_publish  
-Web widgets: Label Display / Value Display  
+Web widgets: Label  
 Mobile widgets: Label Display / Value Display   
 
 **5. Datastream V10 - Battery Charge**   
 Name: batt_charge  
-Web widgets: Label Display / Value Display  
+Web widgets: Label  
 Mobile widgets: Label Display / Value Display   
 Note: The valie is "no battery" when no battery is connected, otherwise 0.0 to 100.0 where a larger value is better.
 
 **6. Datastream V11 - Cell Connection Strenght**  
 Name: cell_strength  
-Web widgets: Label Display / Value Display  
+Web widgets: Label  
 Mobile widgets: Label Display / Value Display   
 Note: It is -1 when the value is unknown, otherwise it is 0.0 to 100.0 where a larger value is better.
 
 **7. Datastream V12 - Cellular Connection Quality**   
 Name: cell_quality  
-Web widgets: Label Display / Value Display  
+Web widgets: Label 
 Mobile widgets: Label Display / Value Display  
 Note: It is -1 when the value is unknown, otherwise 0.0 to 100.0 where a larger value is better.
 
