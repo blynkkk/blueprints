@@ -15,7 +15,7 @@ Additionally, we will implement automations to send notifications to your Blynk 
 * USB cable
 
 
-## 1. Prepare your Hardware 
+## 1. Prepare Your Hardware 
 
 We need to connect both sensors to ESP32 Dev Module and then connect the board to the computer with a USB cable to upload the firmware. 
 
@@ -66,7 +66,7 @@ We need to include TemplateID, AuthToken (unique identifier of your device), and
 8. Select network your device will use and click **Continue**
 9. Now your device connected! Click **Finish** to open your device. You also will see your device in the Blynk Console
 
-## 4. Set up Notifications
+## 4. Set Up Notifications
 Let's configure notifications to keep you informed when the temperature or humidity falls outside the comfortable range. This way, you can take action to restore optimal levels as soon as possible.
 1. Go to the **Automations** tab 
 2. Click **+Create automation** and choose **Device state**
@@ -79,6 +79,11 @@ For example, if the temperature is above 28 degrees or below 18, and the humidit
 1. Open your device **Dashboard** on web and on mobile
 2. You should be able to see the data displayed on the Gauges
 3. In a few minutes the historical data should be displayed on the Charts
+
+**If it doesn't work as described**
+1. Reboot the device and check if data appeared on the dashboard
+2. Check if both sensors are connected to the board as shown in the **Prepare Your Hardware** section
+3. Delete your device and try connecting it again considering the recommendations from the **Troubleshooting** section at the end of this tutorial 
 
 ## 6. Dashboard Breakdown
 Widgets are used to display and visualize data, and interact with your device from the web dashboard and mobile app. In order to connect data to a widget, a specific [datastream](https://docs.blynk.io/en/getting-started/using-virtual-pins-to-control-physical-devices) should be assigned to a widget. You can create datastreams in the widget settings or in the Datastream tab of a Template. Below you can find datastreams and widgets used in this project. 
