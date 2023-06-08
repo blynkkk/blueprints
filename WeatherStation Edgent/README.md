@@ -6,14 +6,16 @@ The blueprint includes Blynk.Edgent solution, which means you will be able to ac
 
 Additionally, we will implement automations to send notifications to your Blynk app when the temperature falls below or exceeds the comfortable range for your home. You will also get notified about excessively high or low humidity levels. This will help you maintain a comfortable microclimate within your home. Sounds great? Let’s get started!
 
-# Components Used in This Project
-* Blynk web dashboard and Blynk App for mobile dashboard
+## Components Used in This Project
+* Blynk Console and [Blynk App](https://docs.blynk.io/en/downloads/blynk-apps-for-ios-and-android) for web and mobile dashboards
+* Arduino IDE or PlatformIO to upload firmware
 * ESP32 Dev Module
 * DHT21/AM2301A humidity and temperature sensor
 * Barometer BMP280 3.3V
+* USB cable
 
 
-# Prepare your Hardware 
+## 1. Prepare your Hardware 
 
 We need to connect both sensors to ESP32 Dev Module and then connect the board to the computer with a USB cable to upload the firmware. 
 
@@ -35,18 +37,20 @@ We need to connect both sensors to ESP32 Dev Module and then connect the board t
 
 3. Don’t forget to connect ESP32 to your computer with a USB cable.
 
-#  Prepare required software
+## 2. Prepare Required Software
 
-* Install Arduino IDE or PlatformIO
-* Install Blynk library for your IDE
-* Select the correct board and port in your IDE settings
+1. Install [Arduino IDE](https://www.arduino.cc/en/software) or [PlatformIO](https://platformio.org/install)
+2. Install [Blynk library](https://docs.blynk.io/en/blynk-library-firmware-api/installation) for your IDE
+3. Install **Adafruit BMP280 Library** and **DHT sensor Library** if you are using Arduino IDE (in Platformio they will be installed automatically)
+4. Select the correct board and port in your IDE settings
+5. Create a new sketch if you are using Arduino IDE
 
-# Prepare the Firmware and upload it to your device
+# 3. Prepare the Firmware and Upload It to Your Device
 
 We need to include TemplateID, AuthToken (unique identifier of your device), and WiFi credentials in the sketch. Follow the steps below.
 
 1. Click on the Activate device action in the Template Home tab (this tab should open automatically once you've pressed the Use Blueprint button)
-2. Download zip arhive 
+2. Download zip archive 
 3. Flash your device
 * For Arduino IDE:
  *Open project*->
@@ -56,19 +60,48 @@ We need to include TemplateID, AuthToken (unique identifier of your device), and
 *Open project*->
 *Press "PlatformIO: Upload"*
 5. Open Blynk app
-6. Click "+ New device" and choose "Find devices nearby"
-7. Click "Start"
+6. Click **+ New device** and select **Find devices nearby**
+7. Click **Start**
 8. Connect to "Blynk ... " network
-9. Choose network your device will use and click "Continue"
-10. Now your device connected! Click "Finish" to open your device. You also will see your device in the Blynk Console.
-# Set up Notifications
+9. Select network your device will use and click **Continue**
+10. Now your device connected! Click **Finish** to open your device. You also will see your device in the Blynk Console
+
+## 4. Set up Notifications
 Let's configure notifications to keep you informed when the temperature or humidity falls outside the comfortable range. This way, you can take action to restore optimal levels as soon as possible.
-1. Go to  "Automations" tab 
-2. Click "+ Create automations" and choose "Device state"
+1. Go to the **Automations** tab 
+2. Click **+Create automation** and choose **Device state**
 3. Add a name and choose when you want to receive a notification 
 For example, if the temperature is above 28 degrees or below 18, and the humidity is above 60% or below 30%. 
-4. In the block "When" choose your device and choose the parameter, that you want to track. You may set "The less than" and "The greater than" and indicate your desired temperature and humidity. 
-5. Select if you want to be notified via email or to receive an in-app message on your Blynk app and click "Save"
+4. In the block **When** choose your device and choose the parameter, that you want to track. You may set "The less than" and "The greater than" and indicate your desired temperature and humidity. 
+5. Select if you want to be notified via email or to receive an in-app message on your Blynk app and click Save
+
+## 5. Testing
+1. Open your device **Dashboard** on web and on mobile
+2. You should be able to see the data displayed on the Gauges
+3. In a few minutes the historical data should be displayed on the Charts
+
+## 6. Dashboard Breakdown
+Widgets are used to display and visualize data, and interact with your device from the web dashboard and mobile app. In order to connect data to a widget, a specific [datastream](https://docs.blynk.io/en/getting-started/using-virtual-pins-to-control-physical-devices) should be assigned to a widget. You can create datastreams in the widget settings or in the Datastream tab of a Template. Below you can find datastreams and widgets used in this project. 
+
+**1. Datastream V0 - Temperature**  
+Name: temperature   
+Web widgets: Gauge (current value), Chart (historical data)  
+Mobile widgets: Enhanced Gauge (current value), Chart (historical data)
+
+**2. Datastream V1 - Humidity**  
+Name: humidity   
+Web widgets: Gauge (current value), Chart (historical data)  
+Mobile widgets: Level (current value), Chart (historical data)  
+
+**3. Datastream V3 - Altitude**  
+Name: altitude   
+Web widgets: Gauge (current value), Chart (historical data)  
+Mobile widgets: Level (current value), Chart (historical data)  
+
+**4. Datastream V4 - Pressure**  
+Name: pressure   
+Web widgets: Gauge (current value), Chart (historical data)  
+Mobile widgets: Level (current value), Chart (historical data) 
 
 # Next steps after the device is activated
 
