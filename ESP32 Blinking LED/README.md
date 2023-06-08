@@ -30,9 +30,10 @@ Now you need to include TemplateID, AuthToken (unique identifier of your device)
 3. Once the code is successfully uploaded the device dashboard will open automatically
 
 
+_Check the **Troubleshooting** section at the end of this tutorial if you have issues uploading the firmware_  
 
-_Check the **Troubleshooting** section at the end of this tutorial if you have issues uploading the firmware_
-
+## 4. Testing
+1. Turn the LED on and off using button on web and mobile dashboard 
 
 ## Next steps after the device is activated
 * Explore the Blynk Web Console and [Blynk IoT app](https://docs.blynk.io/en/downloads/blynk-apps-for-ios-and-android), try controlling your device from both
