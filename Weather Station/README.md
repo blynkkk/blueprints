@@ -79,22 +79,22 @@ Widgets are used to display and visualize data, and interact with your device fr
 
 **1. Datastream V0 - Temperature**  
 Name: temperature   
-Web widgets: Gauge (current value), Chart (historical data) 
+Web widgets: Gauge (current value), Chart (historical data)  
 Mobile widgets: Enhanced Gauge (current value), Chart (historical data)
 
 **2. Datastream V1 - Humidity**  
 Name: humidity   
-Web widgets: Gauge (current value), Chart (historical data) 
+Web widgets: Gauge (current value), Chart (historical data)  
 Mobile widgets: Level (current value), Chart (historical data)  
 
 **3. Datastream V3 - Altitude**  
 Name: altitude   
-Web widgets: Gauge (current value), Chart (historical data) 
+Web widgets: Gauge (current value), Chart (historical data)  
 Mobile widgets: Level (current value), Chart (historical data)  
 
 **4. Datastream V4 - Pressure**  
 Name: pressure   
-Web widgets: Gauge (current value), Chart (historical data) 
+Web widgets: Gauge (current value), Chart (historical data)  
 Mobile widgets: Level (current value), Chart (historical data)  
 
 ## Conclusion
