@@ -13,7 +13,7 @@ Additionally, we will implement automations to send notifications to your Blynk 
 * USB cable
 
 
-## 1. Prepare your Hardware 
+## 1. Prepare Your Hardware 
 
 We need to connect both sensors to ESP32 Dev Module and then connect the board to the computer with a USB cable to upload the firmware. 
 
@@ -36,7 +36,7 @@ We need to connect both sensors to ESP32 Dev Module and then connect the board t
 3. Don’t forget to connect ESP32 to your computer with a USB cable
 
 
-## 2. Prepare required software
+## 2. Prepare Required Software
 
 1. Install [Arduino IDE](https://www.arduino.cc/en/software) or [PlatformIO](https://platformio.org/install)
 2. Install [Blynk library](https://docs.blynk.io/en/blynk-library-firmware-api/installation) for your IDE
@@ -45,7 +45,7 @@ We need to connect both sensors to ESP32 Dev Module and then connect the board t
 5. Create a new sketch if you are using Arduino IDE
 
 
-## 3. Prepare the Firmware and upload it to your device
+## 3. Prepare the Firmware and Upload it To Your Device
 We need to include TemplateID, AuthToken (unique identifier of your device), and WiFi credentials in the sketch.
 
 1. Click on the Activate device action in the Template Home tab (this tab should open automatically once you've pressed the Use Blueprint button)
@@ -64,7 +64,45 @@ For example, if the temperature is above 28 degrees or below 18, and the humidit
 4. In the block **When** choose your device and choose the parameter, that you want to track. You may set "The less than" and "The greater than" and indicate your desired temperature and humidity. 
 5. Select if you want to be notified via email or to receive an in-app message on your Blynk app and click Save
 
-## Next steps after the device is activated
+## 5. Testing
+1. Open your device **Dashboard** on web and on mobile
+2. You should be able to see the data displayed on the Gauges
+3. In a few minutes the historical data should be displayed on the Charts
+
+**If it doesn't work as described**
+1. Reboot the device and check if data appeared on the dashboard
+2. Check if both sensors connected to the board as it shown in the **Prepare Your Hardware** section
+3. Delete your device and try connecting it again considering the recommendations from the **Troubleshooting** section at the end of this tutorial 
+
+## 6. Dashboard Breakdown
+Widgets are used to display and visualize data, and interact with your device from the web dashboard and mobile app. In order to connect data to a widget, a specific [datastream](https://docs.blynk.io/en/getting-started/using-virtual-pins-to-control-physical-devices) should be assigned to a widget. You can create datastreams in the widget settings or in the Datastream tab of a Template. Below you can find datastreams and widgets used in this project. 
+
+**1. Datastream V0 - Temperature** 
+Name: temperature   
+Web widgets: Gauge (current value), Chart (historical data) 
+Mobile widgets: Enhanced Gauge (current value), Chart (historical data)
+
+**2. Datastream V1 - Humidity**  
+Name: humidity   
+Web widgets: Gauge (current value), Chart (historical data) 
+Mobile widgets: Level (current value), Chart (historical data)  
+
+**3. Datastream V3 - Altitude**  
+Name: altitude   
+Web widgets: Gauge (current value), Chart (historical data) 
+Mobile widgets: Level (current value), Chart (historical data)  
+
+**4. Datastream V4 - Pressure**  
+Name: pressure   
+Web widgets: Gauge (current value), Chart (historical data) 
+Mobile widgets: Level (current value), Chart (historical data)  
+
+## Conclusion
+Congratulations on creating your own weather station using ESP32 and Blynk! You can now monitor temperature, humidity, pressure, and altitude. Plus, you'll receive notifications on your Blynk app for temperature and humidity thresholds. Enjoy your new weather station and its benefits for a comfortable home!
+
+Check out the following section to explore functionality of the platform and try modifying your project.
+
+## Next Steps
 
 * Explore the Blynk Web Console and [Blynk IoT app](https://docs.blynk.io/en/downloads/blynk-apps-for-ios-and-android), try controlling your device from both
 * Explore [Blynk Documentation](https://docs.blynk.io/en/) and learn how to work with [Virtual Pins](https://docs.blynk.io/en/getting-started/using-virtual-pins-to-control-physical-devices)
@@ -82,6 +120,3 @@ For example, if the temperature is above 28 degrees or below 18, and the humidit
 * Check your board and port selections
 * Check your connections. Your board needs to be connected with a data USB cable (charge-only cables will not work). Make sure the cable is fully inserted in the port on each end. Try a different USB cable, and avoid hubs and other adapters if possible. Remove connections to the board pins, especially the 0 (RX) and 1 (TX) digital pins.
 * Check that your boards and libraries are up to date
-
-## Conclusion
-Congratulations on creating your own weather station using ESP32 and Blynk! With just one ESP32 board and two sensors, you can now monitor temperature, humidity, pressure, and altitude. Plus, you'll receive notifications on your Blynk app for temperature and humidity thresholds. Enjoy your new weather station and its benefits for a comfortable home!
