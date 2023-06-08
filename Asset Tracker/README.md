@@ -3,7 +3,7 @@ This blueprint is a basic asset tracking solution. You will be able to see your 
 
 The web and mobile dashboard and datastreams are pre-configured. You will be creating an integration with a Particle Cloud using a detailed step-by-step guide.
 
-## How it Works
+## How It Works
 We will be using a Particle Boron with attached GPS FeatherWing, that reads the device location. The location data is pushed from the Particle cellular device to Particle Cloud and from there to the Blynk IoT platform via a Particle Webhook and Blynk HTTPs API. The data is then visualized on both a Blynk web dashboard and mobile app. 
 
 **Functional Requirements**   
@@ -163,7 +163,7 @@ Try also to:
 ## Conclusion
 Congratulations on creating a basic asset tracking solution! With this project, you have built a system that allows you to track the movement of your device on a map, both through web and mobile dashboards. You can now monitor its speed and receive notifications whenever the position of your asset changes.  
 
-Try customizing and expanding upon this solution to suit your specific needs. You have the flexibility to receive different types of data from your moving asset, allowing you to adapt the system according to your project requirements.
+Try customizing and expanding upon this solution to suit your specific needs. You have the flexibility to receive different types of data from your moving asset, allowing you to adapt the project according to your requirements.
 
 ## Next steps
 * Explore the Blynk Web Console and [Blynk IoT app](https://docs.blynk.io/en/downloads/blynk-apps-for-ios-and-android), try controlling your device from both
@@ -180,7 +180,7 @@ Try customizing and expanding upon this solution to suit your specific needs. Yo
 * Check your connections. Your board needs to be connected with a data USB cable (charge-only cables will not work). Make sure the cable is fully inserted in the port on each end. Try a different USB cable, and avoid hubs and other adapters if possible
 * Check if the boards connected correctly to each other
 * Check that your boards and libraries are up to date
-* Go to [Particle Console](https://console.particle.io/) and check that device is **Online** and try to **Ping** it.
+* Go to [Particle Console](https://console.particle.io/) and check that device is **Online** and try to **Ping** it
 
 ## Related Links
 Use these detailed tutorials to create a project from scratch that will allow sending data from Particle device to Blynk and controlling a device from Blynk app and web dashboard.
