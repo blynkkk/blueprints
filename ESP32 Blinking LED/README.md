@@ -9,21 +9,21 @@ The ESP32 is a powerful microcontroller that supports Wi-Fi and Bluetooth connec
 * ESP32 DEVKIT board
 * USB cable
 
-## 1. Prepare your Hardware before flashing
+## 1. Prepare Your Hardware Before Flashing
 Connect your device to computers` USB port  
 
 
 _Your board has to be connected with a data USB cable (charge-only cables will not work)  
 Make sure the cable is fully inserted in the port on each end_
 
-## 2. Prepare required software
+## 2. Prepare Required Software
 1. Install [Arduino IDE](https://www.arduino.cc/en/software)
 2. Install [Blynk library](https://docs.blynk.io/en/blynk-library-firmware-api/installation)
 3. Select the correct board and port in the **Tools** menu
 4. Install the [ESP32 board support](https://randomnerdtutorials.com/installing-the-esp32-board-in-arduino-ide-windows-instructions/)
 5. Create a new sketch  
 
-## 3. Prepare the Firmware and upload it to your device
+## 3. Prepare the Firmware and Upload It to Your Device
 Now you need to include TemplateID, AuthToken (unique identifier of your device) and WiFi credentials to the sketch
 
 1. Click on the **Activate device** action in Template Home tab (this tab should open automatically once you've pressed the Use Blueprint button)
@@ -41,8 +41,8 @@ _Check the **Troubleshooting** section at the end of this tutorial if you have i
 
 _If you still have issues, try connecting the device again following tips from the **Troubleshooting** section at the end of this tutorial_ 
 
-## 5. Dashboard breakdown 
-Widgets are used to display and visualize data, and interact with your device from the web dashboard and mobile app. To connect data to a widget, a specific [datastream](https://docs.blynk.io/en/getting-started/using-virtual-pins-to-control-physical-devices) should be assigned to a widget. You can create datastreams in the widget settings or in the Datastream tab of a Template. Below you can find datastream and widgets used in this project. 
+## 5. Dashboard Breakdown 
+Widgets are used to display and visualize data, and interact with your device from the web dashboard and mobile app. In order to connect data to a widget, a specific [datastream](https://docs.blynk.io/en/getting-started/using-virtual-pins-to-control-physical-devices) should be assigned to a widget. You can create datastreams in the widget settings or in the Datastream tab of a Template. Below you can find datastream and widgets used in this project. 
 
 **Datastream V0 - an LED state**  
 Name: LED  
@@ -51,7 +51,7 @@ Web and mobile widgets: Switch (to control an LED), LED (to show an LED on/off s
 ## Conclusion
 Congratulations! You have successfully connected ESP32 to Blynk and now can control a built-in LED from web dashboard and app. By following this tutorial, you have gained experience working with the ESP32, Arduino IDE, Blynk Console and Blynk App. You can now expand on this project to incorporate sensors or controllers.
 
-## Next steps after device is activated
+## Next Steps
 * Explore the Blynk Web Console and [Blynk IoT app](https://docs.blynk.io/en/downloads/blynk-apps-for-ios-and-android), try controlling your device from both
 * Explore [Blynk Documentation](https://docs.blynk.io/en/) and learn how to work with [Virtual Pins](https://docs.blynk.io/en/getting-started/using-virtual-pins-to-control-physical-devices)
 * Learn more about [Automations](https://docs.blynk.io/en/concepts/automations)
