@@ -36,10 +36,11 @@ _Check the **Troubleshooting** section at the end of this tutorial if you have i
 ## 4. Testing
 1. Open your device **Dashboard** on web and on mobile
 2. You should be able to turn an LED on and off using Switch on web and mobile dashboards
-3. The LED on a dashboard should indicate the state of the LED on your device
-4. If it doesn't work as described, try rebooting the device 
+3. The LED on a dashboard should indicate the state of the LED on your device  
 
-_If you still have issues, try connecting the device again following recommendations from the **Troubleshooting** section at the end of this tutorial_ 
+**If it doesn't work as described**
+1. Reboot the device and check if data appeared on the dashboard
+2. Delete your device and try connecting it again considering the recommendations from the **Troubleshooting** section at the end of this tutorial 
 
 ## 5. Dashboard Breakdown 
 Widgets are used to display and visualize data, and interact with your device from the web dashboard and mobile app. In order to connect data to a widget, a specific [datastream](https://docs.blynk.io/en/getting-started/using-virtual-pins-to-control-physical-devices) should be assigned to a widget. You can create datastreams in the widget settings or in the Datastream tab of a Template. Below you can find datastream and widgets used in this project. 
