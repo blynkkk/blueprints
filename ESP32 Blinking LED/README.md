@@ -10,9 +10,10 @@ The ESP32 is a powerful microcontroller that supports Wi-Fi and Bluetooth connec
 * USB cable
 
 ## 1. Prepare your Hardware before flashing
-Connect your device to computers` USB port
+Connect your device to computers` USB port  
 
-_Your board needs to be connected with a data USB cable (charge-only cables will not work).  
+
+_Your board has to be connected with a data USB cable (charge-only cables will not work).  
 Make sure the cable is fully inserted in the port on each end_
 
 ## 2. Prepare required software
@@ -33,15 +34,31 @@ Now you need to include TemplateID, AuthToken (unique identifier of your device)
 _Check the **Troubleshooting** section at the end of this tutorial if you have issues uploading the firmware_  
 
 ## 4. Testing
-1. Turn the LED on and off using button on web and mobile dashboard 
+1. Open your device **Dashboard** on web and on mobile
+2. You should be able to turn an LED on and off using Switch on web and mobile dashboards
+3. The LED on a dashboard should indicate the state of the LED on your device
+4. If it doesn't work as described, try rebooting the device 
 
-## Next steps after the device is activated
+_If you stil have issues, try connecting the device again following tips from the **Troubleshooting** section at the end of this tutorial_ 
+
+## 5. Dashboard breakdown 
+Widgets are used to display and visualize data, and interact with your device from the web and mobile dashboard. To connect the data to the widget, a specific [datastream](https://docs.blynk.io/en/getting-started/using-virtual-pins-to-control-physical-devices) should be assigned to the widget. You can create datastreams in the widget settings or in the Datastream tab of a Template. Below you can find datastream and widgets used in this project. 
+
+**Datastream V0 - an LED state**
+Name: LED  
+Web and mobile widgets: Switch (to control an LED), LED (to show an LED on/off state)  
+
+## Conclusion
+Congratulations! You have successfully connected ESP32 to Blynk and now can control a built-in LED. By following this tutorial, you have gained experience working with the ESP32, Arduino IDE, Blynk Console and Blynk App. You can now expand on this project to incorporate sensors or controllers.
+
+## Next steps after device is activated
 * Explore the Blynk Web Console and [Blynk IoT app](https://docs.blynk.io/en/downloads/blynk-apps-for-ios-and-android), try controlling your device from both
 * Explore [Blynk Documentation](https://docs.blynk.io/en/) and learn how to work with [Virtual Pins](https://docs.blynk.io/en/getting-started/using-virtual-pins-to-control-physical-devices)
 * Learn more about [Automations](https://docs.blynk.io/en/concepts/automations)
 * Learn how to [Share Device](https://docs.blynk.io/en/concepts/users) with other users
 * Modify the code for your needs
-* Add more devices
+* Connect more devices
+
 ## Troubleshooting
 * Make sure you have the latest [Blynk Library](https://docs.blynk.io/en/blynk-library-firmware-api/installation) installed
 * Check that all the dependencies and configurations are correct
@@ -50,8 +67,3 @@ _Check the **Troubleshooting** section at the end of this tutorial if you have i
 * Check your connections. Your board needs to be connected with a data USB cable (charge-only cables will not work). Make sure the cable is fully inserted in the port on each end. Try a different USB cable, and avoid hubs and other adapters if possible. Remove connections to the board pins, especially the 0 (RX) and 1 (TX) digital pins.
 * Check that your boards and libraries are up to date
 * Check [Blynk Troubleshooting guide](https://docs.blynk.io/en/troubleshooting/general-issues) 
-
-
-## Conclusion
-Congratulations! You have successfully connected ESP32 to Blynk and now can control a built-in LED. By following this tutorial, you have gained experience working with the ESP32, Arduino IDE, Blynk Console and Blynk App. You can now expand on this project to incorporate sensors or controllers.
-
