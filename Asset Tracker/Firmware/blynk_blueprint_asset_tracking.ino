@@ -6,19 +6,8 @@
    Publish to Blynk via the Particle webhook if the device position has changed 
    by more than 122 m or 400 ft. 
 
-   Built-in blue LED on D7:
-    TBD
-
    The GPS red LED blinks at about 1Hz while it's searching for satellites,
    and blinks once every 15 seconds when a fix is found.
-
-  Hardware:
-    Particle Boron 404x
-    Adafruit GPS FeatherWing
-
-  Software:
-    Adafruit GPS FeatherWing library
-    Custom code for sending data to Particle Webhook for Blynk.
 
 */
 
