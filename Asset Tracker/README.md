@@ -82,7 +82,7 @@ _Recommendation: to minimize cellular data usage, the minimum publishing interva
 
 
 ## Blynk Template Breakdown
-Widgets are used to display data from your device on the web and mobile dashboard. To define the data that will be displayed with every widget, a specific [datastream](https://docs.blynk.io/en/getting-started/using-virtual-pins-to-control-physical-devices#virtual-pin-datastream) should be assigned to the widget. You can create datastreams in the widget settings or in the Datastream tab of a Template. Below you can find datastreams used in this project and the list of widgets that are suitable for each datastream. 
+Widgets are used to display data from your device on the web and mobile dashboard. To define the data that will be displayed with every widget, a specific [datastream](https://docs.blynk.io/en/getting-started/using-virtual-pins-to-control-physical-devices) should be assigned to the widget. You can create datastreams in the widget settings or in the Datastream tab of a Template. Below you can find datastreams used in this project and the list of widgets that are suitable for each datastream. 
 
 **1. Datastream V3 - GPS Position Coordinates**    
 Name: position  
