@@ -13,7 +13,7 @@ The ESP32 is a powerful microcontroller that supports Wi-Fi and Bluetooth connec
 Connect your device to computers` USB port  
 
 
-_Your board has to be connected with a data USB cable (charge-only cables will not work).  
+_Your board has to be connected with a data USB cable (charge-only cables will not work)  
 Make sure the cable is fully inserted in the port on each end_
 
 ## 2. Prepare required software
@@ -24,7 +24,7 @@ Make sure the cable is fully inserted in the port on each end_
 5. Create a new sketch  
 
 ## 3. Prepare the Firmware and upload it to your device
-Now you need to include TemplateID, AuthToken (unique identifier of your device) and WiFi credentials to the sketch.
+Now you need to include TemplateID, AuthToken (unique identifier of your device) and WiFi credentials to the sketch
 
 1. Click on the **Activate device** action in Template Home tab (this tab should open automatically once you've pressed the Use Blueprint button)
 2. Follow the proposed steps to prepare and upload the code
@@ -49,7 +49,7 @@ Name: LED
 Web and mobile widgets: Switch (to control an LED), LED (to show an LED on/off state)  
 
 ## Conclusion
-Congratulations! You have successfully connected ESP32 to Blynk and now can control a built-in LED. By following this tutorial, you have gained experience working with the ESP32, Arduino IDE, Blynk Console and Blynk App. You can now expand on this project to incorporate sensors or controllers.
+Congratulations! You have successfully connected ESP32 to Blynk and now can control a built-in LED from web dashboard and app. By following this tutorial, you have gained experience working with the ESP32, Arduino IDE, Blynk Console and Blynk App. You can now expand on this project to incorporate sensors or controllers.
 
 ## Next steps after device is activated
 * Explore the Blynk Web Console and [Blynk IoT app](https://docs.blynk.io/en/downloads/blynk-apps-for-ios-and-android), try controlling your device from both
