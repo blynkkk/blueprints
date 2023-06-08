@@ -6,6 +6,14 @@ The web and mobile dashboard and datastreams are pre-configured. You will be cre
 ## How it Works
 We will be using a Particle Boron with attached GPS FeatherWing, that reads the device location. The location data is pushed from the Particle cellular device to Particle Cloud and from there to the Blynk IoT platform via a Particle Webhook and Blynk HTTPs API. The data is then visualized on both a Blynk web dashboard and mobile app. 
 
+**Functional Requirements**   
+* Only publish location information when the GPS has a fix and the location has moved more than 122 m / 400 ft since it was powered on
+* If the position has changed 122 m / 400 ft, set a flag for that event, make it visible to the user, and allow the user to reset it 
+* Track the device location and speed on a map in a web dashboard and mobile app
+* Publish the device position after the hardware boots and a GPS fix is obtained
+* Publish the date/time in UTC when the device last published data  
+* Publish the cellular signal strength, signal quality, and the battery charge status
+
 ## Components Used in This Project
 - [Particle Console](https://console.particle.io/) to set up the Webhook and activate the Hardware
 - Blynk Console and [Blynk App](https://docs.blynk.io/en/downloads/blynk-apps-for-ios-and-android) for web and mobile dashboards
