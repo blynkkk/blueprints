@@ -133,7 +133,7 @@ Web widgets: Label
 Mobile widgets: Label Display / Value Display  
 Note: It is -1 when the value is unknown, otherwise 0.0 to 100.0 where a larger value is better.
 
-## 5. Set up Automations  
+## 6. Set up Automations  
 Let's create an [automation](https://docs.blynk.io/en/concepts/automations) to notify the user when the device position has changed more than 122 m / 400 ft since it was powered on, or since the last time data was published (firmware variable TIMER_INTERVAL_MS).
 
 ### First, let's enable the v5 Datastream for Automations:
@@ -143,7 +143,7 @@ Let's create an [automation](https://docs.blynk.io/en/concepts/automations) to n
 3. Enable both the **Condition** and **Action** switches for the V5 Datastream and click **Save and Apply**.
 
 
-### 6. How to create the Automation?
+### How to create the Automation?
 
 1. Go to the **Automations** tab in the Blynk Console or Blynk App and Click **Create Automation**
 2. In the Choose Condition dialogue choose the **Device State** option because we want to trigger the automation based on a change in the state of V5
