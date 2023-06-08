@@ -81,7 +81,7 @@ _Check the **Troubleshooting** section at the end of this tutorial if you have i
 _Recommendation: to minimize cellular data usage, the minimum publishing interval should be updated to a longer duration such as 300000 ms or 5 min instead of 60000 ms (in the sketch - const uint32_t TIMER_INTERVAL_MS = 60000). Do it after the sketch has been fully tested by changign the number._ 
 
 
-## Blynk Dashboard Breakdown
+## Blynk Template Breakdown
 Widgets are used to display data from your device on the web and mobile dashboard. To define the data that will be displayed with every widget, a specific Datastream should be assigned to the widget. Below you can find datastreams used in this project and the list of widgets that are suitable for each datastream. 
 
 **1. Datastream V3 - GPS Position Coordinates**    
