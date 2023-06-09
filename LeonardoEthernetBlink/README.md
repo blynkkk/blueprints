@@ -57,7 +57,7 @@ Web and mobile widgets: Switch (to control an LED), LED (to show an LED on/off s
 ## Conclusion
 Congratulations! You have successfully connected Arduino board to Blynk and now can control a built-in LED from the web dashboard and app. By following this tutorial, you have gained experience working with the Arduino hardware, Arduino IDE, Blynk Console and Blynk App. You can now expand on this project to incorporate sensors or controllers.
 
-# Next Steps
+## Next Steps
 
 * Explore the Blynk Web Console and [Blynk IoT app](https://docs.blynk.io/en/downloads/blynk-apps-for-ios-and-android), try controlling your device from both
 * Explore [Blynk Documentation](https://docs.blynk.io/en/) and learn how to work with [Virtual Pins](https://docs.blynk.io/en/getting-started/using-virtual-pins-to-control-physical-devices)
