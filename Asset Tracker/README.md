@@ -119,7 +119,7 @@ Mobile widgets: Label Display / Value Display
 Name: batt_charge  
 Web widgets: Label  
 Mobile widgets: Label Display / Value Display   
-Note: The valie is "no battery" when no battery is connected, otherwise 0.0 to 100.0 where a larger value is better.
+Note: The value is "no battery" when no battery is connected, otherwise 0.0 to 100.0 where a larger value is better.
 
 **6. Datastream V11 - Cellular Connection Strenght**  
 Name: cell_strength  
