@@ -103,11 +103,11 @@ Mobile widgets: Level (current value), Chart (historical data)
 ## Conclusion
 Congratulations on creating your own weather station using ESP32 and Blynk! You can now monitor temperature, humidity, pressure, and altitude. Plus, you'll receive notifications on your Blynk app for temperature and humidity thresholds. Enjoy your new weather station and its benefits for a comfortable home!
 
-Check out the following section to explore functionality of the platform and try modifying your project.
+Check out the following section to explore functionality of the platform and try modifying your project further.
 
 ## Next Steps
 
-* Try to update your firmware over-the-air
+* Try to update your firmware [over-the-air](https://docs.blynk.io/en/blynk.edgent/updating-devices-firmwares-ota)
 * Explore the Blynk Web Console and [Blynk IoT app](https://docs.blynk.io/en/downloads/blynk-apps-for-ios-and-android), try controlling your device from both
 * Explore [Blynk Documentation](https://docs.blynk.io/en/) and learn how to work with [Virtual Pins](https://docs.blynk.io/en/getting-started/using-virtual-pins-to-control-physical-devices)
 * Learn more about [Automations](https://docs.blynk.io/en/concepts/automations)
