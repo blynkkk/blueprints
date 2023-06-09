@@ -67,7 +67,7 @@ For example, if the temperature is above 28 degrees or below 18, and the humidit
 ## 5. Testing
 1. Open your device **Dashboard** on web and on mobile
 2. You should be able to see the data displayed on the Gauges
-3. In a few minutes the historical data should be displayed on the Charts
+3. In a few minutes the historical data should appear on the Charts
 
 **If it doesn't work as described**
 1. Reboot the device and check if the data appears on the dashboard
