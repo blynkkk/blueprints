@@ -115,8 +115,8 @@ Check out the following section to explore functionality of the platform and try
 ## Troubleshooting
 
 * Make sure you have the latest [Blynk Library](https://docs.blynk.io/en/blynk-library-firmware-api/installation) installed
+* Check that all used libraries are up to date
 * Check that all the dependencies and configurations are correct
 * Check your sketch for errors. Click the Verify button to compile your sketch without uploading it
 * Check your board and port selections
 * Check your connections. Your board needs to be connected with a data USB cable (charge-only cables will not work). Make sure the cable is fully inserted in the port on each end. Try a different USB cable, and avoid hubs and other adapters if possible. Remove connections to the board pins, especially the 0 (RX) and 1 (TX) digital pins.
-* Check that your boards and libraries are up to date
