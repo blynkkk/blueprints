@@ -19,6 +19,8 @@ char pass[] = "YourPassword";
 
 void setup()
 {
+  // Debug console
+  Serial.begin(115200);
   pinMode(LED_PIN, OUTPUT);
   Blynk.begin(BLYNK_AUTH_TOKEN, ssid, pass);
   // You can also specify server:
