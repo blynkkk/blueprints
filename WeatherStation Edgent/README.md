@@ -50,21 +50,13 @@ We need to connect both sensors to ESP32 Dev Module and then connect the board t
 We need to include TemplateID, AuthToken (unique identifier of your device), and WiFi credentials in the sketch. Follow the steps below.
 
 1. Click on the Activate device action in the Template Home tab (this tab should open automatically once you've pressed the Use Blueprint button)
-2. Download zip archive 
-3. Flash your device
-* For Arduino IDE:
- *Open project*->
- *Choose Port and Board*->
- *Press "Upload" button*
-* For PlatformIO:
-*Open project*->
-*Press "PlatformIO: Upload"*
-4. Open Blynk app
-5. Click **+ New device** and select **Find devices nearby**
-6. Click **Start**
-7. Connect to "Blynk ... " network
-8. Select network your device will use and click **Continue**
-9. Now your device connected! Click **Finish** to open your device. You also will see your device in the Blynk Console
+2. Follow the proposed steps to prepare and upload the code
+3. Open Blynk app and follow the proposed steps to activate the device
+4. Click **+ New device** and select **Find devices nearby**
+5. Click **Start**
+6. Connect to "Blynk ... " network
+7. Select network your device will use and click **Continue**
+8. Your device is connected now! Click **Finish** to open your device. You also will see your device in the Blynk Console
 
 ## 4. Set Up Notifications
 Let's configure notifications to keep you informed when the temperature or humidity falls outside the comfortable range. This way, you can take action to restore optimal levels as soon as possible.
