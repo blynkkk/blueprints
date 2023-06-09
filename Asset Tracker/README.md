@@ -170,7 +170,7 @@ Try customizing and expanding upon this solution to suit your specific needs. Yo
 * Explore [Blynk Documentation](https://docs.blynk.io/en/) 
 * Learn how to work with [Virtual Pin Datastreams](https://docs.blynk.io/en/getting-started/using-virtual-pins-to-control-physical-devices) 
 * Read more about [Automations](https://docs.blynk.io/en/concepts/automations)
-* Configure Blynk to change the state of a built-in LED on a Particle device using this [tutorial](https://docs.blynk.io/en/hardware-guides/particle-part-ii).
+* Configure Blynk to change the state of a built-in LED on a Particle device using this [tutorial](https://docs.blynk.io/en/hardware-guides/particle-part-ii)
 * Modify the code for your needs
 
 ## Troubleshooting
