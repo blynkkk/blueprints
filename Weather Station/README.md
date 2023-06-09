@@ -41,7 +41,7 @@ We need to connect both sensors to ESP32 Dev Module and then connect the board t
 1. Install [Arduino IDE](https://www.arduino.cc/en/software) or [PlatformIO](https://platformio.org/install)
 2. Install [Blynk library](https://docs.blynk.io/en/blynk-library-firmware-api/installation) for your IDE
 3. Install **Adafruit BMP280 Library** and **DHT sensor Library** if you are using Arduino IDE (in Platformio they will be installed automatically)
-4. Select the correct board and port in your IDE settings
+4. Select the correct board and port in the **Tools** menu if you are using Arduino IDE
 5. Create a new sketch if you are using Arduino IDE
 
 
@@ -70,7 +70,7 @@ For example, if the temperature is above 28 degrees or below 18, and the humidit
 3. In a few minutes the historical data should be displayed on the Charts
 
 **If it doesn't work as described**
-1. Reboot the device and check if data appeared on the dashboard
+1. Reboot the device and check if the data appears on the dashboard
 2. Check if both sensors are connected to the board as shown in the **Prepare Your Hardware** section
 3. Delete your device and try connecting it again considering the recommendations from the **Troubleshooting** section at the end of this tutorial 
 
