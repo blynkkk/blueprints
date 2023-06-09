@@ -73,7 +73,7 @@ For example, if the temperature is above 28 degrees or below 18, and the humidit
 3. In a few minutes the historical data should be displayed on the Charts
 
 **If it doesn't work as described**
-1. Reboot the device and check if data appeared on the dashboard
+1. Reboot the device and check if the data appears on the dashboard
 2. Check if both sensors are connected to the board as shown in the **Prepare Your Hardware** section
 3. Delete your device and try connecting it again considering the recommendations from the **Troubleshooting** section at the end of this tutorial 
 
