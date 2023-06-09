@@ -2,6 +2,9 @@
 #define BLYNK_TEMPLATE_NAME "Device"
 #define BLYNK_AUTH_TOKEN "YourAuthToken"
 
+// Comment this out to disable prints
+#define BLYNK_PRINT Serial
+
 //Adding the required libraries
 #include <WiFi.h>
 #include <WiFiClientSecure.h>
