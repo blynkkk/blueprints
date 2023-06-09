@@ -175,6 +175,7 @@ Try customizing and expanding upon this solution to suit your specific needs. Yo
 
 ## Troubleshooting
 * Check that all the dependencies and configurations are correct
+* Check that all used libraries are up to date
 * Check your sketch for errors. Click the Verify button to compile your sketch without uploading it
 * Check your board and port selections
 * Check your connections. Your board needs to be connected with a data USB cable (charge-only cables will not work). Make sure the cable is fully inserted in the port on each end. Try a different USB cable, and avoid hubs and other adapters if possible
