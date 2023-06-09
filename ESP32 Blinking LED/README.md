@@ -10,7 +10,7 @@ The ESP32 is a powerful microcontroller that supports Wi-Fi and Bluetooth connec
 * USB cable
 
 ## 1. Prepare Your Hardware Before Flashing
-Connect your device to computers` USB port  
+Connect your device to the computers` USB port  
 
 
 _Your board has to be connected with a data USB cable (charge-only cables will not work)  
@@ -50,7 +50,7 @@ Name: LED
 Web and mobile widgets: Switch (to control an LED), LED (to show an LED on/off state)  
 
 ## Conclusion
-Congratulations! You have successfully connected ESP32 to Blynk and now can control a built-in LED from web dashboard and app. By following this tutorial, you have gained experience working with the ESP32, Arduino IDE, Blynk Console and Blynk App. You can now expand on this project to incorporate sensors or controllers.
+Congratulations! You have successfully connected ESP32 to Blynk and now can control a built-in LED from the web dashboard and app. By following this tutorial, you have gained experience working with the ESP32, Arduino IDE, Blynk Console and Blynk App. You can now expand on this project to incorporate sensors or controllers.
 
 ## Next Steps
 * Explore the Blynk Web Console and [Blynk IoT app](https://docs.blynk.io/en/downloads/blynk-apps-for-ios-and-android), try controlling your device from both
