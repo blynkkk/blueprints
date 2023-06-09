@@ -57,6 +57,7 @@ Congratulations! You have successfully connected ESP32 to Blynk and now can cont
 * Explore [Blynk Documentation](https://docs.blynk.io/en/) and learn how to work with [Virtual Pins](https://docs.blynk.io/en/getting-started/using-virtual-pins-to-control-physical-devices)
 * Learn more about [Automations](https://docs.blynk.io/en/concepts/automations)
 * Learn how to [Share Device](https://docs.blynk.io/en/concepts/users) with other users
+* Learn more about [Blynk.Edgent](https://docs.blynk.io/en/blynk.edgent/overview) and modify your code to try WiFi provisioning and OTA firmware updates
 * Modify the code for your needs
 * Connect more devices
 
