@@ -5,7 +5,7 @@ The ESP32 is a powerful microcontroller that supports Wi-Fi and Bluetooth connec
 
 ## Components Used in This Project
 * Blynk Console and [Blynk App](https://docs.blynk.io/en/downloads/blynk-apps-for-ios-and-android) for web and mobile dashboards
-* Arduino IDE
+* Arduino IDE to upload the firmware
 * ESP32 DEVKIT board
 * USB cable
 
@@ -50,7 +50,7 @@ Name: LED
 Web and mobile widgets: Switch (to control an LED), LED (to show an LED on/off state)  
 
 ## Conclusion
-Congratulations! You have successfully connected ESP32 to Blynk and now can control a built-in LED from the web dashboard and app. By following this tutorial, you have gained experience working with the ESP32, Arduino IDE, Blynk Console and Blynk App. You can now expand on this project to incorporate sensors or controllers.
+Congratulations! You have successfully connected ESP32 to Blynk and now can control a built-in LED from the web dashboard and app. By following this tutorial, you have gained experience working with the ESP32, Arduino IDE, Blynk Console and Blynk App. You can now expand on this project to incorporate sensors or controllers. Check out the following section to  
 
 ## Next Steps
 * Explore the Blynk Web Console and [Blynk IoT app](https://docs.blynk.io/en/downloads/blynk-apps-for-ios-and-android), try controlling your device from both
