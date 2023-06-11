@@ -50,7 +50,7 @@ Name: LED
 Web and mobile widgets: Switch (to control an LED), LED (to show an LED on/off state)  
 
 ## Conclusion
-Congratulations! You have successfully connected ESP32 to Blynk and now can control a built-in LED from the web dashboard and app. By following this tutorial, you have gained experience working with the ESP32, Arduino IDE, Blynk Console and Blynk App. You can now expand on this project to incorporate sensors or controllers. Check out the following section to  
+Congratulations! You have successfully connected ESP32 to Blynk and now can control a built-in LED from the web dashboard and app. By following this tutorial, you have gained experience working with the ESP32, Arduino IDE, Blynk Console and Blynk App. You can now expand on this project to incorporate sensors or controllers. Check out the following section to explore platform functionality further. 
 
 ## Next Steps
 * Explore the Blynk Web Console and [Blynk IoT app](https://docs.blynk.io/en/downloads/blynk-apps-for-ios-and-android), try controlling your device from both
