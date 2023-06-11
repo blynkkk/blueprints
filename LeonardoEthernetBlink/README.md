@@ -17,7 +17,7 @@ This blueprint is a quick-start tutorial for connecting the Arduino Leonardo boa
 2. Connect Arduino board to computer with a USB cable
 3. Insert Ethernet cable to Ethernet Shield
 It should look like this:
-[Hadrware connection](https://raw.githubusercontent.com/blynkkk/blueprints/main/LeonardoEthernetBlink/images/37-4.jpg)
+![Hadrware connection](https://raw.githubusercontent.com/blynkkk/blueprints/main/LeonardoEthernetBlink/images/37-4.jpg)
 
 ## 2. Prepare Required Software
 
