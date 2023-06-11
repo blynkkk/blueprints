@@ -1,7 +1,7 @@
 ## Introduction
 This blueprint is a basic asset tracking solution. You will be able to see your moving device on the map from the web and mobile dashboards, monitor it's speed, and receive a notification once the position of your asset has changed. Use it as is or build more functionality on top if you want to receive different data from your moving asset. 
 
-The web and mobile dashboard and datastreams are pre-configured. You will be creating an integration with a Particle Cloud using a detailed step-by-step guide.
+The web and mobile dashboard and datastreams are pre-configured. You will be creating an integration with the Particle Cloud using a detailed step-by-step guide.
 
 ## How It Works
 We will be using a Particle Boron with attached GPS FeatherWing, that reads the device location. The location data is pushed from the Particle cellular device to Particle Cloud and from there to the Blynk IoT platform via a Particle Webhook and Blynk HTTPs API. The data is then visualized on both a Blynk web dashboard and mobile app. 
