@@ -186,6 +186,6 @@ Try customizing and expanding upon this solution to suit your specific needs. Yo
 ## Related Links
 [Blynk Troubleshooting guide](https://docs.blynk.io/en/troubleshooting/general-issues)  
 [Documentation](https://docs.blynk.io/en/)  
-Use these detailed tutorials to create a project from scratch that will allow sending data from Particle device to Blynk and controlling a device from Blynk app and web dashboard:
+Use these detailed tutorials to create a project from scratch that will allow sending data from Particle device to Blynk and controlling a device from Blynk app and web dashboard:  
 [How to connect a Particle device to Blynk](https://docs.blynk.io/en/hardware-guides/particle)  
 [How to control a Particle device with Blynk](https://docs.blynk.io/en/hardware-guides/particle-part-ii)
