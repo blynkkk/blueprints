@@ -68,3 +68,7 @@ Congratulations! You have successfully connected ESP32 to Blynk and now can cont
 * Check your board and port selections
 * Check your connections. Your board needs to be connected with a data USB cable (charge-only cables will not work). Make sure the cable is fully inserted in the port on each end. Try a different USB cable, and avoid hubs and other adapters if possible. Remove connections to the board pins, especially the 0 (RX) and 1 (TX) digital pins.
 * Check [Blynk Troubleshooting guide](https://docs.blynk.io/en/troubleshooting/general-issues) 
+
+## Useful Links
+[Blynk Troubleshooting guide](https://docs.blynk.io/en/troubleshooting/general-issues)  
+[Documentation](https://docs.blynk.io/en/)
