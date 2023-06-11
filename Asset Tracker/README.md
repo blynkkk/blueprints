@@ -158,7 +158,7 @@ Try also to:
 ## 7. Testing
 1. Open the device **Dashboard** on web and on mobile
 2. If your device has connected successfully, a values of cellular connection strengths and quality or battery charge level will be shown
-3. The device location and coordinates will not be displayed on the dashboard right away, since it is published when location has changed more than 122 m / 400 ft
+3. The device location and coordinates will not be displayed on the dashboard right away, since the location is published when location has changed more than 122 m / 400 ft
 
 ## Conclusion
 Congratulations on creating a basic asset tracking solution! With this project, you have built a system that allows you to track the movement of your device on a map, both through web and mobile dashboards. You can now monitor its speed and receive notifications whenever the position of your asset changes.  
