@@ -1,37 +1,29 @@
-#include <Arduino.h>
-
-//Adding the required libraries
-#include <Wire.h>
-#include <SPI.h>
-#include <Adafruit_Sensor.h> //You need to add it by searching "Adafruit unified sensor" in libraries and inslall it
-#include <Adafruit_BMP280.h> //You need to add it by searching "Adafruit BMP280" in libraries and inslall it
-#include <BlynkSimpleEsp32.h> //You need to add it by searching "Blynk" in libraries and inslall it
-#include <DHT.h> //You need to add it by searching "DHT sensor library" in libraries and inslall it
-
-// BLYNK
-#define BLYNK_PRINT Serial
+// Your Authtoken credentials.
+#define BLYNK_TEMPLATE_ID "TMPLxxxxxx"
+#define BLYNK_TEMPLATE_NAME "Device"
+#define BLYNK_AUTH_TOKEN "YourAuthToken"
 
 // Your WiFi credentials.
 // Set ssid and password to "" for open networks.
 char ssid[] = "YourNetworkName";
 char pass[] = "YourPassword";
 
+#include <Arduino.h>
 
-// Your Authtoken credentials.
-#define BLYNK_TEMPLATE_ID "TMPLxxxxxx"
-#define BLYNK_TEMPLATE_NAME "Device"
-#define BLYNK_AUTH_TOKEN "YourAuthToken"
+//Including the required libraries
+#include <Wire.h>
+#include <SPI.h>
+#include <Adafruit_Sensor.h>  // Search for "Adafruit unified sensor" in libraries and install it
+#include <Adafruit_BMP280.h>  // Search for "Adafruit BMP280" in libraries and install it
+#include <BlynkSimpleEsp32.h> // Search for "Blynk" in libraries and install latest version
+#include <DHT.h>              // Search for "DHT sensor library" in libraries and install it
 
+// BLYNK Serial output for debugging
+#define BLYNK_PRINT Serial
 
-
-// DHT
+// DHT sensor settings 
 #define DHTPIN 25
 #define DHTTYPE DHT21 
-
-#define DHT_BLYNK_VPIN_TEMPERATURE V0
-#define DHT_BLYNK_VPIN_HUMIDITY V1
-
-//DHT sensor settings
 DHT dht(DHTPIN, DHTTYPE);
 
 int DHT_ENABLED = 0;
@@ -40,17 +32,12 @@ float DHT_HUMIDITY_IGNORED_DELTA = 0.0001;
 float DHT_TEMPERATURE;
 float DHT_TEMPERATURE_IGNORED_DELTA = 0.0001;
 
+// BMP280 sensor settings
 #define BMP_SCK  (18)
 #define BMP_MISO (19)
 #define BMP_MOSI (23)
 #define BMP_CS   (5)
 
-#define ALTITUDE_0 (1013.25)
-
-#define BMP_BLYNK_VPIN_PRESSURE V4
-#define BMP_BLYNK_VPIN_ALTITUDE V3
-
-// BMP280 sensor settings;
 Adafruit_BMP280 bmp(BMP_CS, BMP_MOSI, BMP_MISO,  BMP_SCK);
 
 int BMP_ENABLED = 0;
@@ -59,9 +46,17 @@ float BMP_PRESSURE;
 float BMP_PRESSURE_IGNORED_DELTA = 0.01;
 float BMP_ALTITUDE_IGNORED_DELTA = 0.01;
 
+#define ALTITUDE_0 (1013.25)
+
+// Blynk Datastreams definition
+#define DHT_BLYNK_VPIN_TEMPERATURE V0 // temperature
+#define DHT_BLYNK_VPIN_HUMIDITY V1    // humidity
+#define BMP_BLYNK_VPIN_PRESSURE V4    // pressure
+#define BMP_BLYNK_VPIN_ALTITUDE V3    // altitude
+
 int RUN = 0;
 
-// SETUP BLOCK
+
 //Starting DHT method
 void setupDht() {
   Serial.println("DHT startup!");
