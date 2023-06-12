@@ -8,7 +8,7 @@ Additionally, we will implement automations to send notifications to your Blynk 
 
 ## Components Used in This Project
 * Blynk Console and [Blynk App](https://docs.blynk.io/en/downloads/blynk-apps-for-ios-and-android) for web and mobile dashboards
-* Arduino IDE or PlatformIO to upload firmware
+* Arduino IDE or PlatformIO to upload a firmware
 * ESP32 Dev Module
 * DHT21/AM2301A humidity and temperature sensor
 * Barometer BMP280 3.3V
