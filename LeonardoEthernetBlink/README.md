@@ -53,7 +53,7 @@ Widgets are used to display and visualize data, and interact with your device fr
 
 **Datastream V0 - an LED state**  
 Name: LED  
-Web widgets: Switch (to control an LED), LED (to show an LED on / off state)
+Web widgets: Switch (to control an LED), LED (to show an LED on / off state)  
 Mobile widgets: Button (to control an LED), LED (to show an LED on / off state)
 
 ## Conclusion
