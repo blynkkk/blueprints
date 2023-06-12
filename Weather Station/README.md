@@ -40,8 +40,8 @@ We need to connect both sensors to ESP32 Dev Module and then connect the board t
 
 1. Install [Arduino IDE](https://www.arduino.cc/en/software) or [PlatformIO](https://platformio.org/install)  
   
-_If you are using Arduino IDE, follow the next steps (skip if you are using PlatformIO)_
-2. Install [Blynk library](https://docs.blynk.io/en/blynk-library-firmware-api/installation) 
+_If you are using Arduino IDE, follow the next steps (skip if you are using PlatformIO)_  
+2. Install [Blynk library](https://docs.blynk.io/en/blynk-library-firmware-api/installation)  
 3. Install **Adafruit BMP280 Library** and **DHT sensor Library**
 4. Select the correct board and port in the **Tools** menu
 5. Create a new sketch
