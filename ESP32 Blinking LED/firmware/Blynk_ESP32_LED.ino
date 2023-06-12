@@ -15,8 +15,8 @@ char pass[] = "YourPassword";     // Your WiFi password. Set password to "" for 
 #include <WiFiClient.h>
 #include <BlynkSimpleEsp32.h>
 
-#define BLYNK_PRINT Serial // Comment this out to disable serial monitor prints
-#define LED_PIN 2 // LED is usually connected to D2 pin. Change if needed.
+#define BLYNK_PRINT Serial  // Comment this out to disable serial monitor prints
+#define LED_PIN 2           // LED is usually connected to D2 pin. Change if needed.
 
 void setup()
 {
