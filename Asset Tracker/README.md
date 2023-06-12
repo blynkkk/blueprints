@@ -11,7 +11,7 @@ We will be using a Particle Boron with attached GPS FeatherWing, that reads the 
 * If the position has changed 122 m / 400 ft, set a flag for that event, make it visible to the user, and allow the user to reset it 
 * Track the device location and speed on a map in a web dashboard and mobile app
 * Publish the device position after the hardware boots and a GPS fix is obtained
-* Publish the date/time in UTC when the device last published data  
+* Publish the date / time in UTC when the device last published data  
 * Publish the cellular signal strength, signal quality, and the battery charge status
 
 ## Components Used in This Project
