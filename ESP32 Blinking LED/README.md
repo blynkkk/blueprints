@@ -1,19 +1,17 @@
 ## Introduction
-This project is a quick start tutorial on connecting the ESP32 board to the Blynk IoT. You will be able to control a blinking of an LED through the app and web dashboard. This project is a great introduction to the world of IoT and can be easily expanded to include other sensors and actuators.
-
-The ESP32 is a powerful microcontroller that supports Wi-Fi and Bluetooth connectivity. With the ESP32 and Blynk, you can build a wide range of IoT projects, from home automation to remote monitoring and control of devices.
+This is a a simple "Hello World" example of Blynk. As a result you will be able to control an LED on the ESP32 DevKit board from web or mobile.
 
 ## Components Used in This Project
-* Blynk Console and [Blynk App](https://docs.blynk.io/en/downloads/blynk-apps-for-ios-and-android) for web and mobile dashboards
+You would only need the ESP32 Devkit board. No additional hardware is needed. Alternatively, you can wire up your own LED to the ESP32 board.
+
 * Arduino IDE to upload a firmware
 * ESP32 DEVKIT board
 * USB cable
 
 ## 1. Prepare Your Hardware Before Flashing
-Connect your device to the computers` USB port  
+Connect your device to the computers using USB cable.  
 
-
-_Your board has to be connected with a data USB cable (charge-only cables will not work)  
+_Your board has to be connected with a **data** USB cable (charging-only cables will not work!)  
 Make sure the cable is fully inserted in the port on each end_
 
 ## 2. Prepare Required Software
@@ -28,26 +26,25 @@ Now you need to include TemplateID, AuthToken (unique identifier of your device)
 
 1. Click on the **Activate device** action in Template Home tab (this tab should open automatically once you've pressed the Use Blueprint button)
 2. Follow the proposed steps to prepare and upload the code
-3. Once the code is successfully uploaded the device dashboard will open automatically
-
+3. Once the code is successfully uploaded the device dashboard should open automatically
 
 _Check the **Troubleshooting** section at the end of this tutorial if you have issues uploading the firmware_  
 
-## 4. Testing
-1. Open your device **Dashboard** on web and on mobile
-2. You should be able to turn an LED on and off using Switch on web and mobile dashboards
-3. The LED on a dashboard should indicate the state of the LED on your device  
+## 4. Try it out!
+1. Try clicking the switch on device dashboard. It should turn the LED on and off
+2. Open Blynk app for iOS or Android. You should see the device there. Tap the button to switch the LED on and off
 
-**If it doesn't work as described**
+**Still Not working?**
 1. Reboot the device and see if it helps
 2. Delete your device and try connecting it again considering the recommendations from the **Troubleshooting** section at the end of this tutorial 
 
-## 5. Dashboard Breakdown 
-Widgets are used to display and visualize data, and interact with your device from the web dashboard and mobile app. In order to connect data to a widget, a specific [datastream](https://docs.blynk.io/en/getting-started/using-virtual-pins-to-control-physical-devices) should be assigned to a widget. You can create datastreams in the widget settings or in the Datastream tab of a Template. Below you can find datastream and widgets used in this project. 
+## 5. Project Breakdown 
+Every project you make on Blynk becomes a Template which you can use to create and manage similar devices.
+Every template consists of: 
+- Settings - general settings like which device and connectivity type. For this project it's ESP32 with WiFi
+- [Datastreams](https://docs.blynk.io/en/getting-started/using-virtual-pins-to-control-physical-devices) - channels for time-stamped data transmitted between the device and the cloud. In this project a value of `1` and `0` is transmitted through a Datastream called `LED switch state`.
+- Web and mobile dashboards: GUI to send data from web and mobile apps through datastreams to your devices. Dashboards are made of widgets. In this simple project only switch (Web app) and Button (mobile app) are used. They both send `1` or `0` to `LED switch state`  
 
-**Datastream V0 - an LED state**  
-Name: LED  
-Web and mobile widgets: Switch (to control an LED), LED (to show an LED on/off state)  
 
 ## Conclusion
 Congratulations! You have successfully connected ESP32 to Blynk and now can control a built-in LED from the web dashboard and app. By following this tutorial, you have gained experience working with the ESP32, Arduino IDE, Blynk Console and Blynk App. You can now expand on this project to incorporate sensors or controllers. Check out the following section to explore platform functionality further. 
@@ -56,10 +53,10 @@ Congratulations! You have successfully connected ESP32 to Blynk and now can cont
 * Explore the Blynk Web Console and [Blynk IoT app](https://docs.blynk.io/en/downloads/blynk-apps-for-ios-and-android), try controlling your device from both
 * Explore [Blynk Documentation](https://docs.blynk.io/en/) and learn how to work with [Virtual Pins](https://docs.blynk.io/en/getting-started/using-virtual-pins-to-control-physical-devices)
 * Learn more about [Automations](https://docs.blynk.io/en/concepts/automations)
-* Learn how to [Share Device](https://docs.blynk.io/en/concepts/users) with other users
-* Learn more about [Blynk.Edgent](https://docs.blynk.io/en/blynk.edgent/overview) and modify your code to try WiFi provisioning and OTA firmware updates
+* Learn how to [share Device](https://docs.blynk.io/en/concepts/users) with other users
+* Learn more about [Blynk.Edgent](https://docs.blynk.io/en/blynk.edgent/overview) and modify your code to utilize WiFi provisioning and over-the-air firmware updates
 * Modify the code for your needs
-* Connect more devices
+* Connect more devices using this template
 
 ## Troubleshooting
 * Make sure you have the latest [Blynk Library](https://docs.blynk.io/en/blynk-library-firmware-api/installation) installed
