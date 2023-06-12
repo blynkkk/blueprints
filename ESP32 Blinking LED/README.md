@@ -28,7 +28,19 @@ Now you need to include TemplateID, AuthToken (unique identifier of your device)
 2. Follow the proposed steps to prepare and upload the code
 3. When code is uploaded, open the Serial Monitor to track connection progress. If all worked correctly, you should see an output similar to this:
 ```
+[28] Connecting to WiFi name
+[3644] Connected to WiFi
+[3644] IP: yourIP
+[3644]
+    ___  __          __
+   / _ )/ /_ _____  / /__
+  / _  / / // / _ \/  '_/
+ /____/_/\_, /_//_/_/\_\
+        /___/ v1.2.0 on ESP32
+ #StandWithUkraine    https://bit.ly/swua
 
+[3654] Connecting to blynk.cloud:80
+[4149] Ready (ping: 153ms).
 ```
 5. When you see that device succesffully connected, go to Blynk.Console to check your device ready to go. 
 
@@ -48,10 +60,6 @@ Every template consists of:
 - Settings - general settings like which device and connectivity type. For this project it's ESP32 with WiFi
 - [Datastreams](https://docs.blynk.io/en/getting-started/using-virtual-pins-to-control-physical-devices) - channels for time-stamped data transmitted between the device and the cloud. In this project a value of `1` and `0` is transmitted through a Datastream called `LED switch state`.
 - Web and mobile dashboards: GUI to send data from web and mobile apps through datastreams to your devices. Dashboards are made of widgets. In this simple project only switch (Web app) and Button (mobile app) are used. They both send `1` or `0` to `LED switch state`  
-
-
-## Conclusion
-Congratulations! You have successfully connected ESP32 to Blynk and now can control a built-in LED from the web dashboard and app. By following this tutorial, you have gained experience working with the ESP32, Arduino IDE, Blynk Console and Blynk App. You can now expand on this project to incorporate sensors or controllers. Check out the following section to explore platform functionality further. 
 
 ## Next Steps
 * Explore the Blynk Web Console and [Blynk IoT app](https://docs.blynk.io/en/downloads/blynk-apps-for-ios-and-android), try controlling your device from both
