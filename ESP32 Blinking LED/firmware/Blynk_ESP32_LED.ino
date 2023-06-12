@@ -7,8 +7,8 @@
 
 //Adding the required libraries
 #include <WiFi.h>
-#include <WiFiClientSecure.h>
-#include <BlynkSimpleEsp32_SSL.h>
+#include <WiFiClient.h>
+#include <BlynkSimpleEsp32.h>
 
 #define LED_PIN 2
 
