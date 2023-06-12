@@ -26,7 +26,11 @@ Now you need to include TemplateID, AuthToken (unique identifier of your device)
 
 1. Click on the **Activate device** action in Template Home tab (this tab should open automatically once you've pressed the Use Blueprint button)
 2. Follow the proposed steps to prepare and upload the code
-3. Once the code is successfully uploaded the device dashboard should open automatically
+3. When code is uploaded, open the Serial Monitor to track connection progress. If all worked correctly, you should see an output similar to this:
+```
+
+```
+5. When you see that device succesffully connected, go to Blynk.Console to check your device ready to go. 
 
 _Check the **Troubleshooting** section at the end of this tutorial if you have issues uploading the firmware_  
 
