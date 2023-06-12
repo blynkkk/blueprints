@@ -1,6 +1,8 @@
 #define BLYNK_TEMPLATE_ID "TMPLxxxxxx"
 #define BLYNK_TEMPLATE_NAME "Device"
 #define BLYNK_AUTH_TOKEN "YourAuthToken"
+char ssid[] = "YourNetworkName";  // Your WiFi credentials.
+char pass[] = "YourPassword";     // Set password to "" for open networks.
 
 // Comment this out to disable prints
 #define BLYNK_PRINT Serial
@@ -10,12 +12,7 @@
 #include <WiFiClient.h>
 #include <BlynkSimpleEsp32.h>
 
-#define LED_PIN 2
-
-// Your WiFi credentials.
-// Set password to "" for open networks.
-char ssid[] = "YourNetworkName";
-char pass[] = "YourPassword";
+#define LED_PIN 2 // LED is usually connected to D2 pin. Change if needed.
 
 void setup()
 {
