@@ -160,6 +160,11 @@ Try also to:
 2. If your device has connected successfully, a values of cellular connection strengths and quality or battery charge level will be shown
 3. The device location and coordinates will not be displayed on the dashboard right away, since the location is published when location has changed more than 122 m / 400 ft
 
+**If it doesn't work as described**
+1. Reboot the device and check if the data appears on the dashboard
+2. Check if GPS FeatherWing connected to the Particle Boron as shown in the **Prepare Your Hardware** section
+3. Delete your device and try connecting it again considering the recommendations from the **Troubleshooting** section at the end of this tutorial 
+
 ## Conclusion
 Congratulations on creating a basic asset tracking solution! With this project, you have built a system that allows you to track the movement of your device on a map, both through web and mobile dashboards. You can now monitor its speed and receive notifications whenever the position of your asset changes.  
 
