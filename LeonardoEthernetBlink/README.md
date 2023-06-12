@@ -23,14 +23,14 @@ It should look like this:
 
 1. Install [Arduino IDE](https://www.arduino.cc/en/software) or [PlatformIO](https://platformio.org/install)
 2. Install [Blynk library](https://docs.blynk.io/en/blynk-library-firmware-api/installation) for your IDE
-3. Install **Ethernet library** for your IDE
+3. Install **Ethernet** library if you are using Arduino IDE (in Platformio it will be installed automatically)
 4. Select the correct board and port in your IDE settings if you are using Arduino IDE
 5. Create a new sketch if you are using Arduino IDE
 
 
 ## 3. Prepare the Firmware and Upload It to Your Device
 
-We need to include TemplateID, AuthToken (unique identifier of your device), and WiFi credentials in the sketch.
+We need to include TemplateID and AuthToken (unique identifier of your device) in the sketch.
 
 1. Click on the **Activate device** action in the Template Home tab (this tab should open automatically once you've pressed the Use Blueprint button)
 2. Follow the proposed steps to prepare and upload the code
@@ -40,7 +40,7 @@ _Check the Troubleshooting section at the end of this tutorial if you have issue
 
 ## 4. Testing
 1. Open your device **Dashboard** on web and on mobile
-2. You should be able to turn an LED on and off using Switch on web and mobile dashboards
+2. You should be able to turn an LED on and off using Switch on web and a button on mobile dashboard
 3. The LED on a dashboard should indicate the state of the LED on your device  
 
 **If it doesn't work as described**
@@ -52,7 +52,8 @@ Widgets are used to display and visualize data, and interact with your device fr
 
 **Datastream V0 - an LED state**  
 Name: LED  
-Web and mobile widgets: Switch (to control an LED), LED (to show an LED on / off state) 
+Web widgets: Switch (to control an LED), LED (to show an LED on / off state)
+Mobile widgets: Button (to control an LED), LED (to show an LED on / off state)
 
 ## Conclusion
 Congratulations! You have successfully connected Arduino board to Blynk and now can control a built-in LED from the web dashboard and app. By following this tutorial, you have gained experience working with the Arduino hardware, Arduino IDE, Blynk Console and Blynk App. You can now expand on this project to incorporate sensors or controllers.
@@ -73,8 +74,9 @@ Congratulations! You have successfully connected Arduino board to Blynk and now 
 * Make sure all other used libraries are up to date
 * Check that all the dependencies and configurations are correct
 * Check your sketch for errors. Click the Verify button to compile your sketch without uploading it
-* Check your board and port selections
+* Check your board and port selections (if you are using Arduino IDE)
 * Check your connections. Your board needs to be connected with a data USB cable (charge-only cables will not work). Make sure the cable is fully inserted in the port on each end. Try a different USB cable, and avoid hubs and other adapters if possible. Remove connections to the board pins, especially the 0 (RX) and 1 (TX) digital pins.
+* Check that your Ethernet cable is not damaged and the connection is stable
 
 ## Related Links
 [Blynk Troubleshooting guide](https://docs.blynk.io/en/troubleshooting/general-issues)  
