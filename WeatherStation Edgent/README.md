@@ -53,7 +53,7 @@ We need to include TemplateID, AuthToken (unique identifier of your device), and
 2. Download zip arhive 
 3. Flash your device
 * For Arduino IDE:
- ***Add Sketch*** >
+ *Go to **Sketch*** > ***Add File*** >
  *Select sketch from the zip archive* >
  *Press **Upload** button*
 * For PlatformIO:
