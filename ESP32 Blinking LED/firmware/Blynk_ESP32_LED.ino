@@ -20,10 +20,10 @@ char pass[] = "YourPassword";     // Your WiFi password. Set password to "" for 
 
 void setup()
 {
-  
-  Serial.begin(115200);                         // Make sure you have the same baud rate in your serial monitor set up
-  pinMode(LED_PIN, OUTPUT);                     // Setting LED PIN to control it
-  Blynk.begin(BLYNK_AUTH_TOKEN, ssid, pass);    // Starting Blynk on device with AuthToken and WiFi credentials
+  // Debug console
+  Serial.begin(9600);                         // Make sure you have the same baud rate in your serial monitor set up
+ pinMode(LED_PIN, OUTPUT);                    // Setting LED PIN to control it
+  Blynk.begin(BLYNK_AUTH_TOKEN, ssid, pass);  // Starting Blynk on device with AuthToken and WiFi credentials
 }
 
 void loop()
@@ -31,17 +31,15 @@ void loop()
   Blynk.run(); // Blynk magic happens here
 }
 
-
-BLYNK_WRITE(V0) 
+BLYNK_WRITE(V0)
 // V0 is a datastream used to transfer and store LED switch state.
 // Evey time you use the LED switch in the app, this function
 // will listen and update the state on device  
-  
 {
   int value = param.asInt();
   // Local variable `value` stores the incoming LED switch state (1 or 0)
   // Based on this value, the physical LED on the board will be on or off:
-  
+
   if (value == 1)
   {
     digitalWrite(LED_PIN, HIGH);
