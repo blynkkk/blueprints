@@ -2,8 +2,8 @@
 
 
 #include <SPI.h>
-#include <Ethernet.h> //You need to add it by searching "Ethernet" in libraries and inslall it
-#include <BlynkSimpleEthernet.h> //You need to add it by searching "Blynk" in libraries and inslall it
+#include <Ethernet.h> //You need to add it by searching "Ethernet" in libraries and inslall it to this project
+#include <BlynkSimpleEthernet.h> //You need to add it by searching "Blynk" in libraries and inslall it to this project
 
 #define BLYNK_TEMPLATE_ID "TMPLxxxxxx"
 #define BLYNK_TEMPLATE_NAME "Device"
@@ -18,9 +18,8 @@ void setup()
   // Debug console
   Serial.begin(9600);
 
-  Blynk.begin(BLYNK_AUTH_TOKEN, "fra.blynk-qa.com", 80);
+  Blynk.begin(BLYNK_AUTH_TOKEN);
   //You can also use
-  //Blynk.begin(BLYNK_AUTH_TOKEN);
   //Blynk.begin(BLYNK_AUTH_TOKEN, IPAddress(192,168,1,100), 8080);
   // For more options, see Boards_Ethernet/Arduino_Ethernet_Manual example
 }

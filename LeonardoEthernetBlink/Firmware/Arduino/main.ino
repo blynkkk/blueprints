@@ -18,9 +18,8 @@ void setup()
   // Debug console
   Serial.begin(9600);
 
-  Blynk.begin(BLYNK_AUTH_TOKEN, "fra.blynk-qa.com", 80);
+  Blynk.begin(BLYNK_AUTH_TOKEN);
   //You can also use
-  //Blynk.begin(BLYNK_AUTH_TOKEN);
   //Blynk.begin(BLYNK_AUTH_TOKEN, IPAddress(192,168,1,100), 8080);
   // For more options, see Boards_Ethernet/Arduino_Ethernet_Manual example
 }
