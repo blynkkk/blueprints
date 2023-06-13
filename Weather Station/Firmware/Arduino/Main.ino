@@ -129,7 +129,7 @@ void readBMPData() {
   }
   delay(500);
 }
-//Setup block
+
 void setup() {
   // Debug console
   Serial.begin(115200); // Make sure you have the same baud rate in your serial monitor set up
@@ -139,7 +139,7 @@ void setup() {
   Blynk.begin(BLYNK_AUTH_TOKEN, ssid, pass);
   Serial.println("Setup is finished"); // Starting Blynk on device with AuthToken and WiFi credentials
 }
-//Loop block
+
 void loop() {
   Blynk.run();  // Blynk magic happens here
   readAndSendDhtData();
