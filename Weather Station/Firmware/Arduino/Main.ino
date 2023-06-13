@@ -131,6 +131,7 @@ void readBMPData() {
 }
 //Setup block
 void setup() {
+  // Debug console
   Serial.begin(115200); // Make sure you have the same baud rate in your serial monitor set up
   setupDht();
   setupBMP();
