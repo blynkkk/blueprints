@@ -1,26 +1,16 @@
-/*
-   Project blynk_blueprint_asset_tracking.io
-   Author:  Mark Kiehl / Mechatronic Solutions LLC
-   Date: May 2023
-   
-   Publish to Blynk via the Particle webhook if the device position has changed 
-   by more than 122 m or 400 ft. 
-
-   The GPS red LED blinks at about 1Hz while it's searching for satellites,
-   and blinks once every 15 seconds when a fix is found.
-
-*/
-
-/////////////////////////////////////////////////////////////////////////
-// Blynk
+// *** MAIN SETTINGS ***
+// Replace this block with correct template settings. You can find it for every template here:
+// https://blynk.cloud/dashboard/templates
 
 #define BLYNK_TEMPLATE_ID "TMPLxxxxxx"
 #define BLYNK_TEMPLATE_NAME "Device"
 #define BLYNK_AUTH_TOKEN "YourAuthToken"
 
+#define BLYNK_PRINT Serial  // Comment this out to disable serial monitor prints
+
 /////////////////////////////////////////////////////////////////////////
 // Particle
-
+//Adding the required libraries
 #include "Particle.h"
 
 const char* firmware_version = "0.0.0";
@@ -193,7 +183,7 @@ void setup() {
   pinMode(D7, OUTPUT);
   digitalWrite(D7, HIGH);
 
-  Serial.begin(9600);
+  Serial.begin(9600); // Make sure you have the same baud rate in your serial monitor set up
   waitFor(Serial.isConnected, 30000);
   delay(1000);
   Serial.printlnf("Device OS v%s", System.version().c_str());
