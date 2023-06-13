@@ -1,16 +1,17 @@
-// Your Authtoken credentials.
+// *** MAIN SETTINGS ***
+// Replace this block with correct template settings. You can find it for every template here:
+// https://blynk.cloud/dashboard/templates
+
 #define BLYNK_TEMPLATE_ID "TMPLxxxxxx"
 #define BLYNK_TEMPLATE_NAME "Device"
 #define BLYNK_AUTH_TOKEN "YourAuthToken"
+char ssid[] = "YourNetworkName";  // Your WiFi network name
+char pass[] = "YourPassword";     // Your WiFi password. Set password to "" for open networks.
 
-// Your WiFi credentials.
-// Set ssid and password to "" for open networks.
-char ssid[] = "YourNetworkName";
-char pass[] = "YourPassword";
-
-#include <Arduino.h>
+// *********************
 
 //Including the required libraries
+#include <Arduino.h>
 #include <Wire.h>
 #include <SPI.h>
 #include <Adafruit_Sensor.h>  // Search for "Adafruit unified sensor" in libraries and install it
@@ -18,8 +19,7 @@ char pass[] = "YourPassword";
 #include <BlynkSimpleEsp32.h> // Search for "Blynk" in libraries and install latest version
 #include <DHT.h>              // Search for "DHT sensor library" in libraries and install it
 
-// BLYNK Serial output for debugging
-#define BLYNK_PRINT Serial
+#define BLYNK_PRINT Serial  // Comment this out to disable serial monitor prints
 
 // DHT sensor settings 
 #define DHTPIN 25
@@ -131,16 +131,16 @@ void readBMPData() {
 }
 //Setup block
 void setup() {
-  Serial.begin(115200);
+  Serial.begin(115200); // Make sure you have the same baud rate in your serial monitor set up
   setupDht();
   setupBMP();
   Serial.println("Blynk setup start");
   Blynk.begin(BLYNK_AUTH_TOKEN, ssid, pass);
-  Serial.println("Setup is finished");
+  Serial.println("Setup is finished"); // Starting Blynk on device with AuthToken and WiFi credentials
 }
 //Loop block
 void loop() {
-  Blynk.run();  
+  Blynk.run();  // Blynk magic happens here
   readAndSendDhtData();
   readBMPData();
   delay(50);
