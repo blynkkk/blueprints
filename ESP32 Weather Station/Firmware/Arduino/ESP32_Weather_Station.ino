@@ -9,8 +9,10 @@
 #define BLYNK_TEMPLATE_NAME "Device"
 #define BLYNK_AUTH_TOKEN "YourAuthToken"
 
-#define WIFI_SSID "YourNetworkName"  // Your WiFi network name
-#define WIFI_PASS "YourPassword"     // Your WiFi password. Set the password to "" for open networks.
+// Your WiFi credentials.
+// Set password to "" for open networks.
+#define WIFI_SSID "YourNetworkName"
+#define WIFI_PASS "YourPassword"
 
 #define BLYNK_PRINT Serial  // Comment this out to disable serial monitor prints
 
@@ -18,10 +20,10 @@
 #include <Arduino.h>
 #include <Wire.h>
 #include <SPI.h>
-#include <Adafruit_Sensor.h> //You need to add it by searching "Adafruit unified sensor" in libraries and inslall it
-#include <Adafruit_BMP280.h> //You need to add it by searching "Adafruit BMP280" in libraries and inslall it
-#include <BlynkSimpleEsp32.h> //You need to add it by searching "Blynk" in libraries and inslall it
-#include <DHT.h> //You need to add it by searching "DHT sensor library" in libraries and inslall it
+#include <Adafruit_Sensor.h> //You need to add it by searching "Adafruit unified sensor" in libraries and install it
+#include <Adafruit_BMP280.h> //You need to add it by searching "Adafruit BMP280" in libraries and install it
+#include <BlynkSimpleEsp32.h> //You need to add it by searching "Blynk" in libraries and install it
+#include <DHT.h> //You need to add it by searching "DHT sensor library" in libraries and install it
 
 // DHT sensor settings and configuration
 #define DHT_BLYNK_VPIN_TEMPERATURE V0 //Virtual pin on Blynk side

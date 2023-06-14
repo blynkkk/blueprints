@@ -9,8 +9,10 @@
 #define BLYNK_TEMPLATE_NAME "Device"
 #define BLYNK_AUTH_TOKEN "YourAuthToken"
 
-#define WIFI_SSID "YourNetworkName"  // Your WiFi network name
-#define WIFI_PASS "YourPassword"     // Your WiFi password. Set the password to "" for open networks.
+// Your WiFi credentials.
+// Set password to "" for open networks.
+#define WIFI_SSID "YourNetworkName"
+#define WIFI_PASS "YourPassword"
 
 #define BLYNK_PRINT Serial  // Comment this out to disable serial monitor prints
 
