@@ -26,15 +26,15 @@
 //Adding the required libraries
 #include <Wire.h>
 #include <SPI.h>
-#include <Adafruit_Sensor.h> //You need to add it by searching "Adafruit unified sensor" in libraries and inslall it
-#include <Adafruit_BMP280.h> //You need to add it by searching "Adafruit BMP280" in libraries and inslall it
-#include <DHT.h> //You need to add it by searching "DHT sensor library" in libraries and inslall it
+#include <Adafruit_Sensor.h> //You need to add it by searching "Adafruit unified sensor" in libraries and add it to this project
+#include <Adafruit_BMP280.h> //You need to add it by searching "Adafruit BMP280" in libraries and add it to this project
+#include <DHT.h> //You need to add it by searching "DHT sensor library" in libraries and add it to this project
 
 // BLYNK
 #define BLYNK_PRINT Serial
 
-#define BLYNK_TEMPLATE_ID "TMPL8tt8Fv9LK"
-#define BLYNK_TEMPLATE_NAME "Weather Station"
+#define BLYNK_TEMPLATE_ID "TMPLxxxxxx"      // TemplateID can be found in Console -> Templates -> Template 
+#define BLYNK_TEMPLATE_NAME "Template Name" // Template Name can be found in Console -> Templates -> Template
 
 #define BLYNK_FIRMWARE_VERSION        "0.1.0"
 
@@ -44,7 +44,7 @@
 #define APP_DEBUG
 
 // Uncomment your board, or configure a custom board in Settings.h
-#define USE_ESP32_DEV_MODULE
+//#define USE_ESP32_DEV_MODULE
 //#define USE_ESP32C3_DEV_MODULE
 //#define USE_ESP32S2_DEV_KIT
 //#define USE_WROVER_BOARD
@@ -53,35 +53,41 @@
 
 #include "BlynkEdgent.h"
 
+//DHT sensor settings and configuration
+#define DHT_BLYNK_VPIN_TEMPERATURE V0 //Virtual pin on Blynk side
+#define DHT_BLYNK_VPIN_HUMIDITY V1 //Virtual pin on Blynk side
+
 #define DHTPIN 25
 #define DHTTYPE DHT21 
-
-#define DHT_BLYNK_VPIN_TEMPERATURE V0
-#define DHT_BLYNK_VPIN_HUMIDITY V1
-
-//DHT sensor settings
 DHT dht(DHTPIN, DHTTYPE);
 
-int DHT_ENABLED = 0;
-float DHT_HUMIDITY;
-float DHT_HUMIDITY_IGNORED_DELTA = 0.0001;
-float DHT_TEMPERATURE;
-float DHT_TEMPERATURE_IGNORED_DELTA = 0.0001;
+
+// BMP sensor settings and configuration
+#define BMP_BLYNK_VPIN_PRESSURE V4 //Virtual pin on Blynk side
+#define BMP_BLYNK_VPIN_ALTITUDE V3 //Virtual pin on Blynk side
 
 #define BMP_SCK  (18)
 #define BMP_MISO (19)
 #define BMP_MOSI (23)
 #define BMP_CS   (5)
+Adafruit_BMP280 bmp(BMP_CS, BMP_MOSI, BMP_MISO,  BMP_SCK);
 
 #define ALTITUDE_0 (1013.25)
 
-#define BMP_BLYNK_VPIN_PRESSURE V4
-#define BMP_BLYNK_VPIN_ALTITUDE V3
 
-// BMP280 sensor settings;
-Adafruit_BMP280 bmp(BMP_CS, BMP_MOSI, BMP_MISO,  BMP_SCK);
+// This function creates the timer object. It's part of Blynk library 
+BlynkTimer timer; 
 
-int BMP_ENABLED = 0;
+// DHT related variables
+int   DHT_ENABLED = 0;
+float DHT_HUMIDITY;
+float DHT_HUMIDITY_IGNORED_DELTA = 0.01;
+float DHT_TEMPERATURE;
+float DHT_TEMPERATURE_IGNORED_DELTA = 0.01;
+
+// BMP related variables
+
+int   BMP_ENABLED = 0;
 float BMP_ALTITUDE;
 float BMP_PRESSURE;
 float BMP_PRESSURE_IGNORED_DELTA = 0.01;
@@ -89,14 +95,16 @@ float BMP_ALTITUDE_IGNORED_DELTA = 0.01;
 
 int RUN = 0;
 
+
 // SETUP BLOCK
-//Starting DHT method
+
+//DHT setup
 void setupDht() {
   Serial.println("DHT startup!");
   dht.begin();
   DHT_ENABLED = 1;
 }
-//Starting BMP method
+// BMP setup
 void setupBMP() {
   Wire.begin();
   unsigned status;
@@ -146,7 +154,7 @@ void readAndSendDhtData() {
   }
 }
 //Reading BMP data
-void readBMPData() {
+void readAndSendBMPData() {
   float pressure = bmp.readPressure() / 100.0F;
   float altitude = bmp.readAltitude(ALTITUDE_0);
    Serial.printf("Pressure = %fhPa; Approx. Altitude = %fm;\n", pressure, altitude);
@@ -160,23 +168,26 @@ void readBMPData() {
       Serial.printf("Pressure = %fhPa; Approx. Altitude = %fm;\n", pressure, altitude);
       sendBMPData();
   }
-  delay(500);
+
+}
+void reandAndSendSensorsData() {
+  readAndSendBMPData();
+  readAndSendDhtData();
+  Serial.println("Sending data from sensors");
 }
 
 void setup()
 {
   Serial.begin(115200);
-  delay(100);
   BlynkEdgent.begin();
   setupDht();
   setupBMP();
+  timer.setInterval(5000L, reandAndSendSensorsData); //timer will run every 5 sec
 
 }
 
 void loop() {
-  BlynkEdgent.run();
-   readAndSendDhtData();
-  readBMPData();
-  delay(50);
+  Blynk.run();  
+  timer.run();
 }
 
