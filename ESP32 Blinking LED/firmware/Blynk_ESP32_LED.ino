@@ -1,12 +1,13 @@
+
 // *** MAIN SETTINGS ***
-// Replace this block with correct template settings. You can find it for every template here:
+// Replace this block with the correct template settings. You can find it for every template here:
 // https://blynk.cloud/dashboard/templates
 
 #define BLYNK_TEMPLATE_ID "TMPLxxxxxx"
 #define BLYNK_TEMPLATE_NAME "Device"
 #define BLYNK_AUTH_TOKEN "YourAuthToken"
 char ssid[] = "YourNetworkName";  // Your WiFi network name
-char pass[] = "YourPassword";     // Your WiFi password. Set password to "" for open networks.
+char pass[] = "YourPassword";     // Your WiFi password. Set the password to "" for open networks.
 
 // *********************
 
