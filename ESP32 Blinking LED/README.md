@@ -2,14 +2,14 @@
 This is a a simple "Hello World" example of Blynk. As a result you will be able to control an LED on the ESP32 DevKit board from web or mobile.
 
 ## Components Used in This Project
-You would only need the ESP32 Devkit board. No additional hardware is needed. Alternatively, you can wire up your own LED to the ESP32 board.
+You only need an ESP32 Devkit board. This example was made using ESP-Wroom-32 dev board, but you can use pretty much any ESP32 dev board. No additional hardware or componets are needed. Alternatively, you can wire up your own LED.
 
 * Arduino IDE to upload a firmware
-* ESP32 DEVKIT board
+* ESP32 DEVKIT board. 
 * USB cable
 
 ## 1. Prepare Your Hardware Before Flashing
-Connect your device to the computers using USB cable.  
+Connect your device to the computer using a USB cable.  
 
 _Your board has to be connected with a **data** USB cable (charging-only cables will not work!)  
 Make sure the cable is fully inserted in the port on each end_
@@ -22,11 +22,12 @@ Make sure the cable is fully inserted in the port on each end_
 5. Create a new sketch  
 
 ## 3. Prepare the Firmware and Upload It to Your Device
-Now you need to include TemplateID, AuthToken (unique identifier of your device) and WiFi credentials to the sketch
+When using Blynk, you need to place TemplateID, AuthToken, and WiFi credentials in your sketch. We will provide you with the sketch where all of this info is already included. Just follow the next steps:
 
 1. Click on the **Activate device** action in Template Home tab (this tab should open automatically once you've pressed the Use Blueprint button)
-2. Follow the proposed steps to prepare and upload the code
-3. When code is uploaded, open the Serial Monitor to track connection progress. If all worked correctly, you should see an output similar to this:
+2. Follow the provided steps steps to get a working sketch
+3. Upload the sketch to your device
+4. When code is uploaded, open the Serial Monitor to track connection progress. If all worked correctly, you should see an output similar to this:
 ```
 [28] Connecting to WiFi name
 [3644] Connected to WiFi
