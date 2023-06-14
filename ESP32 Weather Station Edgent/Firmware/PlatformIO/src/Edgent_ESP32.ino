@@ -21,20 +21,10 @@
 
 /* Fill in information from your Blynk Template here */
 /* Read more: https://bit.ly/BlynkInject */
-#include <Arduino.h>
+//#define BLYNK_TEMPLATE_ID           "TMPxxxxxx"
+//#define BLYNK_TEMPLATE_NAME         "Device"
 
-//Adding the required libraries
-#include <Wire.h>
-#include <SPI.h>
-#include <Adafruit_Sensor.h> //You need to add it by searching "Adafruit unified sensor" in libraries and inslall it
-#include <Adafruit_BMP280.h> //You need to add it by searching "Adafruit BMP280" in libraries and inslall it
-#include <DHT.h> //You need to add it by searching "DHT sensor library" in libraries and inslall it
-
-// BLYNK
-#define BLYNK_TEMPLATE_ID "TMPLxxxxxx"      // TemplateID can be found in Console -> Templates -> Template 
-#define BLYNK_TEMPLATE_NAME "Template Name" // Template Name can be found in Console -> Templates -> Template
-
-#define BLYNK_FIRMWARE_VERSION  "0.1.0"
+#define BLYNK_FIRMWARE_VERSION        "0.1.0"
 
 #define BLYNK_PRINT Serial
 //#define BLYNK_DEBUG
@@ -48,6 +38,14 @@
 //#define USE_WROVER_BOARD
 //#define USE_TTGO_T7
 //#define USE_TTGO_T_OI
+
+// Add the required libraries
+#include <Arduino.h>
+#include <Wire.h>
+#include <SPI.h>
+#include <Adafruit_Sensor.h> // You need to add it by searching "Adafruit unified sensor" in libraries and inslall it
+#include <Adafruit_BMP280.h> // You need to add it by searching "Adafruit BMP280" in libraries and inslall it
+#include <DHT.h> // You need to add it by searching "DHT sensor library" in libraries and inslall it
 
 #include "BlynkEdgent.h"
 
@@ -111,7 +109,7 @@ void setupBMP() {
     Serial.println(F("Could not find a valid BMP280 sensor, check wiring or "
                       "try a different address!"));
   } else {
-    bmp.setSampling(Adafruit_BMP280::MODE_NORMAL,     /* Operating Mode. */
+    bmp.setSampling(Adafruit_BMP280::MODE_NORMAL,   /* Operating Mode. */
                   Adafruit_BMP280::SAMPLING_X2,     /* Temp. oversampling */
                   Adafruit_BMP280::SAMPLING_X16,    /* Pressure oversampling */
                   Adafruit_BMP280::FILTER_X16,      /* Filtering. */
@@ -163,10 +161,10 @@ void readAndSendBMPData() {
   float altitudeDelta = abs(altitude - BMP_ALTITUDE) - BMP_ALTITUDE_IGNORED_DELTA;
 
   if (pressureDelta > 0 || altitudeDelta > 0) {
-      BMP_PRESSURE = pressure;
-      BMP_ALTITUDE = altitude;
-      Serial.printf("Pressure = %fhPa; Approx. Altitude = %fm;\n", pressure, altitude);
-      sendBMPData();
+    BMP_PRESSURE = pressure;
+    BMP_ALTITUDE = altitude;
+    Serial.printf("Pressure = %fhPa; Approx. Altitude = %fm;\n", pressure, altitude);
+    sendBMPData();
   }
 
 }
@@ -178,12 +176,14 @@ void reandAndSendSensorsData() {
 
 void setup()
 {
-  Serial.begin(115200); 
+  Serial.begin(115200);
   delay(100);
   BlynkEdgent.begin();
   setupDht();
   setupBMP();
-  timer.setInterval(5000L, reandAndSendSensorsData); //timer will run every 5 sec
+
+  // Set up timer to run every 5 sec
+  timer.setInterval(5000L, reandAndSendSensorsData); 
 }
 
 void loop() {
