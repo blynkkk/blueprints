@@ -69,7 +69,7 @@ Follow the next schematic diagram (5V connection recommendation):
 
 ## 5. Firmware preparation and device connection
 
-1. Please download [Firmware acrhive](https://github.com/blynkkk/blueprints/raw/main/ESP32%20CAM/Firmware/CameraWebServer.zip)
+1. Please download [Firmware acrhive](https://github.com/blynkkk/blueprints/releases/latest/download/ESP32_CAM_Arduino.zip)
 2. Unzip the archive and open `CameraWebServer.ino` in Arduino IDE
 3. Set your WiFi credentials in code:
 
