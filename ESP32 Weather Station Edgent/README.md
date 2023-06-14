@@ -60,7 +60,7 @@ We need to include TemplateID, AuthToken (unique identifier of your device), and
 * For PlatformIO:
 *Open project* >
 *Press **PlatformIO: Upload***
-4. Open Blynk app and follow the proposed steps to activate the device
+4. Scan a QR code to start the device activation process in the app
 5. Click **+ New device** and select **Find devices nearby**
 6. Click **Start**
 7. Connect to "Blynk ... " network
