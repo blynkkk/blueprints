@@ -5,14 +5,14 @@
 //
 //   https://blynk.cloud/dashboard/templates
 
-#define BLYNK_TEMPLATE_ID "TMPxxxxxx"
-#define BLYNK_TEMPLATE_NAME "Device"
-#define BLYNK_AUTH_TOKEN "YourAuthToken"
+#define BLYNK_TEMPLATE_ID     "TMPxxxxxx"
+#define BLYNK_TEMPLATE_NAME   "Device"
+#define BLYNK_AUTH_TOKEN      "YourAuthToken"
 
 // Your WiFi credentials.
 // Set password to "" for open networks.
-#define WIFI_SSID "YourNetworkName"
-#define WIFI_PASS "YourPassword"
+#define WIFI_SSID             "YourNetworkName"
+#define WIFI_PASS             "YourPassword"
 
 #define BLYNK_PRINT Serial  // Comment this out to disable serial monitor prints
 
