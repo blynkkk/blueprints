@@ -102,7 +102,7 @@
 #define CONFIG_AP_URL                 "blynk.setup"
 #endif
 #if !defined(CONFIG_DEFAULT_SERVER)
-#define CONFIG_DEFAULT_SERVER         "blynk-qa.com"
+#define CONFIG_DEFAULT_SERVER         "blynk.cloud"
 #endif
 #if !defined(CONFIG_DEFAULT_PORT)
 #define CONFIG_DEFAULT_PORT           443
