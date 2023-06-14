@@ -1,69 +1,78 @@
-// *** MAIN SETTINGS ***
-// Replace this block with correct template settings. You can find it for every template here:
-// https://blynk.cloud/dashboard/templates
 
-#define BLYNK_TEMPLATE_ID "TMPLxxxxxx"
+// *** MAIN SETTINGS ***
+// Replace this block with correct template settings.
+// You can find it for every template here:
+//
+//   https://blynk.cloud/dashboard/templates
+
+#define BLYNK_TEMPLATE_ID "TMPxxxxxx"
 #define BLYNK_TEMPLATE_NAME "Device"
 #define BLYNK_AUTH_TOKEN "YourAuthToken"
-char ssid[] = "YourNetworkName";  // Your WiFi network name
-char pass[] = "YourPassword";     // Your WiFi password. Set password to "" for open networks.
 
-// *********************
-
-//Including the required libraries
-#include <Arduino.h>
-#include <Wire.h>
-#include <SPI.h>
-#include <Adafruit_Sensor.h>  // Search for "Adafruit unified sensor" in libraries and install it
-#include <Adafruit_BMP280.h>  // Search for "Adafruit BMP280" in libraries and install it
-#include <BlynkSimpleEsp32.h> // Search for "Blynk" in libraries and install latest version
-#include <DHT.h>              // Search for "DHT sensor library" in libraries and install it
+#define WIFI_SSID "YourNetworkName"  // Your WiFi network name
+#define WIFI_PASS "YourPassword"     // Your WiFi password. Set the password to "" for open networks.
 
 #define BLYNK_PRINT Serial  // Comment this out to disable serial monitor prints
 
-// DHT sensor settings 
+// Adding the required libraries
+#include <Arduino.h>
+#include <Wire.h>
+#include <SPI.h>
+#include <Adafruit_Sensor.h> //You need to add it by searching "Adafruit unified sensor" in libraries and inslall it
+#include <Adafruit_BMP280.h> //You need to add it by searching "Adafruit BMP280" in libraries and inslall it
+#include <BlynkSimpleEsp32.h> //You need to add it by searching "Blynk" in libraries and inslall it
+#include <DHT.h> //You need to add it by searching "DHT sensor library" in libraries and inslall it
+
+// DHT sensor settings and configuration
+#define DHT_BLYNK_VPIN_TEMPERATURE V0 //Virtual pin on Blynk side
+#define DHT_BLYNK_VPIN_HUMIDITY V1 //Virtual pin on Blynk side
+
 #define DHTPIN 25
-#define DHTTYPE DHT21 
+#define DHTTYPE DHT21
 DHT dht(DHTPIN, DHTTYPE);
 
-int DHT_ENABLED = 0;
-float DHT_HUMIDITY;
-float DHT_HUMIDITY_IGNORED_DELTA = 0.0001;
-float DHT_TEMPERATURE;
-float DHT_TEMPERATURE_IGNORED_DELTA = 0.0001;
+// BMP sensor settings and configuration
+#define BMP_BLYNK_VPIN_PRESSURE V4 // Virtual pin on Blynk side
+#define BMP_BLYNK_VPIN_ALTITUDE V3 // Virtual pin on Blynk side
 
-// BMP280 sensor settings
 #define BMP_SCK  (18)
 #define BMP_MISO (19)
 #define BMP_MOSI (23)
 #define BMP_CS   (5)
-
 Adafruit_BMP280 bmp(BMP_CS, BMP_MOSI, BMP_MISO,  BMP_SCK);
 
-int BMP_ENABLED = 0;
+#define ALTITUDE_0 (1013.25)
+
+
+// This function creates the timer object. It's part of Blynk library
+BlynkTimer timer;
+
+// DHT related variables
+int   DHT_ENABLED = 0;
+float DHT_HUMIDITY;
+float DHT_HUMIDITY_IGNORED_DELTA = 0.01;
+float DHT_TEMPERATURE;
+float DHT_TEMPERATURE_IGNORED_DELTA = 0.01;
+
+// BMP related variables
+
+int   BMP_ENABLED = 0;
 float BMP_ALTITUDE;
 float BMP_PRESSURE;
 float BMP_PRESSURE_IGNORED_DELTA = 0.01;
 float BMP_ALTITUDE_IGNORED_DELTA = 0.01;
 
-#define ALTITUDE_0 (1013.25)
-
-// Blynk Datastreams definition
-#define DHT_BLYNK_VPIN_TEMPERATURE V0 // temperature
-#define DHT_BLYNK_VPIN_HUMIDITY V1    // humidity
-#define BMP_BLYNK_VPIN_PRESSURE V4    // pressure
-#define BMP_BLYNK_VPIN_ALTITUDE V3    // altitude
-
 int RUN = 0;
 
+// SETUP BLOCK
 
-//Starting DHT method
+// DHT setup
 void setupDht() {
   Serial.println("DHT startup!");
   dht.begin();
   DHT_ENABLED = 1;
 }
-//Starting BMP method
+// BMP setup
 void setupBMP() {
   Wire.begin();
   unsigned status;
@@ -80,7 +89,7 @@ void setupBMP() {
     Serial.println(F("Valid BMP280 sensor"));
   }
 }
-//Sending data from DHT sensor to Blynk
+// Sending data from DHT sensor to Blynk
 void sendDhtData() {
   Serial.println("Sending DHT data");
   Blynk.virtualWrite(DHT_BLYNK_VPIN_TEMPERATURE, DHT_TEMPERATURE);
@@ -94,7 +103,7 @@ void sendBMPData() {
 }
 
 // DATA PROCESSING BLOCK
-//Reading DHT data
+// Reading DHT data
 void readAndSendDhtData() {
   float humidity = dht.readHumidity();
   float temperature = dht.readTemperature();
@@ -112,8 +121,9 @@ void readAndSendDhtData() {
     }
   }
 }
-//Reading BMP data
-void readBMPData() {
+
+// Reading BMP data
+void readAndSendBMPData() {
   float pressure = bmp.readPressure() / 100.0F;
   float altitude = bmp.readAltitude(ALTITUDE_0);
    Serial.printf("Pressure = %fhPa; Approx. Altitude = %fm;\n", pressure, altitude);
@@ -127,22 +137,28 @@ void readBMPData() {
       Serial.printf("Pressure = %fhPa; Approx. Altitude = %fm;\n", pressure, altitude);
       sendBMPData();
   }
-  delay(500);
+
 }
 
-void setup() {
-  // Debug console
-  Serial.begin(115200); // Make sure you have the same baud rate in your serial monitor set up
+void reandAndSendSensorsData() {
+  readAndSendBMPData();
+  readAndSendDhtData();
+  Serial.println("Sending data from sensors");
+}
+
+void setup()
+{
+  Serial.begin(115200);
+  Blynk.begin(BLYNK_AUTH_TOKEN, WIFI_SSID, WIFI_PASS);
+
   setupDht();
   setupBMP();
-  Serial.println("Blynk setup start");
-  Blynk.begin(BLYNK_AUTH_TOKEN, ssid, pass);
-  Serial.println("Setup is finished"); // Starting Blynk on device with AuthToken and WiFi credentials
+  // Set up timer to run every 5 sec
+  timer.setInterval(5000L, reandAndSendSensorsData);
 }
 
 void loop() {
-  Blynk.run();  // Blynk magic happens here
-  readAndSendDhtData();
-  readBMPData();
-  delay(50);
+  Blynk.run();
+  timer.run();
 }
+

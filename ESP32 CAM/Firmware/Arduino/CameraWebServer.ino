@@ -1,5 +1,20 @@
-#define BLYNK_PRINT Serial
 
+// *** MAIN SETTINGS ***
+// Replace this block with correct template settings.
+// You can find it for every template here:
+//
+//   https://blynk.cloud/dashboard/templates
+
+#define BLYNK_TEMPLATE_ID "TMPxxxxxx"
+#define BLYNK_TEMPLATE_NAME "Device"
+#define BLYNK_AUTH_TOKEN "YourAuthToken"
+
+#define WIFI_SSID "YourNetworkName"  // Your WiFi network name
+#define WIFI_PASS "YourPassword"     // Your WiFi password. Set the password to "" for open networks.
+
+#define BLYNK_PRINT Serial  // Comment this out to disable serial monitor prints
+
+// Adding the required libraries
 #include "esp_camera.h"
 #include <WiFi.h>
 #include <WiFiClient.h>
@@ -10,16 +25,6 @@
 
 
 #include "camera_pins.h"
-
-// Your WiFi credentials.
-// Set ssid and password to "" for open networks.
-const char* ssid = "YourNetworkName";
-const char* password = "YourPassword";
-
-
-// Your Authtoken credentials.
-// Set Authtoken from Activate device tab to "" for connectin to Blynk.
-char auth[] = "YourAuthtoken";
 
 String local_IP;
 
@@ -91,7 +96,7 @@ void setup() {
   s->set_hmirror(s, 1);
 #endif
 
-  WiFi.begin(ssid, password);
+  WiFi.begin(WIFI_SSID, WIFI_PASS);
 
   while (WiFi.status() != WL_CONNECTED) {
     delay(500);
@@ -106,7 +111,7 @@ void setup() {
   Serial.print(WiFi.localIP());
   local_IP = WiFi.localIP().toString();
   Serial.println("' to connect");
-  Blynk.begin(auth, ssid, password, "blynk.cloud");
+  Blynk.begin(auth, WIFI_SSID, WIFI_PASS, "blynk.cloud");
 }
 
 BLYNK_CONNECTED()

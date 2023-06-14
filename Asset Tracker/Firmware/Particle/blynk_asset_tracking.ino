@@ -1,12 +1,13 @@
-// *** MAIN SETTINGS ***
-// Replace this block with correct template settings. You can find it for every template here:
-// https://blynk.cloud/dashboard/templates
 
-#define BLYNK_TEMPLATE_ID "TMPLxxxxxx"
+// *** MAIN SETTINGS ***
+// Replace this block with correct template settings.
+// You can find it for every template here:
+//
+//   https://blynk.cloud/dashboard/templates
+
+#define BLYNK_TEMPLATE_ID "TMPxxxxxx"
 #define BLYNK_TEMPLATE_NAME "Device"
 #define BLYNK_AUTH_TOKEN "YourAuthToken"
-
-#define BLYNK_PRINT Serial  // Comment this out to disable serial monitor prints
 
 /////////////////////////////////////////////////////////////////////////
 // Particle
