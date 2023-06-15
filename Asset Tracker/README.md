@@ -40,7 +40,7 @@ We need to create two Particle Webhooks to transfer the data from the Particle C
 ```
 {
     "name": "",
-    "event": "blynk_https_get_boot",
+    "event": "blynk_https_get",
     "url": "https://ny3.blynk.cloud/external/api/batch/update",
     "requestType": "GET",
     "noDefaults": true,
