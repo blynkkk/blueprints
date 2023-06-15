@@ -7,12 +7,12 @@ The web and mobile dashboard and datastreams are pre-configured. You will be cre
 We will be using a Particle Boron with attached GPS FeatherWing, that reads the device location. The location data is pushed from the Particle cellular device to Particle Cloud and from there to the Blynk IoT platform via a Particle Webhook and Blynk HTTPs API. The data is then visualized on both a Blynk web dashboard and mobile app. 
 
 **Functional Requirements**   
-* Only publish location information when the GPS has a fix and the location has moved more than 122 m / 400 ft since it was powered on
-* If the position has changed 122 m / 400 ft, set a flag for that event, make it visible to the user, and allow the user to reset it 
-* Track the device location and speed on a map in a web dashboard and mobile app
-* Publish the device position after the hardware boots and a GPS fix is obtained
-* Publish the date / time in UTC when the device last published data  
-* Publish the cellular signal strength, signal quality, and the battery charge status
+* Publish the cellular signal strength, signal quality, and the battery charge status as soon as possible after the device starts (boot), and thereafter along with the position information. 
+* Only publish location information when the GPS has a fix, and the specified publish interval TIMER_INTERVAL_MS (5 min default) has elapsed.
+* If the position has changed 122 m / 400 ft, set a flag for that event, make it visible to the user, and allow the user to reset it. 
+* Track the device location and speed on a map in a web dashboard and mobile app.
+* Publish the device position after the hardware boots and a GPS fix is obtained.
+* Publish the date / time in UTC when the device last published data.  
 
 ## Components Used in This Project
 - [Particle Console](https://console.particle.io/) to set up the Webhook and activate the Hardware
@@ -30,8 +30,8 @@ The Boron is physically stacked on top of the GPS FeatherWing, completing the el
 
 ![connect-boron-featherwing](https://github.com/blynkkk/blueprints/blob/main/Asset%20Tracker/Images/connect-boron-featherwing.png?raw=true)
 
-## 2. Create a Webhook on Particle Cloud
-Create a Particle Webhook to transfer the data from the Particle Cloud to Blynk.
+## 2. Create a Webhooks on the Particle Cloud
+We need to create two Particle Webhooks to transfer the data from the Particle Cloud to Blynk. The first one to push the data when the position of device has changed and the second one to push the data from the Particle Boron board as soon as it's online.
 1. Create account or log in into the [Particle Console](https://console.particle.io/)
 2. Go to **Products** > **New Product** to create a new Product, and then add your device
 3. After the device is added, click on the **Integrations** on the left > **Add New Integration** and select the **Webhook** option
@@ -40,7 +40,7 @@ Create a Particle Webhook to transfer the data from the Particle Cloud to Blynk.
 ```
 {
     "name": "",
-    "event": "blynk_https_get ",
+    "event": "blynk_https_get_boot",
     "url": "https://ny3.blynk.cloud/external/api/batch/update",
     "requestType": "GET",
     "noDefaults": true,
@@ -67,7 +67,28 @@ _The keys on the left (token, V3... V12) refer to Blynk datastreams, and the val
 6. Click on **Create Webhook**
 
 #### The Webhook should look like this:
-![particle webhook](https://raw.githubusercontent.com/blynkkk/blueprints/main/Asset%20Tracker/Images/integration-screenshot.png)
+![particle webhook](https://raw.githubusercontent.com/blynkkk/blueprints/main/Asset%20Tracker/Images/integration-screenshot.png)  
+
+7. Create one more webhook with the following lines using the steps above  
+
+```
+{
+    "name": "",
+    "event": "blynk_https_get_",
+    "url": "https://ny3.blynk.cloud/external/api/batch/update",
+    "requestType": "GET",
+    "noDefaults": true,
+    "rejectUnauthorized": true,
+    "query": 
+    {
+        "token": "{{t}}",
+        "V6": "{{PARTICLE_PUBLISHED_AT}}",
+        "V10": "{{v10}}", 
+        "V11": "{{v11}}", 
+        "V12": "{{v12}}"
+     }
+} 
+```
 
 ## 3. Prepare Required Software
 1. Go to [Particle Web IDE](https://build.particle.io/) or install [Particle Workbench](https://www.particle.io/workbench/) or [Particle Comand Line](https://docs.particle.io/getting-started/developer-tools/cli/)
