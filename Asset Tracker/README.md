@@ -39,7 +39,7 @@ We need to create two Particle Webhooks to transfer the data from the Particle C
 
 ```
 {
-    "name": "",
+    "name": "blynk_https_get for blynk.cloud",
     "event": "blynk_https_get",
     "url": "https://ny3.blynk.cloud/external/api/batch/update",
     "requestType": "GET",
@@ -69,11 +69,11 @@ _The keys on the left (token, V3... V12) refer to Blynk datastreams, and the val
 #### The Webhook should look like this:
 ![particle webhook](https://raw.githubusercontent.com/blynkkk/blueprints/main/Asset%20Tracker/Images/integration-screenshot.png)  
 
-7. Create the second webhook with the following lines using the steps above  
+7. Create the second webhook with the following lines using the same steps as above  
 
 ```
 {
-    "name": "",
+    "name": "blynk_https_get_boot for blynk cloud",
     "event": "blynk_https_get_boot",
     "url": "https://ny3.blynk.cloud/external/api/batch/update",
     "requestType": "GET",
