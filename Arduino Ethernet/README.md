@@ -1,6 +1,6 @@
 ## Introduction
 
-This blueprint is a quick-start tutorial for connecting the Arduino Leonardo board to Blynk using Ethernet. You will be able to control blinking of a built-in LED using a button on the web or mobile dashboard. You can also use this blueprint with similar boards, such as the Arduino Uno and Arduino Mega.
+This blueprint is a quick-start tutorial for connecting a classical Arduino board to Blynk using Ethernet. You will be able to control the built-in LED using a switch button on the web or mobile dashboard. You can use this blueprint with Arduino Uno, Leonardo, Mega, and similar boards.
 
 ## Components 
 
@@ -14,7 +14,7 @@ This blueprint is a quick-start tutorial for connecting the Arduino Leonardo boa
 ## 1. Prepare Your Hardware Before Flashing
 
 1. Connect Ethernet Shield to the Arduino board
-2. Connect Arduino board to computer with a USB cable
+2. Connect Arduino board to the computer with a USB cable
 3. Insert Ethernet cable to Ethernet Shield
 It should look like this:  
 ![Hadrware connection](https://raw.githubusercontent.com/blynkkk/blueprints/main/Arduino%20Ethernet/Images/37-4.jpg)
