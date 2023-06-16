@@ -114,42 +114,42 @@ _Recommendation: to minimize cellular data usage, the minimum publishing interva
 Widgets are used to display and visualize data, and interact with your device from the web dashboard and mobile app. In order to connect data to a widget, a specific [datastream](https://docs.blynk.io/en/getting-started/using-virtual-pins-to-control-physical-devices) should be assigned to a widget. You can create datastreams in the widget settings or in the Datastream tab of a Template. Below you can find datastream and widgets used in this project.  
 
 **1. Datastream V3 - GPS Position Coordinates**    
-Name: position  
+Name: Location  
 Web widgets: Map (visualise position), Label (coordinates)  
 Mobile widgets: Map (visualize position), Labeled Value (coordinates)
 
 **2. Datastream V4 - Device Speed (mph)**   
-Name: speed   
+Name: Speed   
 Web widgets: Label / Gauge / Chart  
 Mobile widgets: Value Display / Labeled Value / Gauge / Chart  
 Note: The speed is also added to a web dashboard map widget as an overlay.
 
 **3. Datastream V5 - Position Change Indicator**    
-Name: position_changed  
+Name: Position Changed  
 Web widgets: LED / Switch  
 Mobile widgets: LED / Switch / Value Display  
 Note: V5 will be updated to a value of 1 by the hardware when it has changed by more than 122 m / 400 ft since it was powered on, or since the last time data was published. Position Delta is 122 m / 400 ft can be adjusted in the hardware, but not to smaller number.
 Hardware determines the change in position from the last published GPS coordinates. The datastream value is not updated to a value of 0 by the hardware, so this should be done with an [automation](https://docs.blynk.io/en/concepts/automations) if the feature is to be used. 
 
 **4. Datastream V6 - Last Published Position Date and Time**  
-Name: last_publish  
+Name: Last Update  
 Web widgets: Label  
 Mobile widgets: Label Display / Value Display   
 
 **5. Datastream V10 - Battery Charge**   
-Name: batt_charge  
+Name: Battery Level  
 Web widgets: Label  
 Mobile widgets: Label Display / Value Display   
 Note: The value is "no battery" when no battery is connected, otherwise 0.0 to 100.0 where a larger value is better.
 
 **6. Datastream V11 - Cellular Connection Strenght**  
-Name: cell_strength  
+Name: Cellular Signal Strength
 Web widgets: Label  
 Mobile widgets: Label Display / Value Display   
 Note: It is -1 when the value is unknown, otherwise it is 0.0 to 100.0 where a larger value is better.
 
 **7. Datastream V12 - Cellular Connection Quality**   
-Name: cell_quality  
+Name: Cellular Signal Quality 
 Web widgets: Label  
 Mobile widgets: Label Display / Value Display  
 Note: It is -1 when the value is unknown, otherwise 0.0 to 100.0 where a larger value is better.
