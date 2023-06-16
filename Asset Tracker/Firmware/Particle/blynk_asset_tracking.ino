@@ -106,12 +106,9 @@ void CellBattUpdate() {
       if (boot_status_published == 0) {
         char data[200]; // Adjust size as needed
         // Note the escaped double quotes around the value for BLYNK_AUTH_TOKEN.
-        snprintf(data, sizeof(data), R"json({"t":"%s","v10":"%s","v11":"%s","v12":"%s"})json",
-          BLYNK_AUTH_TOKEN,
-          batt_chg.c_str(),
-          cell_str.c_str(),
-          cell_qual.c_str()
-        );
+        snprintf(data, sizeof(data),
+                 R"json({"t":"%s","v10":"%s","v11":"%s","v12":"%s"})json",
+                 BLYNK_AUTH_TOKEN, batt_chg.c_str(), cell_str.c_str(), cell_qual.c_str());
 
         // Checking the complete string that will be published.
         // Make sure you don't see any special characters.
@@ -200,7 +197,9 @@ void publishTimer() {
       }
       char data[130]; // See serial output for the actual size in bytes and adjust accordingly.
       // Note the escaped double quotes around the value for BLYNK_AUTH_TOKEN.
-      snprintf(data, sizeof(data), "{\"t\":\"%s\",\"lat\":%f,\"lon\":%f,\"spd\":%f,\"moved\":%u,\"v10\":%s,\"v11\":%s,\"v12\":%s}", BLYNK_AUTH_TOKEN, lat, lon, mph, loc, batt_chg, cell_str, cell_qual);
+      snprintf(data, sizeof(data),
+               R"json({"t":"%s","lat":%f,"lon":%f,"spd":%f,"moved":%u,"v10":%s,"v11":%s,"v12":%s})json",
+               BLYNK_AUTH_TOKEN, lat, lon, mph, loc, batt_chg.c_str(), cell_str.c_str(), cell_qual.c_str());
       Serial.printlnf("Sending to Blynk: '%s' with size of %u bytes", data, strlen(data));
       bool pub_result = Particle.publish("blynk_https_get", data, PRIVATE);
       if (pub_result) {
