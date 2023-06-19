@@ -1,0 +1,21 @@
+#!/bin/sh /etc/rc.common
+START=99 
+STOP=
+pidfile="/var/run/blynkmon.pid"
+start() {
+       if [ ! -f $pidfile ]; then
+           cd /root/blynk/
+           lua blynkmon.lua > /dev/null &
+           echo $! > $pidfile
+       else
+           echo "blynkmon already running"
+       fi
+}
+stop() {
+       if [ -f $pidfile ]; then
+           kill -9 $(cat $pidfile)
+           rm $pidfile
+       else
+           echo "blynkmon not running"
+       fi
+}

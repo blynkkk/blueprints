@@ -1,4 +1,4 @@
-#!/bin/bash
+#!/usr/bin/env bash
 mkdir -p zips
 
 function pack {
@@ -16,3 +16,4 @@ pack Arduino_Ethernet_PlatformIO.zip                "Arduino Ethernet/Firmware/P
 pack ESP32_Weather_Station_PlatformIO.zip           "ESP32 Weather Station/Firmware/PlatformIO"
 pack ESP32_Weather_Station_Edgent_Arduino.zip       "ESP32 Weather Station Edgent/Firmware/Arduino"
 pack ESP32_Weather_Station_Edgent_PlatformIO.zip    "ESP32 Weather Station Edgent/Firmware/PlatformIO"
+pack Access_OpenWrt_Router_Remotely_Lua.zip         "Access OpenWrt Router Remotely/Firmware/Lua"
