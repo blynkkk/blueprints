@@ -103,6 +103,3 @@ The creation process of this project is explained [in this tutorial](https://www
 * Learn how to [share Device](https://docs.blynk.io/en/concepts/users) with other users
 * Modify the code for your needs
 * Connect more devices using this template
-
-## Troubleshooting
-
