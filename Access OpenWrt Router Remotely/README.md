@@ -40,11 +40,10 @@ opkg install wget nano unzip openssl-util libustream-wolfssl
 #### Install the Blynk IoT platform script
 
 ```sh
-cd /root
+mkdir -p /root/blynk
+cd /root/blynk/
 wget --no-check-certificate -q https://github.com/blynkkk/blueprints/releases/latest/download/Access_OpenWrt_Router_Remotely_Lua.zip -o BlynkExample.zip
-mkdir -p ./blynk
-unzip BlynkExample.zip -d ./blynk/
-cd ./blynk
+unzip BlynkExample.zip
 ```
 
 #### Edit the Lua script to include your Blynk credentials
