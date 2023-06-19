@@ -96,7 +96,7 @@ service blynkmon start
 
 ## Project Breakdown
 
-The creation process of this project is explained in detail in this [tuorial](https://www.hackster.io/projects/6c23c2)
+The creation process of this project is explained in detail in this [tutorial](https://www.hackster.io/projects/6c23c2)
 
 ## Next Steps
 * Explore the Blynk Web Console and [Blynk IoT app](https://docs.blynk.io/en/downloads/blynk-apps-for-ios-and-android), try controlling your device from both
