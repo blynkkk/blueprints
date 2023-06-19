@@ -1,8 +1,9 @@
 ## Introduction
 
 Blynk is mostly used with boards like Arduino or a Raspberry Pi, but why not run it on other devices? ;)
+
 I've spent a weekend creating an app for my router. System and network charts, stats, notifications, WiFi control, and more!
-This tutorial also explains some basic ideas behind creating such apps, so you could easily adapt it to work with the **Raspberry Pi** and the like.
+This tutorial explains some basic ideas behind creating such apps, so you could easily adapt it to work with the **Raspberry Pi** and the like.
 
 ## Components Used in This Project
 
