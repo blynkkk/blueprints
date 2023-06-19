@@ -81,9 +81,7 @@ Your device should appear online in the Blynk Cloud and in the App.
 
 ## Autorun in the background
 
-For now, the script has to be manually executed, but I want to make it run **in the background** automatically when the router is powered up.
-
-This is done by creating a system service:
+The script needs to be manually executed, which is rather inconvenient. I want to make it run **in the background** automatically when the router is powered up. This is done by creating a system service:
 
 ```sh
 cd /root/blynk/
@@ -95,7 +93,7 @@ service blynkmon start
 
 ## Project Breakdown
 
-The creation process of this project is explained in detail in this [tutorial](https://www.hackster.io/projects/6c23c2)
+The creation process of this project is explained [in this tutorial](https://www.hackster.io/projects/6c23c2)
 
 ## Next Steps
 * Explore the Blynk Web Console and [Blynk IoT app](https://docs.blynk.io/en/downloads/blynk-apps-for-ios-and-android), try controlling your device from both
