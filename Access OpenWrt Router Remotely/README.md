@@ -13,7 +13,7 @@ Alternatively, some IoT development boards come with OpenWrt out-of-the-box, lik
 
 On the device side, I'll be using **Lua** to script the needed functionality. I could also use **Python** or **Node.js**, but unfortunately, these options are not always available due to a lack of resources on some routers. Or **C/C++**, but it's not so convenient to work with (cross-compiling for every change, etc.)
 
-We'mostly using pre-installed software (available on any OpenWrt-enabled router).
+We'll be mostly using pre-installed software (available on any OpenWrt-enabled router).
 For example, **Lua** is simple to use and learn, and it's used by the default OpenWrt web interface (**LuCI**).
 To access some advanced functionality, I had to install additional software packages.
 
@@ -21,7 +21,7 @@ To access some advanced functionality, I had to install additional software pack
 
 I assume that you already know:
 
-- How to open and use a SSH terminal on your OpenWrt router
+- How to open and use an SSH terminal on your OpenWrt router
 - How to upload/edit files on your router (using FileZilla or scp/sftp)
 - How to work with the Linux console
 
@@ -44,10 +44,10 @@ cd /root
 wget --no-check-certificate -q https://github.com/blynkkk/blueprints/releases/latest/download/Access_OpenWrt_Router_Remotely_Lua.zip -o BlynkExample.zip
 mkdir -p ./blynk
 unzip BlynkExample.zip -d ./blynk/
-cd blynk
+cd ./blynk
 ```
 
-#### Edit Lua script to include your Blynk credentials
+#### Edit the Lua script to include your Blynk credentials
 
 ```sh
 nano blynkmon.lua
@@ -65,7 +65,7 @@ To save the file, hit `Ctrl+O`, then `Enter`. Close the editor by hitting `Ctrl+
 
 #### Now it's time to run the example:
 
-```
+```log
 root@OpenWrt:~/blynkmon# lua ./blynkmon.lua
     ___  __          __
    / _ )/ /_ _____  / /__
@@ -78,9 +78,9 @@ Ready. Ping: 11ms
 ```
 
 This means a **secure, bi-directional** connection to the cloud is established!
-Your device should apper online in the Blynk Cloud and in the App.
+Your device should appear online in the Blynk Cloud and in the App.
 
-## Autorun in background
+## Autorun in the background
 
 For now, the script has to be manually executed, but I want to make it run **in the background** automatically when the router is powered up.
 
@@ -96,7 +96,7 @@ service blynkmon start
 
 ## Project Breakdown
 
-The creation process of this project is explained in details in this [tuorial](https://www.hackster.io/projects/6c23c2)
+The creation process of this project is explained in detail in this [tuorial](https://www.hackster.io/projects/6c23c2)
 
 ## Next Steps
 * Explore the Blynk Web Console and [Blynk IoT app](https://docs.blynk.io/en/downloads/blynk-apps-for-ios-and-android), try controlling your device from both
