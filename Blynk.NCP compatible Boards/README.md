@@ -29,7 +29,7 @@ This project is compatible with some widely available IoT boards that have a Dua
 
 This is a **PlatformIO** project. We recommend using [**VSCode**][pio_vscode] or [**PIO CLI**][pio_cli].
 
-> **Note:** this operation overwrites both the MCU and the NINA module firmware.
+> **Note:** This operation overwrites both the MCU and the NINA module firmware.  
 Don't worry, you will be able to [restore the stock firmware][restore] easily.
 
 To flash the NCP firmware, you need to connect your board using a USB cable, then run:
@@ -38,7 +38,7 @@ To flash the NCP firmware, you need to connect your board using a USB cable, the
 pio run --environment rp2040connect --target upload_ncp
 ```
 
-The `environment` flag should correspond to your board type.
+The `environment` flag should correspond to your board type.  
 Possible options are: `rp2040connect`, `nano33iot`, `mkrwifi1010`, `pico_esp8266`
 
 ## 2. Prepare the Main Firmware and Upload It to Your Device
