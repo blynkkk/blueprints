@@ -1,6 +1,9 @@
-# Building a new device using Blynk.NCP
+## Introduction
 
-![Blynk.NCP connection](./Images/BlynkNCP.png)
+`TODO`
+
+## Components Used in This Project
+
 
 ## 1. Flash `Blynk.NCP` firmware to your connectivity module
 
@@ -26,6 +29,8 @@ You can also check the full list of the [Blynk.NCP firmware files](https://githu
 
 You need to connect the MCU of your choice (i.e. `STM32`, `ATmega`, `RP2040` or `ATSAMD`) using UART.
 
+For example, here's how to connect the XBee modules (`Macchina SuperB`, `DFRobot WiFi Bee`) to the Raspberry Pi Pico board:
+
 ![Blynk.NCP breadboard](./Images/PiPico-XBee-BlynkNCP.png)
 
 ## 3. Use the Blynk-provided library to communicate with the NCP
@@ -36,7 +41,10 @@ There are several options here:
 
 In this project, we'll use the full-fledged Blynk library.
 
-## 4. Upload the firmware to your `Primary MCU`
+## 3. Prepare the `Primary MCU` Firmware and Upload It to Your Device
+
+`TODO`
+
 
 The expected debug output looks like this:
 ```log
@@ -46,6 +54,8 @@ The expected debug output looks like this:
 ```
 
 ## 5. Use the **Blynk mobile app** (iOS/Android) to configure your new device
+
+`TODO`
 
 
 
