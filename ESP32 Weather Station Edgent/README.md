@@ -48,7 +48,7 @@ _If you are using Arduino IDE, follow the next steps (skip for PlatformIO)_
 
 ## 3. Prepare the Firmware and Upload It to Your Device
 
-We need to include TemplateID, AuthToken (unique identifier of your device), and WiFi credentials in the sketch. Follow the steps below.
+We need to include TemplateID and Template Name. Follow the steps below.
 
 1. Click on the Activate device action in the Template Home tab (this tab should open automatically once you've pressed the Use Blueprint button)
 2. Download zip arhive 
@@ -61,11 +61,10 @@ We need to include TemplateID, AuthToken (unique identifier of your device), and
 *Open project* >
 *Press **PlatformIO: Upload***
 4. Scan a QR code to start the device activation process in the app
-5. Click **+ New device** and select **Find devices nearby**
-6. Click **Start**
-7. Connect to "Blynk ... " network
-8. Select network your device will use and click **Continue**
-9. Your device is connected now! Click **Finish** to open your device. You also will see your device in the Blynk Console
+5. Click **Start**
+6. Connect to "Blynk ... " network
+7. Select network your device will use and click **Continue**
+8. Your device is connected now! Click **Finish** to open your device. You also will see your device in the Blynk Console
 
 ## 4. Set Up Notifications
 Let's configure notifications to keep you informed when the temperature or humidity falls outside the comfortable range. This way, you can take action to restore optimal levels as soon as possible.
