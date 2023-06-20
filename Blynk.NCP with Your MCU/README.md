@@ -11,20 +11,20 @@ You will need:
 
 ## 1. Flash `Blynk.NCP` firmware to your connectivity module
 
-1. Please follow the official (supplied by the module manufacturer) firmware flashing guide.
+1. Please follow the official firmware flashing guide. This is usually supplied by the module vendor.
 2. Blynk.NCP is shipped as a combined firmware, so you only need to flash a single file (flash at address `0`).
 3. Select the corresponding firmware file, depending on your module type:
 
-Connectivity module              | NCP firmware file           | Chipset         | Connectivity | Provisioning | Interaction
-:--                              | :---                        | :---            | ---          | ---          | ---
-[Adafruit AirLift][20]           | [`generic_esp32_4M`][101]   | `ESP32`         | WiFi 2.4     | BLE          | RGB LED
-[Macchina SuperB][21]            | [`generic_esp32_4M`][101]   | `ESP32`         | WiFi 2.4     | BLE          | Green LED
-ESP-WROOM-32 4MB<br>(no PSRAM)   | [`generic_esp32_4M`][101]   | `ESP32`         | WiFi 2.4     | BLE          |
-[TTGO T-Internet-POE][22]        | [`lilygo_poe`][102]         | `ESP32+LAN8720` | WiFi 2.4, Ethernet POE | BLE    |
-[Seeed WT32-ETH01][23]           | [`wt32_eth01`][103]         | `ESP32+LAN8720` | WiFi 2.4, Ethernet     | BLE    |
-[Witty Cloud][24]                | [`generic_esp8266_4M`][100] | `ESP8266`       | WiFi 2.4     | WiFiAP       | RGB LED, User Button
-[DFRobot WiFi Bee][25]           | [`generic_esp8266_4M`][100] | `ESP8266`       | WiFi 2.4     | WiFiAP       | User Button
-ESP-07S, ESP-12F                 | [`generic_esp8266_4M`][100] | `ESP8266`       | WiFi 2.4     | WiFiAP       |
+Connectivity module              | NCP firmware file          | Chipset         | Connectivity | Provisioning | Interaction
+:--                              | :---                       | :---            | ---          | ---          | ---
+[Adafruit AirLift][20]           | [link][generic_esp32_4M]   | `ESP32`         | WiFi 2.4     | BLE          | RGB LED
+[Macchina SuperB][21]            | [link][generic_esp32_4M]   | `ESP32`         | WiFi 2.4     | BLE          | Green LED
+ESP-WROOM-32 4MB<br>(no PSRAM)   | [link][generic_esp32_4M]   | `ESP32`         | WiFi 2.4     | BLE          |
+[TTGO T-Internet-POE][22]        | [link][lilygo_poe]         | `ESP32+LAN8720` | WiFi 2.4, Ethernet POE | BLE    |
+[Seeed WT32-ETH01][23]           | [link][wt32_eth01]         | `ESP32+LAN8720` | WiFi 2.4, Ethernet     | BLE    |
+[Witty Cloud][24]                | [link][generic_esp8266_4M] | `ESP8266`       | WiFi 2.4     | WiFiAP       | RGB LED, User Button
+[DFRobot WiFi Bee][25]           | [link][generic_esp8266_4M] | `ESP8266`       | WiFi 2.4     | WiFiAP       | User Button
+ESP-07S, ESP-12F                 | [link][generic_esp8266_4M] | `ESP8266`       | WiFi 2.4     | WiFiAP       |
 
 
 You can also check the full list of the [Blynk.NCP firmware files](https://github.com/blynkkk/BlynkNcpDriver/releases/latest).
@@ -68,7 +68,7 @@ The expected debug output looks like this:
 [24]: https://protosupplies.com/product/esp8266-witty-cloud-esp-12f-wifi-module/
 [25]: https://www.dfrobot.com/product-1279.html
 
-[100]: https://github.com/blynkkk/BlynkNcpDriver/releases/latest/download/BlynkNCP_generic_esp8266_4M.flash.bin
-[101]: https://github.com/blynkkk/BlynkNcpDriver/releases/latest/download/BlynkNCP_generic_esp32_4M.flash.bin
-[102]: https://github.com/blynkkk/BlynkNcpDriver/releases/latest/download/BlynkNCP_lilygo_poe.flash.bin
-[103]: https://github.com/blynkkk/BlynkNcpDriver/releases/latest/download/BlynkNCP_wt32_eth01.flash.bin
+[generic_esp8266_4M]: https://github.com/blynkkk/BlynkNcpDriver/releases/latest/download/BlynkNCP_generic_esp8266_4M.flash.bin
+[generic_esp32_4M]: https://github.com/blynkkk/BlynkNcpDriver/releases/latest/download/BlynkNCP_generic_esp32_4M.flash.bin
+[lilygo_poe]: https://github.com/blynkkk/BlynkNcpDriver/releases/latest/download/BlynkNCP_lilygo_poe.flash.bin
+[wt32_eth01]: https://github.com/blynkkk/BlynkNcpDriver/releases/latest/download/BlynkNCP_wt32_eth01.flash.bin
