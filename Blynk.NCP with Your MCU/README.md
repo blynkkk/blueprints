@@ -8,7 +8,6 @@
 2. Blynk.NCP is shipped as a combined firmware, so you only need to flash a single file (flash at address `0`).
 3. Select the corresponding firmware file, depending on your module type:
 
-
 Connectivity module              | NCP firmware file           | Chipset         | Connectivity | Provisioning | Interaction
 :--                              | :---                        | :---            | ---          | ---          | ---
 [Adafruit AirLift][20]           | [`generic_esp32_4M`][101]   | `ESP32`         | WiFi 2.4     | BLE          | RGB LED
@@ -27,13 +26,11 @@ You can also check the full list of the [Blynk.NCP firmware files](https://githu
 
 You need to connect the MCU of your choice (i.e. `STM32`, `ATmega`, `RP2040` or `ATSAMD`) using UART.
 
-
-![Blynk.NCP breadboard](./Images/PiPico-XBee-BlynkNCP.svg)
-
+![Blynk.NCP breadboard](./Images/PiPico-XBee-BlynkNCP.png)
 
 ## 3. Use the Blynk-provided library to communicate with the NCP
 
-There are several option here:
+There are several options here:
 - [`BlynkNcpDriver`](https://github.com/blynkkk/BlynkNcpDriver) - a low-level, `C99` compatible driver with minimal dependencies
 - [`Blynk library`](https://github.com/blynkkk/blynk-library) provides an optional `C++11` convenience wrapper for the driver
 
