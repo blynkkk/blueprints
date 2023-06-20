@@ -48,7 +48,7 @@ There are several options here:
 
 In this project, we'll use the full-fledged Blynk library.
 
-## 3. Prepare the `Primary MCU` Firmware and Upload It to Your Device
+## 4. Prepare the `Primary MCU` Firmware and Upload It to Your Device
 
 `TODO`
 
