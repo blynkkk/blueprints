@@ -4,6 +4,10 @@
 
 ## Components Used in This Project
 
+You will need:
+- Raspberry Pi Pico
+- One of the supported connectivity modules (see the table below)
+- Breadboard and some jumper wires
 
 ## 1. Flash `Blynk.NCP` firmware to your connectivity module
 
@@ -25,11 +29,10 @@ ESP-07S, ESP-12F                 | [`generic_esp8266_4M`][100] | `ESP8266`      
 
 You can also check the full list of the [Blynk.NCP firmware files](https://github.com/blynkkk/BlynkNcpDriver/releases/latest).
 
-## 2. Connect NCP module to the MCU
+## 2. Assemble the board
 
-You need to connect the MCU of your choice (i.e. `STM32`, `ATmega`, `RP2040` or `ATSAMD`) using UART.
-
-For example, here's how to connect the XBee modules (`Macchina SuperB`, `DFRobot WiFi Bee`) to the Raspberry Pi Pico board:
+Connect Blynk.NCP to the Primary MCU of your choice (i.e. `STM32`, `ATmega`, `RP2040` or `ATSAMD`) using UART.  
+For example, here's how to connect the XBee form factor modules (`Macchina SuperB`, `DFRobot WiFi Bee`) to the `Raspberry Pi Pico` board:
 
 ![Blynk.NCP breadboard](./Images/PiPico-XBee-BlynkNCP.png)
 
@@ -44,7 +47,6 @@ In this project, we'll use the full-fledged Blynk library.
 ## 3. Prepare the `Primary MCU` Firmware and Upload It to Your Device
 
 `TODO`
-
 
 The expected debug output looks like this:
 ```log
