@@ -4,14 +4,14 @@ This blueprint shows how to connect Dual-MCU boards to Blynk.
 
 ## How It Works
 
-In a Dual-Microcontroller Unit (MCU) setup, Blynk allows to off-load network connectivity to a Network Co-Processor (NCP), with the application/business logic residing on the primary MCU. It's particularly useful for IoT projects that have specific requirements for the primary MCU or when using Blynk for retrofitting existing products.
+In a Dual-Microcontroller Unit (MCU) setup, Blynk allows off-loading network connectivity to a Network Co-Processor (NCP), with the application/business logic residing on the primary MCU. It's particularly useful for IoT projects that have specific requirements for the primary MCU or when using Blynk for retrofitting existing products.
 
 `Blynk.NCP` ships with some unique features:
 
 - Dynamic Provisioning (`BLE`-assisted **Blynk.Inject**)
 - Advanced Network Manager: `WiFi` (up to 16 saved networks), `Ethernet`, `Cellular` (depending on hardware)
 - `Time`, `Timezone` and `Location` APIs
-- Persistent automations (automation scenarios that work even if device is offline) - *soon*
+- Persistent automations (automation scenarios that work even if the device is offline) - *soon*
 
 ## Components Used in This Project
 
