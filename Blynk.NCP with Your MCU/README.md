@@ -15,7 +15,7 @@ You will need:
 2. Blynk.NCP is shipped as a combined firmware, so you only need to flash a single file (flash at address `0`).
 3. Select the corresponding firmware file, depending on your module type:
 
-Connectivity module              | NCP firmware file          | Chipset         | Connectivity | Provisioning | Interaction
+Connectivity module              | NCP firmware               | Chipset         | Connectivity | Provisioning | Interaction
 :--                              | :---                       | :---            | ---          | ---          | ---
 [Adafruit AirLift][20]           | [link][generic_esp32_4M]   | `ESP32`         | WiFi 2.4     | BLE          | RGB LED
 [Macchina SuperB][21]            | [link][generic_esp32_4M]   | `ESP32`         | WiFi 2.4     | BLE          | Green LED
