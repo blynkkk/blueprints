@@ -25,7 +25,7 @@ We need to connect both sensors to ESP32 Dev Module and then connect the board t
 * GND to GND on the ESP32
 * Data to IO25 on the ESP32
 
-![Connecting DHT21](https://raw.githubusercontent.com/YuliiaRudevych/blueprints/main/Weather%20Station/Images/Screenshot%20at%20May%2018%2017-57-29-2.webp)
+![Connecting DHT21](https://raw.githubusercontent.com/blynkkk/blueprints/main/ESP32%20Weather%20Station/Images/Screenshot%20at%20May%2018%2017-57-29-2.webp)
 
 2. Connect Barometer BMP280 3.3V to ESP32:
 * VCC to 3Y3 on the ESP32
@@ -33,7 +33,7 @@ We need to connect both sensors to ESP32 Dev Module and then connect the board t
 * SDA to D21 on the ESP32
 * SCL to D22 on the ESP32
 
-![Connecting BME](https://raw.githubusercontent.com/YuliiaRudevych/blueprints/main/Weather%20Station/Images/interfacing-bmp280-and-esp32-circuit-diagram.webp)
+![Connecting BME](https://raw.githubusercontent.com/blynkkk/blueprints/main/ESP32%20Weather%20Station/Images/interfacing-bmp280-and-esp32-circuit-diagram.webp)
 
 3. Don’t forget to connect ESP32 to your computer with a USB cable.
 
