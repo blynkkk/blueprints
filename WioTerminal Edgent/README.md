@@ -1,6 +1,6 @@
 ## Introduction
 
-This blueprint will help you create a soil moisture and light monitoring system for your beloved plants! You will need a Seeed WIO terminal, soil moisture sensor, and Blynk!   
+This blueprint will help you create a soil moisture and light monitoring system for your beloved plants! We will use a Seeed WIO terminal, soil moisture sensor, and Blynk!   
 
 The blueprint includes Blynk.Edgent solution, which means you will be able to activate the device via your Blynk app just by entering your WiFi credentials (**WiFi provisioning in action**) and perform OTA firmware updates once the device has been connected! Let’s get started!
 
