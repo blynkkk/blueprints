@@ -35,7 +35,7 @@ _If you are using Arduino IDE, follow the next steps (skip for PlatformIO)_
 
 ## 3. Prepare the Firmware and Upload It to Your Device
 
-When using Blynk, you need to place TemplateID, TemplateName, AuthToken, and WiFi credentials in your sketch. We will provide you with the sketch with the two first already included, and the latter two will be included automatically during device activation - this scenario is possible because we are using [Blynk.Edgent](https://docs.blynk.io/en/blynk.edgent/overview) in this project. Follow the next steps:  
+When using Blynk, you need to place TemplateID, TemplateName, AuthToken, and WiFi credentials in your sketch. We will provide you with the sketch with the two first already included, and the latter two will be included automatically during device activation - this scenario is possible because we are using [Blynk.Edgent](https://docs.blynk.io/en/blynk.edgent/overview) in this project. Follow the steps below.  
 
 1. Click on the Activate device action in the Template Home tab (this tab should open automatically once you've pressed the Use Blueprint button)
 2. Download zip arhive 
@@ -57,7 +57,7 @@ _Check the **Troubleshooting** section at the end of this tutorial if you have i
 
 ## 4. Try It Out!
 1. You should be able to see real time data displayed on mobile and web dashboard Gauges
-2. In a few minutes the historical data should appear on the Charts
+2. In a few minutes the historical data should appear on the Chart
 
 **Not working?**
 1. Reboot the device and check if the data appears on the dashboard
@@ -67,7 +67,7 @@ _Check the **Troubleshooting** section at the end of this tutorial if you have i
 ## 6. Dashboard Breakdown
 Every project you make on Blynk becomes a Template that you can use to create and manage similar devices.
 Every template consists of: 
-- Settings - general settings like which device and connectivity type. For this project it's Seeed Wio Terminal with WiFi
+- Settings - general settings like which device and connectivity type. For this project, it's Seeed Wio Terminal with WiFi
 - [Datastreams](https://docs.blynk.io/en/getting-started/using-virtual-pins-to-control-physical-devices) - channels for time-stamped data transmitted between the device and the cloud. In this project sensor data transmitted through Datastreams called `Moisture` and `Light`.
 - Web and mobile dashboards: GUI to send data from web and mobile apps through datastreams to your devices. Dashboards are made of widgets. In this project, we used two Gauges (Enhanced Gauge on Mobile) to display real time data and Chart widgets for historical data.  
 
