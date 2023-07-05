@@ -6,8 +6,8 @@ The blueprint includes Blynk.Edgent solution, which means you will be able to ac
 
 ## Components Used in This Project
 * [Arduino IDE](https://www.arduino.cc/en/software) or [PlatformIO](https://platformio.org/install) to upload a firmware
-* [Seeed Studio WIO Terminal](https://www.seeedstudio.com/Wio-Terminal-p-4509.html?queryID=cf4357665409124c32d669c13a54e006&objectID=4509&indexName=bazaar_retailer_products)
-* [Seeed Studio Grove Water Sensor](https://www.seeedstudio.com/Grove-Water-Sensor.html) 
+* [Seeed WIO Terminal](https://www.seeedstudio.com/Wio-Terminal-p-4509.html?queryID=cf4357665409124c32d669c13a54e006&objectID=4509&indexName=bazaar_retailer_products)
+* [Seeed Grove Water Sensor](https://www.seeedstudio.com/Grove-Water-Sensor.html) 
 * USB cable
 
 
