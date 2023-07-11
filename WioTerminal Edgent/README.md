@@ -30,7 +30,7 @@ _If you are using Arduino IDE, follow the next steps (skip for PlatformIO)_
    * seeed-studio/Seeed Arduino rpcWiFi
    * SPI
    * ArduinoHttpClient
-3. Select the correct board and port in the **Tools** menu
+3. Select the correct board and port in the **Tools** menu. [How to Add Seeed boards to Arduino IDE](https://wiki.seeedstudio.com/Seeed_Arduino_Boards/)
 4. Create a new sketch 
 
 ## 3. Prepare the Firmware and Upload It to Your Device
