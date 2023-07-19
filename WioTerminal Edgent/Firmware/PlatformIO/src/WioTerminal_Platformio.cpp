@@ -79,39 +79,87 @@ void beep() {
 }
 
 void refreshScreen() {
-  //Setting the title header 
-  tft.fillRect(0, 0, TFT_HEIGHT, 60, TFT_DARKGREEN); //Rectangle fill with dark green 
-  tft.setTextColor(TFT_WHITE); //Setting text color
-  tft.setTextSize(3); //Setting text size 
+  /****************************************************************************
+  Please, set the "limitMoisture" according to the soil moisture limit 
+  required for watering your plant. For example, if the minimum soil moisture
+   content for your flower is 65%, then you would write "int limitMoisture = 65".
+  ******************************************************************************/
+  int limitMoisture = 55;
+  //Setting the title header
+  tft.fillRect(0, 0, TFT_HEIGHT, 60, TFT_DARKGREEN);  //Rectangle fill with dark green
+  tft.setTextColor(TFT_WHITE);                        //Setting text color
+  tft.setTextSize(3);                                 //Setting text size
   tft.drawString("Garden Monitor", 40, 10);
   tft.setTextSize(2);
-  tft.drawString("@blynk", 240,40); //Drawing a text string 
+  tft.drawString("@blynk", 240, 40);  //Drawing a text string
 
-  //Condition for low soil moisture
-  if (soilMoisture < 50) {
-    tft.fillRect(0, 60, TFT_HEIGHT, TFT_WIDTH, TFT_RED);
-    tft.drawString("Time to water!", 35,100);
-    // beep(); // beeping
-  } else {
-    tft.fillRect(0, 60, TFT_HEIGHT, TFT_WIDTH, TFT_WHITE);
-    tft.drawFastHLine(0, 145, 320, TFT_DARKGREY); //Drawing horizontal line
-    
-    tft.setTextSize(3);
-    tft.setTextColor(TFT_DARKGREY); //Setting text color to dark since background is white
+  //Condition for soil moisture sensor cable is not connected to the terminal
+if (soilMoisture > 90) {
     
     //Setting soil moisture
-    tft.drawString("Soil", 25, 80);
-    tft.drawString("Moisture", 25, 110);
-    tft.drawNumber(soilMoisture, 200, 95); //Display sensor values as percentage  
-    tft.drawString("%", 240, 95);
- 
-    //Setting light 
+    tft.fillRect(0, 60, TFT_HEIGHT, 145, TFT_YELLOW);
+    tft.setTextSize(2);
+    tft.setTextColor(TFT_RED);
+    tft.drawString("Attention! ", 105, 70);
+    tft.drawString("Check soil moisture ", 48, 90);
+    tft.drawString("sensor connection! ", 56, 110);
+
+    tft.setTextSize(1);
+    tft.setTextColor(TFT_BLACK);
+    tft.drawNumber(soilMoisture, 280, 135);  //Display sensor values as percentage
+    tft.drawString("%", 295, 135);
+
+    //Setting light
+    tft.fillRect(0, 145, TFT_HEIGHT, TFT_WIDTH, TFT_WHITE);
     tft.setTextSize(3);
+    tft.setTextColor(TFT_DARKGREY);
     tft.drawString("Light", 25, 180);
-    tft.drawNumber(light, 205, 180); //Display sensor values as percentage  
-    tft.drawString("%", 245, 180);
+    tft.drawNumber(light, 215, 180);  //Display sensor values as percentage
+    tft.drawString("%", 255, 180);
+  } else {
+
+    //Condition for low soil moisture
+    if (soilMoisture < limitMoisture) {
+      tft.fillRect(0, 60, 320, 145, TFT_RED);
+      tft.setTextColor(TFT_YELLOW);
+      tft.drawString("Time to water!", 150, 65);
+
+      tft.setTextSize(3);
+      
+      //Setting soil moisture
+      tft.drawString("Soil", 25, 80);
+      tft.drawString("Moisture", 25, 110);
+      tft.drawNumber(soilMoisture, 200, 95);  //Display sensor values as percentage
+      tft.drawString("%", 240, 95);
+      
+      //Setting light
+      tft.fillRect(0, 145, TFT_HEIGHT, TFT_WIDTH, TFT_WHITE);
+      tft.setTextSize(3);
+      tft.setTextColor(TFT_DARKGREY);
+      tft.drawString("Light", 25, 180);
+      tft.drawNumber(light, 205, 180);  //Display sensor values as percentage
+      tft.drawString("%", 245, 180);
+      // beep(); // beeping
+    } else {
+      tft.fillRect(0, 60, TFT_HEIGHT, TFT_WIDTH, TFT_WHITE);
+      tft.drawFastHLine(0, 145, 320, TFT_DARKGREY);  //Drawing horizontal line
+
+      tft.setTextSize(3);
+      tft.setTextColor(TFT_DARKGREY);  //Setting text color to dark since background is white
+
+      //Setting soil moisture
+      tft.drawString("Soil", 25, 80);
+      tft.drawString("Moisture", 25, 110);
+      tft.drawNumber(soilMoisture, 200, 95);  //Display sensor values as percentage
+      tft.drawString("%", 240, 95);
+
+      //Setting light
+      tft.setTextSize(3);
+      tft.drawString("Light", 25, 180);
+      tft.drawNumber(light, 205, 180);  //Display sensor values as percentage
+      tft.drawString("%", 245, 180);
+    }
   }
-  
   delay(50);
 }
 
