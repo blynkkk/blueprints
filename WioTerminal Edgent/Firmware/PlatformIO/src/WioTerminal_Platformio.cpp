@@ -80,8 +80,8 @@ void beep() {
 
 void refreshScreen() {
   /****************************************************************************
-  Set the "limitMoisture" according to the soil moisture limit 
-  required for watering your plant. For example, if the minimum soil moisture
+   Set the "limitMoisture" according to the soil moisture limit required
+   for watering your plant. For example, if the minimum soil moisture
    content for your flower is 65%, then you would write "int limitMoisture = 65".
   ******************************************************************************/
   int limitMoisture = 55;
