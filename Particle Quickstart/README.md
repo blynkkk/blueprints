@@ -148,10 +148,12 @@ We need to include TemplateID, Template Name and AuthToken (unique identifier of
 _Check the **Troubleshooting** section at the end of this tutorial if you have issues uploading the firmware_
 
 
-## 5. Testing
+## 5. Test the project
+
+Follow the steps below to make sure everything works as it is supposed to.
 
 1. Test the Particle cloud function running in the firmware by calling it from the Particle console. With your Particle hardware running, visit [here](https://docs.blynk.io/en/hardware-guides/particle-part-ii#firmware) for detailed instructions on how to call 'blynk_led'. Go to your [Particle console](https://console.particle.io/), select the Particle device, and then under the **Functions** section on the right side of the screen you will see the function key of ‘blynk_led’ listed. Enter **‘on’** in the **Argument** input area and click the **CALL** button. Observe the Particle device to confirm that the built-in blue LED on D7 turns on. Repeat with the **‘off’** argument to turn off the LED.   
-![alt text](https://github.com/marynablynk/blynk-particle-integration/blob/main/images/functions.png "Particle Function")
+![alt text](https://github.com/marynablynk/blynk-particle-integration/blob/main/images/functions.png?raw=true "Particle Function")
 2. Verify that your Particle access token is correct by using the Particle API to test it. Detailed instructions on how to do this using [Postman](https://www.postman.com/) can be found [here](https://docs.blynk.io/en/hardware-guides/particle-part-ii#particle-api).
 3. Test the Blynk webhook by installing the firmware on your Particle hardware, and then click **Test webhook** to verify it doesn’t throw an error (it won’t send the datastream value here, so don’t expect to see the LED on your Particle device change). Then from the Blynk web dashboard or mobile app, toggle the switch assigned to datastream V16 and observe the built-in LED on the hardware if it exists, or the Blynk LED widget if no built-in LED exists. Wait 60 seconds between each toggle of the switch widget.
 4. Review the Particle device log to confirm the device is connected and to see what data has been published from the hardware to the Particle cloud. 
