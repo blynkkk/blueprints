@@ -1,7 +1,12 @@
 ## Introduction
-This blueprint will help quickly set up bi-directional communication between any Particle hardware and Blynk. You will be able to control an LED from the BLynk mobile app and web dashboard and monitor data sent from the Particle hardware. This project can be upgraded to serve a specific use case, like controlling irrigation system on the farm or monitoring the fleet of street cleaning vehicles. 
+This blueprint will help quickly set up bi-directional communication between any Particle hardware and Blynk. You will be able to control an LED from the BLynk mobile app and web dashboard and monitor data sent from the Particle hardware. This project can be upgraded to serve a specific use case, like controlling the irrigation system on the farm or monitoring the fleet of street cleaning vehicles. 
 
-### Functional Requirements
+## How It Works
+The data is pushed from the Particle device to Particle Cloud and from there to the Blynk IoT platform via a Particle Webhook and Blynk HTTPs API. The data is then visualized on both a Blynk web dashboard and mobile app. Any Particle hardware (Tracker One, Tracker SoM, Boron, B Series SoM, Photon 2, P2, Argon, Photon, Electron, E Series, Core) running the provided firmware will be sending two channels of simulated sensor data from the hardware to Blynk.  
+
+One channel will be integer values, and the other will be a floating point value. The data sent will be visualized on the Blynk web dashboard and mobile app in both a chart and a value display. Additionally, a switch widget on the web dashboard and mobile app will send data to the hardware to control it. The switch data is simply an On/Off (1/0) state that will be sent back to Blynk by the firmware to control a Blynk LED widget, and it will toggle the state of the built-in LED on the Particle device if it exists. A UTC-based timestamp will also be displayed on the web dashboard and mobile app so the last time data was published from the Particle device will be known.
+
+**Functional Requirements**
 - The firmware on the Particle hardware will push data that includes an integer value and a floating point number (simulated sensor value or other source) at a regular interval of every 5 minutes (adjustable in the firmware)
 - A date/time stamp in UTC must be included with data sent to Blynk and visible to the user
 - The last integer value, floating point value, and UTC date-time stamp must be displayed on the web dashboard and mobile app
@@ -9,12 +14,6 @@ This blueprint will help quickly set up bi-directional communication between any
 - Multiple Particle devices must be able to use the same Particle webhook 
 - A button widget on the Blynk web dashboard and mobile app will be configured to send a state change command (1/0 value) back to the Particle hardware that will turn On/Off the built-in LED (if no LED on GPIO D7 then the user must configure custom GPIO and connect LED)
 - Communication frequency must be configured to minimize data usage by default for the case when a cellular device is employed  
-
-## How It Works
-
-Any Particle hardware (Tracker One, Tracker SoM, Boron, B Series SoM, Photon 2, P2, Argon, Photon, Electron, E Series, Core) running the provided firmware will be sending two channels of simulated sensor data from the hardware to Blynk.  
-
-One channel will be integer values, and the other will be a floating point value. The data sent will be visualized on the Blynk web dashboard and mobile app in both a chart and a value display. Additionally, a switch widget on the web dashboard and mobile app will send data to the hardware to control it. The switch data is simply an On/Off (1/0) state that will be sent back to Blynk by the firmware to control a Blynk LED widget, and it will toggle the state of the built-in LED on the Particle device if it exists. A UTC-based timestamp will also be displayed on the web dashboard and mobile app so the last time data was published from the Particle device will be known.
 
 ## Components Used in This Project
 - [Particle Console](https://console.particle.io/) to activate the hardware and set up the integration 
