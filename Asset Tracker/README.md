@@ -4,7 +4,7 @@ This blueprint is a basic asset tracking solution. You will be able to see your 
 The web and mobile dashboard and datastreams are pre-configured. You will be creating an integration with the Particle Cloud using a detailed step-by-step guide.
 
 ## How It Works
-We will be using a Particle Boron with attached GPS FeatherWing, that reads the device location. The location data is pushed from the Particle cellular device to Particle Cloud and from there to the Blynk IoT platform via a Particle Webhook and Blynk HTTPs API. The data is then visualized on both a Blynk web dashboard and mobile app. 
+We will be using a Particle Boron with an attached GPS FeatherWing, that reads the device location. The location data is pushed from the Particle cellular device to Particle Cloud and from there to the Blynk IoT platform via a Particle Webhook and Blynk HTTPs API. The data is then visualized on both a Blynk web dashboard and a mobile app. 
 
 **Functional Requirements**   
 * Publish the cellular signal strength, signal quality, and the battery charge status as soon as possible after the device starts (boot), and thereafter along with the position information 
@@ -107,7 +107,7 @@ We need to include TemplateID, Template Name and AuthToken (unique identifier of
 
 _Check the **Troubleshooting** section at the end of this tutorial if you have issues uploading the firmware_
 
-_Recommendation: to minimize cellular data usage, the minimum publishing interval should be updated to a longer duration such as 300000 ms or 5 min instead of 60000 ms (in the sketch - const uint32_t TIMER_INTERVAL_MS = 60000). Do it after the sketch has been fully tested by changign the number._ 
+_Recommendation: to minimize cellular data usage, the minimum publishing interval should be updated to a longer duration such as 300000 ms or 5 min instead of 60000 ms (in the sketch - const uint32_t TIMER_INTERVAL_MS = 60000). Do it after the sketch has been fully tested by changing the number._ 
 
 
 ## 5. Dashboard Breakdown
