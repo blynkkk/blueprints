@@ -8,12 +8,10 @@ One channel will be integer values, and the other will be a floating point value
 
 **Functional Requirements**
 - The firmware on the Particle hardware will push data that includes an integer value and a floating point number (simulated sensor value or other source) at a regular interval of every 5 minutes (adjustable in the firmware)
-- A date/time stamp in UTC must be included with data sent to Blynk and visible to the user
 - The last integer value, floating point value, and UTC date-time stamp must be displayed on the web dashboard and mobile app
 - The historical values for the integer and floating point value must be displayed in a line chart  
-- Multiple Particle devices must be able to use the same Particle webhook 
 - A button widget on the Blynk web dashboard and mobile app will be configured to send a state change command (1/0 value) back to the Particle hardware that will turn On/Off the built-in LED (if no LED on GPIO D7 then the user must configure custom GPIO and connect LED)
-- Communication frequency must be configured to minimize data usage by default for the case when a cellular device is employed  
+- Communication frequency must be configured to minimize data usage by default for the case when a cellular device is used  
 
 ## Components Used in This Project
 - [Particle Console](https://console.particle.io/) to activate the hardware and set up the integration 
