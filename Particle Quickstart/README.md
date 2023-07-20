@@ -221,7 +221,7 @@ Congratulation on connecting a Particle board to Blynk! Check out the following 
 After your device is connected to Blynk, this project can be modified to include more functionality. 
 
 - Explore Blynk no-code [Web Dashboard](https://docs.blynk.io/en/blynk.console/templates/dashboard) and [Mobile App](https://docs.blynk.io/en/blynk.apps/constructor) builder make it easy to create custom interfaces to visualize data and interact with an IoT device.
-- Learn how to work with [Virtual Pin Datastreams](https://docs.blynk.io/en/getting-started/using-virtual-pins-to-control-physical-devices) 
+- Learn how to work with [Datastreams](https://docs.blynk.io/en/getting-started/using-virtual-pins-to-control-physical-devices) 
 - Try [Automations](https://docs.blynk.io/en/concepts/automations). They allow the end-user of your app to create scenarios where the device automatically performs one or more actions based on a condition. For example, you can trigger a phone notification or send an email when the Particle device detects a sensor condition of interest.
 - Blynk [User Management](https://docs.blynk.io/en/concepts/users) functionality allows you to share devices with other users - from a few to thousands and offers a simple and flexible way to set up and manage multi-tenant IoT applications at any scale.
 - Explore Blynk [Organizations](https://docs.blynk.io/en/concepts/organizations), that will help you categorize your devices and users, assigning them roles, permissions, and locations.
