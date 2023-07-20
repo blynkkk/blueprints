@@ -98,9 +98,9 @@ The Blynk webhook will need a Particle access token to make a Particle HTTP API 
 ## 3. Blynk webhook setup
 Control of the Particle hardware remotely from the Blynk web dashboard or mobile app is accomplished using a Blynk webhook and the Particle HTTP API. When the state of the switch widget on the Blynk web dashboard or mobile app is changed, a Blynk webhook assigned to the same datastream is called. The webhook makes a Particle HTTP API call to a Particle cloud function with a device-unique token that sends data to the Particle hardware. 
 
-1. In the [Blynk.Console](https://blynk.cloud/), navigate to **Settings** > **Webhooks** and create a new webhook for datastream V16 based on the information shown in the next image. 
-2. After you are finished configuring the webhook, click **Test webhook** to verify it doesn’t throw an error (it won’t send the datastream value here, so don’t expect to see the LED on your Particle device change). 
-3. Click **Create Webhook** to save it and close the dialog. 
+1. In the [Blynk.Console](https://blynk.cloud/), navigate to **Settings** > **Webhooks** and create a new webhook for datastream V16 based on the information shown in the next image 
+2. After you are finished configuring the webhook, click **Test webhook** to verify it doesn’t throw an error (it won’t send the datastream value here, so don’t expect to see the LED on your Particle device change) 
+3. Click **Create Webhook** to save it and close the dialog 
 
 Note that the **Blynk webhook request quota is 1 per minute*** so any datastream value changes sooner than 60 seconds will not execute the webhook.
 
@@ -220,14 +220,13 @@ Every template consists of:
 Congratulation on connecting a Particle board to Blynk! Check out the following section to explore the platform functionality and try modifying your project further.
 
 ## Next Steps
-After your device is connected to Blynk, this project can be easily modified to include more functionality. 
+After your device is connected to Blynk, this project can be modified to include more functionality. 
 
-- Blynk no-code [Web Dashboard](https://docs.blynk.io/en/blynk.console/templates/dashboard) and [Mobile App](https://docs.blynk.io/en/blynk.apps/constructor) builder make it easy to create custom interfaces to visualize data and interact with an IoT device.
+- Explore Blynk no-code [Web Dashboard](https://docs.blynk.io/en/blynk.console/templates/dashboard) and [Mobile App](https://docs.blynk.io/en/blynk.apps/constructor) builder make it easy to create custom interfaces to visualize data and interact with an IoT device.
 - Learn how to work with [Virtual Pin Datastreams](https://docs.blynk.io/en/getting-started/using-virtual-pins-to-control-physical-devices) 
-- Blynk [Automations](https://docs.blynk.io/en/concepts/automations) allows the end-user of your app to create scenarios where the device automatically performs one or more actions based on a condition. For example, you can trigger a phone notification or send an email when the Particle device detects a sensor condition of interest.
-- Blynk [User Management](https://docs.blynk.io/en/concepts/users) functionality allows you to share devices with other users - from a few to thousands and offers a simple and flexible way to set up and manage multi-tenant IoT applications at any scale, 
-- Blynk [Organizations](https://docs.blynk.io/en/concepts/organizations) allow you to categorize your devices and users, assigning them roles, permissions, and locations.
-- Learn how to [Share Device](https://docs.blynk.io/en/concepts/users) with other users
+- Try [Automations](https://docs.blynk.io/en/concepts/automations). They allow the end-user of your app to create scenarios where the device automatically performs one or more actions based on a condition. For example, you can trigger a phone notification or send an email when the Particle device detects a sensor condition of interest.
+- Blynk [User Management](https://docs.blynk.io/en/concepts/users) functionality allows you to share devices with other users - from a few to thousands and offers a simple and flexible way to set up and manage multi-tenant IoT applications at any scale.
+- Explore Blynk [Organizations](https://docs.blynk.io/en/concepts/organizations), that will help you categorize your devices and users, assigning them roles, permissions, and locations.
 - Add sensors and modify the firmware to match your project needs
 
 ## Related Links
