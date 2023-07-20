@@ -1,5 +1,5 @@
 ## Introduction
-This blueprint will help quickly set up bi-directional communication between any Particle hardware and Blynk. You will be able to control an LED from the BLynk mobile app and web dashboard and monitor data sent from the Particle hardware. This project can be easily upgraded to serve a specific use case, like monitoring the fleet ...
+This blueprint will help quickly set up bi-directional communication between any Particle hardware and Blynk. You will be able to control an LED from the BLynk mobile app and web dashboard and monitor data sent from the Particle hardware. This project can be upgraded to serve a specific use case, like controlling irrigation system on the farm or monitoring the fleet of street cleaning vehicles. 
 
 ### Functional Requirements
 - The firmware on the Particle hardware will push data that includes an integer value and a floating point number (simulated sensor value or other source) at a regular interval of every 5 minutes (adjustable in the firmware).
@@ -211,15 +211,18 @@ The Blynk blueprint has created a device template with the following datastreams
 - Perform all of the tests under **Testing** to be sure that each communication step from the Particle hardware to Blynk and back works properly.
 
 ## Conclusion
-Using this Blynk blueprint accelerates the configuration of a Particle device for bi-directional communication with Blynk. &nbsp; The Blynk blueprint generates the firmware to be installed on the Particle hardware, creates a Blynk device template with datastreams defined, a web dashboard with widgets, and a mobile app with widgets. &nbsp; The developer needs to create a Blynk webhook, a Particle webhook, provision a Blynk device and upload the firmware to the hardware, and acquire a Particle access token. &nbsp;
+Using this Blynk blueprint accelerates the configuration of a Particle device for bi-directional communication with Blynk. The Blynk blueprint generates the firmware to be installed on the Particle hardware, creates a Blynk device template with datastreams defined, a web dashboard with widgets, and a mobile app with widgets.
 
 ## Next Steps
-After your device is connected to Blynk, this integration can be easily modified to include more functionality. 
+After your device is connected to Blynk, this project can be easily modified to include more functionality. 
 
 - Blynk no-code [Web Dashboard](https://docs.blynk.io/en/blynk.console/templates/dashboard) and [Mobile App](https://docs.blynk.io/en/blynk.apps/constructor) builder make it easy to create custom interfaces to visualize data and interact with an IoT device.
+- Learn how to work with [Virtual Pin Datastreams](https://docs.blynk.io/en/getting-started/using-virtual-pins-to-control-physical-devices) 
 - Blynk [Automations](https://docs.blynk.io/en/concepts/automations) allows the end-user of your app to create scenarios where the device automatically performs one or more actions based on a condition. For example, you can trigger a phone notification or send an email when the Particle device detects a sensor condition of interest.
 - Blynk [User Management](https://docs.blynk.io/en/concepts/users) functionality allows you to share devices with other users - from a few to thousands and offers a simple and flexible way to set up and manage multi-tenant IoT applications at any scale, 
-- Blynk [Organizations](https://docs.blynk.io/en/concepts/organizations) enable you to categorize your devices and users, assigning them roles, permissions, and locations.
+- Blynk [Organizations](https://docs.blynk.io/en/concepts/organizations) allow you to categorize your devices and users, assigning them roles, permissions, and locations.
+- Learn how to [Share Device](https://docs.blynk.io/en/concepts/users) with other users
+- Add sensors and modify the firmware to match your project needs
 
 ## Related Links
 - [Blynk Troubleshooting guide](https://docs.blynk.io/en/troubleshooting/general-issues)
