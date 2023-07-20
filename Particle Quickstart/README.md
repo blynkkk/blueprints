@@ -2,13 +2,13 @@
 This blueprint will help quickly set up bi-directional communication between any Particle hardware and Blynk. You will be able to control an LED from the BLynk mobile app and web dashboard and monitor data sent from the Particle hardware. This project can be upgraded to serve a specific use case, like controlling irrigation system on the farm or monitoring the fleet of street cleaning vehicles. 
 
 ### Functional Requirements
-- The firmware on the Particle hardware will push data that includes an integer value and a floating point number (simulated sensor value or other source) at a regular interval of every 5 minutes (adjustable in the firmware).
-- A date/time stamp in UTC must be included with data sent to Blynk and visible to the user.
-- The last integer value, floating point value, and UTC date-time stamp must be displayed on the web dashboard and mobile app.
-- The historical values for the integer and floating point value must be displayed in a line chart.  
-- Multiple Particle devices must be able to use the same Particle webhook. 
-- A button widget on the Blynk web dashboard and mobile app will be configured to send a state change command (1/0 value) back to the Particle hardware that will turn ON/OFF the built-in LED (if no LED on GPIO D7 then the user must configure custom GPIO and connect LED).
-- Communication frequency must be configured to minimize data usage by default for the case when a cellular device is employed.  
+- The firmware on the Particle hardware will push data that includes an integer value and a floating point number (simulated sensor value or other source) at a regular interval of every 5 minutes (adjustable in the firmware)
+- A date/time stamp in UTC must be included with data sent to Blynk and visible to the user
+- The last integer value, floating point value, and UTC date-time stamp must be displayed on the web dashboard and mobile app
+- The historical values for the integer and floating point value must be displayed in a line chart  
+- Multiple Particle devices must be able to use the same Particle webhook 
+- A button widget on the Blynk web dashboard and mobile app will be configured to send a state change command (1/0 value) back to the Particle hardware that will turn On/Off the built-in LED (if no LED on GPIO D7 then the user must configure custom GPIO and connect LED)
+- Communication frequency must be configured to minimize data usage by default for the case when a cellular device is employed  
 
 ## How It Works
 
@@ -17,23 +17,23 @@ Any Particle hardware (Tracker One, Tracker SoM, Boron, B Series SoM, Photon 2, 
 One channel will be integer values, and the other will be a floating point value. The data sent will be visualized on the Blynk web dashboard and mobile app in both a chart and a value display. Additionally, a switch widget on the web dashboard and mobile app will send data to the hardware to control it. The switch data is simply an On/Off (1/0) state that will be sent back to Blynk by the firmware to control a Blynk LED widget, and it will toggle the state of the built-in LED on the Particle device if it exists. A UTC-based timestamp will also be displayed on the web dashboard and mobile app so the last time data was published from the Particle device will be known.
 
 ## Components Used in This Project
-- [Particle Console](https://console.particle.io/) to activate the hardware and set up the integration/webhook. 
-- Particle Web IDE, Particle Workbench or Particle Comand Line to upload firmware.
+- [Particle Console](https://console.particle.io/) to activate the hardware and set up the integration 
+- Particle Web IDE, Particle Workbench, or Particle Comand Line to upload the firmware
 - Any of the following Particle IoT devices:
-  - **Tracker One** is complete system including an enclosure. It also comes as a SoM (system on module) known as **Tracker SoM**.  See [Tracker button and LEDs](https://docs.particle.io/hardware/tracker/projects/tracker-buttons-leds/) for details on how to add an LED to the Tracker One. 
-  - Any **Boron** cellular devices, including those that are depreciated. &nbsp; All have a built-in LED is on D7.
-  - **B Series SoM** system-on-a-module. &nbsp; No built-in LED, must custom install.  
-  - **Photon 2** is a WiFi device with built in LED is on D7.
-  - **P2** is an SMD module with WiFi and a microcontroller.  No built-in LED.  Replaces the depreciated P1. 
-  - **Argon** is a depreciated WiFi device with built in LED is on D7.
-  - **Photon** is a depreciated WiFi device with built-in LED on D7.
-  - **Electron** is a depreciated cellular device with built-in LED on D7.
-  - **E Series** is a cellular device.  No built-in LED.
-  - **Core** is a WiFi device with built-in LED on D7. 
+  - **Tracker One** is a complete system including an enclosure. It also comes as a SoM (system on module) known as **Tracker SoM**. See [Tracker button and LEDs](https://docs.particle.io/hardware/tracker/projects/tracker-buttons-leds/) for details on how to add an LED to the Tracker One 
+  - Any **Boron** cellular devices, including those that are depreciated, all have a built-in LED on D7
+  - **B Series SoM** system-on-a-module. No built-in LED, must custom install  
+  - **Photon 2** is a WiFi device with built-in LED on D7
+  - **P2** is an SMD module with WiFi and a microcontroller.  No built-in LED.  Replaces the depreciated P1 
+  - **Argon** is a depreciated WiFi device with built-in LED is on D7
+  - **Photon** is a depreciated WiFi device with built-in LED on D7
+  - **Electron** is a depreciated cellular device with built-in LED on D7
+  - **E Series** is a cellular device.  No built-in LED
+  - **Core** is a WiFi device with built-in LED on D7 
 
 ## 1. Prepare Your Hardware
-1. All Particle devices will require a suitable power connection and either a cellular or WiFi connection.
-2. A virtual LED (Blynk widget) will be used for all hardware to push back data to Blynk and cause the LED widget to turn on or off. Particle devices with a built-in LED connected to GPIO D7 GPIO D7 (Boron, Argon, Photon 2, Photon, Electron, Core) will be detected by the firmware and this physical LED will be turned On/Off in addition to the LED widget. 
+1. Hardware will require a suitable power connection and either a cellular or WiFi connection
+2. A virtual LED (Blynk widget) will be used for all hardware to push back data to Blynk and cause the LED widget to turn on/off. Particle devices with a built-in LED connected to GPIO D7 (Boron, Argon, Photon 2, Photon, Electron, Core) will be detected by the firmware and this physical LED will be turned on/off in addition to the LED widget. 
  
 
 ## 2. Create Particle Integration Webhook
@@ -211,7 +211,7 @@ The Blynk blueprint has created a device template with the following datastreams
 - Perform all of the tests under **Testing** to be sure that each communication step from the Particle hardware to Blynk and back works properly.
 
 ## Conclusion
-Using this Blynk blueprint accelerates the configuration of a Particle device for bi-directional communication with Blynk. The Blynk blueprint generates the firmware to be installed on the Particle hardware, creates a Blynk device template with datastreams defined, a web dashboard with widgets, and a mobile app with widgets.
+Congratulation on connecting a Particle board to Blynk! Check out the following section to explore the platform functionality and try modifying your project further.
 
 ## Next Steps
 After your device is connected to Blynk, this project can be easily modified to include more functionality. 
