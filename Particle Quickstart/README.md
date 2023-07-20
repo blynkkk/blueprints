@@ -1,6 +1,3 @@
-# particle_device_blueprint
-Connect any Particle IoT device to Blynk
-
 ## Introduction
 This blueprint will configure bi-directional communication between any [Particle](https://www.particle.io/) device and [Blynk IoT](https://blynk.io/). &nbsp; Both a Blynk web dashboard and mobile app will be generated that will display data from the Particle device, and they will be used to control the Particle device remotely.  
 
