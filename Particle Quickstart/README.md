@@ -32,7 +32,7 @@ One channel will be integer values, and the other will be a floating point value
 
 ## 1. Prepare Your Hardware
 1. Hardware will require a suitable power connection and either a cellular or WiFi connection
-2. A virtual LED (Blynk widget) will be used for all hardware to push back data to Blynk and cause the LED widget to turn on/off. Particle devices with a built-in LED connected to GPIO D7 (Boron, Argon, Photon 2, Photon, Electron, Core) will be detected by the firmware and this physical LED will be turned on/off in addition to the LED widget. 
+2. A virtual LED (Blynk widget) will be used for all hardware to push back data to Blynk and cause the LED widget to turn on/off. Particle devices with a built-in LED connected to GPIO D7 (Boron, Argon, Photon 2, Photon, Electron, Core) will be detected by the firmware and this physical LED will be turned on/off in addition to the LED widget 
  
 
 ## 2. Create Particle Integration Webhook
@@ -160,9 +160,16 @@ _Check the **Troubleshooting** section at the end of this tutorial if you have i
 5. Review the Particle integration log to see if it was triggered successfully and the data that was pushed to it from the Particle device.
 
    
-## Reference Information
+## Template Breakdown
+Every project you make on Blynk becomes a Template that you can use to create and manage similar devices.
 
-The Blynk blueprint has created a device template with the following datastreams configured:
+Every template consists of: 
+- Settings - general settings like which device and connectivity type. For this project, it can be any Particle hardware with WiFi or Cellular.
+- [Datastreams](https://docs.blynk.io/en/getting-started/using-virtual-pins-to-control-physical-devices) - channels for time-stamped data transmitted between the device and the cloud. Check out the table below to see the list of datastreams for this project and what each of them is used for.
+- Web and mobile dashboards - GUI to send data from web and mobile apps through datastreams to your devices. Dashboards are made of widgets. In this project, we used Switch and LED widgets to control and see the state of an LED on a device. Also, we used Lables (Labeled Value on Mobile) to display real time data and Chart widgets for historical data.  
+
+
+**Datastreams Table**
 <table>
   <tr>
     <th>Datastream <br/> Virtual Pin</th>
