@@ -56,20 +56,21 @@ When using Blynk, you need to place TemplateID, TemplateName, AuthToken, and WiF
 _Check the **Troubleshooting** section at the end of this tutorial if you have issues uploading the firmware_  
 
 ## 4. Try It Out!
-1. You should be able to see real time data displayed on mobile and web dashboard Gauges
+1. You should be able to see real-time data displayed on mobile and web dashboard Gauges
 2. In a few minutes the historical data should appear on the Chart
 
 **Not working?**
 1. Reboot the device and check if the data appears on the dashboard
 2. Check if both sensors are connected to the board as shown in the **Prepare Your Hardware** section
-3. Delete your device and try connecting it again considering the recommendations from the **Troubleshooting** section at the end of this tutorial 
+3. Delete your device and try connecting it again considering the recommendations from the **Troubleshooting** section at the end of this tutorial
+4. Before flashing the device again make sure to reset the device to the original configuration using the **Reset** button 
 
 ## 6. Template Breakdown
 Every project you make on Blynk becomes a Template that you can use to create and manage similar devices.
 Every template consists of: 
 - Settings - general settings like which device and connectivity type. For this project, it's Seeed Wio Terminal with WiFi
 - [Datastreams](https://docs.blynk.io/en/getting-started/using-virtual-pins-to-control-physical-devices) - channels for time-stamped data transmitted between the device and the cloud. In this project, sensor data transmitted through Datastreams called `Moisture` and `Light`.
-- Web and mobile dashboards - GUI to send data from web and mobile apps through datastreams to your devices. Dashboards are made of widgets. In this project, we used two Gauges (Enhanced Gauge on Mobile) to display real time data and Chart widgets for historical data.  
+- Web and mobile dashboards - GUI to send data from web and mobile apps through datastreams to your devices. Dashboards are made of widgets. In this project, we used two Gauges (Enhanced Gauge on Mobile) to display real-time data and Chart widgets for historical data.  
 
 ## Conclusion
 Congratulations on creating your own soil moisture and light monitoring system using the WIO Terminal and Blynk! 
