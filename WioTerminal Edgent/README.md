@@ -53,7 +53,7 @@ When using Blynk, you need to place TemplateID, TemplateName, AuthToken, and WiF
 7. Select the network your device will use and click **Continue**
 8. Your device is connected now! Click **Finish** to open your device. You also will see your device in the Blynk Console
   
-_Check the **Troubleshooting** section at the end of this tutorial if you have issues uploading the firmware_  
+_Check the **Troubleshooting** section at the end of this tutorial if you have issues uploading the firmware or connecting the device_  
 
 ## 4. Try It Out!
 1. You should be able to see real-time data displayed on mobile and web dashboard Gauges
@@ -61,9 +61,8 @@ _Check the **Troubleshooting** section at the end of this tutorial if you have i
 
 **Not working?**
 1. Reboot the device and check if the data appears on the dashboard
-2. Check if both sensors are connected to the board as shown in the **Prepare Your Hardware** section
+2. Check if the sensor is connected to the board as shown in the **Prepare Your Hardware** section
 3. Delete your device and try connecting it again considering the recommendations from the **Troubleshooting** section at the end of this tutorial
-4. Before flashing the device again make sure to reset the device to the original configuration using the **Reset** button 
 
 ## 6. Template Breakdown
 Every project you make on Blynk becomes a Template that you can use to create and manage similar devices.
@@ -97,6 +96,17 @@ Check out the following section to explore the platform functionality and try mo
 * Check your sketch for errors. Click the Verify button to compile your sketch without uploading it
 * Check your board and port selections
 * Check your connections. Your board needs to be connected with a data USB cable (charge-only cables will not work). Make sure the cable is fully inserted in the port on each end. Try a different USB cable, and avoid hubs and other adapters if possible. Remove connections to the board pins, especially the 0 (RX) and 1 (TX) digital pins.
+* If your mobile device does not detect the Blynk network, then you most likely need to reset the configuration of your Wio Terminal. Follow the steps below.
+   - Open the serial port terminal.
+   - Press and hold the "A" (right) button on your Wio Terminal for 10 seconds. The serial port monitor terminal should display the following message:
+        - [XXXXX] Hold the button for 10 seconds to reset the configuration…
+   - After 10 seconds, release the “A” button. You should see the following in the terminal:
+        - [XXXXX] RUNNING => RESET_CONFIG
+        - [XXXXX] Resetting configuration!
+        - [XXXXX] Configuration stored to flash
+        - [XXXXX] RESET_CONFIG => WAIT_CONFIG
+        - [XXXXX] Scanning networks..
+   - Search the Blynk network again with your mobile device using the QR code.
 
 ## Related Links
 [Blynk Troubleshooting guide](https://docs.blynk.io/en/troubleshooting/general-issues)  
