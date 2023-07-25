@@ -7,10 +7,10 @@ The data is pushed from the Particle device to Particle Cloud and from there to 
 One channel will be integer values, and the other will be a floating point value. The data sent will be visualized on the Blynk web dashboard and mobile app in both a chart and a value display. Additionally, a switch widget on the web dashboard and mobile app will send data to the hardware to control it. The switch data is simply an On/Off (1/0) state that will be sent back to Blynk by the firmware to control a Blynk LED widget, and it will toggle the state of the built-in LED on the Particle device if it exists. A UTC-based timestamp will also be displayed on the web dashboard and mobile app so the last time data was published from the Particle device will be known.
 
 **Functional Requirements**
-- The firmware on the Particle hardware will push data that includes an integer value and a floating point number (simulated sensor value or other source) at a regular interval of every 5 minutes (adjustable in the firmware)
+- The firmware on the Particle hardware will push data that includes an integer value and a floating point number (simulated sensor value or another source) at a regular interval of every 5 minutes (adjustable in the firmware)
 - The last integer value, floating point value, and UTC date-time stamp must be displayed on the web dashboard and mobile app
 - The historical values for the integer and floating point value must be displayed in a line chart  
-- A button widget on the Blynk web dashboard and mobile app will be configured to send a state change command (1/0 value) back to the Particle hardware that will turn On/Off the built-in LED (if no LED on GPIO D7 then the user must configure custom GPIO and connect LED)
+- A switch widget on the Blynk web dashboard and mobile app will be configured to send a state change command (1/0 value) back to the Particle hardware that will turn On/Off the built-in LED (if no LED on GPIO D7 then the user must configure custom GPIO and connect LED)
 - Communication frequency must be configured to minimize data usage by default for the case when a cellular device is used  
 
 ## Components Used in This Project
@@ -69,7 +69,7 @@ _The keys on the left (token, V6, V14, V15, V16, V17) refer to Blynk datastreams
 6. Click on **Create Webhook**
 
 #### The Webhook should look like this:
-![alt text](https://raw.githubusercontent.com/marynablynk/blynk-particle-integration/main/images/particle-webhook.png "Particle webhook")
+![Particle Webhook](https://raw.githubusercontent.com/blynkkk/blueprints/main/Particle%20Quickstart/Images/1-particle-integration-screenshot.png "Particle webhook")
 
 
 Particle.publish() call in the firmware:
@@ -91,7 +91,7 @@ The Blynk webhook will need a Particle access token to make a Particle HTTP API 
 2. Enter your Particle login email and password into the form. If you have MFA (multi-factor authentication) enabled on your account, you will need your MFA code to generate the access token. 
 4. Click the **Create token** button to generate a token. Keep this token confidential. 
 
-![alt text](https://raw.githubusercontent.com/marynablynk/blynk-particle-integration/main/images/particle-token.png "Particle Access Token")
+![Generate Particle Access Token](https://raw.githubusercontent.com/blynkkk/blueprints/main/Particle%20Quickstart/Images/2-generate-particle-access-token.png "Particle Access Token")
 
 ## 3. Blynk webhook setup
 Control of the Particle hardware remotely from the Blynk web dashboard or mobile app is accomplished using a Blynk webhook and the Particle HTTP API. When the state of the switch widget on the Blynk web dashboard or mobile app is changed, a Blynk webhook assigned to the same datastream is called. The webhook makes a Particle HTTP API call to a Particle cloud function with a device-unique token that sends data to the Particle hardware. 
@@ -102,7 +102,7 @@ Control of the Particle hardware remotely from the Blynk web dashboard or mobile
 
 Note that the **Blynk webhook request quota is 1 per minute*** so any datastream value changes sooner than 60 seconds will not execute the webhook.
 
-![alt text](https://raw.githubusercontent.com/marynablynk/blynk-particle-integration/main/images/blynk-webhook.png "Blynk Webhook")
+![Create a Blynk Webhook](https://raw.githubusercontent.com/blynkkk/blueprints/main/Particle%20Quickstart/Images/3-create-blynk-webhook.png "Blynk Webhook")
 
 
 **Webhook URL**
@@ -153,7 +153,7 @@ _Check the **Troubleshooting** section at the end of this tutorial if you have i
 Follow the steps below to make sure everything works as it is supposed to.
 
 1. Test the Particle cloud function running in the firmware by calling it from the Particle console. With your Particle hardware running, visit [here](https://docs.blynk.io/en/hardware-guides/particle-part-ii#firmware) for detailed instructions on how to call 'blynk_led'. Go to your [Particle console](https://console.particle.io/), select the Particle device, and then under the **Functions** section on the right side of the screen you will see the function key of ‘blynk_led’ listed. Enter **‘on’** in the **Argument** input area and click the **CALL** button. Observe the Particle device to confirm that the built-in blue LED on D7 turns on. Repeat with the **‘off’** argument to turn off the LED.   
-![alt text](https://github.com/marynablynk/blynk-particle-integration/blob/main/images/functions.png?raw=true "Particle Function")
+![Particle Functions Testing](https://raw.githubusercontent.com/blynkkk/blueprints/main/Particle%20Quickstart/Images/4-particle-functions.png "Particle Function")
 2. Verify that your Particle access token is correct by using the Particle API to test it. Detailed instructions on how to do this using [Postman](https://www.postman.com/) can be found [here](https://docs.blynk.io/en/hardware-guides/particle-part-ii#particle-api).
 3. Test the Blynk webhook by installing the firmware on your Particle hardware, and then click **Test webhook** to verify it doesn’t throw an error (it won’t send the datastream value here, so don’t expect to see the LED on your Particle device change). Then from the Blynk web dashboard or mobile app, toggle the switch assigned to datastream V16 and observe the built-in LED on the hardware if it exists, or the Blynk LED widget if no built-in LED exists. Wait 60 seconds between each toggle of the switch widget.
 4. Review the Particle device log to confirm the device is connected and to see what data has been published from the hardware to the Particle cloud. 
