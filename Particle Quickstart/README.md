@@ -1,5 +1,5 @@
 ## Introduction
-This blueprint will help quickly set up bi-directional communication between any Particle hardware and Blynk. You will be able to control an LED from the BLynk mobile app and web dashboard and monitor data sent from the Particle hardware. This project can be upgraded to serve a specific use case, like controlling the irrigation system on the farm or monitoring the fleet of street cleaning vehicles. 
+This blueprint will help quickly set up bi-directional communication between any Particle hardware and Blynk. You will be able to control an LED from the Blynk mobile app and web dashboard and monitor data sent from the Particle hardware. This project can be upgraded to serve a specific use case, like controlling the irrigation system on the farm or monitoring the fleet of street cleaning vehicles. 
 
 ## How It Works
 The data is pushed from the Particle device to Particle Cloud and from there to the Blynk IoT platform via a Particle Webhook and Blynk HTTPs API. The data is then visualized on both a Blynk web dashboard and mobile app. Any Particle hardware (Tracker One, Tracker SoM, Boron, B Series SoM, Photon 2, P2, Argon, Photon, Electron, E Series, Core) running the provided firmware will be sending two channels of simulated sensor data from the hardware to Blynk.  
