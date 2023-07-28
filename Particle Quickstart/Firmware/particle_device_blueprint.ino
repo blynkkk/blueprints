@@ -1,10 +1,3 @@
-/*
- * Project particle_device_blueprint
- * Description:
- * Author: Mark W Kiehl / Mechatronic Solutions LLC
- * Date: June 2023
- */
-
 #include "Particle.h"
 
 const char* firmware_version = "0.0.0";
