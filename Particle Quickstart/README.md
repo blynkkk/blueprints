@@ -87,7 +87,7 @@ You can learn more about Particle webhooks by visiting this [documentation link]
 ### Generate Particle Access Token
 The Blynk webhook will need a Particle access token to make a Particle HTTP API call to the Particle cloud function.  
 
-1. Browse to the Particle documentation section [Create a token](https://docs.particle.io/reference/cloud-apis/access-tokens/#create-a-token-browser-based-) (browser based). 
+1. Browse to the Particle documentation section [Create a token](https://docs.particle.io/reference/cloud-apis/access-tokens/#create-a-token-browser-based-). 
 2. Enter your Particle login email and password into the form. If you have MFA (multi-factor authentication) enabled on your account, you will need your MFA code to generate the access token. 
 4. Click the **Create token** button to generate a token. Keep this token confidential. 
 
