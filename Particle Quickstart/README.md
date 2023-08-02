@@ -4,7 +4,7 @@ This blueprint will help quickly set up bi-directional communication between any
 ## How It Works
 The data is pushed from the Particle device to Particle Cloud and from there to the Blynk IoT platform via a Particle Webhook and Blynk HTTPs API. The data is then visualized on both a Blynk web dashboard and mobile app. Any Particle hardware (Tracker One, Tracker SoM, Boron, B Series SoM, Photon 2, P2, Argon, Photon, Electron, E Series, Core) running the provided firmware will be sending two channels of simulated sensor data from the hardware to Blynk.  
 
-One channel will be integer values, and the other will be a floating point value. The data sent will be visualized on the Blynk web dashboard and mobile app in both a chart and a value display. Additionally, a switch widget on the web dashboard and mobile app will send data to the hardware to control it. The switch data is simply an On/Off (1/0) state that will be sent back to Blynk by the firmware to control a Blynk LED widget, and it will toggle the state of the built-in LED on the Particle device if it exists. A UTC-based timestamp will also be displayed on the web dashboard and mobile app so the last time data was published from the Particle device will be known.
+One channel will be integer values, and the other will be a floating point value. The data sent will be visualized on the Blynk web dashboard and mobile app in both a chart and a value display. Additionally, a switch widget on the web dashboard and mobile app will send data to the hardware to control it. The switch data is simply an on/off (1/0) state that will be sent back to Blynk by the firmware to control a Blynk LED widget, and it will toggle the state of the built-in LED on the Particle device if it exists. A UTC-based timestamp will also be displayed on the web dashboard and mobile app so the last time data was published from the Particle device will be known.
 
 **Functional Requirements**
 - The firmware on the Particle hardware will push data that includes an integer value and a floating point number (simulated sensor value or another source) at a regular interval of every 5 minutes (adjustable in the firmware)
@@ -30,7 +30,7 @@ One channel will be integer values, and the other will be a floating point value
 
 ## 1. Prepare Your Hardware
 1. Hardware will require a suitable power connection and either a cellular or WiFi connection
-2. A virtual LED (Blynk widget) will be used for all hardware to push back data to Blynk and cause the LED widget to turn on/off. Particle devices with a built-in LED connected to GPIO D7 (Boron, Argon, Photon 2, Photon, Electron, Core) will be detected by the firmware and this physical LED will be turned on/off in addition to the LED widget 
+2. Devices with a built-in LED connected to GPIO D7 (Boron, Argon, Photon 2, Photon, Electron, Core) will be detected by the firmware and this physical LED will be turned on/off in addition to the LED widget on the web and mobile dashboard.
  
 
 ## 2. Create Particle Integration Webhook
