@@ -80,7 +80,7 @@ snprintf(data, sizeof(data), &quot;{\&quot;t\&quot;:\&quot;%s\&quot;,\&quot;v14\
 bool pub_result = Particle.publish(&quot;blynk_https_get&quot;, data, PRIVATE);
 ```
 
-Note that the firmware will pass the unique BLYNK_AUTH_TOKEN defined for each device to the Particle webhook as the variable ‘{{t}}’. This allows each device to call the same webhook, at the expense of increasing the cellular payload for each transmission by 32 bytes.  
+Note that the firmware will pass the unique BLYNK_AUTH_TOKEN defined for each device to the Particle webhook as the variable {{t}}. This allows each device to call the same webhook, at the expense of increasing the cellular payload for each transmission by 32 bytes.  
 
 You can learn more about Particle webhooks by visiting this [documentation link](https://docs.particle.io/reference/cloud-apis/webhooks/). 
 
