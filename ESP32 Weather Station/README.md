@@ -33,8 +33,6 @@ We need to connect both sensors to ESP32 Dev Module and then connect the board t
 * CSB to GPIO5 on the ESP32
 * SDO to GPIO19 on the ESP32
 
-![Connecting BME](https://raw.githubusercontent.com/blynkkk/blueprints/main/ESP32%20Weather%20Station/Images/interfacing-bmp280-and-esp32-circuit-diagram.webp)
-
 3. Don’t forget to connect ESP32 to your computer with a USB cable
 
 
