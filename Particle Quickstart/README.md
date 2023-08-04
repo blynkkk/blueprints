@@ -142,7 +142,7 @@ We need to include TemplateID, Template Name and AuthToken (unique identifier of
 
 1. Click on the **Activate device** action in the Template Home tab (this tab should open automatically once you've pressed the Use Blueprint button)
 2. Follow the proposed steps to prepare and upload the code
-3. Restart your Particle Boron and allow it to connect to the Particle Cloud
+3. Restart your Particle device and allow it to connect to the Particle Cloud
 4. Once the code is successfully uploaded the device dashboard will open automatically
 
 _Check the **Troubleshooting** section at the end of this tutorial if you have issues uploading the firmware_
