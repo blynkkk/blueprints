@@ -137,9 +137,9 @@ Check out the following section to explore functionality of the platform and try
 #### How to Reset a Device Configuration  
 If your mobile device does not detect the Blynk network, then you most likely need to reset the configuration of your ESP32. Follow the steps below.
    - Open the serial port terminal.
-   - Press and hold the "boot" (right) button on your ESP32 for 10 seconds. The serial port monitor terminal should display the following message:
+   - Press and hold the **Boot** button on your ESP32 for 10 seconds. The serial port monitor terminal should display the following message:
         - [XXXXX] Hold the button for 10 seconds to reset the configuration…
-   - After 10 seconds, release the “boot” button. You should see the following in the terminal:
+   - After 10 seconds, release the **Boot** button. You should see the following in the terminal:
         - [XXXXX] RUNNING => RESET_CONFIG
         - [XXXXX] Resetting configuration!
         - [XXXXX] Configuration stored to flash
