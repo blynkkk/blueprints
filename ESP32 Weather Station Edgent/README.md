@@ -133,7 +133,9 @@ Check out the following section to explore functionality of the platform and try
 * Check your sketch for errors. Click the Verify button to compile your sketch without uploading it
 * Check your board and port selections
 * Check your connections. Your board needs to be connected with a data USB cable (charge-only cables will not work). Make sure the cable is fully inserted in the port on each end. Try a different USB cable, and avoid hubs and other adapters if possible. Remove connections to the board pins, especially the 0 (RX) and 1 (TX) digital pins.
-* If your mobile device does not detect the Blynk network, then you most likely need to reset the configuration of your ESP32. Follow the steps below.
+
+### How to Reset Device Configuration  
+If your mobile device does not detect the Blynk network, then you most likely need to reset the configuration of your ESP32. Follow the steps below.
    - Open the serial port terminal.
    - Press and hold the "boot" (right) button on your ESP32 for 10 seconds. The serial port monitor terminal should display the following message:
         - [XXXXX] Hold the button for 10 seconds to reset the configuration…
