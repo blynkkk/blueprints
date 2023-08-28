@@ -94,7 +94,23 @@ The Blynk webhook will need a Particle access token to make a Particle HTTP API 
 
 ![Generate Particle Access Token](https://static-image.nyc3.cdn.digitaloceanspaces.com/blueprints/connect-particle-device/2-generate-particle-access-token.png "Particle Access Token")
 
-## 3. Blynk Webhook Setup
+## 3. Prepare Required Software
+1. Go to [Particle Web IDE](https://build.particle.io/) or install [Particle Workbench](https://www.particle.io/workbench/) or [Particle Comand Line](https://docs.particle.io/getting-started/developer-tools/cli/)
+2. Create a new sketch 
+
+## 4. Prepare the Firmware and Upload It to Your Device
+Communication between the hardware and Blynk will utilize the [Blynk HTTPs API](https://docs.blynk.io/en/blynk.cloud/https-api-overview). The Particle device will publish a JSON string to the Particle Cloud, referencing a Particle webhook. The webhook reformats the data, and then sends it to the Blynk Cloud via an HTTP GET, updating the Blynk datastreams. 
+
+We need to include TemplateID, Template Name and AuthToken (unique identifier of your device) in the sketch.
+
+1. Click on the **Activate device** action in the Template Home tab (this tab should open automatically once you've pressed the Use Blueprint button)
+2. Follow the proposed steps to prepare and upload the code
+3. Restart your Particle device and allow it to connect to the Particle Cloud
+4. Once the code is successfully uploaded the device dashboard will open automatically
+
+_Check the **Troubleshooting** section at the end of this tutorial if you have issues uploading the firmware_
+
+## 5. Blynk Webhook Setup
 Control of the Particle hardware remotely from the Blynk web dashboard or mobile app is accomplished using a Blynk webhook and the Particle HTTP API. When the state of the switch widget on the Blynk web dashboard or mobile app is changed, a Blynk webhook assigned to the same datastream is called. The webhook makes a Particle HTTP API call to a Particle cloud function with a device-unique token that sends data to the Particle hardware. 
 
 1. In the [Blynk.Console](https://blynk.cloud/), navigate to **Settings** > **Webhooks** and create a new webhook for datastream V16 based on the information shown in the next image 
@@ -132,24 +148,8 @@ The 'HTTP Headers' with the key "Authorization" has a value consisting of the st
 Bearer 40_character_Particle_access_token
 ```
 
-## 3. Prepare Required Software
-1. Go to [Particle Web IDE](https://build.particle.io/) or install [Particle Workbench](https://www.particle.io/workbench/) or [Particle Comand Line](https://docs.particle.io/getting-started/developer-tools/cli/)
-2. Create a new sketch 
 
-## 4. Prepare the Firmware and Upload It to Your Device
-Communication between the hardware and Blynk will utilize the [Blynk HTTPs API](https://docs.blynk.io/en/blynk.cloud/https-api-overview). The Particle device will publish a JSON string to the Particle Cloud, referencing a Particle webhook. The webhook reformats the data, and then sends it to the Blynk Cloud via an HTTP GET, updating the Blynk datastreams. 
-
-We need to include TemplateID, Template Name and AuthToken (unique identifier of your device) in the sketch.
-
-1. Click on the **Activate device** action in the Template Home tab (this tab should open automatically once you've pressed the Use Blueprint button)
-2. Follow the proposed steps to prepare and upload the code
-3. Restart your Particle device and allow it to connect to the Particle Cloud
-4. Once the code is successfully uploaded the device dashboard will open automatically
-
-_Check the **Troubleshooting** section at the end of this tutorial if you have issues uploading the firmware_
-
-
-## 5. Test the Project
+## 6. Test the Project
 
 Follow the steps below to make sure everything works as it is supposed to.
 
