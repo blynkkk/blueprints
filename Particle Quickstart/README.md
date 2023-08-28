@@ -39,8 +39,9 @@ A Particle integration webhook running on the Particle cloud will accept the dat
 
 1. Create an account or log in to the [Particle Console](https://console.particle.io/)
 2. Go to **Products** > **New Product** to create a new Product, and then add your device
-3. After the device is added, click on the **Integrations** on the left > **Add New Integration** and select the **Webhook** option
-4. Switch to **Custom template** and fill it with the following lines:
+3. Make sure your device is connected to the Particle Cloud. If this is not the case, [connect manually](https://docs.particle.io/tools/developer-tools/configure-wi-fi/).
+4. After the device is added, click on the **Integrations** on the left > **Add New Integration** and select the **Webhook** option
+5. Switch to **Custom template** and fill it with the following lines:
 
 ```
 {
