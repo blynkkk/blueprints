@@ -1,8 +1,10 @@
 ## Introduction
-This is a a simple "Hello World" example of Blynk. As a result you will be able to control an LED on the ESP32 DevKit board from web or mobile.
+This is a simple "Hello World" example of Blynk. As a result, you will be able to control an LED on the ESP32 DevKit board from the web or mobile.
+
+Blynk.Edgent solution is used in this project, so you can see how easily the device can be activated from your mobile app. You can also try out OTA firmware updates once the device is connected.
 
 ## Components Used in This Project
-You only need an ESP32 Devkit board. This example was made using ESP-Wroom-32 dev board, but you can use pretty much any ESP32 dev board. No additional hardware or componets are needed. Alternatively, you can wire up your own LED.
+You only need an ESP32 Devkit board. This example was made using the ESP-Wroom-32 dev board, but you can use pretty much any ESP32 dev board. No additional hardware or components are needed. Alternatively, you can wire up your own LED.
 
 * Arduino IDE to upload a firmware
 * ESP32 DEVKIT board. 
@@ -53,6 +55,7 @@ Every template consists of:
 - Web and mobile dashboards: GUI to send data from web and mobile apps through datastreams to your devices. Dashboards are made of widgets. In this simple project only switch (Web app) and Button (mobile app) are used. They both send `1` or `0` to `LED switch state`  
 
 ## Next Steps
+* Try to update your firmware [over the air](https://docs.blynk.io/en/blynk.edgent/updating-devices-firmwares-ota)
 * Explore the Blynk Web Console and [Blynk IoT app](https://docs.blynk.io/en/downloads/blynk-apps-for-ios-and-android), try controlling your device from both
 * Explore [Blynk Documentation](https://docs.blynk.io/en/) and learn how to work with [Virtual Pins](https://docs.blynk.io/en/getting-started/using-virtual-pins-to-control-physical-devices)
 * Learn more about [Automations](https://docs.blynk.io/en/concepts/automations)
