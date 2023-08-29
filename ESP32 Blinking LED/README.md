@@ -25,25 +25,15 @@ Make sure the cable is fully inserted in the port on each end_
 When using Blynk, you need to place TemplateID, AuthToken, and WiFi credentials in your sketch. We will provide you with the sketch where all of this info is already included. Just follow the next steps:
 
 1. Click on the **Activate device** action in Template Home tab (this tab should open automatically once you've pressed the Use Blueprint button)
-2. Follow the provided steps steps to get a working sketch
-3. Upload the sketch to your device
-4. When code is uploaded, open the Serial Monitor to track connection progress. If all worked correctly, you should see an output similar to this:
-```
-[28] Connecting to WiFi name
-[3644] Connected to WiFi
-[3644] IP: yourIP
-[3644]
-    ___  __          __
-   / _ )/ /_ _____  / /__
-  / _  / / // / _ \/  '_/
- /____/_/\_, /_//_/_/\_\
-        /___/ v1.2.0 on ESP32
- #StandWithUkraine    https://bit.ly/swua
-
-[3654] Connecting to blynk.cloud:80
-[4149] Ready (ping: 153ms).
-```
-5. When you see that device succesffully connected, go to Blynk.Console to check your device ready to go. 
+2. Download zip arhive 
+3. Upload the sketch to your device: in Arduino IDE go to **Sketch** > **Add File** >
+ Select sketch from the zip archive >
+ Press **Upload** button
+4. Scan a QR code to start the device activation process in the app
+5. In the app click **Start**
+6. Connect to "Blynk ... " network
+7. Select a WiFi network your device will use and click **Continue**
+8. Your device is connected now! Click **Finish** to open your device. You also will see your device in the Blynk Console 
 
 _Check the **Troubleshooting** section at the end of this tutorial if you have issues uploading the firmware_  
 
