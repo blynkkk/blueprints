@@ -159,8 +159,9 @@ Follow the steps below to make sure everything works as it is supposed to.
 ![Particle Functions Testing](https://static-image.nyc3.cdn.digitaloceanspaces.com/blueprints/connect-particle-device/4-particle-functions.png "Particle Function")
 2. Verify that your Particle access token is correct by using the Particle API to test it. Detailed instructions on how to do this using [Postman](https://www.postman.com/) can be found [here](https://docs.blynk.io/en/hardware-guides/particle-part-ii#particle-api).
 3. Test the Blynk webhook by installing the firmware on your Particle hardware, and then click **Test webhook** to verify it doesn’t throw an error (it won’t send the datastream value here, so don’t expect to see the LED on your Particle device change). Then from the Blynk web dashboard or mobile app, toggle the switch assigned to datastream V16 and observe the built-in LED on the hardware if it exists, or the Blynk LED widget if no built-in LED exists. Wait 60 seconds between each toggle of the switch widget.
-4. Review the Particle device log to confirm the device is connected and to see what data has been published from the hardware to the Particle cloud. 
-5. Review the Particle integration log to see if it was triggered successfully and the data that was pushed to it from the Particle device.
+4. Don't be concerned about the "Offline" network indicator status in the web console and app. It occurs because the Particle device is not connected to the Blynk Cloud directly, but to the Particle Cloud. However, you can always check the "Last Update" data in the web console or mobile application. If the difference between the current time and this timestamp is more than the update interval set in your sketch (for this project, it's 5 minutes), then most likely your Particle device has gone offline.
+5. Review the Particle device log to confirm the device is connected and to see what data has been published from the hardware to the Particle cloud. 
+6. Review the Particle integration log to see if it was triggered successfully and the data that was pushed to it from the Particle device.
 
    
 ## Template Breakdown
