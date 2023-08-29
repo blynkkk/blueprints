@@ -1,11 +1,11 @@
 #include "Particle.h"
-#include <math.h>
+#include <math.h> // This library is only for function simulating a sensor
 const char *firmware_version = "0.0.0";
 
 double v15 = 3.14159;
-uint32_t simSensor_timer_last = 0; // This is a variable for function simulates a sensor
+uint32_t simSensor_timer_last = 0; // This is a variable for a function that simulates a sensor
 uint8_t led_state = LOW;
-bool particle_fn_called = TRUE; // causes device to publish data immediately after started/boot and connected to Particle cloud.
+bool particle_fn_called = TRUE; // causes the device to publish data immediately after started/boot and connected to the Particle cloud.
 
 // Register the Particle cloud function
 int blynkLED(String on_or_off);
@@ -18,7 +18,7 @@ int blynkLED(String on_or_off);
 #define BLYNK_TEMPLATE_NAME "ParticleDeviceBlueprint"
 #define BLYNK_AUTH_TOKEN "your Blynk 32 char auth token"
 
-void simSensor()    //This is function simulates a sensor
+void simSensor()    //This function simulates a sensor
 { 
   long sim = random(millis());
   if (millis() - simSensor_timer_last >= 20000) {
