@@ -1,10 +1,8 @@
 ## Introduction
-This is a simple "Hello World" example of Blynk. As a result, you will be able to control an LED on the ESP32 DevKit board from the web or mobile.
-
-Blynk.Edgent solution is used in this project, so you can see how easily the device can be activated with the Blynk mobile app. You can also try out OTA firmware updates once the device is connected.
+This is a a simple "Hello World" example of Blynk. As a result you will be able to control an LED on the ESP32 DevKit board from web or mobile.
 
 ## Components Used in This Project
-You only need an ESP32 Devkit board. This example was made using the ESP-Wroom-32 dev board, but you can use pretty much any ESP32 dev board. No additional hardware or components are needed. Alternatively, you can wire up your own LED.
+You only need an ESP32 Devkit board. This example was made using ESP-Wroom-32 dev board, but you can use pretty much any ESP32 dev board. No additional hardware or componets are needed. Alternatively, you can wire up your own LED.
 
 * Arduino IDE to upload a firmware
 * ESP32 DEVKIT board. 
@@ -27,15 +25,25 @@ Make sure the cable is fully inserted in the port on each end_
 When using Blynk, you need to place TemplateID, AuthToken, and WiFi credentials in your sketch. We will provide you with the sketch where all of this info is already included. Just follow the next steps:
 
 1. Click on the **Activate device** action in Template Home tab (this tab should open automatically once you've pressed the Use Blueprint button)
-2. Download zip arhive 
-3. Upload the sketch to your device: in Arduino IDE go to **Sketch** > **Add File** >
- Select sketch from the zip archive >
- Press **Upload** button
-4. Scan a QR code to start the device activation process in the app
-5. In the app click **Start**
-6. Connect to "Blynk ... " network
-7. Select a WiFi network your device will use and click **Continue**
-8. Your device is connected now! Click **Finish** to open your device. You also will see your device in the Blynk Console 
+2. Follow the provided steps steps to get a working sketch
+3. Upload the sketch to your device
+4. When code is uploaded, open the Serial Monitor to track connection progress. If all worked correctly, you should see an output similar to this:
+```
+[28] Connecting to WiFi name
+[3644] Connected to WiFi
+[3644] IP: yourIP
+[3644]
+    ___  __          __
+   / _ )/ /_ _____  / /__
+  / _  / / // / _ \/  '_/
+ /____/_/\_, /_//_/_/\_\
+        /___/ v1.2.0 on ESP32
+ #StandWithUkraine    https://bit.ly/swua
+
+[3654] Connecting to blynk.cloud:80
+[4149] Ready (ping: 153ms).
+```
+5. When you see that device succesffully connected, go to Blynk.Console to check your device ready to go. 
 
 _Check the **Troubleshooting** section at the end of this tutorial if you have issues uploading the firmware_  
 
@@ -55,7 +63,6 @@ Every template consists of:
 - Web and mobile dashboards: GUI to send data from web and mobile apps through datastreams to your devices. Dashboards are made of widgets. In this simple project only switch (Web app) and Button (mobile app) are used. They both send `1` or `0` to `LED switch state`  
 
 ## Next Steps
-* Try to update your firmware [over the air](https://docs.blynk.io/en/blynk.edgent/updating-devices-firmwares-ota)
 * Explore the Blynk Web Console and [Blynk IoT app](https://docs.blynk.io/en/downloads/blynk-apps-for-ios-and-android), try controlling your device from both
 * Explore [Blynk Documentation](https://docs.blynk.io/en/) and learn how to work with [Virtual Pins](https://docs.blynk.io/en/getting-started/using-virtual-pins-to-control-physical-devices)
 * Learn more about [Automations](https://docs.blynk.io/en/concepts/automations)
