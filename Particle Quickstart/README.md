@@ -65,9 +65,9 @@ A Particle integration webhook running on the Particle cloud will accept the dat
 
 _The keys on the left (token, V6, V14, V15, V16, V17) refer to Blynk datastreams (virtual pins), and the values on the right reference variables from the firmware that will be passed from the Particle.publish() function. The value ‘PARTICLE_PUBLISHED_AT’ for virtual pin V6 is a Particle pre-defined variable that provides a timestamp for when the webhook is executed._
 
-5. Update **ny3.blynk.cloud** with your server shown in the Blynk.Console lower right. Find the list of valid server addresses [here](https://docs.blynk.io/en/blynk.cloud/troubleshooting)
+6. Update **ny3.blynk.cloud** with your server shown in the Blynk.Console lower right. Find the list of valid server addresses [here](https://docs.blynk.io/en/blynk.cloud/troubleshooting)
 
-6. Click on **Create Webhook**
+7. Click on **Create Webhook**
 
 #### The Webhook should look like this:
 ![Particle Webhook](https://static-image.nyc3.cdn.digitaloceanspaces.com/blueprints/connect-particle-device/1-particle-integration-screenshot.png "Particle Webhook")
