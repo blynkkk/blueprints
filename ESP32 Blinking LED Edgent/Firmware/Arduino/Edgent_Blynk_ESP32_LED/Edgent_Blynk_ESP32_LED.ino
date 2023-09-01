@@ -4,8 +4,8 @@
 //
 //   https://blynk.cloud/dashboard/templates
 
-#define BLYNK_TEMPLATE_ID "Your_Template_ID"
-#define BLYNK_TEMPLATE_NAME "Your_Template_Name"
+// #define BLYNK_TEMPLATE_ID "Your_Template_ID"
+// #define BLYNK_TEMPLATE_NAME "Your_Template_Name"
 
 
 #define BLYNK_FIRMWARE_VERSION "0.1.0"
