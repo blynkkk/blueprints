@@ -1,7 +1,7 @@
 ## Introduction
 This is a simple "Hello World" example of Blynk. As a result, you will be able to control an LED on the ESP32 DevKit board from the web or mobile.
 
-Blynk.Edgent solution is used in this project, so you can see how easily the device can be activated with the Blynk mobile app. You can also try out OTA firmware updates once the device is connected.
+In this project, we leverage the Blynk.Edgent solution to demonstrate the ease with which the device can be activated using the Blynk mobile app. Additionally, once the device is connected, you'll be able to perform OTA firmware updates.
 
 ## Components Used in This Project
 You only need an ESP32 Devkit board. This example was made using the ESP-Wroom-32 dev board, but you can use pretty much any ESP32 dev board. No additional hardware or components are needed. Alternatively, you can wire up your own LED.
