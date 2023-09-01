@@ -3,7 +3,6 @@
 // You can find it for every template here:
 //
 //   https://blynk.cloud/dashboard/templates
-
 // #define BLYNK_TEMPLATE_ID "Your_Template_ID"
 // #define BLYNK_TEMPLATE_NAME "Your_Template_Name"
 
