@@ -15,17 +15,9 @@
 
 #define APP_DEBUG
 
-// Uncomment your board, or configure a custom board in Settings.h
-//#define USE_ESP32_DEV_MODULE
-//#define USE_ESP32C3_DEV_MODULE
-//#define USE_ESP32S2_DEV_KIT
-//#define USE_WROVER_BOARD
-//#define USE_TTGO_T7
-//#define USE_TTGO_T_OI
-
 #include "BlynkEdgent.h"
 
-#define LED_PIN 4  // Connect an LED to this pin
+#define LED_PIN 2  // Use pin 2 for LED (change it, if your board uses another pin)
 
 
 // V0 is a datastream used to transfer and store LED switch state.
