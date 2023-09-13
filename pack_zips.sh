@@ -4,6 +4,7 @@ mkdir -p zips
 function pack {
     pushd "$2"
     #echo `pwd`
+    rm -rf .pio
     zip -r "$1" "."
     popd
     mv "$2/$1" ./zips/
