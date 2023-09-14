@@ -70,6 +70,7 @@ Every template consists of:
 * Check your sketch for errors. Click the **Verify** button to compile your sketch without uploading it
 * Check your board and port selections
 * Check your connections. Your board needs to be connected with a data USB cable (charge-only cables will not work). Make sure the cable is fully inserted in the port on each end. Try a different USB cable, and avoid hubs and other adapters if possible. Remove connections to the board pins, especially the 0 (RX) and 1 (TX) digital pins.
+* If you are trying to provision your device the second time or want to connect it to a different WiFi network, you need to reset the hardware configuration. To do so, hold the **Boot** button for 10 seconds.
 * Check [Blynk Troubleshooting guide](https://docs.blynk.io/en/troubleshooting/general-issues) 
 
 ## Related Links
