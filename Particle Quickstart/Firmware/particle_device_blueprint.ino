@@ -1,6 +1,20 @@
 #include "Particle.h"
-#include <math.h> // This library is only for function simulating a sensor
+
+// *** MAIN SETTINGS ***
+// Replace this block with correct template settings.
+// You can find it for every template here:
+//
+//   https://blynk.cloud/dashboard/templates
+
+#define BLYNK_TEMPLATE_ID     "TMPxxxxxx"
+#define BLYNK_TEMPLATE_NAME   "Device"
+#define BLYNK_AUTH_TOKEN      "YourAuthToken"
+
 const char *firmware_version = "0.0.0";
+
+/////////////////////////////////////////////////////////////////////////
+
+#include <math.h> // This library is only for function simulating a sensor
 
 double v15 = 3.14159;
 uint32_t simSensor_timer_last = 0; // This is a variable for a function that simulates a sensor
@@ -10,20 +24,23 @@ bool particle_fn_called = TRUE; // causes the device to publish data immediately
 // Register the Particle cloud function
 int blynkLED(String on_or_off);
 
-/////////////////////////////////////////////////////////////////////////
-// Blynk
-
-// Update below with your Blynk auth token for your device (automatically populated by Blueprint)
-#define BLYNK_TEMPLATE_ID "13 char template id"
-#define BLYNK_TEMPLATE_NAME "ParticleDeviceBlueprint"
-#define BLYNK_AUTH_TOKEN "your Blynk 32 char auth token"
+inline
+float approx_cos(float x)
+{
+  constexpr float tp = 1.0/(2.0*M_PI);
+  x *= tp;
+  x -= 0.25f + floor(x + 0.25f);
+  x *= 16.0f * (abs(x) - 0.5f);
+  x += 0.225f * x * (abs(x) - 1.0f);
+  return x;
+}
 
 void simSensor()    //This function simulates a sensor
 { 
   long sim = random(millis());
   if (millis() - simSensor_timer_last >= 20000) {
     simSensor_timer_last = millis();
-    float deltaSensor = cos(float(sim) / 1000) / 100;
+    float deltaSensor = approx_cos(float(sim) / 1000) / 100;
        if (v15 <= 0 || v15 >= 3.3)
     {
       v15 = v15 - deltaSensor;
@@ -66,9 +83,11 @@ void pubToParticleBlynk()
   if (Particle.connected())
   {
     
-    char data[90]; // See serial output for the actual size in bytes and adjust accordingly.
-    // Note the escaped double quotes around the ""t"" for BLYNK_AUTH_TOKEN.
-    snprintf(data, sizeof(data), "{\"t\":\"%s\",\"v14\":%u,\"v15\":%f,\"v16\":%u,\"v17\":%u}", BLYNK_AUTH_TOKEN, millis(), v15, led_state, led_state);
+    char data[128];
+
+    snprintf(data, sizeof(data),
+                 R"json({"t":"%s","v14":"%u","v15":"%f","v16":"%u","v17":"%u"})json",
+                 BLYNK_AUTH_TOKEN, millis(), v15, led_state, led_state);
     Serial.printlnf("Sending to Blynk: '%s' with size of %u bytes", data, strlen(data));
     bool pub_result = Particle.publish("blynk_https_get", data, PRIVATE);
     if (pub_result)
@@ -107,7 +126,7 @@ void setup()
   }
 
   Serial.begin(9600);
-  waitFor(Serial.isConnected, 30000);
+  waitFor(Serial.isConnected, 5000);
   delay(1000);
   Serial.printlnf("Device OS v%s", System.version().c_str());
   Serial.printlnf("Free RAM %lu bytes", System.freeMemory());
