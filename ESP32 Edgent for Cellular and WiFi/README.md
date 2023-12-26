@@ -23,8 +23,7 @@ Also, the `Terminal` widget is attached to the device console, which enables rem
 3. Insert your SIM card
 4. Connect your device to the computer using a USB cable
 
-> [!IMPORTANT]  
-> Your board has to be connected with a **data** USB cable (charging-only cables will not work!)  
+> ⓘ Your board has to be connected with a **data** USB cable (charging-only cables will not work!)  
 > Make sure the cable is fully inserted in the port on each end
 
 ## 2. Prepare Required Software
@@ -32,6 +31,9 @@ Also, the `Terminal` widget is attached to the device console, which enables rem
 This is a **PlatformIO** project. Please install the [**VSCode plugin**][pio_vscode] or [**PlatformIO CLI**][pio_cli].
 
 ## 3. Prepare the Firmware and Upload It to Your Device
+
+> ⓘ Firmware for this template is not available to the general public.  
+> Please [contact us](https://blynk.io/contact-us-business) to get access. 
 
 When using Blynk, you need to place TemplateID in your sketch. We will provide you with the sketch where all of this info is already included. Just follow the next steps:
 
@@ -63,20 +65,41 @@ _Check the **Troubleshooting** section at the end of this tutorial if you have i
 
 You can use the Terminal widget to send commands to the device.
 
-#### Add a new WiFi network
-```sh
+#### Check WiFi and Cellular status
+````sh
+>wifi
+mac:B4:8A:0A:A1:EE:9A ip:192.168.1.159 status:ready
+ssid:my-wifi bssid:8C:DE:F9:BE:EA:AF rssi:-83dBm
+>cell
+operator:MyCell ip:100.10.231.248 status:ready signal:71%
 ```
 
-#### Turn WiFi OFF
+#### Manage Networks
 ```sh
+# Clear saved WiFi networks
+>wifi clear
+# Add WiFi network
+>wifi add ssid password
+# Add another WiFi network
+>wifi add ssid2 password2
+# Turn WiFi OFF. Note: Blynk.Edgent will try to reconnect using Cellular
+>wifi off
+# Turn WiFi ON
+>wifi on
+# Turn Cellular OFF. Note: Blynk.Edgent will try to reconnect using WiFi
+# cell off
 ```
 
-#### Turn WiFi ON
+#### Check firmware version
 ```sh
-```
-
-#### Turn Cellular OFF
-```sh
+>firmware
+ Version:   0.1.0 (build Dec 22 2023 16:20:06)
+ Type:      TMPL43-Kj5vji
+ Platform:  ESP32
+ SDK:       v4.4.5
+ Partition: app0 (2048K)
+ App size:  1252K (61%)
+ App MD5:   10a8961efa0b527e3bc67ff6a7257a86
 ```
 
 ## Next Steps
@@ -101,6 +124,7 @@ This can be done in a variety of ways (performing any of these will clear the st
 
 ## Troubleshooting
 
+* Top up your SIM card and check if it works
 * Check that all the dependencies and configurations are correct
 * Check your sketch for errors. Click the **Verify** button to compile your sketch without uploading it
 * Check your board and port selections
