@@ -7,6 +7,7 @@ The blueprint includes Blynk.Edgent solution, which means you will be able to ac
 Additionally, we will implement automations to send notifications to your Blynk app when the temperature falls below or exceeds the comfortable range for your home. You will also get notified about excessively high or low humidity levels. This will help you maintain a comfortable microclimate within your home. Sounds great? Let’s get started!
 
 ## Components Used in This Project
+
 * Blynk Console and [Blynk App](https://docs.blynk.io/en/downloads/blynk-apps-for-ios-and-android) for web and mobile dashboards
 * Arduino IDE or PlatformIO to upload a firmware
 * ESP32 Dev Module
@@ -14,8 +15,7 @@ Additionally, we will implement automations to send notifications to your Blynk 
 * Barometer BMP280 3.3V
 * USB cable
 
-
-## 1. Prepare Your Hardware 
+## 1. Prepare Your Hardware
 
 We need to connect both sensors to ESP32 Dev Module and then connect the board to the computer with a USB cable to upload the firmware. 
 
@@ -49,9 +49,9 @@ _If you are using Arduino IDE, follow the next steps (skip for PlatformIO)_
 
 ## 3. Prepare the Firmware and Upload It to Your Device
 
-We need to include TemplateID and Template Name. Follow the steps below.
+You need to specify the Blynk TemplateID in your firmware. We will provide you with the sketch where all of this info is already included. Just follow the next steps:
 
-1. Click on the Activate device action in the Template Home tab (this tab should open automatically once you've pressed the Use Blueprint button)
+1. Click on the **Activate device** action in Template Home tab (this tab should open automatically once you've pressed the Use Blueprint button)
 2. Download zip arhive 
 3. Flash your device
 * For Arduino IDE:
@@ -62,10 +62,12 @@ We need to include TemplateID and Template Name. Follow the steps below.
 *Open project* >
 *Press **PlatformIO: Upload***
 4. Scan a QR code to start the device activation process in the app
-5. Click **Start**
+5. In the app click **Start**
 6. Connect to "Blynk ... " network
 7. Select network your device will use and click **Continue**
 8. Your device is connected now! Click **Finish** to open your device. You also will see your device in the Blynk Console
+
+_Check the **Troubleshooting** section at the end of this tutorial if you have issues uploading the firmware_  
 
 ## 4. Set Up Notifications
 Let's configure notifications to keep you informed when the temperature or humidity falls outside the comfortable range. This way, you can take action to restore optimal levels as soon as possible.
@@ -130,12 +132,12 @@ Check out the following section to explore functionality of the platform and try
 * Make sure you have the latest [Blynk Library](https://docs.blynk.io/en/blynk-library-firmware-api/installation) installed
 * Check that all used libraries are up to date
 * Check that all the dependencies and configurations are correct
-* Check your sketch for errors. Click the Verify button to compile your sketch without uploading it
+* Check your sketch for errors. Click the **Verify** button to compile your sketch without uploading it
 * Check your board and port selections
 * Check your connections. Your board needs to be connected with a data USB cable (charge-only cables will not work). Make sure the cable is fully inserted in the port on each end. Try a different USB cable, and avoid hubs and other adapters if possible. Remove connections to the board pins, especially the 0 (RX) and 1 (TX) digital pins.
 * If you are trying to connect the same device after it was connected once, you may need to factory reset the device. 
 
-#### How to Reset a Device Configuration  
+#### How to Reset a Device Configuration
 If your mobile device does not detect the Blynk network, then you most likely need to reset the configuration of your ESP32. Follow the steps below.
    - Open the serial port terminal.
    - Press and hold the **Boot** button on your ESP32 for 10 seconds. The serial port monitor terminal should display the following message:
@@ -151,3 +153,4 @@ If your mobile device does not detect the Blynk network, then you most likely ne
 ## Related Links
 [Blynk Troubleshooting guide](https://docs.blynk.io/en/troubleshooting/general-issues)  
 [Documentation](https://docs.blynk.io/en/)
+
