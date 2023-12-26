@@ -66,7 +66,7 @@ _Check the **Troubleshooting** section at the end of this tutorial if you have i
 You can use the Terminal widget to send commands to the device.
 
 #### Check WiFi and Cellular status
-````sh
+```sh
 >wifi
 mac:B4:8A:0A:A1:EE:9A ip:192.168.1.159 status:ready
 ssid:my-wifi bssid:8C:DE:F9:BE:EA:AF rssi:-83dBm
