@@ -96,16 +96,15 @@ If your smartphone does not detect the Blynk device, probably you need to reset 
 This can be done in a variety of ways (performing any of these will clear the stored settings):
 
 - Erase ESP32 flash
-- Type `config erase` into terminal
+- Type `config erase` into terminal (either USB Serial or Mobile/WebDash widget)
 - Hold the boot/user button for 10 seconds and release it. As LilyGo T-PCIe doesn't have a user push button, you'll have to connect one between `GPIO0` and `GND`. You can also use a jumper wire.
 
 ## Troubleshooting
 
-* Make sure you have the latest [Blynk Library](https://docs.blynk.io/en/blynk-library-firmware-api/installation) installed
 * Check that all the dependencies and configurations are correct
 * Check your sketch for errors. Click the **Verify** button to compile your sketch without uploading it
 * Check your board and port selections
-* Check your connections. Your board needs to be connected with a data USB cable (charge-only cables will not work). Make sure the cable is fully inserted in the port on each end. Try a different USB cable, and avoid hubs and other adapters if possible. Remove connections to the board pins, especially the 0 (RX) and 1 (TX) digital pins.
+* Check your connections. Your board needs to be connected with a data USB cable (charge-only cables will not work). Make sure the cable is fully inserted in the port on each end. Try a different USB cable, and avoid hubs and other adapters if possible. Remove extra connections to the board pins, especially the UART TX/RX pins
 * Check [Troubleshooting guide](https://docs.blynk.io/en/getting-started/activating-devices/blynk-edgent-wifi-provisioning#troubleshooting) for WiFi provisioning
 
 ## Related Links
