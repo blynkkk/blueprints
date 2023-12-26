@@ -31,6 +31,7 @@ Make sure the cable is fully inserted in the port on each end_
 This is a **PlatformIO** project. Please install the [**VSCode plugin**][pio_vscode] or [**PlatformIO CLI**][pio_cli].
 
 ## 3. Prepare the Firmware and Upload It to Your Device
+
 When using Blynk, you need to place TemplateID in your sketch. We will provide you with the sketch where all of this info is already included. Just follow the next steps:
 
 1. Click on the **Activate device** action in Template Home tab (this tab should open automatically once you've pressed the Use Blueprint button)
@@ -42,6 +43,7 @@ When using Blynk, you need to place TemplateID in your sketch. We will provide y
 5. In the app click **Start**
 6. Connect to "Blynk ... " network
 7. Select network your device will use and click **Continue**
+   ![Blynk Provisioning](https://raw.githubusercontent.com/blynkkk/blueprints/main/ESP32%20Edgent%20for%20Cellular%20and%20WiFi/Images/provisioning-flow.png)
 8. Your device is connected now! Click **Finish** to open your device. You also will see your device in the Blynk Console
 
 _Check the **Troubleshooting** section at the end of this tutorial if you have issues uploading the firmware_  
