@@ -2,11 +2,11 @@
 
 This is an example of Blynk.Edgent running on a dual-connectivity board. The **LilyGo T-PCIe** platform allows us to use WiFi and Cellular connectivity (with a variety of add-on modems).
 
-In this project, we leverage the Blynk.Edgent solution to demonstrate the ease with which the device can be activated using the Blynk mobile app. Additionally, once the device is connected, you'll be able to perform OTA firmware updates.
+In this project, we leverage the Blynk.Edgent solution to demonstrate how easy it is to activate the device using the Blynk mobile app. Once the device is connected, you'll be able to perform OTA firmware updates.
 
-Also, the `Terminal` widget is attached to the device console, which enables remote diagnostics and testing of the connectivity.
+We placed Terminal Widget on the dashboard for remote diagnostics and testing of the connectivity.
 
-## Components Used in This Project
+## Components And Tools Used in This Project
 
 * Blynk Console and [Blynk App](https://docs.blynk.io/en/downloads/blynk-apps-for-ios-and-android) for web and mobile dashboards
 * PlatformIO to upload the firmware
@@ -24,7 +24,7 @@ Also, the `Terminal` widget is attached to the device console, which enables rem
 4. Connect your device to the computer using a USB cable
 
 > ⓘ Your board has to be connected with a **data** USB cable (charging-only cables will not work!)  
-> Make sure the cable is fully inserted in the port on each end
+> Make sure the cable is fully inserted in the port on each end.
 
 ## 2. Prepare Required Software
 
@@ -35,10 +35,10 @@ This is a **PlatformIO** project. Please install the [**VSCode plugin**][pio_vsc
 > ⓘ Firmware for this template is not available to the general public.  
 > Please [contact us](https://blynk.io/contact-us-business) to get access. 
 
-When using Blynk, you need to place TemplateID in your sketch. We will provide you with the sketch where all of this info is already included. Just follow the next steps:
+When using Blynk, you need to paste TemplateID in your sketch. We will provide you with the sketch where all of this info is already included. Just follow the next steps:
 
 1. Click on the **Activate device** action in the Template Home tab (this tab should open automatically once you've pressed the Use Blueprint button)
-2. Download zip arhive 
+2. Download .zip file 
 3. Flash your device:
 *Open project* >
 *Press **PlatformIO: Upload***
@@ -55,7 +55,7 @@ _Check the **Troubleshooting** section at the end of this tutorial if you have i
 
 1. Open your device **Dashboard** on web and on mobile
 2. You should be able to see the data displayed on the Gauges
-3. In a few minutes the historical data should appear on the Charts
+3. In a few minutes the historical data should appear in the charts
 
 **Still Not working?**
 1. Reboot the device and check if the data appears on the dashboard
@@ -63,7 +63,7 @@ _Check the **Troubleshooting** section at the end of this tutorial if you have i
 
 ## 5. Test Dual Connectivity
 
-You can use the Terminal widget to send commands to the device.
+You can use the Terminal widget to send commands to the device. Here is what you can do:
 
 #### Check WiFi and Cellular status
 ```sh
