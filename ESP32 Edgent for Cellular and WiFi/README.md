@@ -32,7 +32,7 @@ This is a **PlatformIO** project. Please install the [**VSCode plugin**][pio_vsc
 
 ## 3. Prepare the Firmware and Upload It to Your Device
 
-> ⓘ Firmware for this template is available for the Business Plan customers.  
+> ⓘ Firmware for this template is available under NDA for the Business Plan customers.  
 > Please [contact us](https://blynk.io/contact-us-business) to get access. 
 
 When using Blynk, you need to paste TemplateID in your sketch. We will provide you with the sketch where all of this info is already included. Just follow the next steps:
