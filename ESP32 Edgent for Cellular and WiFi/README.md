@@ -32,7 +32,7 @@ This is a **PlatformIO** project. Please install the [**VSCode plugin**][pio_vsc
 
 ## 3. Prepare the Firmware and Upload It to Your Device
 
-> ⓘ Firmware for this template is not available to the general public.  
+> ⓘ Firmware for this template is available for the Business Plan customers.  
 > Please [contact us](https://blynk.io/contact-us-business) to get access. 
 
 When using Blynk, you need to paste TemplateID in your sketch. We will provide you with the sketch where all of this info is already included. Just follow the next steps:
@@ -82,11 +82,11 @@ operator:MyCell ip:100.10.231.248 status:ready signal:71%
 >wifi add ssid password
 # Add another WiFi network
 >wifi add ssid2 password2
-# Turn WiFi OFF. Note: Blynk.Edgent will try to reconnect using Cellular
+# Turn WiFi OFF. Note: Blynk.Edgent will try to reconnect using the Cellular
 >wifi off
 # Turn WiFi ON
 >wifi on
-# Turn Cellular OFF. Note: Blynk.Edgent will try to reconnect using WiFi
+# Turn Cellular OFF. Note: Blynk.Edgent will try to reconnect using the WiFi
 # cell off
 ```
 
@@ -94,7 +94,7 @@ operator:MyCell ip:100.10.231.248 status:ready signal:71%
 ```sh
 >firmware
  Version:   0.1.0 (build Dec 22 2023 16:20:06)
- Type:      TMPL43-Kj5vji
+ Type:      TMPL43-Kx5vxx
  Platform:  ESP32
  SDK:       v4.4.5
  Partition: app0 (2048K)
@@ -125,6 +125,7 @@ This can be done in a variety of ways (performing any of these will clear the st
 ## Troubleshooting
 
 * Top up your SIM card and check if it works
+* Disable the PIN lock on your SIM card (using your phone)
 * Check that all the dependencies and configurations are correct
 * Check your sketch for errors. Click the **Verify** button to compile your sketch without uploading it
 * Check your board and port selections
