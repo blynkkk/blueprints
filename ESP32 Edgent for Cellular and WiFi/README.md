@@ -46,7 +46,7 @@ When using Blynk, you need to paste TemplateID in your sketch. We will provide y
 5. In the app click **Start**
 6. Connect to `Blynk LilyGo T PCIe-????` network
 7. Select the network your device will use and click **Continue**
-   ![Blynk Provisioning](https://raw.githubusercontent.com/blynkkk/blueprints/main/ESP32%20Edgent%20for%20Cellular%20and%20WiFi/Images/provisioning-flow.png)
+   ![Blynk Provisioning](https://raw.githubusercontent.com/blynkkk/blueprints/main/ESP32%20Edgent%20for%20Cellular%20and%20WiFi/Images/provisioning-flow-new.png)
 8. Your device is connected now! Click **Finish** to open your device. You also will see your device in the Blynk Console
 
 _Check the **Troubleshooting** section at the end of this tutorial if you have issues uploading the firmware_  
