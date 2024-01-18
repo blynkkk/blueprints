@@ -70,7 +70,7 @@ Every template consists of:
 * Explore [Blynk Documentation](https://docs.blynk.io/en/) and learn how to work with [Virtual Pins](https://docs.blynk.io/en/getting-started/using-virtual-pins-to-control-physical-devices)
 * Learn more about [Automations](https://docs.blynk.io/en/concepts/automations)
 * Learn how to [share Device](https://docs.blynk.io/en/concepts/users) with other users
-* Learn more about [Blynk.Edgent](https://docs.blynk.io/en/blynk.edgent/overview) and modify your code to utilize WiFi provisioning and over-the-air firmware updates
+* Learn more about [Blynk.Edgent](https://docs.blynk.io/en/blynk.edgent/overview)
 * Modify the code for your needs
 * Connect more devices using this template
 
