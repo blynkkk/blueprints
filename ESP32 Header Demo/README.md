@@ -22,7 +22,7 @@ You can use pretty much any ESP32 dev board. No additional hardware or component
 
 ## 2. Prepare the Firmware and Upload It to Your Device
 
-When using Blynk, you need to place TemplateID and DeviceIDin your sketch. We will provide you with the sketch where all of this info is already included. Just follow the next steps:
+When using Blynk, you need to place TemplateID and Template Name in your sketch. We will provide you with the sketch where all of this info is already included. Just follow the next steps:
 
 1. Click on the **Activate device** action in Template Home tab (this tab should open automatically once you've pressed the Use Blueprint button)
 2. Download zip arhive 
