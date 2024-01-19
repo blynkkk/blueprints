@@ -2,11 +2,11 @@
 
 ## Introduction
 
-Header is a new feature for mobile apps. Why do we think you'll love it? It hugely expands design options and makes you app look so complete. See it for yourself - we prepared a Blueprint with a fancy Tesla app assembled from just Blynk's UI components. 
+Header is a new feature for mobile apps. Why do we think you'll love it? It hugely expands design options and makes you app look so complete. See it for yourself - we prepared a Blueprint with a fancy Tesla app assembled from just Blynk's UI components, controlled with the ESP32 board.
 
 ## Components Used in This Project
 
-You can use pretty much any ESP32 dev board. No additional hardware or components are needed.
+You can use pretty much any ESP32 dev board. No additional hardware is needed.
 
 * [Blynk App](https://docs.blynk.io/en/downloads/blynk-apps-for-ios-and-android) and Blynk Console
 * Arduino IDE to upload a firmware
@@ -37,21 +37,27 @@ When using Blynk, you need to place TemplateID and Template Name in your sketch.
 
 _Check the **Troubleshooting** section at the end of this tutorial if you have issues uploading the firmware and getting the device online_  
 
-## 4. Let's play around!
-1. Change vehicle state
-2. Change what’s visible in header - hide battery or ...
-3. Open the page
-Change app theme (show on a different smartphone)
+## 3. Let's play around!
+1. Change the your device state - 
+2. Change what is visible in the header: 
+3. Open the page to see the historical data chart
+4. Try out how it looks with the different theme (light / dark)
+
+## 4. Header breakdown
+
+Here's a quick dive into Header structure. You can add labels such as Connection Status and Last Reported timestamp, display an image inside the device's header, or assign Standalone Pages to the Header Buttons. Experiment with colors and background images to make it more visually appealing.
+![mobile-header-constructor-overview](https://github.com/blynkkk/blueprints/assets/120122081/7644c6a7-1ab6-4dee-9cf4-c8fb60c82d1b)
+
 
 ## What's next?
 
-* Here are some ideas on how you can style your app Headers - try to recreate them or come up with your own!
+Here are some ideas on how you can style your app with Headers - try to recreate them or come up with your own! This detailed [guide](https://docs.blynk.io/en/blynk.apps/device-header-constructor) will help you set things up.
 ![device-header-design-examples](https://github.com/blynkkk/blueprints/assets/120122081/30f23e0b-aa30-4e30-b77a-20482f8c610e)
 
 
 ## Troubleshooting
 
-If you have any issues with flashing the firmware or device doesn't go online, delete the device and try connecting it again considering the below checklist
+If you have any issues with flashing the firmware or your device doesn't go online, delete the device and try connecting it again considering the below checklist
 * Make sure you have the latest [Blynk Library](https://docs.blynk.io/en/blynk-library-firmware-api/installation) installed
 * Check that all used libraries are up to date
 * Check that all the dependencies and configurations are correct
