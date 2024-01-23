@@ -38,14 +38,14 @@ When using Blynk, you need to place TemplateID and Template Name in your sketch.
 _Check the **Troubleshooting** section at the end of this tutorial if you have issues uploading the firmware and getting the device online_  
 
 ## 3. Let's play around!
-1. Change the your device state - 
-2. Change what is visible in the header - hide battery or status
+1. Change the your device state - ...
+2. Change what is visible in the header - hide battery or device status
 3. Open the page to see the historical data chart
 4. Try out how it looks with the different theme (light / dark)
 
-## 4. Header breakdown
+## 4. Header structure
 
-Here's a quick dive into Header Constructor structure. You can add labels such as Connection Status and Last Reported timestamp, display an image inside the device's header, or assign Standalone Pages to the Header Buttons. Experiment with colors and background images to make it more visually appealing.
+Here's a quick dive into Header Constructor structure. You can add labels such as Connection Status and Last Reported timestamp, display an image inside the device's header, or assign Standalone Pages to the Header Buttons. Experiment with colors and background images to make it as you love.
 ![mobile-header-constructor-overview](https://github.com/blynkkk/blueprints/assets/120122081/7644c6a7-1ab6-4dee-9cf4-c8fb60c82d1b)
 
 
