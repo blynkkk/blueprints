@@ -2,7 +2,7 @@
 
 ## Introduction
 
-Header is a new feature for mobile apps. Why do we think you'll love it? It hugely expands design options and makes you app look so complete. See it for yourself - we prepared a Blueprint with a fancy Tesla app assembled from just Blynk's UI components, controlled with the ESP32 board.
+Header Constructor is a new feature for Blynk mobile apps. It helps improve user experience, expands the design options and makes you app look so complete. See it for yourself - we prepared a Blueprint with a fancy Tesla app assembled from just Blynk's UI components, controlled from the ESP32 board.
 
 ## Components Used in This Project
 
