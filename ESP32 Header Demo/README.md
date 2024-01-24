@@ -38,7 +38,7 @@ _Check the **Troubleshooting** section at the end of this tutorial if you have i
 ## 3. Let's Play Around!
 1. Change the your device state - ...
 2. Change what is visible in the header - hide battery or device status
-3. Open the page to see the historical data chart
+3. Press the button to see the page with historical data
 4. Try out how it looks with the different theme (light / dark)
 
 ## 4. Header Structure
