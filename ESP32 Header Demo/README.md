@@ -43,7 +43,7 @@ _Check the **Troubleshooting** section at the end of this tutorial if you have i
 
 ## 4. Header Structure
 
-Here's a quick dive into Header Constructor structure. You can add labels such as Connection Status and Last Reported timestamp, display an image inside the device's header, or assign Standalone Pages to the Header Buttons. Experiment with colors and background images to customize it as you like.
+Here's a quick dive into Header Constructor structure. As you have seen, you can add labels such as Connection Status and Last Reported timestamp, display an image inside the device's header, or assign Standalone Pages to the Header Buttons. Experiment with colors and background images to customize it as you like.
 ![mobile-header-constructor-overview](https://github.com/blynkkk/blueprints/assets/120122081/7644c6a7-1ab6-4dee-9cf4-c8fb60c82d1b)
 
 
