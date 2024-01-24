@@ -43,13 +43,14 @@ _Check the **Troubleshooting** section at the end of this tutorial if you have i
 
 ## 4. Header Structure
 
-Here's a quick dive into Header Constructor structure. You can add labels such as Connection Status and Last Reported timestamp, display an image inside the device's header, or assign Standalone Pages to the Header Buttons. Experiment with colors and background images to make it as you love.
+Here's a quick dive into Header Constructor structure. You can add labels such as Connection Status and Last Reported timestamp, display an image inside the device's header, or assign Standalone Pages to the Header Buttons. Experiment with colors and background images to customize it as you like.
 ![mobile-header-constructor-overview](https://github.com/blynkkk/blueprints/assets/120122081/7644c6a7-1ab6-4dee-9cf4-c8fb60c82d1b)
 
 
 ## Next Steps
 
-Here are some ideas on how you can style your app with Headers - try to recreate them or come up with your own! This detailed [guide](https://docs.blynk.io/en/blynk.apps/device-header-constructor) will help you set things up.
+Here are some ideas on how you can style your app with Headers - try to recreate them or come up with your own! 
+Follow this detailed [guide](https://docs.blynk.io/en/blynk.apps/device-header-constructor) to set things up.
 ![device-header-design-examples](https://github.com/blynkkk/blueprints/assets/120122081/30f23e0b-aa30-4e30-b77a-20482f8c610e)
 
 
