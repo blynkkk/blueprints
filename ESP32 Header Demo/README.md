@@ -1,6 +1,6 @@
 ## Introduction
 
-Header Constructor is a new feature for Blynk mobile apps. It's a customizable top bar that expands design options and makes you app look so complete! See it for yourself - we assembled a fancy Tesla-style app from Blynk UI components.
+Header Constructor is a new feature for Blynk mobile apps. It's a customizable top bar that expands design options and makes your app look so complete! See it for yourself - we assembled a fancy Tesla-style app from Blynk UI components.
 
 ## Components Used in This Project
 
