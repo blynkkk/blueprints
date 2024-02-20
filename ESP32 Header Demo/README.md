@@ -36,7 +36,7 @@ When using Blynk, you need to place TemplateID and Template Name in your sketch.
 _Check the **Troubleshooting** section at the end of this tutorial if you have issues uploading the firmware and getting the device online_  
 
 ## 3. Let's Play Around!
-1. Change the your device state - ...
+1. Change the your device state using buttons and see what happens
 2. Change what is visible in the header - hide battery or device status
 3. Press the button to see the page with historical data
 4. Try out how it looks with the different theme (light / dark)
