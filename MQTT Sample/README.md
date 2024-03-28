@@ -1,22 +1,24 @@
 ## Introduction
 
-This blueprint will help you to kickstart our [MQTT Sample](https://github.com/Blynk-Technologies/Blynk-MQTT-Samples).
+This blueprint will guide you in launching your project with our [MQTT Sample](https://github.com/Blynk-Technologies/Blynk-MQTT-Samples).
 
-The template represents a heater device.
-- When the `set temperature` is higher than the current (simulated), the room heats up
-- When the `set temperature` is lower than the current, or the heater is off - the room cools down
-- The device can also be operated using the `Terminal` widget (type `help` for a listt of commands).
+The sample project simulates a heater device:
+
+- The room heats up when the set temperature exceeds the current temperature.
+- The room cools down when the set temperature is lower than the current temperature or if the heater is off.
+- The device can also be controlled via the **Terminal** widget (type `help` for a list of commands).
+
+
+The `MQTT Sample` blueprint is compatible with various MQTT clients, developed in different programming languages:
+
+- **Python 3** - suitable for use on Single Board Computers (SBCs) like Raspberry Pi and some Industrial IoT gateways
+- **MicroPython** - a fun and easy way of creating the device firmware
+- **Arduino / PlatformIO** - a pre-configured project that supports over 15 connectivity-enabled boards, including the Espressif ESP32, Raspberry Pi Pico W, Nano 33 IoT, Nano RP2040 Connect, UNO R4 WiFi, Seeed Wio Terminal, etc.
+- **Plain C** with the Mosquitto library - tailored for advanced use cases needing high performance, compact size, or system-level integration
+- **Lua** - ready for deployment on `OpenWrt`-based routers and SBCs like `Onion Omega2`
+- **HTML5 / JavaScript** - thanks to WebSockets, this example can be used [directly from the browser](https://bit.ly/Blynk-HTML5-MQTT-Sample)
 
 ## How To Use This Blueprint
-
-The MQTT Sample blueprint is designed to work with a variety of MQTT clients, which are developed in different languages:
-
-- **Python 3** - very easy to use on Single Board Computers (SBCs) like Raspberry Pi and some Industrial IoT gateways
-- **MicroPython** - a fun and easy way of creating the device firmware
-- **Arduino / PlatformIO** - a pre-configured project that supports more than 15 connectivity-enabled boards like Espressif ESP32, Raspberry Pi Pico W, Nano 33 IoT, Nano RP2040 Connect, UNO R4 WiFi, Seeed Wio Terminal, etc.
-- **Plain C** using the Mosquitto library - for advanced use cases that require high performance, small size or system-level integration
-- **Lua** - ready to use on `OpenWrt`-based routers and SBCs like `Onion Omega2`
-- **HTML5 / JavaScript** - thanks to WebSockets, this example can be used [right from the browser](https://bit.ly/Blynk-HTML5-MQTT-Sample)
 
 1. Download our MQTT Sample repository using [GitHub](https://github.com/Blynk-Technologies/Blynk-MQTT-Samples)
    or as a [ZIP file](https://github.com/Blynk-Technologies/Blynk-MQTT-Samples/archive/refs/heads/main.zip)
