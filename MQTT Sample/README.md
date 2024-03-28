@@ -10,7 +10,7 @@ The sample project simulates a heater device:
 
 ## How To Use This Blueprint
 
-The `MQTT Sample` blueprint is compatible with various MQTT clients, developed in different programming languages.
+The `MQTT Air Cooler/Heater` blueprint is compatible with various MQTT clients, developed in different programming languages.
 
 Please **follow the instructions in the readme file** of the example that you like the most:
 
