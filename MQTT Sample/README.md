@@ -11,12 +11,12 @@ The sample project simulates a heater device:
 
 The `MQTT Sample` blueprint is compatible with various MQTT clients, developed in different programming languages:
 
-- **Python 3** - suitable for use on Single Board Computers (SBCs) like Raspberry Pi and some Industrial IoT gateways
+- **Python 3** - suitable for use on Single Board Computers (SBCs) like `Raspberry Pi` and some Industrial IoT gateways
 - **MicroPython** - a fun and easy way of creating the device firmware
-- **Arduino / PlatformIO** - a pre-configured project that supports over 15 connectivity-enabled boards, including the Espressif ESP32, Raspberry Pi Pico W, Nano 33 IoT, Nano RP2040 Connect, UNO R4 WiFi, Seeed Wio Terminal, etc.
-- **Plain C** with the Mosquitto library - tailored for advanced use cases needing high performance, compact size, or system-level integration
+- **Arduino / PlatformIO** - a pre-configured project that supports over 15 connectivity-enabled boards, including the `Espressif ESP32`, `Raspberry Pi Pico W`, `Nano 33 IoT`, `Nano RP2040 Connect`, `UNO R4 WiFi`, `Seeed Wio Terminal`, etc.
+- **Plain C** with the `Mosquitto` library - tailored for advanced use cases needing high performance, compact size, or system-level integration
 - **Lua** - ready for deployment on `OpenWrt`-based routers and SBCs like `Onion Omega2`
-- **HTML5 / JavaScript** - thanks to WebSockets, this example can be used [directly from the browser](https://bit.ly/Blynk-HTML5-MQTT-Sample)
+- **HTML5 / JavaScript** - thanks to the `WebSocket` technology, this example can be used [directly from the browser](https://bit.ly/Blynk-HTML5-MQTT-Sample)
 
 ## How To Use This Blueprint
 
