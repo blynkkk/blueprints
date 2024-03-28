@@ -10,12 +10,6 @@ The sample project simulates a heater device:
 
 ## How To Use This Blueprint
 
-### 1. Create template using this blueprint
-
-Click the **`Use Blueprint`** button. TODO: what happens.
-
-### 2. Run MQTT client
-
 The `MQTT Sample` blueprint is compatible with various MQTT clients, developed in different programming languages.
 
 Please **follow the instructions in the readme file** of the example that you like the most:
