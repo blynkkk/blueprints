@@ -20,6 +20,7 @@ Please **follow the instructions in the readme file** of the example that you li
 - [**Plain C**](https://github.com/Blynk-Technologies/Blynk-MQTT-Samples/blob/main/C_libmosquitto/README.md) with the `Mosquitto` library - tailored for advanced use cases needing high performance, compact size, or system-level integration
 - [**Lua**](https://github.com/Blynk-Technologies/Blynk-MQTT-Samples/blob/main/Lua_OpenWrt/README.md) - ready for deployment on `OpenWrt`-based routers and SBCs like `Onion Omega2`
 - [**HTML5 / JavaScript**](https://github.com/Blynk-Technologies/Blynk-MQTT-Samples/blob/main/HTML5_WebSocket/README.md) - thanks to the `WebSocket` technology, this example can be used [directly from the browser](https://bit.ly/Blynk-HTML5-MQTT-Sample)
+- [**ESP-IDF Cellular**](https://github.com/Blynk-Technologies/Blynk-MQTT-Samples/blob/main/ESP-IDF-Cellular/README.md) - for Espressif ESP32 devices with a cellular modem
 
 ## Next Steps
 
