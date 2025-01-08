@@ -15,11 +15,8 @@ The **Milesight WS302 Sound Level Sensor** is designed to monitor and analyze so
 ### **1.2 Initial Setup**
 1. **Verify Package Contents**: Ensure all components are included and undamaged.
 2. **Install the Batteries**: Insert the batteries, ensuring correct polarity.
-   - *[Insert Screenshot of Battery Installation]*
 3. **Power On the Sensor**: Hold the power button for 3 seconds. The LED will confirm activation.
-   - *[Insert Screenshot of Power Button Location]*
 4. **Mount the Sensor**: Use mounting kits or tape to install the sensor securely in the desired location.
-   - *[Insert Diagram or Photo of Proper Mounting]*
 
 ---
 
