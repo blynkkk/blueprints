@@ -1,372 +1,204 @@
 # **Milesight WS302 Sound Level Sensor Blueprint Guide**
 
-This guide explains how to set up the **Milesight WS302 Sound Level Sensor**,
-register it with **The Things Network (TTN)**, and integrate it with
-**Blynk IoT** for data visualization and control. The guide also provides
-steps for interpreting the data presented on the dashboard.
+The **Milesight WS302 Sound Level Sensor** is designed to monitor and analyze
+sound levels in various environments, providing metrics such as instantaneous
+sound levels (**LA**), equivalent continuous sound levels (**LAeq**), and
+maximum sound levels (**LAmax**). It also monitors battery levels and RSSI for
+reliable operation.
 
 ---
 
-## **How to Use This Blueprint**
+## **Step 1: Unpacking and Initial Setup**
 
-### **Step 1: Unpacking and Initial Setup**
+### **1.1 Required Components**
+- **Milesight WS302 Sound Level Sensor**.
+- **LoRaWAN Gateway** for connectivity.
+- **Two ER14505 Li-SOCl₂ batteries**.
+- **Mounting accessories**: Wall mounting kits or 3M double-sided tape.
 
-#### **1.1 Required Components**
-
-- **Milesight WS302 Sound Level Sensor**:\
-  The main device used to measure sound levels in dB(A) or dB(C).
-- **LoRaWAN Gateway**:\
-  Essential for connecting the sensor to the LoRaWAN network and ensuring data is sent to TTN.
-- **Antenna**:\
-  Ensures reliable wireless communication.
-- **Power Supply**:\
-  Includes a rechargeable battery for standalone use.
-- **Mounting Accessories**:\
-  Includes brackets, clamps, and screws to securely attach the sensor to a wall or pole.
-
-#### **1.2 Initial Setup**
-
-1. **Verify Package Contents**:
-
-   - Open the packaging and ensure the following items are included:
-     - WS302 Sound Level Sensor
-     - Rechargeable battery
-     - Antenna
-     - Mounting brackets and clamps
-     - User manual or quick start guide\
-       If anything is missing, contact the supplier immediately.
-
-2. **Charge the Battery (if applicable)**:
-
-   - Before installation, ensure the rechargeable battery is fully charged to maximize performance.
-   - Use a compatible charger if the battery needs charging.
-
-3. **Attach the Antenna**:
-
-   - Firmly screw the antenna into the antenna port on the sensor.
-   - Ensure the connection is tight but do not overtighten.
-
-4. **Install the Battery**:
-
-   - Open the battery compartment on the sensor.
-   - Insert the battery, ensuring correct polarity (+ and -).
-   - Close the compartment securely to protect against environmental factors.
-
-5. **Power On the Sensor**:
-
-   - The sensor powers on automatically when the battery is inserted.
-   - Observe the LED indicators (if available) to confirm the device is active. Refer to the manual for LED status meanings.
-
-6. **Sensor Placement and Mounting**:
-
-   - **Ideal Placement**:
-     - Install the sensor in an open area where it is not obstructed by walls or large objects to ensure accurate sound level readings.
-     - Avoid areas prone to vibration or excessive interference.
-   - **Mounting the Sensor**:
-     - Use the included brackets and clamps to attach the sensor to a wall or pole.
-     - Ensure the sensor is mounted securely to prevent movement caused by wind or accidental contact.
-     - The sensor should be positioned at a height that minimizes environmental noise distortions, such as reflections from walls.
-
-7. **Environment-Specific Tips**:
-
-   - **Indoor Use**:
-     - Place the sensor in a central location away from HVAC systems or machinery to ensure accurate noise measurement.
-   - **Outdoor Use**:
-     - Ensure the sensor is shielded from rain and direct sunlight using an appropriate cover.
-
-8. **Verify Sensor Alignment**:
-
-   - If the sensor requires directional alignment, use a compass or visual reference to ensure proper orientation.
-
-#### **1.3 Initial Sensor Configuration**
-
-1. **Check Connectivity**:
-
-   - Before proceeding to LoRaWAN configuration, verify that the sensor powers on and communicates via Bluetooth or other local interfaces.
-
-2. **Perform a Test Reading**:
-
-   - Use the **Milesight ToolBox App** or equivalent software to capture a test reading from the sensor. This ensures the sensor is functional before proceeding with network integration.
-
-3. **Update Firmware (if applicable)**:
-
-   - Check the app for any available firmware updates for the sensor.
-   - Follow the instructions in the app to install the latest firmware version to ensure optimal performance and compatibility.
-
-4. **Troubleshooting Power-On Issues**:
-
-   - If the sensor does not power on:
-     - Recheck battery installation and polarity.
-     - Ensure the battery is charged.
-     - Inspect for visible damage to the device or connectors.
+### **1.2 Initial Setup**
+1. **Verify Package Contents**: Ensure all components are included and undamaged.
+2. **Install the Batteries**: Insert the batteries, ensuring correct polarity.
+3. **Power On the Sensor**: Hold the power button for 3 seconds. The LED will confirm activation.
+4. **Mount the Sensor**: Use mounting kits or tape to install the sensor.
 
 ---
 
-### **Step 2: Configuring the Sensor Using Milesight ToolBox App**
+## **Step 2: Registering the Sensor on The Things Network (TTN)**
 
-#### **Steps for Configuration**:
-
-1. **Download the Milesight ToolBox App**:
-
-   - Install the app from the [Google Play Store](https://play.google.com) or [Apple App Store](https://apps.apple.com).
-
-2. **Pair the Sensor**:
-
-   - Enable Bluetooth on your smartphone.
-   - Open the app and scan for nearby devices.
-   - Select the **WS302 Sound Level Sensor** from the list.
-
-3. **Configure LoRaWAN Parameters**:
-
-   - Navigate to **LoRaWAN Settings**.
-   - Input the following:
-     - **DevEUI**: Found on the sensor label.
-     - **AppEUI**: Provided by TTN or in the sensor documentation.
-     - **AppKey**: Provided in the sensor documentation.
-   - Select the **Frequency Plan** for your region from the following options:
-
-| **Frequency Plan** | **Region**            | **Description**                                                               |
-| ------------------ | --------------------- | ----------------------------------------------------------------------------- |
-| **EU868**          | Europe                | Operates at 868 MHz. Commonly used across the EU for LoRaWAN deployments.     |
-| **US915**          | North America         | Operates at 915 MHz. Used in the United States, Canada, and Mexico.           |
-| **AS923**          | Asia-Pacific          | Operates at 923 MHz. Covers countries like Japan, Australia, and New Zealand. |
-| **IN865**          | India                 | Operates at 865 MHz. Dedicated plan for deployments in India.                 |
-| **AU915**          | Australia/New Zealand | Operates at 915 MHz. Preferred for LoRaWAN in Australia and New Zealand.      |
-| **KR920**          | South Korea           | Operates at 920 MHz. Allocated specifically for South Korea.                  |
-| **RU864**          | Russia                | Operates at 864 MHz. Used exclusively within Russia.                          |
-
-4. **Adjust Measurement Intervals**:
-
-   - Set the measurement interval to your desired frequency (e.g., every 5 minutes).
-
-5. **Verify Configuration**:
-
-   - Confirm the settings and ensure the sensor is connected to your LoRaWAN gateway.
-
-#### **Alternate Configuration Using NFC**:
-
-1. **Enable NFC on Your Smartphone**:
-
-   - Go to your phone’s settings and ensure NFC is enabled.
-
-2. **Download the Milesight ToolBox App**:
-
-   - Install the app from the [Google Play Store](https://play.google.com) or [Apple App Store](https://apps.apple.com).
-
-3. **Tap to Connect**:
-
-   - Hold your phone close to the NFC tag on the sensor until a prompt appears on your screen.
-   - Follow the on-screen instructions to pair the sensor.
-
-4. **Configure LoRaWAN Parameters**:
-
-   - Enter the same details as the Bluetooth configuration:
-     - **DevEUI**, **AppEUI**, **AppKey**, and **Frequency Plan**.
-   - Save the configuration through the app.
-
-5. **Verify Connection**:
-
-   - Check the app for confirmation that the configuration is successful.
-
-This method is faster and ideal for users who prefer NFC over Bluetooth.
-
----
-
-### **Step 3: Registering the Sensor on The Things Network (TTN)**
-
-#### **3.1 Create a New Application**
-
-1. **Log in to TTN Console**:
-
-   - Visit the [TTN Console](https://console.cloud.thethings.network/) and log in.
-
-2. **Create an Application**:
-
-   - Navigate to **Applications** > **Add Application**.
-   - Enter the following:
-     - **Application ID**: A unique name (e.g., `sound-monitor`).
-     - **Description**: Optionally, add a description (e.g., `Monitoring environmental noise levels`).
-     - **Handler**: Select the handler for your region.
-   - Click **Create Application**.
-
-#### **3.2 Add the Sensor as an End Device**
-
-1. **Navigate to the Application**:
-
-   - Open the application you created.
-
-2. **Add an End Device**:
-
-   - Click **Add End Device** and select **Manually**.
-
-3. **Input Device Details**:
-
+### **2.1 Set Up the LoRaWAN Gateway**
+1. Log in to the [TTN Console](https://console.cloud.thethings.network/).
+2. Add a gateway:
+   - Navigate to **Gateways** > **Add Gateway**.
    - Enter:
-     - **DevEUI**: Found on the sensor label.
-     - **AppEUI**: Match the application or documentation.
-     - **AppKey**: From the sensor documentation.
-   - Choose the frequency plan (e.g., EU868).
-
-4. **Save and Register**:
-
-   - Click **Register End Device**.
-
-#### **3.3 Add a Custom Uplink Payload Formatter**
-
-1. **Navigate to Payload Formatters**:
-
-   - Go to **Payload Formatters** > **Uplink**.
-
-2. **Enter the Formatter Code**:
-
-```javascript
-function decodeUplink(input) {
-    var data = {};
-    data.battery = input.bytes[0]; // Battery level in percentage
-    data.la = (input.bytes[1] << 8 | input.bytes[2]) / 10; // Current sound level in dB(A)
-    data.laeq = (input.bytes[3] << 8 | input.bytes[4]) / 10; // Equivalent continuous level
-    data.lamax = (input.bytes[5] << 8 | input.bytes[6]) / 10; // Maximum sound level
-    data.rssi = input.bytes[7]; // Signal strength
-    return {
-        data: data,
-    };
-}
-```
-
-3. **Save the Formatter**:
-
-   - Click **Save Changes**.
-
-4. **Verify Uplink Data**:
-
-   - Check the **Live Data** tab for decoded data.
+     - **Gateway EUI** (found on the gateway label).
+     - **Gateway ID** (e.g., `my-lorawan-gateway`).
+     - **Frequency Plan** for your region.
+   - Click **Register Gateway**.
+3. Follow the manufacturer's instructions to configure and connect the gateway.
 
 ---
 
-### **Step 4: Integrating TTN with Blynk**
+### **2.2 Create a New Application**
+1. Navigate to **Applications** > **Add Application** in TTN.
+2. Enter:
+   - **Application ID**: A unique identifier (e.g., `sound-monitor`).
+   - **Description**: (e.g., `Monitoring environmental noise levels`).
+   - **Handler**: Select the handler for your region.
+3. Generate an **AppEUI** in the application settings.
 
-#### **4.1 Configure MQTT Integration in TTN**
+---
 
-1. **Set Up MQTT Integration**:
+### **2.3 Add a Custom Uplink Payload Formatter**
+To ensure data is properly decoded:
+1. **Navigate to Payload Formatters** in TTN.
+2. Paste this JavaScript code:
+   ```javascript
+   function decodeUplink(input) {
+       return {
+           data: {
+               LA: input.bytes[0],       // Instantaneous sound level
+               LAeq: input.bytes[1],    // Equivalent continuous sound level
+               LAmax: input.bytes[2],   // Maximum sound level
+               battery: input.bytes[3]  // Battery level
+           }
+       };
+   }
+   ```
+3. Save Changes.
 
-   - Go to **Integrations** > **Add Integration**.
-   - Select **MQTT**.
+---
 
-2. **Copy Integration Details**:
+## **Step 3: Integrating TTN with Blynk**
 
-   - Copy fields:
+### **3.1 Onboarding Using Static Tokens**
+1. **Prepare a CSV File**:
+   Create a CSV file with the following format to list the device credentials:
+
+   ```csv
+   Device EUI,Join EUI,Application Key
+   0018B20000000101,70B3D57ED0000010,2B7E151628AED2A6ABF7158809CF4F3C
+   0018B20000000102,70B3D57ED0000011,3B7E151628AED2A6ABF7158809CF4F3D
+   0018B20000000103,70B3D57ED0000012,4B7E151628AED2A6ABF7158809CF4F3E
+   ```
+
+2. **Upload the CSV File**:
+   - In Blynk, go to **Developer Zone** > **Static Tokens**.
+   - Click **Generate Static Tokens** > **Create From File**.
+   - Upload the CSV file.
+   - Blynk will generate unique QR codes for each device.
+
+3. **Scan the QR Codes**:
+   - Use the Blynk mobile app or web dashboard to scan the QR codes.
+   - Once scanned, the devices will be automatically created in Blynk and registered with The Things Stack.
+
+---
+
+### **3.2 Automated Device Onboarding**
+1. Enable **Automated Device Onboarding** in Blynk:
+   - Go to the application settings in Blynk.
+   - Turn on **Enable automated device onboarding**.
+   - Specify:
+     - **LoRaWAN Version**, **Frequency Plan**, and **Regional Parameter Version**.
+     - Enable **Support Class B** and/or **Support Class C** if required.
+
+2. **Provide The Things Stack Details**:
+   - Obtain addresses from **Admin Panel** > **Network Information** in The Things Stack.
+   - Enter them in Blynk.
+
+3. **Grant Permissions**:
+   - Generate a new API key in TTN with:
+     - **View device keys in application**.
+     - **Create devices in application**.
+     - **Edit device keys in application**.
+
+4. Blynk will automatically create metadata fields: **Device EUI**, **Join EUI**, and **AppKey**.
+
+---
+
+### **3.3 Configuring MQTT Integration**
+1. **Set Up MQTT in TTN**:
+   - Navigate to **Integrations** > **MQTT** in the TTN Console.
+   - Copy:
      - **Server Address**: e.g., `eu1.cloud.thethings.network`.
-     - **Port**: Use `1883` or `8883`.
-     - **Username**: TTN **AppID**.
-     - **Password**: Generate an MQTT API key.
+     - **Port**: `1883` (unsecured) or `8883` (secured).
+     - **Username**: TTN AppID.
+     - **Password**: Generate a new MQTT API key.
 
-#### **4.2 Configure TTN Integration in Blynk**
-
-1. **Log in to Blynk Console**:
-
-   - Access the [Blynk Console](https://blynk.cloud).
-
-2. **Add TTN Integration**:
-
-   - Go to **Integrations** > **Add Integration**.
-   - Fill in:
-     - **Integration Name**: WS302-TTN.
-     - **Server Address**: TTN MQTT server.
-     - **Port**: Use `1883` or `8883`.
-     - **Username**: TTN **AppID**.
+2. **Integrate with Blynk**:
+   - In Blynk, go to **Developer Zone** > **Integrations** > **The Things Stack**.
+   - Enter:
+     - **Hostname**: MQTT server address.
+     - **Port**: `1883` or `8883`.
+     - **Username**: TTN AppID.
      - **Password**: MQTT API key.
+   - Click **Connect**.
 
-3. **Map Datastreams**:
-
-   - Assign TTN payload fields (e.g., la, laeq, lamax) to Blynk datastreams.
-
-4. **Save and Activate**:
-
-   - Save the integration.
+3. **Test Integration**:
+   - Verify the status changes to **Connected** in Blynk.
+   - Confirm data appears in the **Devices** section.
 
 ---
 
-### **Step 5: Monitoring and Controlling the Sensor**
+## **Step 4: Preconfigured Dashboard in Blynk**
 
-#### **5.1 Web Dashboard Overview**
+### **4.1 Dashboard Overview**
+The dashboard is preconfigured and provides an intuitive interface for monitoring sensor data in real-time. Key features include:
 
-- **Metrics Displayed**:
+- **Device Overview:**
+  - Displays the **Device Name**, **Device Owner**, and **Company Name**.
+  - Shows the device's **online/offline status**.
 
-  - **Battery**: Remaining battery percentage (e.g., 57%).
-  - **LA**: Current sound level in dB(A) (e.g., 41).
-  - **LAeq**: Equivalent continuous sound level (e.g., 101).
-  - **LAmax**: Maximum sound level (e.g., 85).
-  - **RSSI**: Signal strength in dBm (e.g., -110).
+- **Metrics (Virtual Pins):**
+  - **Battery (V0):** Displays the battery percentage.
+  - **LA (V1):** Instantaneous sound level.
+  - **LAeq (V2):** Continuous noise exposure.
+  - **LAmax (V3):** Maximum recorded sound level.
+  - **RSSI (V6):** Signal strength.
 
-- **Custom Chart**:
+- **Custom Chart:**
+  - Provides a time-series visualization of metrics like **LA**, **LAeq**, and **LAmax**.
+  - Selectable time intervals (e.g., 1 hour, 6 hours, 1 day).
 
-  - Graphically visualizes sound level trends over time.
+- **Location Map:**
+  - Displays the sensor's geographical location.
 
-- **On/Off Toggle**:
+---
 
-  - Allows remote control of the sensor's operational state.
+### **4.2 Setting the Location**
+1. Navigate to the **Location** section in the Blynk dashboard.
+2. Enter the sensor's address or drag the pin on the map to the correct location.
+3. Save the changes to reflect the updated position.
 
-#### **5.2 Historical Analysis**
+---
 
-- Use Blynk’s graph widgets to view sound trends and analyze historical noise levels.
+### **4.3 Using Automations**
+1. Go to the **Automation** section in Blynk.
+2. Create a new automation:
+   - **Trigger**: Set conditions (e.g., `LAeq > 80 dB`).
+   - **Action**: Configure notifications or toggle a device state.
+3. Save and test the automation:
+   - Simulate events to ensure triggers activate correctly.
 
-#### **5.3 Notifications and Alerts**
+---
 
-- Configure Blynk to send alerts when sound levels exceed predefined thresholds.
+## **Error Handling and Troubleshooting**
+1. **Sensor Issues**:
+   - Check battery polarity and charge.
+   - Reset the sensor if unresponsive.
 
-  **Steps to Automate Alerts in Blynk**:
-  1. **Access Automations**:
+2. **Connectivity Problems**:
+   - Verify LoRaWAN settings and gateway connection.
+   - Test MQTT integration.
 
-     - Log in to the Blynk Console and navigate to the "Automations" section.
+3. **Data Issues**:
+   - Check the payload formatter in TTN.
+   - Debug MQTT connections with tools like MQTT Explorer.
 
-  2. **Create a New Automation**:
-
-     - Click on "Add New Automation."
-     - Define the name (e.g., "Noise Alert") and select the WS302 device.
-
-  3. **Set a Trigger Condition**:
-
-     - Select the parameter (e.g., "LAeq").
-     - Set a threshold value (e.g., "> 80 dB").
-
-  4. **Define the Action**:
-
-     - Choose the action type: "Send Notification" or "Trigger Device Action."
-     - For notifications, add the message (e.g., "Noise level exceeded 80 dB!").
-
-  5. **Save and Activate**:
-
-     - Save the automation and ensure it is active.
-     - Test the automation by generating a sound level above the defined threshold.
-  This ensures real-time notifications when sound levels exceed acceptable limits.
-
-#### **5.4 Adding a Location in Blynk**
-
-1. **Navigate to the Location Section**:
-
-   - **Log in to the Blynk Console. On the dashboard, navigate to the "Location" section.**
-
-2. **Add Your Address**:
-
-   - Enter the desired address or coordinates for the sensor's location.
-   - Save the location by clicking the "Save" button.
-
-3. **Assign Location in Info & Metadata**:
-
-   - Go to the "Info & Metadata" section of your device settings.
-   - In the "Location" field, select the saved location you created earlier.
-
-4. **Confirm and Save**:
-
-   - Save the configuration to ensure the location is updated and linked to your device.
-
-This feature allows users to associate precise geographical information with their devices for better tracking and contextual understanding of the data.
-
+---
 
 [![Watch the video](https://i.sstatic.net/Vp2cE.png)](https://youtu.be/cuykM1xJTrU?feature=shared)
 
 
-### **Troubleshooting**
 
-#FIXME: WIP
 
