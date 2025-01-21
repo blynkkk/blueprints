@@ -1,6 +1,12 @@
 # **Milesight WS302 Sound Level Sensor Blueprint Guide**
 
-The **Milesight WS302 Sound Level Sensor** is designed to monitor and analyze sound levels in various environments, providing metrics such as instantaneous sound levels (**LA**), equivalent continuous sound levels (**LAeq**), and maximum sound levels (**LAmax**). It also monitors battery levels and RSSI for reliable operation. This guide provides step-by-step instructions to set up the sensor, register it with **The Things Network (TTN)**, and integrate it with **Blynk IoT** for data visualization and control.
+The **Milesight WS302 Sound Level Sensor** is designed to monitor and analyze
+sound levels in various environments, providing metrics such as instantaneous
+sound levels (**LA**), equivalent continuous sound levels (**LAeq**), and
+maximum sound levels (**LAmax**). It also monitors battery levels and RSSI for
+reliable operation. This guide provides step-by-step instructions to set up the
+sensor, register it with **The Things Network (TTN)**, and integrate it with
+**Blynk IoT** for data visualization and control.
 
 ---
 
@@ -16,7 +22,6 @@ The **Milesight WS302 Sound Level Sensor** is designed to monitor and analyze so
 1. **Verify Package Contents**: Ensure all components are included and undamaged.
 2. **Install the Batteries**: Insert the batteries, ensuring correct polarity.
 3. **Power On the Sensor**: Hold the power button for 3 seconds. The LED will confirm activation.
-4. **Mount the Sensor**: Use mounting kits or tape to install the sensor securely in the desired location.
 
 ---
 
@@ -59,15 +64,16 @@ The **Milesight WS302 Sound Level Sensor** is designed to monitor and analyze so
      - **Handler**: Select the handler for your region.
    - Click **Create Application**.
    - *[Insert Screenshot of TTN Application Creation Page]*
-3. **Generate AppEUI**:
-   - Navigate to **Settings** in the application and generate an **AppEUI**.
-   - *[Insert Screenshot of AppEUI Generation]*
 
-> **Note**: A TTN application can support only one type of sensor. Ensure all devices in this application are of the same type (e.g., WS302).
-
+> **Note:** A TTN application can support only one type of sensor. Ensure that
+> all devices in this application are of the same type (e.g., WS302). If you
+> need to use more than one type of sensor, please create a new application for
+> each sensor type.
 ---
 
-### **2.3 Add a Custom Uplink Payload Formatter**
+###FIXME: add downlink payload formater
+
+### **2.3 Add a Custom Uplink and Downlink Payload Formatter**
 To ensure data is properly decoded:
 1. **Navigate to Payload Formatters** in TTN.
 2. Paste this JavaScript code:
@@ -94,18 +100,14 @@ To ensure data is properly decoded:
    - Navigate to **LoRaWAN Settings**.
    - *[Insert Screenshot of LoRaWAN Settings in ToolBox App]*
 2. **Configure LoRaWAN Parameters**:
-   - **DevEUI**: Found on the sensor label.
-   - **AppEUI**: Use the AppEUI generated in TTN.
-   - **AppKey**: Provided in the sensor documentation.
+   - **DevEUI**: Use default value (found on the sensor label).
+   - **AppEUI**: Use default value from manufacturer or generate a new one.
+   - **AppKey**: Use default from the manufacturer or generate a new one.
    - **Frequency Plan**: Match the frequency plan configured in TTN.
    - **RX2 Data Rate**: Set to DR3 (SF9, 125 kHz).
    - **Spreading Factor**: Set to SF10-DR2.
    - **Default Application Port**: Set to 85.
    - Save the settings.
-3. **Verify Connection**:
-   - Confirm the sensor successfully connects to TTN via the LoRaWAN gateway.
-   - *[Insert Screenshot of Successful Connection Status in TTN]*
-
 ---
 
 ### **2.5 Configure MQTT Integration**
@@ -127,7 +129,23 @@ To ensure data is properly decoded:
 
 ## **Step 3: Integrating TTN with Blynk**
 
-### **3.1 Onboarding Using Static Tokens**
+### **3.1 Configuring Blynk Integration via MQTT**
+1. **Set Up MQTT in Blynk**:
+   - Navigate to **Developer Zone** > **Integrations** > **The Things Stack**.
+   - Enter:
+     - **Hostname**: MQTT server address (e.g., `eu1.cloud.thethings.network`).
+     - **Port**: `1883` or `8883`.
+     - **Username**: TTN Application ID.
+     - **Password**: MQTT API key.
+   - Click **Connect**.
+
+2. **Test Integration**:
+   - Verify the status changes to **Connected** in Blynk.
+   - Confirm data appears in the **Devices** section.
+   - *[Insert Screenshot of Successful Integration]*
+---
+
+### **3.2 Onboarding Using Static Tokens**
 1. **Prepare a CSV File**:
    Create a CSV file with the following format to list the device credentials:
    ```csv
@@ -149,24 +167,7 @@ To ensure data is properly decoded:
    - Use the Blynk mobile app or web dashboard to scan the QR codes.
    - Once scanned, the devices will be automatically created in Blynk and registered with The Things Stack.
 
----
-
-### **3.2 Configuring Blynk Integration via MQTT**
-1. **Set Up MQTT in Blynk**:
-   - Navigate to **Developer Zone** > **Integrations** > **The Things Stack**.
-   - Enter:
-     - **Hostname**: MQTT server address (e.g., `eu1.cloud.thethings.network`).
-     - **Port**: `1883` or `8883`.
-     - **Username**: TTN Application ID.
-     - **Password**: MQTT API key.
-   - Click **Connect**.
-
-2. **Test Integration**:
-   - Verify the status changes to **Connected** in Blynk.
-   - Confirm data appears in the **Devices** section.
-   - *[Insert Screenshot of Successful Integration]*
-
----
+  ---
 
 ## **Step 4: Monitoring and Analyzing Data**
 
@@ -231,9 +232,7 @@ The dashboard is preconfigured and provides an intuitive interface for monitorin
 This comprehensive guide ensures seamless integration of the Milesight WS302 Sound Level Sensor with TTN and Blynk for robust environmental noise monitoring.
 
 
-
+### FIXME: fix the video url
 [![Watch the video](https://i.sstatic.net/Vp2cE.png)](https://youtu.be/cuykM1xJTrU?feature=shared)
-
-
 
 
