@@ -26,7 +26,7 @@ The sample project uses the following devices from the Kit XIDE IoT, which allow
 
 3. Once the hardware is assembled, connect it to your computer through the USB cable.
 
-![xide kit assembly instructions](/Kit%20XIDE%20IoT/Images/xide-assembly-instructions.jpg)
+![xide kit assembly instructions](https://github.com/blynkkk/blueprints/blob/main/Kit%20XIDE%20IoT/Images/xide-assembly-instructions.jpg?raw=true)
 
 ### II. Prepare Required Software
 
@@ -36,7 +36,7 @@ _If you are using Arduino IDE, follow the next steps (skip for PlatformIO)_
 3. Install [Blynk library](https://docs.blynk.io/en/blynk-library-firmware-api/installation)
 4. Select the board ESP32S3-Dev-Module and configure it according to this image:
 
-![](/Kit%20XIDE%20IoT/Images/arduino-board-cfg.png)
+![](https://github.com/blynkkk/blueprints/blob/main/Kit%20XIDE%20IoT/Images/arduino-board-cfg.png?raw=true)
 
 5. Select the correct port of your device
 
@@ -69,11 +69,11 @@ For this step you need to download Blynk App on your mobile phone
 4. Select network your device will use and click **Continue**
 5. Your device is connected now! Click **Finish** to open your device. You also will see your device in the Blynk Console
 
-![Blynk App WiFi provisioning steps](/Kit%20XIDE%20IoT/Images/blynk-app-wifi-provision-steps.jpg)
+![Blynk App WiFi provisioning steps](https://github.com/blynkkk/blueprints/blob/main/Kit%20XIDE%20IoT/Images/blynk-app-wifi-provision-steps.jpg?raw=true)
 
 6. Explore your device on Blynk Console and Blynk App
 
-![Blynk Dashboard on Blynk.Console and Blynk.App](/Kit%20XIDE%20IoT/Images/blynk-console.jpg)
+![Blynk Dashboard on Blynk.Console and Blynk.App](https://github.com/blynkkk/blueprints/blob/main/Kit%20XIDE%20IoT/Images/blynk-console.jpg?raw=true)
 
 ## V. Set Up Notifications
 Let's configure notifications on your phone to keep you informed when the temperature or humidity falls outside the comfortable range. This way, you can take action to restore optimal levels as soon as possible.
@@ -84,7 +84,7 @@ Let's configure notifications on your phone to keep you informed when the temper
 5. Click on **+ Add Action**, then **Send an app notfication**, set a title and a message for the notification
 6. Choose a name and cover for the automation then click Save
 
-![Blynk App setting up notifications](/Kit%20XIDE%20IoT/Images/blynk-app-setup-notifications-steps.jpg)
+![Blynk App setting up notifications](https://github.com/blynkkk/blueprints/blob/main/Kit%20XIDE%20IoT/Images/blynk-app-setup-notifications-steps.jpg?raw=true)
 
 ## VI. Next Steps
 * Explore [Blynk Documentation](https://docs.blynk.io/en/) and learn how to work with [Virtual Pins](https://docs.blynk.io/en/getting-started/using-virtual-pins-to-control-physical-devices)
