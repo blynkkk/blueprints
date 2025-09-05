@@ -1,0 +1,1622 @@
+[
+    {
+        "id": "bd87f60bd9d30f17",
+        "type": "subflow",
+        "name": "process_static_token",
+        "info": "",
+        "category": "",
+        "in": [
+            {
+                "x": 120,
+                "y": 180,
+                "wires": [
+                    {
+                        "id": "cdc3f822ebf90640"
+                    }
+                ]
+            }
+        ],
+        "out": [],
+        "env": [],
+        "meta": {},
+        "color": "#3FADB5",
+        "icon": "font-awesome/fa-list-ol"
+    },
+    {
+        "id": "1eb1fc7fa5b08086",
+        "type": "exec",
+        "z": "bd87f60bd9d30f17",
+        "command": "[ -f",
+        "addpay": "path",
+        "append": "] && echo exists || echo missing",
+        "useSpawn": "false",
+        "timer": "",
+        "winHide": false,
+        "oldrc": false,
+        "name": "Check if File Exists",
+        "x": 330,
+        "y": 180,
+        "wires": [
+            [
+                "80ab4f9f27cb0298"
+            ],
+            [],
+            []
+        ]
+    },
+    {
+        "id": "80ab4f9f27cb0298",
+        "type": "function",
+        "z": "bd87f60bd9d30f17",
+        "name": "File Exists?",
+        "func": "if (msg.payload.trim() === 'exists') {\n    return msg;\n} else {\n    node.error(`File ${msg.path} does not exist (filename provide for sensor_type = ${msg.sensor_type})`)\n    //msg.payload = 'File ' + msg.path + ' does not exist.';\n    //return [null, msg];\n}",
+        "outputs": 1,
+        "timeout": "",
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 550,
+        "y": 160,
+        "wires": [
+            [
+                "567fd4305b47fa2f"
+            ]
+        ]
+    },
+    {
+        "id": "567fd4305b47fa2f",
+        "type": "exec",
+        "z": "bd87f60bd9d30f17",
+        "command": "stat -c %Y",
+        "addpay": "path",
+        "append": "",
+        "useSpawn": "false",
+        "timer": "",
+        "winHide": false,
+        "oldrc": false,
+        "name": "Check File Timestamp",
+        "x": 800,
+        "y": 100,
+        "wires": [
+            [
+                "5e61c93a19688e72"
+            ],
+            [],
+            []
+        ]
+    },
+    {
+        "id": "5e61c93a19688e72",
+        "type": "function",
+        "z": "bd87f60bd9d30f17",
+        "name": "Detect Change",
+        "func": "var prev = context.get('prev_' + msg.path) || 0;\nvar curr = parseInt(msg.payload);\nif (curr !== prev) {\n    context.set('prev_' + msg.path, curr);\n    msg.payload = 'File changed';\n} else {\n    msg.payload = 'No changes';\n}\nreturn msg;",
+        "outputs": 1,
+        "timeout": "",
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 800,
+        "y": 180,
+        "wires": [
+            [
+                "cd1a6c22dda2b958"
+            ]
+        ]
+    },
+    {
+        "id": "cdc3f822ebf90640",
+        "type": "function",
+        "z": "bd87f60bd9d30f17",
+        "name": "Check filename get from user",
+        "func": "\nlet filename = msg.filename;\n// Check if the filename contains \"_tokens\"\nif (filename.includes(\"_tokens\")) {\n    // Ensure the filename ends with \".csv\"\n    if (!filename.endsWith(\".csv\")) {\n        filename += \".csv\";\n    }\n\n    let path = \"/home/ncdio/.node-red/\"+filename;\n    //global.set(\"path_filename_27\", path);\n    msg.path = path;\n    return msg;\n}\nnode.error(`Please, provide correct filename with token for sensor type 27: ${filename}`);\n\n",
+        "outputs": 1,
+        "timeout": 0,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 185,
+        "y": 180,
+        "wires": [
+            [
+                "1eb1fc7fa5b08086"
+            ]
+        ],
+        "l": false
+    },
+    {
+        "id": "48136363925fab14",
+        "type": "file in",
+        "z": "bd87f60bd9d30f17",
+        "name": "",
+        "filename": "path",
+        "filenameType": "msg",
+        "format": "utf8",
+        "chunk": false,
+        "sendError": false,
+        "encoding": "none",
+        "allProps": false,
+        "x": 985,
+        "y": 180,
+        "wires": [
+            [
+                "dfac751efe41eed0"
+            ]
+        ],
+        "l": false
+    },
+    {
+        "id": "dfac751efe41eed0",
+        "type": "function",
+        "z": "bd87f60bd9d30f17",
+        "name": "get_tokens_from_file",
+        "func": "// Reset the global \"tokens\" value\n//global.set(\"tokens\", \"\");\n\n// Check if the payload is empty\nif (msg.payload === \"\") {\n    node.error(\"File with tokens for sensor_type = 80 is empty!\", msg);\n    return null;\n}\n\n// Ensure the payload is defined and is a string\nif (typeof msg.payload === \"string\") {\n    // Check if the payload only contains newline characters\n    if (/^\\s*$/.test(msg.payload)) {\n        // Log a warning if the file only contains whitespace or newlines\n        node.warn(\"File only contains whitespace or newline characters. Please provide file contains token from blynk.cloud\");\n        return null; // Stop processing further\n    } else {\n        let name = \"tokens-\"+msg.sensor_type; \n        // Save the content to the global context\n        global.set(name, msg.payload);\n        \n        // Proceed with further processing\n        return msg;\n    }\n} else {\n    // Throw an error if payload is not a valid string\n    node.error(\"Payload is not a valid string.\", msg);\n    return null;\n}\n",
+        "outputs": 1,
+        "timeout": 0,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 1045,
+        "y": 180,
+        "wires": [
+            []
+        ],
+        "l": false
+    },
+    {
+        "id": "cd1a6c22dda2b958",
+        "type": "switch",
+        "z": "bd87f60bd9d30f17",
+        "name": "",
+        "property": "payload",
+        "propertyType": "msg",
+        "rules": [
+            {
+                "t": "eq",
+                "v": "File changed",
+                "vt": "str"
+            },
+            {
+                "t": "eq",
+                "v": "No changes",
+                "vt": "str"
+            }
+        ],
+        "checkall": "true",
+        "repair": false,
+        "outputs": 2,
+        "x": 925,
+        "y": 180,
+        "wires": [
+            [
+                "48136363925fab14"
+            ],
+            []
+        ],
+        "l": false
+    },
+    {
+        "id": "61d27f8ab854f611",
+        "type": "subflow",
+        "name": "process_map_token_mac",
+        "info": "",
+        "category": "Blynk",
+        "in": [
+            {
+                "x": 340,
+                "y": 320,
+                "wires": [
+                    {
+                        "id": "33988615d7f824c5"
+                    }
+                ]
+            }
+        ],
+        "out": [
+            {
+                "x": 1060,
+                "y": 360,
+                "wires": [
+                    {
+                        "id": "7a6ecae2a2b86462",
+                        "port": 0
+                    },
+                    {
+                        "id": "03f55477445e9daa",
+                        "port": 0
+                    }
+                ]
+            },
+            {
+                "x": 1060,
+                "y": 240,
+                "wires": [
+                    {
+                        "id": "225b3329ca2a42bf",
+                        "port": 0
+                    }
+                ]
+            }
+        ],
+        "env": [],
+        "meta": {},
+        "color": "#3FADB5",
+        "icon": "node-red/batch.svg"
+    },
+    {
+        "id": "33988615d7f824c5",
+        "type": "function",
+        "z": "61d27f8ab854f611",
+        "name": "check_mac_in_file",
+        "func": "// Ensure both addr and token are defined before comparing\n\nlet addr = msg.data.addr;\n\nlet map = global.get(\"map-mac-tokens\") || [];\n//node.warn(\"MAP: \" + JSON.stringify(map));\n\n// Validate map as an array\nif (!Array.isArray(map)) {\n    node.warn(\"MAP is not an array. Initializing as an empty array.\");\n    map = [];\n}\n\n// Get the col2 value from the incoming message\nlet searchcol2 = msg.data.addr;\n\nif (map.length === 0) {\n    global.set(\"flag\", 1); // Set flag if map is empty\n    msg.payload = msg.data.addr; // Format as CSV string\n    return msg;\n} else {\n    // Search for the entry with the matching col2 value\n    let foundItem = map.find(item => item.col2 === searchcol2);\n    // If a matching entry is found, return col2, otherwise return a message indicating not found\n    if (foundItem) {\n        global.set(\"flag\", 0);\n        return msg;\n    } \n    else {\n        global.set(\"flag\", 1);  // Set flag if addr does not match payload\n        msg.payload = msg.data.addr; // Format as CSV string\n        return msg;\n    }\n}\n",
+        "outputs": 1,
+        "timeout": 0,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 395,
+        "y": 320,
+        "wires": [
+            [
+                "aa04b604cdbc271f"
+            ]
+        ],
+        "l": false
+    },
+    {
+        "id": "aa04b604cdbc271f",
+        "type": "switch",
+        "z": "61d27f8ab854f611",
+        "name": "",
+        "property": "flag",
+        "propertyType": "global",
+        "rules": [
+            {
+                "t": "eq",
+                "v": "1",
+                "vt": "str"
+            },
+            {
+                "t": "eq",
+                "v": "0",
+                "vt": "str"
+            }
+        ],
+        "checkall": "true",
+        "repair": false,
+        "outputs": 2,
+        "x": 455,
+        "y": 320,
+        "wires": [
+            [
+                "8b3483a02482aee7"
+            ],
+            [
+                "225b3329ca2a42bf",
+                "03f55477445e9daa"
+            ]
+        ],
+        "l": false
+    },
+    {
+        "id": "4b369d6c721efe6e",
+        "type": "file",
+        "z": "61d27f8ab854f611",
+        "name": "",
+        "filename": "/home/ncdio/.node-red/token-map.csv",
+        "filenameType": "str",
+        "appendNewline": true,
+        "createDir": true,
+        "overwriteFile": "false",
+        "encoding": "none",
+        "x": 695,
+        "y": 280,
+        "wires": [
+            [
+                "225b3329ca2a42bf",
+                "7a6ecae2a2b86462"
+            ]
+        ],
+        "l": false
+    },
+    {
+        "id": "8b3483a02482aee7",
+        "type": "function",
+        "z": "61d27f8ab854f611",
+        "name": "get_token",
+        "func": "// Get the global \"tokens\" value and map-mac-tokens\nlet addrToken = \"tokens-\"+msg.data.sensor_type;\nlet tokens = global.get(addrToken);\nlet mapMacTokens = global.get(\"map-mac-tokens\") || [];\n\n// Ensure \"tokens\" is defined and not empty\nif (!tokens || typeof tokens !== \"string\" || tokens.trim() === \"\") {\n    node.error(`File with tokens for ${msg.data.sensor_name} (sensor_type = ${msg.data.sensor_type}) is undefined or empty. Please set it correctly.`, msg);\n    return null;\n}\n\n// Ensure \"map-mac-tokens\" is valid\nif (!Array.isArray(mapMacTokens)) {\n    node.warn(\"MAP MAC Tokens is not an array. Initializing as an empty array.\");\n    mapMacTokens = [];\n}\n\n// Log the tokens and map for debugging\n//node.warn(\"MAP Tokens (CSV): \" + tokens);\n//node.warn(\"MAP MAC Tokens: \" + JSON.stringify(mapMacTokens));\n\n// Parse tokens CSV into rows\nlet rows = tokens.split('\\n').filter(row => row.trim() !== '');\n\n// Remove header row if it exists\nif (rows[0].includes(\"QR Code,Device Token,File Name\")) {\n    rows.shift();\n}\n\n// Ensure there are data rows to process\nif (rows.length === 0) {\n    node.error(\"No data rows found in 'tokens'. Please provide valid data.\", msg);\n    return null;\n}\n\n// Find the first unused token that is not already mapped in mapMacTokens\nlet matchedRow = rows.find(row => {\n    let columns = row.split(',');\n    let deviceToken = columns[1]?.trim();\n    return (\n        columns.length > 1 &&\n        deviceToken &&\n        !mapMacTokens.some(mapItem => mapItem.col3 === deviceToken)\n    );\n});\nlet addr = msg.data.addr;\n\nif (!matchedRow) {\n    node.error(`No unused tokens available for ${addr} in the tokens map. Please create more static token for ${msg.data.sensor_name} (sensor type = ${msg.data.sensor_type}).`, msg);\n    return null;\n}\n\n// Split the matched row into columns\nlet columns = matchedRow.split(',');\n\n// Ensure the row has at least two columns (QR Code and Device Token)\nif (columns.length > 1) {\n    let type = msg.data.sensor_type;\n\n    let deviceToken = columns[1].trim();\n\n    mapMacTokens.push({ col1: type, col2: addr, col3: deviceToken });\n    global.set(\"map-mac-tokens\", mapMacTokens);\n\n    // Set the payload\n    msg.payload =  type + \",\" + addr + ',' + deviceToken;\n    node.warn(`Assigned Token: ${deviceToken} to MAC Address: ${addr} (sensor type = ${type})`);\n} else {\n    node.error(\"Device Token not found in the matched row. Ensure the CSV format is correct.\", msg);\n    return null;\n}\n\nreturn msg;\n",
+        "outputs": 1,
+        "timeout": 0,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 535,
+        "y": 280,
+        "wires": [
+            [
+                "582c9b899d191d20"
+            ]
+        ],
+        "l": false
+    },
+    {
+        "id": "582c9b899d191d20",
+        "type": "csv",
+        "z": "61d27f8ab854f611",
+        "name": "",
+        "sep": ",",
+        "hdrin": false,
+        "hdrout": "none",
+        "multi": "one",
+        "ret": "\\n",
+        "temp": "",
+        "skip": "0",
+        "strings": true,
+        "include_empty_strings": true,
+        "include_null_values": true,
+        "x": 615,
+        "y": 280,
+        "wires": [
+            [
+                "4b369d6c721efe6e",
+                "8c80f3f743f34cc2"
+            ]
+        ],
+        "l": false
+    },
+    {
+        "id": "8c80f3f743f34cc2",
+        "type": "function",
+        "z": "61d27f8ab854f611",
+        "name": "update_map_mac_tokens",
+        "func": "// Initialize the global variable if it doesn't exist\nlet currentArray = global.get(\"map-mac-tokens\") || [];\n\nlet searchCol2 = msg.payload.col2;\n\n// Search for the entry with the matching col1 value\nlet foundItem = currentArray.find(item => item.col2 === searchCol2);\n// If a matching entry is found, return col2, otherwise return a message indicating not found\nif (foundItem) {\n\n}\nelse {\n    // Create the new entry (dictionary)\n    let newEntry = {\n        \"col1\": msg.payload.col1,\n        \"col2\": msg.payload.col2, \n        \"col3\": msg.payload.col3\n    };\n\n    // Append the new entry to the array\n    currentArray.push(newEntry);\n\n    // Set the updated array back to the global context\n    global.set(\"map-mac-tokens\", currentArray);\n}\nreturn msg;\n\n",
+        "outputs": 1,
+        "timeout": 0,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 695,
+        "y": 320,
+        "wires": [
+            []
+        ],
+        "l": false
+    },
+    {
+        "id": "225b3329ca2a42bf",
+        "type": "function",
+        "z": "61d27f8ab854f611",
+        "name": "connect",
+        "func": "\nlet map = global.get(\"map-mac-tokens\");\n// Get the col1 value from the incoming message\nlet searchCol2 = msg.data.addr;\n\n// Search for the entry with the matching col1 value\nlet foundItem = map.find(item => item.col2 === searchCol2);\nmsg.broker = msg.broker || {};\n// If a matching entry is found, return col2, otherwise return a message indicating not found\nif (foundItem) {\n    let connectMsg = {\n        action: \"connect\",\n        broker: {\n            username: \"device\",\n            password: foundItem.col3,\n            force: true\n        }\n    };\n    node.send(connectMsg);\n\n} \n",
+        "outputs": 1,
+        "timeout": 0,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 805,
+        "y": 340,
+        "wires": [
+            [
+                "ee2a8495c8c28f7b"
+            ]
+        ],
+        "l": false
+    },
+    {
+        "id": "03f55477445e9daa",
+        "type": "delay",
+        "z": "61d27f8ab854f611",
+        "name": "",
+        "pauseType": "delay",
+        "timeout": "2",
+        "timeoutUnits": "seconds",
+        "rate": "1",
+        "nbRateUnits": "1",
+        "rateUnits": "second",
+        "randomFirst": "1",
+        "randomLast": "5",
+        "randomUnits": "seconds",
+        "drop": false,
+        "allowrate": false,
+        "outputs": 1,
+        "x": 805,
+        "y": 380,
+        "wires": [
+            []
+        ],
+        "l": false
+    },
+    {
+        "id": "7a6ecae2a2b86462",
+        "type": "delay",
+        "z": "61d27f8ab854f611",
+        "name": "",
+        "pauseType": "delay",
+        "timeout": "2",
+        "timeoutUnits": "seconds",
+        "rate": "1",
+        "nbRateUnits": "1",
+        "rateUnits": "second",
+        "randomFirst": "1",
+        "randomLast": "5",
+        "randomUnits": "seconds",
+        "drop": false,
+        "allowrate": false,
+        "outputs": 1,
+        "x": 805,
+        "y": 280,
+        "wires": [
+            []
+        ],
+        "l": false
+    },
+    {
+        "id": "ee2a8495c8c28f7b",
+        "type": "debug",
+        "z": "61d27f8ab854f611",
+        "name": "debug 65",
+        "active": true,
+        "tosidebar": true,
+        "console": false,
+        "tostatus": false,
+        "complete": "true",
+        "targetType": "full",
+        "statusVal": "",
+        "statusType": "auto",
+        "x": 895,
+        "y": 340,
+        "wires": [],
+        "l": false
+    },
+    {
+        "id": "116e418f75c3f97d",
+        "type": "file in",
+        "z": "61d27f8ab854f611",
+        "name": "",
+        "filename": "/home/ncdio/.node-red/token-map.csv",
+        "filenameType": "str",
+        "format": "utf8",
+        "chunk": false,
+        "sendError": false,
+        "encoding": "none",
+        "allProps": false,
+        "x": 615,
+        "y": 100,
+        "wires": [
+            [
+                "c869bdf1c8eeba2e"
+            ]
+        ],
+        "l": false
+    },
+    {
+        "id": "8ec89798c80cc52e",
+        "type": "function",
+        "z": "61d27f8ab854f611",
+        "name": "get_tokens_from_file",
+        "func": "if (msg.payload === \"\") {\n    global.set(\"map-mac-tokens\", \"\");\n}\nelse {\n\n    // Clean the col1 and col2 values by removing unwanted characters\n    let col1 = msg.payload.col1.replace(/{col1:/, '').replace(/}/, '');\n    let col2 = msg.payload.col2.replace(/col2:/, '').replace(/}/, '');\n    let col3 = msg.payload.col3.replace(/col3:/, '').replace(/}/, '');\n\n    // Create a dictionary with the cleaned values\n    let newEntry = {\n        \"col1\": col1,\n        \"col2\": col2,\n        \"col3\": col3\n    };\n\n    // Retrieve the global array (initialize it if it doesn't exist)\n    let currentArray = global.get(\"map-mac-tokens\") || [];\n\n    let searchCol2 = col2;\n\n    // Search for the entry with the matching col1 value\n    let foundItem = currentArray.find(item => item.col2 === searchCol2);\n    // If a matching entry is found, return col2, otherwise return a message indicating not found\n    if (foundItem) {\n        \n    } else {\n\n        // Append the new entry to the array\n        currentArray.push(newEntry);\n\n        // Set the updated array back to the global context\n        global.set(\"map-mac-tokens\", currentArray);    \n    }\n\n    // Output the updated array for further use (e.g., saving to file)\n    msg.payload = currentArray;\n    return msg;\n}",
+        "outputs": 1,
+        "timeout": 0,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 745,
+        "y": 100,
+        "wires": [
+            []
+        ],
+        "l": false
+    },
+    {
+        "id": "c869bdf1c8eeba2e",
+        "type": "csv",
+        "z": "61d27f8ab854f611",
+        "name": "",
+        "sep": ",",
+        "hdrin": "",
+        "hdrout": "none",
+        "multi": "one",
+        "ret": "\\n",
+        "temp": "",
+        "skip": "0",
+        "strings": true,
+        "include_empty_strings": "",
+        "include_null_values": "",
+        "x": 675,
+        "y": 100,
+        "wires": [
+            [
+                "8ec89798c80cc52e"
+            ]
+        ],
+        "l": false
+    },
+    {
+        "id": "a6812ebac1b74817",
+        "type": "exec",
+        "z": "61d27f8ab854f611",
+        "command": "sh -c",
+        "addpay": "payload",
+        "append": "[ -f /home/ncdio/.node-red/token-map.csv ] || touch /home/ncdio/.node-red/token-map.csv",
+        "useSpawn": "false",
+        "timer": "",
+        "winHide": false,
+        "oldrc": false,
+        "name": "",
+        "x": 535,
+        "y": 120,
+        "wires": [
+            [
+                "116e418f75c3f97d"
+            ],
+            [],
+            []
+        ],
+        "l": false
+    },
+    {
+        "id": "c2d9870e67c66993",
+        "type": "inject",
+        "z": "61d27f8ab854f611",
+        "name": "",
+        "props": [],
+        "repeat": "",
+        "crontab": "",
+        "once": true,
+        "onceDelay": 0.1,
+        "topic": "",
+        "x": 390,
+        "y": 120,
+        "wires": [
+            [
+                "a6812ebac1b74817"
+            ]
+        ]
+    },
+    {
+        "id": "39f11eebdfa6d2ae",
+        "type": "tab",
+        "label": "80",
+        "disabled": false,
+        "info": "",
+        "env": []
+    },
+    {
+        "id": "437e0b1e2eed9e07",
+        "type": "ncd-gateway-node",
+        "z": "39f11eebdfa6d2ae",
+        "name": "",
+        "connection": "0b47e914c1107fda",
+        "unknown_devices": 0,
+        "outputs": 1,
+        "x": 130,
+        "y": 380,
+        "wires": [
+            []
+        ]
+    },
+    {
+        "id": "d71094439c21c125",
+        "type": "function",
+        "z": "39f11eebdfa6d2ae",
+        "name": "One Channel Vibration Plus Process Data",
+        "func": "    // Ensure that the data field exists in the parsed message\n    if (msg.data === undefined) {\n        // If data is undefined, log an error and return a default message\n        node.error(\"Error: data is undefined\", msg);\n    }\n\n    // Ensure that sensor_data exists inside the data field\n    let sensorData = msg.data.sensor_data;\n    if (sensorData === undefined) {\n        // If sensor_data is undefined, log an error and return a default message\n        node.error(\"Error: data is undefined\", msg);\n    }\n\n    // Destructure the relevant data, including sensor_name from msg.data\n    let {\n        nodeId, firmware, battery, battery_percent: batteryPercent, counter, sensor_type: sensorType,\n        sensor_name: sensorName, // Correcting here to pull directly from msg.data\n        addr: sensorAddr, type,\n    } = msg.data; // sensor_name is directly in msg.data, not in sensor_data\n\n    // Check if the sensor type is 80 (indicating vibration sensor) and sensorData is defined\n    if (sensorData !== undefined) {\n\n        // Calculate the Total Vibration Level (TVL) using the root mean square (RMS) acceleration values for x, y, and z axes\n        let TVL = Math.sqrt(\n            Math.pow(sensorData.x_rms_ACC_G, 2) +\n            Math.pow(sensorData.y_rms_ACC_G, 2) +\n            Math.pow(sensorData.z_rms_ACC_G, 2)\n        );\n        // Combine the three peak values for each axis into a single string for x, y, and z axes\n        let xPeaks = `${sensorData.x_peak_one_Hz}/${sensorData.x_peak_two_Hz}/${sensorData.x_peak_three_Hz}`;\n        let yPeaks = `${sensorData.y_peak_one_Hz}/${sensorData.y_peak_two_Hz}/${sensorData.y_peak_three_Hz}`;\n        let zPeaks = `${sensorData.z_peak_one_Hz}/${sensorData.z_peak_two_Hz}/${sensorData.z_peak_three_Hz}`;\n\n        // Estimate the motor speed (Hz) by finding the maximum peak frequency value among all axes\n        let xMaxPeak = Math.max(sensorData.x_peak_one_Hz, sensorData.x_peak_two_Hz, sensorData.x_peak_three_Hz);\n        let yMaxPeak = Math.max(sensorData.y_peak_one_Hz, sensorData.y_peak_two_Hz, sensorData.y_peak_three_Hz);\n        let zMaxPeak = Math.max(sensorData.z_peak_one_Hz, sensorData.z_peak_two_Hz, sensorData.z_peak_three_Hz);\n\n        // Determine the highest peak value to estimate motor speed\n        let estimatedMotorSpeedHz = Math.max(xMaxPeak, yMaxPeak, zMaxPeak);\n        \n        // Return an array of objects with each piece of relevant data for further processing\n        return([\n            { payload: sensorData.mode },                        // Sensor mode\n            { payload: sensorData.odr.match(/\\d+/)[0] },         // Output data rate (ODR) extracted as a number\n            { payload: sensorData.temperature },                 // Temperature reading\n            { payload: sensorData.x_rms_ACC_G },                 // X-axis RMS acceleration\n            { payload: sensorData.x_max_ACC_G },                 // X-axis max acceleration\n            { payload: sensorData.x_velocity_mm_sec },           // X-axis velocity\n            { payload: sensorData.x_displacement_mm },           // X-axis displacement\n            { payload: sensorData.x_peak_one_Hz },               // X-axis first peak frequency\n            { payload: sensorData.x_peak_two_Hz },               // X-axis second peak frequency\n            { payload: sensorData.x_peak_three_Hz },             // X-axis third peak frequency\n            { payload: sensorData.y_rms_ACC_G },                 // Y-axis RMS acceleration\n            { payload: sensorData.y_max_ACC_G },                 // Y-axis max acceleration\n            { payload: sensorData.y_velocity_mm_sec },           // Y-axis velocity\n            { payload: sensorData.y_displacement_mm },           // Y-axis displacement\n            { payload: sensorData.y_peak_one_Hz },               // Y-axis first peak frequency\n            { payload: sensorData.y_peak_two_Hz },               // Y-axis second peak frequency\n            { payload: sensorData.y_peak_three_Hz },             // Y-axis third peak frequency\n            { payload: sensorData.z_rms_ACC_G },                 // Z-axis RMS acceleration\n            { payload: sensorData.z_max_ACC_G },                 // Z-axis max acceleration\n            { payload: sensorData.z_velocity_mm_sec },           // Z-axis velocity\n            { payload: sensorData.z_displacement_mm },           // Z-axis displacement\n            { payload: sensorData.z_peak_one_Hz },               // Z-axis first peak frequency\n            { payload: sensorData.z_peak_two_Hz },               // Z-axis second peak frequency\n            { payload: sensorData.z_peak_three_Hz },             // Z-axis third peak frequency\n            { payload: batteryPercent },                          // Battery level percentage\n            { payload: TVL },                                     // Total Vibration Level (TVL)\n            { payload: xPeaks },                                  // Combined X-axis peaks\n            { payload: yPeaks },                                  // Combined Y-axis peaks\n            { payload: zPeaks },                                  // Combined Z-axis peaks\n            { payload: estimatedMotorSpeedHz },                   // Estimated motor speed in Hz\n            { payload: sensorAddr },                                  // Placeholder for additional processing or default value\n        ]);\n    }\n    else {\n        node.error(\"my error message\", msg);\n    }\n",
+        "outputs": 31,
+        "timeout": 0,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 680,
+        "y": 460,
+        "wires": [
+            [
+                "6d759925cd1c010a"
+            ],
+            [
+                "0c96fc186682dcdf"
+            ],
+            [
+                "c93670cd3fd34459"
+            ],
+            [
+                "21cf937a6476b7dc"
+            ],
+            [
+                "1a9d756697ba91f6"
+            ],
+            [
+                "31e99a4fd074a79e"
+            ],
+            [
+                "faa65edb2e29a860"
+            ],
+            [
+                "52c2054fb838585a"
+            ],
+            [
+                "bb377feef328f689"
+            ],
+            [
+                "11a2a8e14579e9f7"
+            ],
+            [
+                "ca7e7c1f77d84748"
+            ],
+            [
+                "3881925796abc382"
+            ],
+            [
+                "368a1a08999a382e"
+            ],
+            [
+                "8dcd9692d531bc03"
+            ],
+            [
+                "cc50185ce37f66d5"
+            ],
+            [
+                "900f4add9d6a6342"
+            ],
+            [
+                "99b907a610bb6a62"
+            ],
+            [
+                "39521cde1368c8b1"
+            ],
+            [
+                "c61caa3c8f347aea"
+            ],
+            [
+                "cf610ae2b244abb8"
+            ],
+            [
+                "f48bcce3d3641903"
+            ],
+            [
+                "b1d90c504d31cb34"
+            ],
+            [
+                "f643faaf5c5676bd"
+            ],
+            [
+                "4848def517c59a9c"
+            ],
+            [
+                "1882a9b02d041edb"
+            ],
+            [
+                "95eee8d8800d174b"
+            ],
+            [
+                "94089432a8b95c51"
+            ],
+            [
+                "c5ee09b387083164"
+            ],
+            [
+                "692e1d2ad419b0fd"
+            ],
+            [
+                "80e3f6cce7248d42"
+            ],
+            [
+                "91d372137d957d10"
+            ]
+        ]
+    },
+    {
+        "id": "6d759925cd1c010a",
+        "type": "mqtt out",
+        "z": "39f11eebdfa6d2ae",
+        "name": "",
+        "topic": "ds/mode",
+        "qos": "0",
+        "retain": "",
+        "respTopic": "",
+        "contentType": "",
+        "userProps": "",
+        "correl": "",
+        "expiry": "",
+        "broker": "cc7381ac624bf394",
+        "x": 1080,
+        "y": 80,
+        "wires": []
+    },
+    {
+        "id": "0c96fc186682dcdf",
+        "type": "mqtt out",
+        "z": "39f11eebdfa6d2ae",
+        "name": "",
+        "topic": "ds/Output Data Range",
+        "qos": "0",
+        "retain": "",
+        "respTopic": "",
+        "contentType": "",
+        "userProps": "",
+        "correl": "",
+        "expiry": "",
+        "broker": "cc7381ac624bf394",
+        "x": 1120,
+        "y": 120,
+        "wires": []
+    },
+    {
+        "id": "c93670cd3fd34459",
+        "type": "mqtt out",
+        "z": "39f11eebdfa6d2ae",
+        "name": "",
+        "topic": "ds/Temperature",
+        "qos": "",
+        "retain": "",
+        "respTopic": "",
+        "contentType": "",
+        "userProps": "",
+        "correl": "",
+        "expiry": "",
+        "broker": "cc7381ac624bf394",
+        "x": 1100,
+        "y": 160,
+        "wires": []
+    },
+    {
+        "id": "21cf937a6476b7dc",
+        "type": "mqtt out",
+        "z": "39f11eebdfa6d2ae",
+        "name": "",
+        "topic": "ds/X RMS ACC G",
+        "qos": "0",
+        "retain": "",
+        "respTopic": "",
+        "contentType": "",
+        "userProps": "",
+        "correl": "",
+        "expiry": "",
+        "broker": "cc7381ac624bf394",
+        "x": 1110,
+        "y": 200,
+        "wires": []
+    },
+    {
+        "id": "1a9d756697ba91f6",
+        "type": "mqtt out",
+        "z": "39f11eebdfa6d2ae",
+        "name": "",
+        "topic": "ds/X MAX ACC G",
+        "qos": "0",
+        "retain": "",
+        "respTopic": "",
+        "contentType": "",
+        "userProps": "",
+        "correl": "",
+        "expiry": "",
+        "broker": "cc7381ac624bf394",
+        "x": 1110,
+        "y": 240,
+        "wires": []
+    },
+    {
+        "id": "31e99a4fd074a79e",
+        "type": "mqtt out",
+        "z": "39f11eebdfa6d2ae",
+        "name": "",
+        "topic": "ds/X Velocity mm sec",
+        "qos": "0",
+        "retain": "",
+        "respTopic": "",
+        "contentType": "",
+        "userProps": "",
+        "correl": "",
+        "expiry": "",
+        "broker": "cc7381ac624bf394",
+        "x": 1120,
+        "y": 280,
+        "wires": []
+    },
+    {
+        "id": "faa65edb2e29a860",
+        "type": "mqtt out",
+        "z": "39f11eebdfa6d2ae",
+        "name": "",
+        "topic": "ds/X Displacement mm",
+        "qos": "0",
+        "retain": "",
+        "respTopic": "",
+        "contentType": "",
+        "userProps": "",
+        "correl": "",
+        "expiry": "",
+        "broker": "cc7381ac624bf394",
+        "x": 1130,
+        "y": 320,
+        "wires": []
+    },
+    {
+        "id": "52c2054fb838585a",
+        "type": "mqtt out",
+        "z": "39f11eebdfa6d2ae",
+        "name": "",
+        "topic": "ds/X Peak One Hz",
+        "qos": "0",
+        "retain": "",
+        "respTopic": "",
+        "contentType": "",
+        "userProps": "",
+        "correl": "",
+        "expiry": "",
+        "broker": "cc7381ac624bf394",
+        "x": 1110,
+        "y": 360,
+        "wires": []
+    },
+    {
+        "id": "bb377feef328f689",
+        "type": "mqtt out",
+        "z": "39f11eebdfa6d2ae",
+        "name": "",
+        "topic": "ds/X Peak Two Hz",
+        "qos": "0",
+        "retain": "",
+        "respTopic": "",
+        "contentType": "",
+        "userProps": "",
+        "correl": "",
+        "expiry": "",
+        "broker": "cc7381ac624bf394",
+        "x": 1110,
+        "y": 400,
+        "wires": []
+    },
+    {
+        "id": "11a2a8e14579e9f7",
+        "type": "mqtt out",
+        "z": "39f11eebdfa6d2ae",
+        "name": "",
+        "topic": "ds/X Peak Three Hz",
+        "qos": "0",
+        "retain": "",
+        "respTopic": "",
+        "contentType": "",
+        "userProps": "",
+        "correl": "",
+        "expiry": "",
+        "broker": "cc7381ac624bf394",
+        "x": 1120,
+        "y": 440,
+        "wires": []
+    },
+    {
+        "id": "ca7e7c1f77d84748",
+        "type": "mqtt out",
+        "z": "39f11eebdfa6d2ae",
+        "name": "",
+        "topic": "ds/Y RMS ACC G",
+        "qos": "0",
+        "retain": "",
+        "respTopic": "",
+        "contentType": "",
+        "userProps": "",
+        "correl": "",
+        "expiry": "",
+        "broker": "cc7381ac624bf394",
+        "x": 1110,
+        "y": 480,
+        "wires": []
+    },
+    {
+        "id": "3881925796abc382",
+        "type": "mqtt out",
+        "z": "39f11eebdfa6d2ae",
+        "name": "",
+        "topic": "ds/Y MAX ACC G",
+        "qos": "0",
+        "retain": "",
+        "respTopic": "",
+        "contentType": "",
+        "userProps": "",
+        "correl": "",
+        "expiry": "",
+        "broker": "cc7381ac624bf394",
+        "x": 1110,
+        "y": 520,
+        "wires": []
+    },
+    {
+        "id": "368a1a08999a382e",
+        "type": "mqtt out",
+        "z": "39f11eebdfa6d2ae",
+        "name": "",
+        "topic": "ds/Y Velocity mm sec",
+        "qos": "0",
+        "retain": "",
+        "respTopic": "",
+        "contentType": "",
+        "userProps": "",
+        "correl": "",
+        "expiry": "",
+        "broker": "cc7381ac624bf394",
+        "x": 1120,
+        "y": 560,
+        "wires": []
+    },
+    {
+        "id": "8dcd9692d531bc03",
+        "type": "mqtt out",
+        "z": "39f11eebdfa6d2ae",
+        "name": "",
+        "topic": "ds/Y Displacement mm",
+        "qos": "0",
+        "retain": "",
+        "respTopic": "",
+        "contentType": "",
+        "userProps": "",
+        "correl": "",
+        "expiry": "",
+        "broker": "cc7381ac624bf394",
+        "x": 1130,
+        "y": 600,
+        "wires": []
+    },
+    {
+        "id": "cc50185ce37f66d5",
+        "type": "mqtt out",
+        "z": "39f11eebdfa6d2ae",
+        "name": "",
+        "topic": "ds/Y Peak One Hz",
+        "qos": "0",
+        "retain": "",
+        "respTopic": "",
+        "contentType": "",
+        "userProps": "",
+        "correl": "",
+        "expiry": "",
+        "broker": "cc7381ac624bf394",
+        "x": 1110,
+        "y": 640,
+        "wires": []
+    },
+    {
+        "id": "900f4add9d6a6342",
+        "type": "mqtt out",
+        "z": "39f11eebdfa6d2ae",
+        "name": "",
+        "topic": "ds/Y Peak Two Hz",
+        "qos": "0",
+        "retain": "",
+        "respTopic": "",
+        "contentType": "",
+        "userProps": "",
+        "correl": "",
+        "expiry": "",
+        "broker": "cc7381ac624bf394",
+        "x": 1110,
+        "y": 680,
+        "wires": []
+    },
+    {
+        "id": "99b907a610bb6a62",
+        "type": "mqtt out",
+        "z": "39f11eebdfa6d2ae",
+        "name": "",
+        "topic": "ds/Y Peak Three Hz",
+        "qos": "0",
+        "retain": "",
+        "respTopic": "",
+        "contentType": "",
+        "userProps": "",
+        "correl": "",
+        "expiry": "",
+        "broker": "cc7381ac624bf394",
+        "x": 1120,
+        "y": 720,
+        "wires": []
+    },
+    {
+        "id": "39521cde1368c8b1",
+        "type": "mqtt out",
+        "z": "39f11eebdfa6d2ae",
+        "name": "",
+        "topic": "ds/Z RMS ACC G",
+        "qos": "0",
+        "retain": "",
+        "respTopic": "",
+        "contentType": "",
+        "userProps": "",
+        "correl": "",
+        "expiry": "",
+        "broker": "cc7381ac624bf394",
+        "x": 1110,
+        "y": 760,
+        "wires": []
+    },
+    {
+        "id": "c61caa3c8f347aea",
+        "type": "mqtt out",
+        "z": "39f11eebdfa6d2ae",
+        "name": "",
+        "topic": "ds/Z MAX ACC G",
+        "qos": "0",
+        "retain": "",
+        "respTopic": "",
+        "contentType": "",
+        "userProps": "",
+        "correl": "",
+        "expiry": "",
+        "broker": "cc7381ac624bf394",
+        "x": 1110,
+        "y": 800,
+        "wires": []
+    },
+    {
+        "id": "cf610ae2b244abb8",
+        "type": "mqtt out",
+        "z": "39f11eebdfa6d2ae",
+        "name": "",
+        "topic": "ds/Z Velocity mm sec",
+        "qos": "0",
+        "retain": "",
+        "respTopic": "",
+        "contentType": "",
+        "userProps": "",
+        "correl": "",
+        "expiry": "",
+        "broker": "cc7381ac624bf394",
+        "x": 1120,
+        "y": 840,
+        "wires": []
+    },
+    {
+        "id": "f48bcce3d3641903",
+        "type": "mqtt out",
+        "z": "39f11eebdfa6d2ae",
+        "name": "",
+        "topic": "ds/Z Displacement mm",
+        "qos": "0",
+        "retain": "",
+        "respTopic": "",
+        "contentType": "",
+        "userProps": "",
+        "correl": "",
+        "expiry": "",
+        "broker": "cc7381ac624bf394",
+        "x": 1120,
+        "y": 880,
+        "wires": []
+    },
+    {
+        "id": "b1d90c504d31cb34",
+        "type": "mqtt out",
+        "z": "39f11eebdfa6d2ae",
+        "name": "",
+        "topic": "ds/Z Peak One Hz",
+        "qos": "0",
+        "retain": "",
+        "respTopic": "",
+        "contentType": "",
+        "userProps": "",
+        "correl": "",
+        "expiry": "",
+        "broker": "cc7381ac624bf394",
+        "x": 1110,
+        "y": 920,
+        "wires": []
+    },
+    {
+        "id": "f643faaf5c5676bd",
+        "type": "mqtt out",
+        "z": "39f11eebdfa6d2ae",
+        "name": "",
+        "topic": "ds/Z Peak Two Hz",
+        "qos": "0",
+        "retain": "",
+        "respTopic": "",
+        "contentType": "",
+        "userProps": "",
+        "correl": "",
+        "expiry": "",
+        "broker": "cc7381ac624bf394",
+        "x": 1110,
+        "y": 960,
+        "wires": []
+    },
+    {
+        "id": "4848def517c59a9c",
+        "type": "mqtt out",
+        "z": "39f11eebdfa6d2ae",
+        "name": "",
+        "topic": "ds/Z Peak Three Hz",
+        "qos": "0",
+        "retain": "",
+        "respTopic": "",
+        "contentType": "",
+        "userProps": "",
+        "correl": "",
+        "expiry": "",
+        "broker": "cc7381ac624bf394",
+        "x": 1120,
+        "y": 1000,
+        "wires": []
+    },
+    {
+        "id": "1882a9b02d041edb",
+        "type": "mqtt out",
+        "z": "39f11eebdfa6d2ae",
+        "name": "",
+        "topic": "ds/Battery",
+        "qos": "0",
+        "retain": "",
+        "respTopic": "",
+        "contentType": "",
+        "userProps": "",
+        "correl": "",
+        "expiry": "",
+        "broker": "cc7381ac624bf394",
+        "x": 1080,
+        "y": 1040,
+        "wires": []
+    },
+    {
+        "id": "95eee8d8800d174b",
+        "type": "mqtt out",
+        "z": "39f11eebdfa6d2ae",
+        "name": "",
+        "topic": "ds/Total Vibration Level",
+        "qos": "0",
+        "retain": "",
+        "respTopic": "",
+        "contentType": "",
+        "userProps": "",
+        "correl": "",
+        "expiry": "",
+        "broker": "cc7381ac624bf394",
+        "x": 1130,
+        "y": 1080,
+        "wires": []
+    },
+    {
+        "id": "94089432a8b95c51",
+        "type": "mqtt out",
+        "z": "39f11eebdfa6d2ae",
+        "name": "",
+        "topic": "ds/X Peaks",
+        "qos": "0",
+        "retain": "",
+        "respTopic": "",
+        "contentType": "",
+        "userProps": "",
+        "correl": "",
+        "expiry": "",
+        "broker": "cc7381ac624bf394",
+        "x": 1090,
+        "y": 1120,
+        "wires": []
+    },
+    {
+        "id": "c5ee09b387083164",
+        "type": "mqtt out",
+        "z": "39f11eebdfa6d2ae",
+        "name": "",
+        "topic": "ds/Y Peaks",
+        "qos": "0",
+        "retain": "",
+        "respTopic": "",
+        "contentType": "",
+        "userProps": "",
+        "correl": "",
+        "expiry": "",
+        "broker": "cc7381ac624bf394",
+        "x": 1090,
+        "y": 1160,
+        "wires": []
+    },
+    {
+        "id": "692e1d2ad419b0fd",
+        "type": "mqtt out",
+        "z": "39f11eebdfa6d2ae",
+        "name": "",
+        "topic": "ds/Z Peaks",
+        "qos": "0",
+        "retain": "",
+        "respTopic": "",
+        "contentType": "",
+        "userProps": "",
+        "correl": "",
+        "expiry": "",
+        "broker": "cc7381ac624bf394",
+        "x": 1090,
+        "y": 1200,
+        "wires": []
+    },
+    {
+        "id": "80e3f6cce7248d42",
+        "type": "mqtt out",
+        "z": "39f11eebdfa6d2ae",
+        "name": "",
+        "topic": "ds/Estimated Motor Speed Hz",
+        "qos": "0",
+        "retain": "",
+        "respTopic": "",
+        "contentType": "",
+        "userProps": "",
+        "correl": "",
+        "expiry": "",
+        "broker": "cc7381ac624bf394",
+        "x": 1150,
+        "y": 1240,
+        "wires": []
+    },
+    {
+        "id": "0ada24527dcc8c93",
+        "type": "debug",
+        "z": "39f11eebdfa6d2ae",
+        "name": "Debug Sensor",
+        "active": true,
+        "tosidebar": true,
+        "console": false,
+        "tostatus": false,
+        "complete": "true",
+        "targetType": "full",
+        "statusVal": "",
+        "statusType": "auto",
+        "x": 435,
+        "y": 440,
+        "wires": [],
+        "l": false
+    },
+    {
+        "id": "91d372137d957d10",
+        "type": "mqtt out",
+        "z": "39f11eebdfa6d2ae",
+        "name": "",
+        "topic": "meta/MAC",
+        "qos": "0",
+        "retain": "",
+        "respTopic": "",
+        "contentType": "",
+        "userProps": "",
+        "correl": "",
+        "expiry": "",
+        "broker": "cc7381ac624bf394",
+        "x": 1090,
+        "y": 1280,
+        "wires": []
+    },
+    {
+        "id": "c1f2f568aca1c87d",
+        "type": "subflow:61d27f8ab854f611",
+        "z": "39f11eebdfa6d2ae",
+        "name": "",
+        "x": 435,
+        "y": 480,
+        "wires": [
+            [
+                "d71094439c21c125"
+            ],
+            [
+                "751d3a082363ed56"
+            ]
+        ],
+        "outputLabels": [
+            "data",
+            "connect"
+        ],
+        "l": false
+    },
+    {
+        "id": "630285d206ddc3cc",
+        "type": "ncd-wireless-node",
+        "z": "39f11eebdfa6d2ae",
+        "name": "",
+        "connection": "0b47e914c1107fda",
+        "config_comm": "0b47e914c1107fda",
+        "addr": "",
+        "sensor_type": "80",
+        "auto_config": true,
+        "on_the_fly_enable": "",
+        "node_id_delay_active": "",
+        "node_id": 0,
+        "delay": 300,
+        "form_network": "",
+        "destination_active": "",
+        "destination": "0000FFFF",
+        "power_active": "",
+        "power": 4,
+        "retries_active": "",
+        "retries": 10,
+        "pan_id_active": "",
+        "pan_id": "7FFF",
+        "change_enabled": "",
+        "change_pr": "0",
+        "change_interval": "0",
+        "cm_calibration": "60.6",
+        "bp_altitude": "0",
+        "bp_pressure": "0",
+        "bp_temp_prec": "0",
+        "bp_press_prec": "0",
+        "amgt_accel": "0",
+        "amgt_mag": "0",
+        "amgt_gyro": "0",
+        "impact_accel_active": "",
+        "impact_accel": "0",
+        "impact_data_rate_active": "",
+        "impact_data_rate": "4",
+        "impact_threshold_active": "",
+        "impact_threshold": 25,
+        "impact_duration_active": "",
+        "impact_duration": 1,
+        "activ_interr_x": 1,
+        "activ_interr_y": 2,
+        "activ_interr_z": 4,
+        "activ_interr_op": 8,
+        "force_calibration_co2_auto_config": "",
+        "force_calibration_co2": 400,
+        "filtering": 0,
+        "data_rate": 5,
+        "time_series": 0,
+        "reading_type": 1,
+        "mode_80_active": "",
+        "mode_80": 0,
+        "measurement_mode_80_active": "",
+        "measurement_mode_80": 0,
+        "on_request_timeout_80_active": "",
+        "on_request_timeout_80": 1,
+        "sensor_boot_time_420ma_active": "",
+        "sensor_boot_time_420ma": 0,
+        "sensor_boot_time_78_active": "",
+        "sensor_boot_time_78": 0,
+        "deadband_80_active": "",
+        "deadband_80": 0,
+        "filter_80_active": "",
+        "filter_80": 0,
+        "output_data_rate_p1_81_active": "",
+        "output_data_rate_p1_81": 0,
+        "output_data_rate_p2_81_active": "",
+        "output_data_rate_p2_81": 0,
+        "sampling_duration_p1_81_active": "",
+        "sampling_duration_p1_81": 0,
+        "sampling_duration_p2_81_active": "",
+        "sampling_duration_p2_81": 0,
+        "led_alert_mode_84_active": "",
+        "led_alert_mode_84": 0,
+        "led_accelerometer_threshold_84_active": "",
+        "led_accelerometer_threshold_84": "",
+        "led_velocity_threshold_84_active": "",
+        "led_velocity_threshold_84": "",
+        "acceleration_interrupt_threshold_84_active": false,
+        "acceleration_interrupt_threshold_84": "",
+        "set_rtc_101": 0,
+        "current_calibration_82": "",
+        "current_calibration_82_active": false,
+        "current_calibration_c1_80": 178,
+        "current_calibration_c1_80_active": "",
+        "current_calibration_c2_80": 178,
+        "current_calibration_c2_80_active": "",
+        "current_calibration_c3_80": 178,
+        "current_calibration_c3_80_active": "",
+        "output_data_rate_101_active": "",
+        "output_data_rate_101": 0,
+        "output_data_rate_101_m2_active": "",
+        "output_data_rate_101_m2": 0,
+        "sampling_duration_101_active": "",
+        "sampling_duration_101": 1,
+        "sampling_interval_101_active": "",
+        "sampling_interval_101": 1,
+        "full_scale_range_101_active": "",
+        "full_scale_range_101": 1,
+        "full_scale_range_101_m2_active": "",
+        "full_scale_range_101_m2": 1,
+        "x_axis_101": "",
+        "y_axis_101": "",
+        "z_axis_101": "",
+        "low_pass_filter_80_active": "",
+        "low_pass_filter_80": 0,
+        "high_pass_filter_80_active": "",
+        "high_pass_filter_80": 0,
+        "low_pass_filter_81_p2_active": "",
+        "low_pass_filter_81_p2": 0,
+        "high_pass_filter_81_p2_active": "",
+        "high_pass_filter_81_p2": 0,
+        "roll_angle_threshold_47": 0,
+        "roll_angle_threshold_47_active": "",
+        "pitch_angle_threshold_47": 0,
+        "pitch_angle_threshold_47_active": "",
+        "counter_threshold_35": 50,
+        "counter_threshold_35_active": "",
+        "payload_length_80_active": "",
+        "payload_length_80": 3,
+        "motion_threshold_46_active": "",
+        "motion_threshold_46": 100,
+        "low_calibration_420ma_active": "",
+        "low_calibration_420ma": 68805,
+        "mid_calibration_420ma_active": "",
+        "mid_calibration_420ma": 68724,
+        "high_calibration_420ma_active": "",
+        "high_calibration_420ma": 68714,
+        "thermocouple_type_23_active": "",
+        "thermocouple_type_23": 0,
+        "x": 150,
+        "y": 480,
+        "wires": [
+            [
+                "c1f2f568aca1c87d",
+                "0ada24527dcc8c93"
+            ]
+        ]
+    },
+    {
+        "id": "751d3a082363ed56",
+        "type": "mqtt out",
+        "z": "39f11eebdfa6d2ae",
+        "name": "",
+        "topic": "ds/connect",
+        "qos": "0",
+        "retain": "",
+        "respTopic": "",
+        "contentType": "",
+        "userProps": "",
+        "correl": "",
+        "expiry": "",
+        "broker": "cc7381ac624bf394",
+        "x": 590,
+        "y": 720,
+        "wires": []
+    },
+    {
+        "id": "dce987307868281d",
+        "type": "subflow:bd87f60bd9d30f17",
+        "z": "39f11eebdfa6d2ae",
+        "name": "",
+        "x": 415,
+        "y": 280,
+        "wires": [],
+        "l": false
+    },
+    {
+        "id": "0ef7cc2e565b73bc",
+        "type": "inject",
+        "z": "39f11eebdfa6d2ae",
+        "name": "Provide a filename containing the token",
+        "props": [
+            {
+                "p": "filename",
+                "v": "_tokens.csv",
+                "vt": "str"
+            },
+            {
+                "p": "sensor_type",
+                "v": "80",
+                "vt": "str"
+            }
+        ],
+        "repeat": "10",
+        "crontab": "",
+        "once": true,
+        "onceDelay": 0.1,
+        "topic": "",
+        "x": 200,
+        "y": 280,
+        "wires": [
+            [
+                "dce987307868281d"
+            ]
+        ]
+    },
+    {
+        "id": "20fb4404d640199e",
+        "type": "comment",
+        "z": "39f11eebdfa6d2ae",
+        "name": "Please set up the filename for the token file for this sensor.",
+        "info": "The filename should follow the format:\n54_tokens.csv (or any other number) followed by _tokens.csv.",
+        "x": 230,
+        "y": 240,
+        "wires": []
+    },
+    {
+        "id": "cd7e964ea9e36044",
+        "type": "comment",
+        "z": "39f11eebdfa6d2ae",
+        "name": "NCD Sensor Node",
+        "info": "",
+        "x": 110,
+        "y": 440,
+        "wires": []
+    },
+    {
+        "id": "667e2172819a55c1",
+        "type": "comment",
+        "z": "39f11eebdfa6d2ae",
+        "name": "NCD Gateway Node",
+        "info": "",
+        "x": 110,
+        "y": 340,
+        "wires": []
+    },
+    {
+        "id": "6e6cb50257aa0828",
+        "type": "comment",
+        "z": "39f11eebdfa6d2ae",
+        "name": "Process data from sensor",
+        "info": "",
+        "x": 630,
+        "y": 200,
+        "wires": []
+    },
+    {
+        "id": "c2c8e5145d3f89bd",
+        "type": "comment",
+        "z": "39f11eebdfa6d2ae",
+        "name": "MQTT-OUT",
+        "info": "",
+        "x": 1090,
+        "y": 40,
+        "wires": []
+    },
+    {
+        "id": "0b47e914c1107fda",
+        "type": "ncd-gateway-config",
+        "name": "gateway",
+        "comm_type": "serial",
+        "ip_address": "",
+        "tcp_port": "2101",
+        "port": "/dev/ttymxc2",
+        "baudRate": "115200",
+        "pan_id": "7fff",
+        "rssi": false
+    },
+    {
+        "id": "cc7381ac624bf394",
+        "type": "mqtt-broker",
+        "name": "blynk.cloud - 80",
+        "broker": "blynk.cloud",
+        "port": "8883",
+        "tls": "5f22f01ef1087cab",
+        "clientid": "",
+        "autoConnect": false,
+        "usetls": true,
+        "protocolVersion": "5",
+        "keepalive": "60",
+        "cleansession": true,
+        "autoUnsubscribe": true,
+        "birthTopic": "ds/Terminal",
+        "birthQos": "0",
+        "birthRetain": "false",
+        "birthPayload": "|BLYNK| Type \"help\" for the list of available commands",
+        "birthMsg": {},
+        "closeTopic": "",
+        "closeQos": "0",
+        "closeRetain": "false",
+        "closePayload": "",
+        "closeMsg": {},
+        "willTopic": "",
+        "willQos": "0",
+        "willRetain": "false",
+        "willPayload": "",
+        "willMsg": {},
+        "userProps": "",
+        "sessionExpiry": ""
+    },
+    {
+        "id": "5f22f01ef1087cab",
+        "type": "tls-config",
+        "name": "",
+        "cert": "",
+        "key": "",
+        "ca": "",
+        "certname": "",
+        "keyname": "",
+        "caname": "ISRG_Root_X1.der",
+        "servername": "blynk.cloud",
+        "verifyservercert": false,
+        "alpnprotocol": ""
+    }
+]
+
