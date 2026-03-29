@@ -1,0 +1,554 @@
+[
+    {
+        "id": "7ef22bf83846f90b",
+        "type": "tab",
+        "label": "NCD Enterprise IIoT Gateway",
+        "disabled": false,
+        "info": ""
+    },
+    {
+        "id": "5943c968d4176fba",
+        "type": "inject",
+        "z": "7ef22bf83846f90b",
+        "name": "Every 5 minutes",
+        "props": [
+            {
+                "p": "payload"
+            }
+        ],
+        "repeat": "300",
+        "crontab": "",
+        "once": true,
+        "onceDelay": 0.1,
+        "topic": "",
+        "payload": "",
+        "payloadType": "str",
+        "x": 230,
+        "y": 180,
+        "wires": [
+            [
+                "a7db0fe99da5097f"
+            ]
+        ]
+    },
+    {
+        "id": "a4dcf3ee91b24648",
+        "type": "function",
+        "z": "7ef22bf83846f90b",
+        "name": "Format Data",
+        "func": "let uptime = \"Unknown\";\nlet ip = \"Unknown\";\nlet ramUsage = 0;\nlet ramStat = \"Unknown\";\nlet storage = 0;\nlet storageStat = \"Unknown\";\nlet systemInfo = \"Unknown\";\nlet cpuTemp = \"Unknown\";\nlet cpuUsage = \"Unknown\";\nlet activeLink = \"Unknown\";\nlet networkStatus = \"Unknown\";\nlet gateway_state = \"OFF\";\nlet sim1StatusLed = 0;\nlet sim2StatusLed = 0;\nlet sim1Status = \"Unknown\";\nlet sim2Status = \"Unknown\";\nlet cellularStatus = \"Unknown\";\n\n// Ensure msg.payload is a string\nlet payload = typeof msg.payload === 'string' ? msg.payload : msg.payload.toString();\n\n// Split the payload by newline characters\nlet data = payload.split('\\n');\n\n// Uptime\nlet uptimeMatch = data.find(line => line.includes('up'));\nif (uptimeMatch) {\n    let uptimeResult = uptimeMatch.match(/up\\s+(.*?),/);\n    if (uptimeResult) {\n        uptime = uptimeResult[1];\n    }\n}\n\n// RAM Usage\nlet ramLine = data.find(line => line.includes('Mem:'));\nif (ramLine) {\n    let ram = ramLine.match(/\\d+/g);\n    if (ram && ram.length >= 3) {\n        ramUsage = Math.round((parseInt(ram[2]) / parseInt(ram[0])) * 100);\n        ramStat = `${ram[2]}M/${ram[0]}M`;\n    }\n}\n\n// Storage Usage\nlet storageLine = data.find(line => line.includes('overlayfs:overlay'));\nif (storageLine) {\n    let storageResult = storageLine.match(/(\\d+)%/);\n    if (storageResult) {\n        storage = parseInt(storageResult[1]);\n    }\n    let storageStatResult = storageLine.match(/(\\d+G)\\s+(\\d+M)\\s+(\\d+G)/);\n    if (storageStatResult) {\n        storageStat = `${storageStatResult[2]}/${storageStatResult[1]}`;\n    }\n}\n\n// System Info\nlet systemInfoLine = data.find(line => line.includes('Linux'));\nif (systemInfoLine) {\n    systemInfo = systemInfoLine;\n}\n\n// CPU Temperature\nlet cpuTempLine = data.find(line => !isNaN(line.trim()));\nif (cpuTempLine) {\n    cpuTemp = (parseInt(cpuTempLine.trim()) / 1000).toFixed(1);\n}\n\n// CPU Usage\nlet cpuUsageLine = data.find(line => line.includes('%Cpu(s)'));\nif (cpuUsageLine) {\n    let cpuUsageResult = cpuUsageLine.match(/(\\d+\\.\\d+)\\s*us,/);\n    if (cpuUsageResult) {\n        cpuUsage = parseFloat(cpuUsageResult[1]).toFixed(1);\n    }\n}\n\n// Active Ethernet Interface\nlet interfaceLine = data.find(line => line.includes('inf:'));\nif (interfaceLine) {\n    activeLink = interfaceLine.split('inf:')[1].trim();\n}\n\n// IP Address\nif (activeLink !== \"Unknown\") {\n    let ipLine = data.find(line => line.includes(`inet`) && !line.includes(`inet6`) && line.includes(`${activeLink}`));\n    if (ipLine) {\n        let ipMatch = ipLine.match(/inet\\s+(\\d+\\.\\d+\\.\\d+\\.\\d+)/);\n        if (ipMatch) {\n            ip = ipMatch[1];\n        }\n    }\n}\n\n// Network Status\nif (activeLink !== \"Unknown\") {\n    let linkBlockIndex = data.findIndex(line => line.includes(`${activeLink}:`));\n    if (linkBlockIndex !== -1) {\n        let rxPacketsLine = data[linkBlockIndex + 3].trim();\n        let txPacketsLine = data[linkBlockIndex + 5].trim();\n\n        let rxPacketsMatch = rxPacketsLine.match(/(\\d+)/g);\n        let txPacketsMatch = txPacketsLine.match(/(\\d+)/g);\n\n        if (rxPacketsMatch && txPacketsMatch) {\n            let rxBytes = rxPacketsMatch[0];\n            let txBytes = txPacketsMatch[0];\n\n            networkStatus = `RX: ${rxBytes} bytes, TX: ${txBytes} bytes`;\n        }\n    }\n}\n\n// SIM1 Status\nif (data.some(line => line.includes('SIM1 not detected'))) {\n    sim1Status = \"SIM1 not detected\";\n    sim1StatusLed = 0;\n} else {\n    sim1Status = \"SIM1 detected\";\n    sim1StatusLed = 1;\n}\n\n// SIM2 Status\nif (data.some(line => line.includes('SIM2 not detected'))) {\n    sim2Status = \"SIM2 not detected\";\n    sim2StatusLed = 0;\n} else {\n    sim2Status = \"SIM2 detected\";\n    sim2StatusLed = 1;\n}\n\ncellularStatus = `${sim1Status}, ${sim2Status}`;\ngateway_state = \"ON\";  // Assuming gateway is ON if all above data is fetched successfully\nlet mac = global.get(\"modem_mac\");\n// Return results\nreturn [\n    { payload: uptime },\n    { payload: ip },\n    { payload: ramUsage },\n    { payload: ramStat },\n    { payload: storage },\n    { payload: storageStat },\n    { payload: systemInfo },\n    { payload: cpuTemp },\n    { payload: cpuUsage },\n    { payload: activeLink },\n    { payload: networkStatus },\n    { payload: gateway_state },\n    { payload: cellularStatus },\n    { payload: sim1StatusLed },\n    { payload: sim2StatusLed },\n    { payload: mac },\n];\n",
+        "outputs": 16,
+        "timeout": "",
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 470,
+        "y": 260,
+        "wires": [
+            [
+                "3ae0c9124ae39f29"
+            ],
+            [
+                "e06b0a42f9c9f515"
+            ],
+            [
+                "25569d182e0170b6"
+            ],
+            [
+                "ee0414ae02ca4f6c"
+            ],
+            [
+                "4a9be0c249f1f92c"
+            ],
+            [
+                "e8947aea05ec190d"
+            ],
+            [
+                "4de4b5a8e9021d6f"
+            ],
+            [
+                "6422a2dbc2f4c6e9"
+            ],
+            [
+                "5cbec581e7c04883"
+            ],
+            [
+                "da35b49ffca8523d"
+            ],
+            [
+                "1d083f62987b764b"
+            ],
+            [
+                "b966583e402101a7"
+            ],
+            [
+                "c62b6f3512a21495"
+            ],
+            [
+                "cbfca88aaecbcea2"
+            ],
+            [
+                "5f66f52bccb53220"
+            ],
+            [
+                "8795c0ee3cc750ba"
+            ]
+        ]
+    },
+    {
+        "id": "25569d182e0170b6",
+        "type": "mqtt out",
+        "z": "7ef22bf83846f90b",
+        "name": "MQTT RAM Usage",
+        "topic": "ds/RAM",
+        "qos": "0",
+        "retain": "",
+        "respTopic": "",
+        "contentType": "",
+        "userProps": "",
+        "correl": "",
+        "expiry": "",
+        "broker": "4d417e7b4d467f53",
+        "x": 770,
+        "y": 220,
+        "wires": []
+    },
+    {
+        "id": "ee0414ae02ca4f6c",
+        "type": "mqtt out",
+        "z": "7ef22bf83846f90b",
+        "name": "MQTT RAM Statistic",
+        "topic": "ds/RAM Statistic",
+        "qos": "0",
+        "retain": "",
+        "respTopic": "",
+        "contentType": "",
+        "userProps": "",
+        "correl": "",
+        "expiry": "",
+        "broker": "4d417e7b4d467f53",
+        "x": 780,
+        "y": 280,
+        "wires": []
+    },
+    {
+        "id": "4a9be0c249f1f92c",
+        "type": "mqtt out",
+        "z": "7ef22bf83846f90b",
+        "name": "MQTT Storage",
+        "topic": "ds/Storage",
+        "qos": "0",
+        "retain": "",
+        "respTopic": "",
+        "contentType": "",
+        "userProps": "",
+        "correl": "",
+        "expiry": "",
+        "broker": "4d417e7b4d467f53",
+        "x": 760,
+        "y": 340,
+        "wires": []
+    },
+    {
+        "id": "3ae0c9124ae39f29",
+        "type": "mqtt out",
+        "z": "7ef22bf83846f90b",
+        "name": "MQTT Uptime",
+        "topic": "ds/Uptime",
+        "qos": "0",
+        "retain": "",
+        "respTopic": "",
+        "contentType": "",
+        "userProps": "",
+        "correl": "",
+        "expiry": "",
+        "broker": "4d417e7b4d467f53",
+        "x": 760,
+        "y": 100,
+        "wires": []
+    },
+    {
+        "id": "e06b0a42f9c9f515",
+        "type": "mqtt out",
+        "z": "7ef22bf83846f90b",
+        "name": "MQTT IP",
+        "topic": "ds/IP",
+        "qos": "0",
+        "retain": "",
+        "respTopic": "",
+        "contentType": "",
+        "userProps": "",
+        "correl": "",
+        "expiry": "",
+        "broker": "4d417e7b4d467f53",
+        "x": 740,
+        "y": 160,
+        "wires": []
+    },
+    {
+        "id": "e8947aea05ec190d",
+        "type": "mqtt out",
+        "z": "7ef22bf83846f90b",
+        "name": "MQTT Storage Statistic",
+        "topic": "ds/Storage Statistic",
+        "qos": "0",
+        "retain": "",
+        "respTopic": "",
+        "contentType": "",
+        "userProps": "",
+        "correl": "",
+        "expiry": "",
+        "broker": "4d417e7b4d467f53",
+        "x": 790,
+        "y": 400,
+        "wires": []
+    },
+    {
+        "id": "4de4b5a8e9021d6f",
+        "type": "mqtt out",
+        "z": "7ef22bf83846f90b",
+        "name": "MQTT System Info",
+        "topic": "ds/System Info",
+        "qos": "0",
+        "retain": "",
+        "respTopic": "",
+        "contentType": "",
+        "userProps": "",
+        "correl": "",
+        "expiry": "",
+        "broker": "4d417e7b4d467f53",
+        "x": 770,
+        "y": 460,
+        "wires": []
+    },
+    {
+        "id": "6422a2dbc2f4c6e9",
+        "type": "mqtt out",
+        "z": "7ef22bf83846f90b",
+        "name": "MQTT CPU Temperature",
+        "topic": "ds/CPU Temperature",
+        "qos": "0",
+        "retain": "",
+        "respTopic": "",
+        "contentType": "",
+        "userProps": "",
+        "correl": "",
+        "expiry": "",
+        "broker": "4d417e7b4d467f53",
+        "x": 790,
+        "y": 520,
+        "wires": []
+    },
+    {
+        "id": "5cbec581e7c04883",
+        "type": "mqtt out",
+        "z": "7ef22bf83846f90b",
+        "name": "MQTT CPU Quad Core",
+        "topic": "ds/CPU Quad Core",
+        "qos": "0",
+        "retain": "",
+        "respTopic": "",
+        "contentType": "",
+        "userProps": "",
+        "correl": "",
+        "expiry": "",
+        "broker": "4d417e7b4d467f53",
+        "x": 790,
+        "y": 580,
+        "wires": []
+    },
+    {
+        "id": "1d083f62987b764b",
+        "type": "mqtt out",
+        "z": "7ef22bf83846f90b",
+        "name": "MQTT Ethernet Status",
+        "topic": "ds/Ethernet Status",
+        "qos": "0",
+        "retain": "",
+        "respTopic": "",
+        "contentType": "",
+        "userProps": "",
+        "correl": "",
+        "expiry": "",
+        "broker": "4d417e7b4d467f53",
+        "x": 780,
+        "y": 700,
+        "wires": []
+    },
+    {
+        "id": "da35b49ffca8523d",
+        "type": "mqtt out",
+        "z": "7ef22bf83846f90b",
+        "name": "MQTT Active Link",
+        "topic": "ds/Active Link",
+        "qos": "0",
+        "retain": "",
+        "respTopic": "",
+        "contentType": "",
+        "userProps": "",
+        "correl": "",
+        "expiry": "",
+        "broker": "4d417e7b4d467f53",
+        "x": 770,
+        "y": 640,
+        "wires": []
+    },
+    {
+        "id": "b966583e402101a7",
+        "type": "mqtt out",
+        "z": "7ef22bf83846f90b",
+        "name": "MQTT Gateway Status",
+        "topic": "ds/Status",
+        "qos": "0",
+        "retain": "",
+        "respTopic": "",
+        "contentType": "",
+        "userProps": "",
+        "correl": "",
+        "expiry": "",
+        "broker": "4d417e7b4d467f53",
+        "x": 780,
+        "y": 760,
+        "wires": []
+    },
+    {
+        "id": "2639fea5be87aa2b",
+        "type": "comment",
+        "z": "7ef22bf83846f90b",
+        "name": "Execute Node",
+        "info": "",
+        "x": 210,
+        "y": 220,
+        "wires": []
+    },
+    {
+        "id": "a0f5a396c36d0273",
+        "type": "comment",
+        "z": "7ef22bf83846f90b",
+        "name": "Process Data",
+        "info": "",
+        "x": 470,
+        "y": 120,
+        "wires": []
+    },
+    {
+        "id": "cfef1d3c4ec2694e",
+        "type": "comment",
+        "z": "7ef22bf83846f90b",
+        "name": "MQTT-OUT",
+        "info": "",
+        "x": 750,
+        "y": 60,
+        "wires": []
+    },
+    {
+        "id": "cbfca88aaecbcea2",
+        "type": "mqtt out",
+        "z": "7ef22bf83846f90b",
+        "name": "MQTT Sim1",
+        "topic": "ds/Sim 1",
+        "qos": "0",
+        "retain": "",
+        "respTopic": "",
+        "contentType": "",
+        "userProps": "",
+        "correl": "",
+        "expiry": "",
+        "broker": "4d417e7b4d467f53",
+        "x": 750,
+        "y": 880,
+        "wires": []
+    },
+    {
+        "id": "5f66f52bccb53220",
+        "type": "mqtt out",
+        "z": "7ef22bf83846f90b",
+        "name": "MQTT Sim2",
+        "topic": "ds/Sim 2",
+        "qos": "0",
+        "retain": "",
+        "respTopic": "",
+        "contentType": "",
+        "userProps": "",
+        "correl": "",
+        "expiry": "",
+        "broker": "4d417e7b4d467f53",
+        "x": 750,
+        "y": 940,
+        "wires": []
+    },
+    {
+        "id": "c62b6f3512a21495",
+        "type": "mqtt out",
+        "z": "7ef22bf83846f90b",
+        "name": "MQTT Cellular Status",
+        "topic": "ds/Cellular Status",
+        "qos": "0",
+        "retain": "",
+        "respTopic": "",
+        "contentType": "",
+        "userProps": "",
+        "correl": "",
+        "expiry": "",
+        "broker": "4d417e7b4d467f53",
+        "x": 780,
+        "y": 820,
+        "wires": []
+    },
+    {
+        "id": "a7db0fe99da5097f",
+        "type": "exec",
+        "z": "7ef22bf83846f90b",
+        "command": "sh -c",
+        "addpay": "payload",
+        "append": "uptime && ip route | grep default | awk '{print \"inf: \"$5}' && free -m | grep Mem && df -h | grep '/$' && uname -a && cat /sys/class/thermal/thermal_zone0/temp && top -bn1 | grep '%Cpu(s)' && ip -s link show dev $(ip route | grep default | awk '{print $5}') && cat /sys/class/net/$(ip route | grep default | awk '{print $5}')/address && ip -4 addr show dev $(ip route | grep default | awk '{print $5}') | grep 'inet ' || echo 'IP not found'; if command -v mmcli > /dev/null 2>&1; then if mmcli -L | grep -q 'No modems were found'; then echo 'No modems detected on this system. Skipping SIM checks.'; else mmcli -m 0 | grep -A 5 'SIM' || echo 'SIM1 not detected or modem not found'; mmcli -m 1 | grep -A 5 'SIM' || echo 'SIM2 not detected or modem not found'; fi; else echo 'mmcli is not installed or available on this system.'; fi",
+        "useSpawn": "false",
+        "timer": "",
+        "winHide": false,
+        "oldrc": false,
+        "name": "",
+        "x": 195,
+        "y": 280,
+        "wires": [
+            [
+                "a4dcf3ee91b24648"
+            ],
+            [],
+            [
+                "5822bdc0fd26ac2f"
+            ]
+        ],
+        "l": false
+    },
+    {
+        "id": "5822bdc0fd26ac2f",
+        "type": "debug",
+        "z": "7ef22bf83846f90b",
+        "name": "debug 44",
+        "active": true,
+        "tosidebar": true,
+        "console": false,
+        "tostatus": false,
+        "complete": "true",
+        "targetType": "full",
+        "statusVal": "",
+        "statusType": "auto",
+        "x": 195,
+        "y": 340,
+        "wires": [],
+        "l": false
+    },
+    {
+        "id": "7ea45e6052d87056",
+        "type": "ncd-gateway-node",
+        "z": "7ef22bf83846f90b",
+        "name": "",
+        "connection": "0b47e914c1107fda",
+        "unknown_devices": 0,
+        "outputs": 1,
+        "x": 230,
+        "y": 120,
+        "wires": [
+            [
+                "dc263685bb155103"
+            ]
+        ]
+    },
+    {
+        "id": "dc263685bb155103",
+        "type": "function",
+        "z": "7ef22bf83846f90b",
+        "name": "function 53",
+        "func": "if (msg.topic === \"modem_mac\") {\n    global.set(\"modem_mac\", msg.payload);\n}\nreturn msg;",
+        "outputs": 1,
+        "timeout": 0,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 375,
+        "y": 120,
+        "wires": [
+            []
+        ],
+        "l": false
+    },
+    {
+        "id": "8795c0ee3cc750ba",
+        "type": "mqtt out",
+        "z": "7ef22bf83846f90b",
+        "name": "",
+        "topic": "meta/MAC",
+        "qos": "0",
+        "retain": "",
+        "respTopic": "",
+        "contentType": "",
+        "userProps": "",
+        "correl": "",
+        "expiry": "",
+        "broker": "4d417e7b4d467f53",
+        "x": 750,
+        "y": 1000,
+        "wires": []
+    },
+    {
+        "id": "4d417e7b4d467f53",
+        "type": "mqtt-broker",
+        "name": "blynk.cloud - gateway",
+        "broker": "blynk.cloud",
+        "port": "8883",
+        "tls": "24171d9ab61f9d13",
+        "clientid": "",
+        "autoConnect": true,
+        "usetls": true,
+        "protocolVersion": "5",
+        "keepalive": "60",
+        "cleansession": true,
+        "autoUnsubscribe": true,
+        "birthTopic": "",
+        "birthQos": "0",
+        "birthRetain": "false",
+        "birthPayload": "",
+        "birthMsg": {},
+        "closeTopic": "",
+        "closeQos": "0",
+        "closeRetain": "false",
+        "closePayload": "",
+        "closeMsg": {},
+        "willTopic": "",
+        "willQos": "0",
+        "willRetain": "false",
+        "willPayload": "",
+        "willMsg": {},
+        "userProps": "",
+        "sessionExpiry": ""
+    },
+    {
+        "id": "0b47e914c1107fda",
+        "type": "ncd-gateway-config",
+        "name": "gateway",
+        "comm_type": "serial",
+        "ip_address": "",
+        "tcp_port": "2101",
+        "port": "/dev/ttymxc2",
+        "baudRate": "115200",
+        "pan_id": "7fff",
+        "rssi": false
+    },
+    {
+        "id": "24171d9ab61f9d13",
+        "type": "tls-config",
+        "name": "",
+        "cert": "",
+        "key": "",
+        "ca": "",
+        "certname": "",
+        "keyname": "",
+        "caname": "ISRG_Root_X1.der",
+        "servername": "blynk.cloud",
+        "verifyservercert": false,
+        "alpnprotocol": ""
+    }
+]
+
