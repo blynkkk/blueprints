@@ -24,8 +24,8 @@ Make sure the cable is fully inserted in the port on each end_
 ## 3. Prepare the Firmware and Upload It to Your Device
 When using Blynk, you need to place TemplateID, AuthToken, and WiFi credentials in your sketch. We will provide you with the sketch where all of this info is already included. Just follow the next steps:
 
-1. Click on the **Activate device** action in Template Home tab (this tab should open automatically once you've pressed the Use Blueprint button)
-2. Follow the provided steps steps to get a working sketch
+1. Click on the **Activate device** action in the Template Home tab (this tab should open automatically once you've pressed the Use Blueprint button)
+2. Follow the provided steps to get a working sketch
 3. Upload the sketch to your device
 4. When code is uploaded, open the Serial Monitor to track connection progress. If all worked correctly, you should see an output similar to this:
 ```
