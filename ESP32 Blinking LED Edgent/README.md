@@ -33,16 +33,14 @@ _This is only needed if you are using Arduino IDE. Skip for PlatformIO._
 
 When using Blynk, you need to place TemplateID in your sketch. We will provide you with the sketch where all of this info is already included. Just follow the next steps:
 
-1. Click on the **Activate device** action in Template Home tab (this tab should open automatically once you've pressed the Use Blueprint button)
-2. Download zip arhive 
-3. Upload the sketch to your device: in Arduino IDE go to **Sketch** > **Add File** >
- Select sketch from the zip archive >
- Press **Upload** button
-4. Scan a QR code to start the device activation process in the app
-5. In the app click **Start**
-6. Connect to "Blynk ... " network
-7. Select network your device will use and click **Continue**
-8. Your device is connected now! Click **Finish** to open your device. You also will see your device in the Blynk Console
+1. Click the **Activate device** action in the Template Home tab (this tab opens automatically after clicking **Use Blueprint**)
+2. Download and unzip the ZIP archive
+3. In Arduino IDE: **Sketch > Add File** → select the `.ino` file from the unzipped folder → **Upload**
+4. Click **Firmware Uploaded** in the Web Console
+5. Scan the QR code to start device activation in the app
+6. Connect to the **"Blynk …"** network
+7. Select the WiFi network your device will use and click **Continue**
+8. Your device is connected! Click **Finish** in the Web Console to open your device — it will also appear in Blynk Console
 
 _Check the **Troubleshooting** section at the end of this tutorial if you have issues uploading the firmware_  
 
