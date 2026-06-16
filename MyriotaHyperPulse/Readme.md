@@ -55,29 +55,17 @@ The Data Converter exposes an HTTPS endpoint that Myriota Device Manager will PO
 
 A Destination tells Myriota Device Manager where to forward decoded uplink messages.
 
-1. In Myriota Device Manager, go to **Destinations** → **Add Destination**.
-2. Configure the destination as follows:
+1. In Myriota Device Manager, create a new **Destination**
 
-   | Field | Value |
-   |---|---|
-   | **Name** | `Blynk HyperPulse` (or any descriptive name) |
-   | **Type** | `HTTP` |
-   | **URL** | The Blynk Data Converter Endpoint URL from Step 2 |
-   | **Method** | `POST` |
-   | **Content-Type** | `application/json` |
-
-3. Save the destination.
+![Myriota Device Manager Destination](Images/Destination.png)
 
 ---
 
 ## Step 5 — Add the Destination to the Device
 
 1. In Myriota Device Manager, open your HyperPulse device (from Step 3).
-2. Navigate to the **Destinations** section of the device settings.
-3. Select **Add Destination** and choose the destination created in Step 4.
-4. Save the device configuration.
 
-Myriota will now forward all uplink messages from this device to your Blynk Data Converter endpoint.
+![Myriota Device Manager Device Destination](Images/DeviceDestination.png)
 
 ---
 
