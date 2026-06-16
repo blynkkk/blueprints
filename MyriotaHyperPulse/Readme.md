@@ -36,6 +36,8 @@ The Data Converter exposes an HTTPS endpoint that Myriota Device Manager will PO
 
 4. Keep this URL to hand; you will need it in Step 4.
 
+![Blynk — Data Convertor Endpoint](Images/DataConvertorURL.png)
+
 ---
 
 ## Step 3 — Find or Add Your Device in Myriota Device Manager
