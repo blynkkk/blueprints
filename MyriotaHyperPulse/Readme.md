@@ -2,7 +2,7 @@
 
 ## Introduction
 
-This guide walks through connecting a [Myriota HyperPulse](https://myriota.com) satellite-connected devkit to the [Blynk IoT platform](https://blynk.io). The HyperPulse transmits sensor data via the Myriota satellite network; Blynk receives and visualises that data through its Data Converter pipeline.
+This guide walks through connecting a [Myriota HyperPulse](https://myriota.com/hyperpulse-5g/) satellite-connected devkit to the [Blynk IoT platform](https://blynk.io). The HyperPulse transmits sensor data via the Myriota satellite network; Blynk receives and visualises that data through its Data Converter pipeline.
 
 By the end of this guide, your HyperPulse readings will appear live on your Blynk dashboard and mobile app.
 
@@ -16,15 +16,18 @@ By the end of this guide, your HyperPulse readings will appear live on your Blyn
 
 ---
 
-## Step 1 — Install the Blynk Blueprint
+## Step 1 — Install the Blynk HyperPulse Blueprint
 
-Blueprints are pre-built templates that configure your Blynk workspace with the correct datastreams, dashboard widgets, and Data Converter script for a specific device type.
+Blueprints are pre-built templates that configure your Blynk workspace with the correct datastreams, dashboard widgets, and Data Converter script for a specific device type. Install the HyperPulse Blueprint.
+
+![Blynk — Blueprint](Images/Blueprint.png)
 
 ---
 
 ## Step 2 — Find the Data Converter Endpoint URL in Your Blynk Template
 
-The Data Converter exposes an HTTPS endpoint that Myriota Device Manager will POST decoded payloads to.
+After installing the Blueprint there will be a new Template in your Blynk Developer Zone. Within that Template there is a Data Convertor 
+that exposes an HTTPS endpoint that Myriota Device Manager will POST payloads to.
 
 1. In Blynk Console, go to **Templates** and open the HyperPulse template.
 2. Select the **Data Converter** tab.
@@ -40,7 +43,7 @@ The Data Converter exposes an HTTPS endpoint that Myriota Device Manager will PO
 
 ---
 
-## Step 3 — Find or Add Your Device in Myriota Device Manager
+## Step 3 — Find Your Device in Myriota Device Manager
 
 1. Log in to [Myriota Device Manager](https://devicemanager.myriota.com).
 2. Navigate to **Devices** and locate your HyperPulse by its **Module ID** (printed on the device label).
@@ -69,12 +72,11 @@ A Destination tells Myriota Device Manager where to forward decoded uplink messa
 
 ---
 
-## Step 6 — Activate a New Device in Blynk
+## Step 6 — Create a New Device in Blynk
 
 1. In Blynk Console, go to **Devices** → **Add New Device**.
 2. Select **From Template** and choose the HyperPulse template installed in Step 1.
-3. Give the device a name (e.g. `HyperPulse - Site A`) and click **Create**.
-4. The device will be created in an inactive state until it receives its first message.
+3. Give the device a name and click **Create**.
 
 ---
 
@@ -84,14 +86,16 @@ The Data Converter uses the `TerminalId` metadata field to match incoming Myriot
 
 1. In Blynk Console, open the newly created device.
 2. Go to **Device Info** → **Metadata**.
-3. Find the **TerminalId** field and enter the Myriota **Device ID** noted in Step 3 (e.g. `ABC123DEF456`).
-4. Save the metadata.
+
+![Blynk Device TerminalId](Images/BlynkTerminalId)
 
 > **Important:** The `TerminalId` value must match the Myriota Device ID exactly, including letter case.
 
 ---
 
 ## Waiting for Data
+
+Thats it!
 
 Your pipeline is now fully configured. On the next satellite pass, the HyperPulse will transmit a reading which will travel:
 
@@ -102,23 +106,3 @@ HyperPulse → Myriota Satellite Network → Myriota Device Manager → Blynk Da
 Depending on satellite coverage and the device's transmission schedule, the first reading may take minutes to a few hours to arrive. Once received, sensor values will populate your Blynk dashboard widgets and be visible in the Blynk mobile app.
 
 You can monitor incoming messages under **Devices** → your device → **Timeline** in the Blynk Console.
-
----
-
-## Troubleshooting
-
-| Symptom | Check |
-|---|---|
-| No data appearing in Blynk | Verify the Destination URL in Myriota Device Manager matches exactly the Blynk endpoint from Step 2 |
-| Data arriving but wrong device updated | Confirm the `TerminalId` metadata value matches the Myriota Device ID precisely |
-| Data Converter errors in Blynk | Review the converter script logs under **Templates** → **Data Converter** → **Logs** |
-| Device not transmitting | Check Myriota Device Manager for last-seen timestamp and satellite pass schedule |
-
----
-
-## Resources
-
-- [Blynk Documentation](https://docs.blynk.io)
-- [Myriota Developer Documentation](https://docs.myriota.com)
-- [Blynk Community Forum](https://community.blynk.cc)
-- [Myriota Support](https://myriota.com/support)
