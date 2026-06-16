@@ -87,7 +87,7 @@ The Data Converter uses the `TerminalId` metadata field to match incoming Myriot
 1. In Blynk Console, open the newly created device.
 2. Go to **Device Info** → **Metadata**.
 
-![Blynk Device TerminalId](Images/BlynkTerminalId)
+![Blynk Device TerminalId](Images/BlynkTerminalId.png)
 
 > **Important:** The `TerminalId` value must match the Myriota Device ID exactly, including letter case.
 
