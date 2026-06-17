@@ -20,7 +20,7 @@ By the end of this guide, your HyperPulse readings will appear live on your Blyn
 
 Blueprints are pre-built templates that configure your Blynk workspace with the correct datastreams, dashboard widgets, and Data Converter script for a specific device type. Install the HyperPulse Blueprint.
 
-![Blynk — Blueprint](Images/Blueprint.png)
+![Blynk — Blueprint](https://raw.githubusercontent.com/blynkkk/blueprints/refs/heads/main/MyriotaHyperPulse/Images/Blueprint.png)
 
 ---
 
@@ -39,7 +39,7 @@ that exposes an HTTPS endpoint that Myriota Device Manager will POST payloads to
 
 4. Keep this URL to hand; you will need it in Step 4.
 
-![Blynk — Data Convertor Endpoint](Images/DataConvertorURL.png)
+![Blynk — Data Convertor Endpoint](https://raw.githubusercontent.com/blynkkk/blueprints/refs/heads/main/MyriotaHyperPulse/Images/DataConvertorURL.png)
 
 ---
 
@@ -50,7 +50,7 @@ that exposes an HTTPS endpoint that Myriota Device Manager will POST payloads to
 3. If the device is not listed, select **Add Device**, enter the Module ID and any required registration details, then confirm.
 4. Note the **Device ID** — you will need it in Step 6.
 
-![Myriota Device Manager — Devices](Images/DeviceManager.png)
+![Myriota Device Manager — Devices](https://raw.githubusercontent.com/blynkkk/blueprints/refs/heads/main/MyriotaHyperPulse/Images/DeviceManager.png)
 
 ---
 
@@ -60,7 +60,7 @@ A Destination tells Myriota Device Manager where to forward decoded uplink messa
 
 1. In Myriota Device Manager, create a new **Destination**
 
-![Myriota Device Manager Destination](Images/Destination.png)
+![Myriota Device Manager Destination](https://raw.githubusercontent.com/blynkkk/blueprints/refs/heads/main/MyriotaHyperPulse/Images/Destination.png)
 
 ---
 
@@ -68,7 +68,7 @@ A Destination tells Myriota Device Manager where to forward decoded uplink messa
 
 1. In Myriota Device Manager, open your HyperPulse device (from Step 3). In the Desitination section click the + and add the destination created in the previous step.
 
-![Myriota Device Manager Device Destination](Images/DeviceDestination.png)
+![Myriota Device Manager Device Destination](https://raw.githubusercontent.com/blynkkk/blueprints/refs/heads/main/MyriotaHyperPulse/Images/DeviceDestination.png)
 
 ---
 
@@ -87,7 +87,7 @@ The Data Converter uses the `TerminalId` metadata field to match incoming Myriot
 1. In Blynk Console, open the newly created device.
 2. Go to **Device Info** → **Metadata**.
 
-![Blynk Device TerminalId](Images/BlynkTerminalId.png)
+![Blynk Device TerminalId](https://raw.githubusercontent.com/blynkkk/blueprints/refs/heads/main/MyriotaHyperPulse/Images/BlynkTerminalId.png)
 
 > **Important:** The `TerminalId` value must match the Myriota Device ID exactly, including letter case.
 
