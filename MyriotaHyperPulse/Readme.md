@@ -66,7 +66,7 @@ A Destination tells Myriota Device Manager where to forward decoded uplink messa
 
 ## Step 5 — Add the Destination to the Device
 
-1. In Myriota Device Manager, open your HyperPulse device (from Step 3).
+1. In Myriota Device Manager, open your HyperPulse device (from Step 3). In the Desitination section click the + and add the destination created in the previous step.
 
 ![Myriota Device Manager Device Destination](Images/DeviceDestination.png)
 
