@@ -138,7 +138,7 @@ Keep this URL to hand; you will paste it into D2C in Step 5\.
 
 ***Advanced — customising the decoder:** the device sends raw bytes to minimise over-the-air cost. The converter parses the byte payload, extracts GPS location and device timestamp, computes in-flight duration, and writes the template datastreams. Edit the converter JavaScript to parse additional sensor fields from your firmware.*
 
-*Blynk — Data Converter Endpoint*
+[Blynk — Data Converter Endpoint](https://raw.githubusercontent.com/blynkkk/blueprints/refs/heads/main/DT NTN/Images/Blynk-dc.png)
 
 ## **Step 5 — Configure Deutsche Telekom Device to Cloud (D2C)**
 
@@ -211,7 +211,7 @@ The Data Converter uses the **ICCID** metadata field to match incoming messages 
 
 **5\.** In your Blynk dashboard, within 8 to 20 seconds of the uplink, the datastreams should update with location and timestamp.
 
-*Blynk — working dashboard with location data*
+[Blynk — dashboard](https://raw.githubusercontent.com/blynkkk/blueprints/refs/heads/main/DT NTN/Images/Blynk-dashboard.png)
 
 **Expected behaviour**
 
