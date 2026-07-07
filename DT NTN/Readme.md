@@ -161,6 +161,8 @@ Device to Cloud (D2C) needs three linked objects: a Device, a Device Group, and 
 **5\.** Save. The status will show "Provisioning."
 
 *D2C — device creation*
+![D2C — device creation](https://raw.githubusercontent.com/blynkkk/blueprints/refs/heads/main/DT NTN/Images/D2C-AddDevice.png)
+
 
 ### **5b. Integrate your Application Webhook (the forward to Blynk)**
 
