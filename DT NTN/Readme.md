@@ -42,6 +42,8 @@ This Blueprint is limited to Skylo’s NTN coverage: https://www.skylo.tech/reso
 
 ### The nRF9151 comes with two chips and therefore two different firmware packages \- the cellular modem and the MCU. Depending on where you got your development board, you may or may not need to update both firmwares. It is important to verify this, as flashing the wrong firmware may erase pre-installed nuSIMs. You can verify your current firmware by using the AT command AT+CGMR.
 
+### Also, if your nRF9151 board has be pre-provisioned with a DT nuSIM then the modem firmware has already been updated. DO NOT perform Step 1a as this will erase the nuSIM.
+
 ### **1a. Update the modem firmware**
 
 The modem firmware that ships on the nRF9151 may not support NTN. Verify that it does, or update it before anything else.
@@ -89,6 +91,8 @@ OK
 Write down this number — it is your device's IMEI.
 
 ## **Step 2 — Activate the SIM**
+
+** This step is not needed if your board has nuSIM installed **
 
 The nRF9151 SMA DK ships with three SIMs. One is a Deutsche Telekom SIM pre-provisioned for NTN.
 
