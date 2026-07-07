@@ -50,7 +50,7 @@ The modem firmware that ships on the nRF9151 may not support NTN. Verify that it
 
 1. Visit [https://www.nordicsemi.com/Products/nRF9151/Download](https://www.nordicsemi.com/Products/nRF9151/Download) and download the NTN version, "nRF9151 SiP NTN firmware".  
 2. Open **nRF Connect for Desktop** and install the **Programmer** app if you haven't already.  
-3. Connect the nRF9151 board to your computer with a USB-C data cable and power it on-  
+3. Connect the nRF9151 board to your computer with a USB-C data cable and power it on.  
 4. In the Programmer app, select your device from the dropdown.  
 5. Click **Add file** and select the downloaded ZIP.  
 6. Click **Write** to flash the firmware.
@@ -225,7 +225,7 @@ You can also watch incoming messages under **Devices → your device → Timelin
 
 **No GPS fix**
 
-* Confirm the GPS antenna is connected and the device is outside with a clear view of the sky.  
+* Confirm the GPS antenna is connected and the device is outside with a clear view of the sky, and aimed towards the equator.  
 * A cold fix can take several minutes on first boot. Be patient.
 
 **Device not connecting to NTN**
