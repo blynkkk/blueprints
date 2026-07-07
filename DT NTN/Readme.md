@@ -92,7 +92,7 @@ Write down this number — it is your device's IMEI.
 
 ## **Step 2 — Activate the SIM**
 
-** This step is not needed if your board has nuSIM installed **
+**This step is not needed if your board has nuSIM installed**
 
 The nRF9151 SMA DK ships with three SIMs. One is a Deutsche Telekom SIM pre-provisioned for NTN.
 
