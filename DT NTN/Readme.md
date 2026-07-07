@@ -1,5 +1,3 @@
-***Status: DRAFT — pending screenshots and final review.***
-
 # **Connecting a Nordic nRF9151 with DT IoT and Blynk**
 
 ## **Introduction**
@@ -34,6 +32,10 @@ Unlike a store-and-forward satellite network, this path is near-real-time: devic
 
 * [nRF Util](https://www.nordicsemi.com/Products/Development-tools/nRF-Util) 
 
+**Coverage**
+
+This Blueprint is limited to Skylo’s NTN coverage: https://www.skylo.tech/resources/geographical-coverage
+
 ## **Step 1 — Prepare the hardware**
 
 ### 
@@ -59,9 +61,9 @@ The application firmware is based on Nordic's [Asset Tracker Template](https://g
 
 **1\.** Go to the [nRF9151 NTN firmware releases page](https://github.com/Blynk-Technologies/Blynk-DT-nRF9151-NTN-Firmware/releases) and download the latest binary.
 
-**2\.** In the Programmer app, with the board connected, click **Add file**, select the binary, and click Erase & **Write**.
+**2\.** Use the “**nRF Util**” program (see Software Pre-reqs) to flash the firmware to your board:
 
-*nRF Connect Programmer with the binary loaded*
+nrfutil.exe device program \--firmware \<your merged.hex file\> \--traits jlink \--options chip\_erase\_mode=ERASE\_RANGES\_TOUCHED\_BY\_FIRMWARE
 
 ### **1c. Verify the firmware is running**
 
@@ -104,7 +106,7 @@ Blueprints are pre-built solutions that configure your Blynk workspace with the 
 
 **1\.** Log in to [Blynk Console](https://blynk.cloud).
 
-**2\.** Navigate to **Blueprints**.
+**2\.** Navigate to **Developer Zone \-\> Blueprints**.
 
 **3\.** Find and select **DT NTN quickstart with nRF9151**.
 
